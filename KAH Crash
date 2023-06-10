@@ -1,0 +1,36 @@
+--- This is very bad, but if you want to crash servers and they's no other scripters then you can use it.
+--- It makes you go to all the pads, gears you the VV, equips it, then spams unsize me(to crash) and more VVs 100 times.
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-36.7649803, 5.42999983, 94.3430023, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+wait(0.01)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-24.764967, 5.42999983, 94.3430023, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+wait(0.01)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-20.7649632, 5.42999983, 94.3430023, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+wait(0.01)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16.7649612, 5.42999983, 94.3430023, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+wait(0.01)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-44.7649994, 5.42999983, 94.3430023, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+wait(0.01)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-32.7649765, 5.42999983, 94.3430023, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+wait(0.01)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-40.7649879, 5.42999983, 94.3430023, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+wait(0.01)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-28.7649689, 5.42999983, 94.3430023, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+wait(0.01)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12.7649641, 5.42999983, 94.3430023, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+wait(0.01)
+game.Players:Chat('gear me 94794847')
+wait(0.5)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("", "All")
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+        if v.name == "VampireVanquisher" then
+            v.Parent = game.Players.LocalPlayer.Character
+        end
+    end
+wait(0.5)
+local counter = 0
+while counter < 101 do
+  game.Players:Chat('unsize me me me')
+  game.Players:Chat('gear me 94794847')
+  counter = counter + 1
+game.Players:Chat('h fail')
+end
