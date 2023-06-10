@@ -1,0 +1,2 @@
+-- Run this in a Roblox executor. Then, in the chat, do /console. If it doesn't have the words "Hello, World!" then your executor isn't working.
+print("Hello, World!")
