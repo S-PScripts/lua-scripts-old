@@ -1,5 +1,6 @@
 --- This is very bad, but if you want to crash servers and they's no other scripters then you can use it.
 --- It makes you go to all the pads, gears you the VV, equips it, then spams unsize me(to crash) and more VVs 100 times.
+--- Note: this is old, i made a better version
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-36.7649803, 5.42999983, 94.3430023, 0, 0, -1, 0, 1, 0, 1, 0, 0)
 wait(0.01)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-24.764967, 5.42999983, 94.3430023, 0, 0, -1, 0, 1, 0, 1, 0, 0)
