@@ -1,0 +1,19 @@
+game:GetService("RunService").RenderStepped:Connect(function()
+        for _, Player in pairs(game.Players:GetChildren()) do
+            if Player.Backpack:FindFirstChild("R-Orb") or Player.Character:FindFirstChild("R-Orb") then
+                game.Players:Chat("removegear ".. Player.Name)
+                game.Players:Chat("refresh ".. Player.Name)
+                game.Players:Chat("h \n\n\n ".. Player.Name.. " just tried to use the R-Orb! Why did they do that? \n\n\n")
+            end
+        end
+    end)
+
+game:GetService("RunService").RenderStepped:Connect(function()
+        for _, Player in pairs(game.Players:GetChildren()) do
+            if Player.Backpack:FindFirstChild("InstantTreehouse") or Player.Character:FindFirstChild("InstantTreehouse") then
+                game.Players:Chat("removegear ".. Player.Name)
+                game.Players:Chat("refresh ".. Player.Name)
+                game.Players:Chat("h \n\n\n ".. Player.Name.. " just tried to use the Instant Treehouse! Why did they do that? \n\n\n")
+            end
+        end
+    end)
