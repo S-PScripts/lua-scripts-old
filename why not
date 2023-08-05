@@ -1,15 +1,5 @@
 game:GetService("RunService").RenderStepped:Connect(function()
         for _, Player in pairs(game.Players:GetChildren()) do
-            if Player.Backpack:FindFirstChild("R-Orb") or Player.Character:FindFirstChild("R-Orb") then
-                game.Players:Chat("removegear ".. Player.Name)
-                game.Players:Chat("refresh ".. Player.Name)
-                game.Players:Chat("h \n\n\n ".. Player.Name.. " just tried to use the R-Orb! Why did they do that? \n\n\n")
-            end
-        end
-    end)
-
-game:GetService("RunService").RenderStepped:Connect(function()
-        for _, Player in pairs(game.Players:GetChildren()) do
             if Player.Backpack:FindFirstChild("PaintBucket") or Player.Character:FindFirstChild("PaintBucket") then
                 game.Players:Chat("removegear ".. Player.Name)
                 game.Players:Chat("refresh ".. Player.Name)
@@ -43,7 +33,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
             if Player.Backpack:FindFirstChild("RainbowMagicCarpet") or Player.Character:FindFirstChild("RainbowMagicCarpet") then
                 game.Players:Chat("removegear ".. Player.Name)
                 game.Players:Chat("refresh ".. Player.Name)
-                game.Players:Chat("h \n\n\n ".. Player.Name.. " just tried to use the RainbowMagicCarpet! Why did they do that? \n\n\n")
+                game.Players:Chat("h \n\n\n ".. Player.Name.. " just tried to use the Rainbow Magic Carpet! Why did they do that? \n\n\n")
             end
         end
     end)
