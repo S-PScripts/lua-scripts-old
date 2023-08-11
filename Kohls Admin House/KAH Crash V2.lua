@@ -42,6 +42,7 @@ end)
 wait(1)
 game.Players:Chat('gear me 00000000000000094794847')
 game.Players:Chat('blind others')
+game.Players:Chat('music')
 wait(1.5)
 game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("", "All")
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
