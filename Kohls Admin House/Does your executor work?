@@ -1,2 +1,0 @@
--- Run this in a Roblox executor. If it doesn't make you faster then your executor isn't working.
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
