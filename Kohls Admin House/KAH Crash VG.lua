@@ -13,7 +13,7 @@ for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
         end
     end
 wait(0.5)
-game.Players:Chat('h \n\n\n [ROBLOX] sckah.xyz \n\n\n')
+game.Players:Chat('h \n\n\n [agspureiam]: The server has been shutdown. \n\n\n')
 wait(0.5)
 local counter = 0
 while counter < 10 do
