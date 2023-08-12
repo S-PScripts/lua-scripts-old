@@ -1,5 +1,8 @@
 --ONLY WORKS IN KAH NBC
-game.Players:Chat('blind all')
+game.Players:Chat('fogend 0')
+game.Players:Chat('flash')
+game.Players:Chat('clr')
+game.Players:Chat('time 0')
 game.Players:Chat('h \n\n\n [agspureiam]: The server has been shutdown. \n\n\n')
 game.Players:Chat('music 0000000000000000000006680495507')
 wait(0.5)
