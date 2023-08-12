@@ -1,4 +1,5 @@
 --ONLY WORKS IN KAH NBC
+--IF YOU DONT HAVE PERM ADD THE KAH PADS.lua CFRAMES TO THIS SCRIPT
 game.Players:Chat('fogend 0')
 game.Players:Chat('flash')
 game.Players:Chat('clr')
