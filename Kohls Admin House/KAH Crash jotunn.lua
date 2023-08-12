@@ -8,3 +8,5 @@ while counter < 1000 do
   game.Players:Chat('dog all all all')
   counter = counter + 1
 end
+
+game.Players:Chat('music 0000000000000000000006680495507')
