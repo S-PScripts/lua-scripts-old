@@ -4,8 +4,9 @@ game.Players:Chat('fogend 0')
 game.Players:Chat('flash')
 game.Players:Chat('clr')
 game.Players:Chat('time 0')
-game.Players:Chat('h \n\n\n 6 lines of main code crashed this server. \n\n\n')
-game.Players:Chat('music 0000000000000000000009048375035')
+game.Players:Chat('blind others')
+game.Players:Chat('h \n\n\n Oops, something went wrong! >_< <jotunn reference> \n\n\n')
+game.Players:Chat('music 0000000000000000000006529070845')
 wait(0.5)
 counter = 0
 while counter < 1000 do
