@@ -15,8 +15,8 @@ for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
     end
 wait(0.5) --adjust
 game.Players:Chat('h \n\n\n [agspureiam]: The server has been shutdown. \n\n\n')
-local counter = 0
-while counter < 10 do
+counter = 0
+counter < 10 do
   game.Players:Chat('unsize me me me')
   counter = counter + 1
 end
