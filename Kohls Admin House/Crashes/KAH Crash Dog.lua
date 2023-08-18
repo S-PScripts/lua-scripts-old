@@ -1,5 +1,47 @@
 --ONLY WORKS IN KAH NBC
 --IF YOU DONT HAVE PERM ADD THE KAH PADS.lua CFRAMES TO THIS SCRIPT
+task.spawn(function()
+    while true do task.wait() -- It uses while true do instead now
+        coroutine.wrap(function() -- PadAbuse
+			if padAbuse == true then
+				local pads = game:GetService("Workspace").Terrain["_Game"].Admin.Pads:GetChildren("Head")
+				for i, pad in pairs(pads) do
+					coroutine.wrap(function()
+						pcall(function()
+							local cre = pad.Head
+							local spr = game.Players.LocalPlayer.Character:FindFirstChild("Head")
+							firetouchinterest(cre, spr, 1)
+                            firetouchinterest(cre, spr, 0)
+                            firetouchinterest(cre, spr, 1)
+							task.wait()
+							firetouchinterest(cre, spr, 0)
+							
+							if pad.Name ~= game.Players.LocalPlayer.Name.."'s admin" then
+								fireclickdetector(adminFlr.Regen.ClickDetector, 0)
+							end
+						end)
+					end)()
+				end
+			end
+        end)()
+		
+        coroutine.wrap(function() -- Perm
+			local spr = game.Players.LocalPlayer.Character:FindFirstChild("Head")
+			if perm ~= true or adminFlr.Pads:FindFirstChild(game.Players.LocalPlayer.Name.."'s admin") ~= nil then 
+			else
+				pcall(function()
+					local pad = adminFlr.Pads:FindFirstChild("Touch to get admin")
+					local a = pad.Head
+					firetouchinterest(a, spr, 1)
+                    firetouchinterest(a, spr, 0)
+                    firetouchinterest(a, spr, 1)
+					task.wait()
+					firetouchinterest(a, spr, 0)
+				end)
+			end
+        end)()
+    end
+end)
 number = math.random(1,6)
 game.Players:Chat('fogend 0')
 game.Players:Chat('flash')
