@@ -1,12 +1,25 @@
 --ONLY WORKS IN KAH NBC
 --IF YOU DONT HAVE PERM ADD THE KAH PADS.lua CFRAMES TO THIS SCRIPT
+number = math.random(1,6)
 game.Players:Chat('fogend 0')
 game.Players:Chat('flash')
 game.Players:Chat('clr')
 game.Players:Chat('time 0')
 game.Players:Chat('blind others')
-game.Players:Chat('h \n\n\n Oops, something went wrong! >_< <jotunn reference> \n\n\n')
-game.Players:Chat('music 0000000000000000000006680495507')
+if number==1 then
+  game.Players:Chat('h \n\n\n Sorry, something went wrong! \n\n\n')
+elseif number==2 then
+  game.Players:Chat('h \n\n\n Oops, something went wrong! \n\n\n')
+elseif number==3 then
+  game.Players:Chat('h \n\n\n [ROBLOX] Oops, something went wrong! \n\n\n')
+elseif number==4 then
+  game.Players:Chat('h \n\n\n [Agspuriam] Oops, something went wrong! \n\n\n')
+elseif number==5 then
+  game.Players:Chat('h \n\n\n [ROBLOX] Sorry, something went wrong! \n\n\n')
+else
+  game.Players:Chat('h \n\n\n [Agspuriam] Sorry, something went wrong! \n\n\n')
+end
+game.Players:Chat('music 0000000000000000000006529070845')
 wait(0.5)
 counter = 0
 while counter < 1000 do
