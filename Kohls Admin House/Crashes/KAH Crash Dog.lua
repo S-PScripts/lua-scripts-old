@@ -23,8 +23,8 @@ game.Players:Chat('music 0000000000000000000006529070845')
 wait(0.5)
 counter = 0
 while counter < 1000 do
-  game.Players:Chat('clone all all all')
-  game.Players:Chat('dog all all all')
+  game.Players:Chat('clone all all all'..math.random(1,7))
+  game.Players:Chat('dog all all all' .. math.random(1,7))
   counter = counter + 1
 end
 
