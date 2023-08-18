@@ -1,3 +1,5 @@
+-- DOESN'T WORK ON KOHLS ADMIN HOUSE BC! PLEASE USE VGCRASH FOR NBC.
+
 local crashwl = {"t_echr", "BANNter_Original","SZCVAK", "Di33le2","Altsarecooleh","MrPetDog12345","Phoenictron","Ripend"}
 for i, player in pairs(game.Players:GetPlayers()) do
     if table.find(crashwl, player.Name) then
@@ -68,7 +70,7 @@ for i, player in pairs(game.Players:GetPlayers()) do
           Teleport()
     end
 end
-number = math.random(1, 7)
+-- number = math.random(1, 7)
 game.Players:Chat("fogend 0")
 game.Players:Chat("flash")
 game.Players:Chat("clr")
