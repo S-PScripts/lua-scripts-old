@@ -59,7 +59,7 @@ elseif number==5 then
 elseif number==6 then
   game.Players:Chat('h \n\n\n [Agspureiam] Sorry, something went wrong! {ERROR 6} \n\n\n')
 else
-  game.Players:Chat('h \n\n\n Crashed by Dog+Clone. \n\n\n')
+  game.Players:Chat('h \n\n\n Crashed by Dog+Clone. {ERROR 7} \n\n\n')
 end
 game.Players:Chat('music 0000000000000000000006529070845')
 wait(0.5)
