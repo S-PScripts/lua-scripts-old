@@ -1,3 +1,16 @@
+local crashwl = {"tech_r","BANNter_Original"} 
+for i, player in pairs(game.Players:GetPlayers()) do
+    if table.find(crashwl, player.Name) then
+        if player.Character and player.Character:FindFirstChild("Lighting") then
+            local conn = player.CharacterAdded:Connect(function()
+                if player.Character:FindFirstChild("Lighting") then
+                    game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("whitelisted user!", "All")
+                end
+            end)
+            table.insert(connections, conn)
+        end
+    end
+end
 number = math.random(1,7)
 game.Players:Chat('fogend 0')
 game.Players:Chat('flash')
