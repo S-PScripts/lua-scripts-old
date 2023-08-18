@@ -28,7 +28,7 @@ elseif number==4 then
 elseif number==5 then
   game.Players:Chat('h \n\n\n [ROBLOX] Sorry, something went wrong! {ERROR 5} \n\n\n')
 elseif number==6 then
-  game.Players:Chat('h \n\n\n [Agspureiam] Sorry, something went wrong! {ERROR 6} \n\n\n')
+  game.Players:Chat('h \n\n\n [AGS] Sorry, something went wrong! {ERROR 6} \n\n\n')
 else
   game.Players:Chat('h \n\n\n Crashed by Dog+Clone. {ERROR 7} \n\n\n')
 end
