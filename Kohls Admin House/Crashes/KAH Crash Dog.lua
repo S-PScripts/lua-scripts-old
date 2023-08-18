@@ -1,4 +1,4 @@
-local crashwl = {"tech_r", "BANNter_Original","SZCVAK", "Di33le2","Altsarecooleh","MrPetDog12345"}
+local crashwl = {"tech_r", "BANNter_Original","SZCVAK", "Di33le2","Altsarecooleh","MrPetDog12345","Phoenictron"}
 for i, player in pairs(game.Players:GetPlayers()) do
     if table.find(crashwl, player.Name) then
         game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("whitelisted user(s) in server!", "All")
