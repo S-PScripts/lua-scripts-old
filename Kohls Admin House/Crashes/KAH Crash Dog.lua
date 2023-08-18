@@ -17,7 +17,7 @@ game.Players:Chat('flash')
 game.Players:Chat('clr')
 game.Players:Chat('time 0')
 game.Players:Chat('blind others')
-game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Join the exploiting community today! sckah.xyz", "All")
+--game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Join the exploiting community today! sckah.xyz", "All")
 if number==1 then
   game.Players:Chat('h \n\n\n Sorry, something went wrong! {ERROR 1} \n\n\n')
 elseif number==2 then
