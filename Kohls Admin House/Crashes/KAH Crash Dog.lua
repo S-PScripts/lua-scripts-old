@@ -13,11 +13,11 @@ elseif number==2 then
 elseif number==3 then
   game.Players:Chat('h \n\n\n [ROBLOX] Oops, something went wrong! \n\n\n')
 elseif number==4 then
-  game.Players:Chat('h \n\n\n [Agspuriam] Oops, something went wrong! \n\n\n')
-elseif number==5 then
+  game.Players:Chat('h \n\n\n [Agspureiam] Oops, something went wrong! \n\n\n')
+elseif number== 5 then
   game.Players:Chat('h \n\n\n [ROBLOX] Sorry, something went wrong! \n\n\n')
 else
-  game.Players:Chat('h \n\n\n [Agspuriam] Sorry, something went wrong! \n\n\n')
+  game.Players:Chat('h \n\n\n [Agspureiam] Sorry, something went wrong! \n\n\n')
 end
 game.Players:Chat('music 0000000000000000000006529070845')
 wait(0.5)
