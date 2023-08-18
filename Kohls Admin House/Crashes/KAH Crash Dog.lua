@@ -1,4 +1,4 @@
-local crashwl = {"tech_r","BANNter_Original"} 
+local crashwl = {"tech_r","BANNter_Original, SZCVAK"} 
 for i, player in pairs(game.Players:GetPlayers()) do
     if table.find(crashwl, player.Name) then
         if player.Character and player.Character:FindFirstChild("Lighting") then
