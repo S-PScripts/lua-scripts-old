@@ -40,7 +40,7 @@ spawn(function()
         end)()
     end
 end)
-number = math.random(1,6)
+number = math.random(1,7)
 game.Players:Chat('fogend 0')
 game.Players:Chat('flash')
 game.Players:Chat('clr')
@@ -54,10 +54,12 @@ elseif number==3 then
   game.Players:Chat('h \n\n\n [ROBLOX] Oops, something went wrong! {ERROR 3} \n\n\n')
 elseif number==4 then
   game.Players:Chat('h \n\n\n [Agspureiam] Oops, something went wrong! {ERROR 4} \n\n\n')
-elseif number== 5 then
+elseif number==5 then
   game.Players:Chat('h \n\n\n [ROBLOX] Sorry, something went wrong! {ERROR 5} \n\n\n')
-else
+elseif number==6 then
   game.Players:Chat('h \n\n\n [Agspureiam] Sorry, something went wrong! {ERROR 6} \n\n\n')
+else
+  game.Players:Chat('h \n\n\n Crashed by Dog+Clone. \n\n\n')
 end
 game.Players:Chat('music 0000000000000000000006529070845')
 wait(0.5)
