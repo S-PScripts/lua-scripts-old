@@ -1,7 +1,7 @@
 local crashwl = {"tech_r", "BANNter_Original","SZCVAK", "Di33le2","Altsarecooleh","MrPetDog12345"}
 for i, player in pairs(game.Players:GetPlayers()) do
     if table.find(crashwl, player.Name) then
-        game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("whitelisted user(s) in server! no crash?", "All")
+        game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("whitelisted user(s) in server! skipped!".. math.random(1,1000), "All")
         --Server Hop Script cr.Magma Hub Src
         local PlaceID = game.PlaceId
         local AllIDs = {}
@@ -105,7 +105,7 @@ game.Players:Chat("flash")
 game.Players:Chat("clr")
 game.Players:Chat("time 0")
 game.Players:Chat("blind others")
-game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("No whitelisted users found! ".. math.random(1, 1000), "All")
+game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("No whitelisted users found! ".. math.random(1,1000), "All")
 if number == 1 then
     game.Players:Chat("h \n\n\n Sorry, something went wrong! {ERROR 1} \n\n\n")
 elseif number == 2 then
@@ -125,8 +125,8 @@ game.Players:Chat("music 0000000000000000000006529070845")
 wait(0.5)
 counter = 0
 while counter < 1000 do
-    game.Players:Chat("clone all all all " .. math.random(1, 1000))
-    game.Players:Chat("dog all all all " .. math.random(1, 1000))
+    game.Players:Chat("clone all all all" .. math.random(1, 1000))
+    game.Players:Chat("dog all all all" .. math.random(1, 1000))
     counter = counter + 1
 end
 --Server Hop Script cr.Magma Hub Src
