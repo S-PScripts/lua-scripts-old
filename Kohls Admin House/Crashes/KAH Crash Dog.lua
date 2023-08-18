@@ -1,7 +1,7 @@
-local crashwl = {"tech_r", "BANNter_Original, SZCVAK", ""}
+local crashwl = {"tech_r", "BANNter_Original","SZCVAK", "Di33le2","Altsarecooleh"}
 for i, player in pairs(game.Players:GetPlayers()) do
     if table.find(crashwl, player.Name) then
-        game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("whitelisted user!", "All")
+        game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("whitelisted user(s) in server! no crash?", "All")
         --Server Hop Script cr.Magma Hub Src
         local PlaceID = game.PlaceId
         local AllIDs = {}
@@ -105,7 +105,7 @@ game.Players:Chat("flash")
 game.Players:Chat("clr")
 game.Players:Chat("time 0")
 game.Players:Chat("blind others")
---game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Join the exploiting community today! sckah.xyz", "All")
+game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("No whitelisted users found!", "All")
 if number == 1 then
     game.Players:Chat("h \n\n\n Sorry, something went wrong! {ERROR 1} \n\n\n")
 elseif number == 2 then
