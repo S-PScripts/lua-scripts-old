@@ -3,7 +3,7 @@
 local crashwl = {"t_echr", "BANNter_Original","SZCVAK", "Di33le2","Altsarecooleh","MrPetDog12345","Phoenictron","Ripend","Imaimashi"}
 for i, player in pairs(game.Players:GetPlayers()) do
     if table.find(crashwl, player.Name) then
-        game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("whitelisted user(s) in server! skipping.", "All")
+        game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Whitelisted user(s) in server! Skipping crash.", "All")
         --Server Hop Script
           local PlaceID = game.PlaceId
           local AllIDs = {}
