@@ -1,15 +1,16 @@
 --IF YOU DONT HAVE PERM ADD THE KAH PADS.lua CFRAMES TO THIS SCRIPT
-game.Players:Chat('gear me 00000000000000094794847')
-wait(1.5) -- adjust
-game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("", "All")
-for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-        if v.name == "VampireVanquisher" then
-            v.Parent = game.Players.LocalPlayer.Character
-        end
+game.Players:Chat(":gear me 000000000000000000000000000000000000094794847")
+    local Backpack = game.Players.LocalPlayer:FindFirstChildOfClass("Backpack")
+    game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher")
+    for _, v in ipairs(Backpack:GetChildren()) do
+        v.Parent = game.Players.LocalPlayer.Character
+        v:Activate()
     end
-wait(0.5) -- adjust
-counter = 0
-while counter < 10 do
-  game.Players:Chat('unsize me me me')
-  counter = counter + 1
-end
+
+    wait(.15)
+    task.spawn(function()
+        while true do
+            game.Players:Chat("unsize me me me")
+            task.wait()
+        end
+    end)
