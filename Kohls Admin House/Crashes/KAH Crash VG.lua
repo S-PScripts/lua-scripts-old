@@ -93,18 +93,19 @@ game.Players:Chat("h \n\n\n Sorry, something went wrong! {ERROR 1} \n\n\n")
 --else
 --    game.Players:Chat("h \n\n\n Crashed by Dog+Clone. {ERROR 7} \n\n\n")
 --end
-game.Players:Chat("gear me 0000000000000000000000094794847")
 game.Players:Chat("music 0000000000000000000006529070845")
-wait(1.5) -- adjust
-game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("", "All")
-for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-        if v.name == "VampireVanquisher" then
-            v.Parent = game.Players.LocalPlayer.Character
-        end
+game.Players:Chat(":gear me 000000000000000000000000000000000000094794847")
+    local Backpack = game.Players.LocalPlayer:FindFirstChildOfClass("Backpack")
+    game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher")
+    for _, v in ipairs(Backpack:GetChildren()) do
+        v.Parent = game.Players.LocalPlayer.Character
+        v:Activate()
     end
-wait(0.5) --adjust
-counter = 0
-counter < 10 do
-  game.Players:Chat('unsize me me me')
-  counter = counter + 1
-end
+
+    wait(.15)
+    task.spawn(function()
+        while true do
+            game.Players:Chat("unsize me me me")
+            task.wait()
+        end
+    end)
