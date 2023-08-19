@@ -1,6 +1,6 @@
 --IF YOU DONT HAVE PERM ADD THE KAH PADS.lua CFRAMES TO THIS SCRIPT
 -- DOESN'T WORK ON KOHLS ADMIN HOUSE BC! PLEASE USE VGCRASH FOR NBC.
-local crashwl = {"t_echr", "BANNter_Original","SZCVAK", "Di33le2","Altsarecooleh","MrPetDog12345","Phoenictron","Ripend"}
+local crashwl = {"t_echr", "BANNter_Original","SZCVAK", "Di33le2","Altsarecooleh","MrPetDog12345","Phoenictron","Ripend","Imaimashi"}
 for i, player in pairs(game.Players:GetPlayers()) do
     if table.find(crashwl, player.Name) then
         game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("whitelisted user(s) in server! skipping.", "All")
