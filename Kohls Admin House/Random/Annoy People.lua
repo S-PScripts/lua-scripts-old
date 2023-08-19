@@ -1,5 +1,5 @@
-local trolling = "me_funyass"
+local trolling = "me_123eq"
 local spam = true -- change to turn off
-while spam == true do
+if spam then
     game.Players:Chat("unchar " .. trolling .. math.random(1,1000))
     end
