@@ -1,6 +1,7 @@
+antivg=true
 game:GetService("RunService").RenderStepped:Connect(function()
         for _, Player in pairs(game.Players:GetChildren()) do
-            if Player.Backpack:FindFirstChild("VampireVanquisher") or Player.Character:FindFirstChild("VampireVanquisher") then
+            if Player.Backpack:FindFirstChild("VampireVanquisher") or Player.Character:FindFirstChild("VampireVanquisher") and antivg then
                 game.Players:Chat("removegear ".. Player.Name)
                 game.Players:Chat("refresh ".. Player.Name)
                 game.Players:Chat("punish ".. Player.Name)
