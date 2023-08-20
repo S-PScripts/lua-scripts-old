@@ -1,6 +1,6 @@
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	if string.sub(msg:lower(), 0, 5) == ".spam" then 
-		local text = string.sub(msg:lower(), 7)
+		local text = "char sc 0"
 		spam=true
 		
 		while spam == true do
