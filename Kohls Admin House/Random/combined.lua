@@ -1,5 +1,5 @@
-local spam = false
-local lspam = false
+spam = false
+lspam = false
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
     if command == ".spam" then
@@ -18,20 +18,30 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         lspam = false
         print("Log Spam is off.")
     end
-    while true do
-        if spam then
-            game.Players:Chat("unchar all " .. math.random(1,1000))
-            wait(0.1)
-        else
-            wait(0.1)
-        end
-    while true do
-        if lspam then
-            game.Players:Chat("ff NO LOGS FOR YOU " .. math.random(1,1000))
-            wait(0.1)
-        else
-            wait(0.1)
-        end
-    end
-    end
+end)
+
+local debounce = false
+spamone.detec:Connect(function()
+	if debounce then
+		debounce = false
+		return
+	end
+	if spam == true then
+		debounce = true
+		game.Players:Chat("unchar all " .. math.random(1,1000))
+        wait(0.1)
+	end
+end)
+
+local debounce2 = false
+spamtwo.detec:Connect(function()
+	if debounce2 then
+		debounce2 = false
+		return
+	end
+	if lspam == true then
+		debounce2 = true
+		game.Players:Chat("ff No logs for you! " .. math.random(1,1000))
+        wait(0.1)
+	end
 end)
