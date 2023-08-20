@@ -4,7 +4,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         local spam = true
         local text = "char me 0"
         print("Spam is on.")
-        end
     end
 end)
 
