@@ -22,11 +22,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         if spam then
             game.Players:Chat("char all " .. math.random(1,1000))
             wait(0.1)
-        else
-            wait(0.1)
-        end
-    while true do
-        if lspam then
+        elseif lspam then
             game.Players:Chat("ff NO LOGS FOR YOU " .. math.random(1,1000))
             wait(0.1)
         else
