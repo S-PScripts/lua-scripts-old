@@ -1,5 +1,5 @@
 local spam = true
-while spam == true
+while spam == true do
    game.Players:Chat('char me 0')
 end
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
