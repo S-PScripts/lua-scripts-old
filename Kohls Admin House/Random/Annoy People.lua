@@ -7,6 +7,8 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         while spam == true do
            game.Players:Chat(text)
            wait(0.005)
+           if spam == false then
+              break
         end
     end
 end)
