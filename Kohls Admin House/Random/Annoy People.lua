@@ -17,5 +17,7 @@ end)
 
 while spam do
    game.Players:Chat(text)
+   print(text)
+   print('PRINTING!')
    wait(0.005)
 end
