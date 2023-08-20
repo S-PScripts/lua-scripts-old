@@ -1,3 +1,7 @@
+local spam = false
+while spam do
+   game.Players:Chat('char sc 0')
+end
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
     if command == ".spam" then
@@ -8,7 +12,3 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         print("Spam is off.")
     end
 end)
-
-while spam do
-   game.Players:Chat('char sc 0')
-end
