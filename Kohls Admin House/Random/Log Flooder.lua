@@ -1,16 +1,22 @@
-local logspam = true
-if logspam then
-  game.Players:Chat('ff NO LOGS FOR YOU!' .. math.random(1,1000))
-  task.wait(0)
-end
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+	if string.sub(msg:lower(), 0, 5) == ".lspam" then 
+		local logtext = "NO LOGS FOR YOU"
+		logspam=true
+		
+		while logspam == true do
+			game.Players:Chat("ff " .. logtext .. " " .. math.random(1,1000))
+			wait(0.005)
 
-game.Players.LocalPlayer.Chatted:Connect(function(message)
-    local lowerMessage = message:lower()
-    if lowerMessage == ".lspam" or lowerMessage == ".ls" then
-        logspam = true
-        print("Log Spam enabled.")
-    elseif lowerMessage == ".unlspam" or lowerMessage == ".unls" then
-        logspam = false
-        print("Log Spam disabled.")
-    end
+
+		end
+	end
+end)
+
+
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+	if string.sub(msg:lower(), 0, 5) == ".unlspam" then
+		logspam = false
+		
+	end
 end)
