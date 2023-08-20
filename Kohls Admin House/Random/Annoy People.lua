@@ -1,6 +1,4 @@
 local spam = false
-local text = "char all " .. math.random(1,1000)
-
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
     if command == ".spam" then
@@ -13,8 +11,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     while true do
         if spam then
-            game.Players:Chat(text)
-            print('I HATE THIS!')
+            game.Players:Chat("char all " .. math.random(1,1000))
             wait(0.1)
         else
             wait(0.1)
