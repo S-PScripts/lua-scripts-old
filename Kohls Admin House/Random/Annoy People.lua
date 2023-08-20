@@ -19,7 +19,8 @@ while true do
     if spam == true then
         game.Players:Chat(text)
         print('PRINTING!')
+        wait(0.005)
     else
-        print('')
+        wait(0.005)
     end
 end
