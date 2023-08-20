@@ -1,3 +1,4 @@
+local spam = false
 while true do
     if spam then
         game.Players:Chat(text)
@@ -8,7 +9,7 @@ while true do
     end
 end
 
-text = "char all " .. math.random(1,100)
+local text = "char all " .. math.random(1,100)
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     command = string.lower(msg)
     if command == ".spam" then
