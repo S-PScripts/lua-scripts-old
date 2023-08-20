@@ -1,5 +1,5 @@
+--IF YOU DONT HAVE PERM ADD LOOPGRAB.lua or PERM.LUA TO THIS SCRIPT
 -- DOESN'T WORK ON KOHLS ADMIN HOUSE BC! PLEASE USE VGCRASH FOR BC.
-
 local crashwl = {"t_echr", "BANNter_Original","SZCVAK", "Di33le2","Altsarecooleh","MrPetDog12345","Phoenictron","Ripend","Imaimashi"}
 for i, player in pairs(game.Players:GetPlayers()) do
     if table.find(crashwl, player.Name) then
