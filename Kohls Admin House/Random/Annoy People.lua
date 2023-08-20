@@ -6,11 +6,12 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".spam" then
         spam = true
         print("Spam is on.")
+    end
     if command == ".unspam" then
         spam = false
         print("Spam is off.")
-    
-    while true do
+    end
+    while True do
         if spam then
             game.Players:Chat(text)
             print('I HATE THIS!')
@@ -18,6 +19,5 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         else
             wait(0.005)
         end
-    end
     end
 end)
