@@ -20,28 +20,21 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
 end)
 
-local debounce = false
 while true do
-        if debounce then
-           debounce = false
-	   return
-	end
-	if spam == true then
-	   debounce = true
-	   game.Players:Chat("unchar all " .. math.random(1,1000))
+	if spam == true or spam == true and lspam == false then
+	   game.Players:Chat("reset all " .. math.random(1,1000))
            wait(0.1)
 	end
-end
-
-local debounce2 = false
-while true do
-      if debounce2 then
-	 debounce2 = false
-	 return
-      end   
-      if lspam == true then
-	 debounce2 = true
-	 game.Players:Chat("ff No logs for you! " .. math.random(1,1000))
-         wait(0.1)
-      end
+	if lspam == true or lspam == true and spam == false then
+	   game.Players:Chat("ff no logs " .. math.random(1,1000))
+	   wait(0.1)
+	end
+        if lspam == false and spam == false then
+           wait(0.1)
+	end
+	if lspam == true and lspam == true then
+	   game.Players:Chat("reset all " .. math.random(1,1000))
+	   game.Players:Chat("ff no logs " .. math.random(1,1000))
+	   wait(0.1)
+	end
 end
