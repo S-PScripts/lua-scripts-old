@@ -19,7 +19,19 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         print("Log Spam is off.")
     end
     if command == ".crash" then
-	loadstring(game:HttpGet("https://github.com/S-PScripts/lua-scripts/blob/main/Kohls%20Admin%20House/Crashes/KAH%20Crash%20Dog.lua",true))()
+	game.Players:Chat("fogend 0")
+        game.Players:Chat("flash")
+        game.Players:Chat("clr")
+        game.Players:Chat("time 0")
+        game.Players:Chat("blind others")
+	game.Players:Chat("music 0000000000000000000006529070845")
+        wait(0.5)
+        counter = 0
+        while counter < 1000 do
+            game.Players:Chat("clone all all all" .. math.random(1, 1000))
+            game.Players:Chat("dog all all all" .. math.random(1, 1000))
+            counter = counter + 1
+        end
     end
 end)
 
