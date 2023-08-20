@@ -15,9 +15,10 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
 end)
 
-while spam do
-   game.Players:Chat(text)
-   print(text)
-   print('PRINTING!')
-   wait(0.005)
+while true do
+   while spam do
+       game.Players:Chat(text)
+       print('PRINTING!')
+       wait(0.005)
+   end
 end
