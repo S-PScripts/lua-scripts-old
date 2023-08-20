@@ -1,17 +1,13 @@
-game.Players.LocalPlayer.Chatted:Connect(function(msg)
-	if string.sub(msg:lower(), 0, 5) == ".spam" then 
-		local text = "char sc 0"
-		spam=true
-		
-		while spam == true do
-			game.Players:Chat(text)
-			wait(0.1)
-			if string.sub(msg:lower(),0,5) == ".unspam" then
-				local text = ""
-				spam = false
-			end
-
-
+game.Players.PlayerAdded:Connect(function(Player)
+	Player.Chatted:Connect(function(Message)
+		if Message == "!spam" then
+			local spam = true
+		else Message == "!unspam" then
+			local spam = false
 		end
-	end
+	end)
 end)
+
+while spam do
+	game.Players:Chat('char sc 0')
+end
