@@ -11,7 +11,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         spam = false
         print("Spam is off.")
     end
-    while True do
+    while true do
         if spam then
             game.Players:Chat(text)
             print('I HATE THIS!')
