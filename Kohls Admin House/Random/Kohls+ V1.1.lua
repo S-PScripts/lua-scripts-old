@@ -84,6 +84,8 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     if command == ".unblinder" then
        blinds = false
+       wait(1)
+       Chat("respawn all")
        print("blinder is off")
     end
     if command == ".silcrash" then
