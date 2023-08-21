@@ -13,15 +13,16 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         spam = false
 	wait(1)
 	game.Players:Chat('respawn all')
+	game.Players:Chat('m this server is unlocked.')
         print("Slock is off.")
     end
-    if command == ".lspam" then
+    if command == ".lflood" then
         lspam = true
-        print("Log Spam is on.")
+        print("Log flood is on.")
     end
-    if command == ".unlspam" then
+    if command == ".unlflood" then
         lspam = false
-        print("Log Spam is off.")
+        print("Log flood is off.")
     end
     if command == ".crash" then
 	game.Players:Chat("fogend 0")
