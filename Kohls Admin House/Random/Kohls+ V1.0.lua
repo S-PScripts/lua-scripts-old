@@ -57,10 +57,13 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        blinds = true
        print("blinder")
     end
-    if command == "'unblinder" then
+    if command == ".unblinder" then
        blinds = false
        print("blinder is off")
     end
+    if command == ".frycam" then
+        Chat("gear me 0000000000000000004842207161")
+	print("RIGHT CLICK TO BREAK. USE CMD-Y/INF YIELD FIX CAM")
     if command == ".fcrash" then
 	Chat("fogend 0")
         Chat("flash")
