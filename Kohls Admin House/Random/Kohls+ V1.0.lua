@@ -1,3 +1,6 @@
+local function Chat(txt)
+      game.Players:Chat(txt)
+end
 print("Kohls+ v1.0 is executed.")
 spam = false
 lspam = false
@@ -43,23 +46,23 @@ end)
 
 while true do
 	if spam == true then
-	   game.Players:Chat("punish all " .. math.random(1,1000))
-	   game.Players:Chat("blind others " .. math.random(1,1000))
-	   game.Players:Chat("ungear all " .. math.random(1,1000))
+	   Chat("punish all " .. math.random(1,1000))
+	   Chat("blind others " .. math.random(1,1000))
+	   Chat("ungear all " .. math.random(1,1000))
            wait(0.1)
 	end
 	if lspam == true then
-	   game.Players:Chat("ff no logs " .. math.random(1,1000))
+	   Chat("ff no logs " .. math.random(1,1000))
 	   wait(0.1)
 	end
         if lspam == false and spam == false then
            wait(0.1)
 	end
 	if lspam == true and spam == true then
-	   game.Players:Chat("punish all " .. math.random(1,1000))
-	   game.Players:Chat("blind others " .. math.random(1,1000))
-	   game.Players:Chat("ungear all " .. math.random(1,1000))
-	   game.Players:Chat("ff no logs " .. math.random(1,1000))
+	   Chat("punish all " .. math.random(1,1000))
+	   Chat("blind others " .. math.random(1,1000))
+	   Chat("ungear all " .. math.random(1,1000))
+	   Chat("ff no logs " .. math.random(1,1000))
 	   wait(0.1)
 	end
 end
