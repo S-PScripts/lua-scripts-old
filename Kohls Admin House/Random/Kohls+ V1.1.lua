@@ -28,6 +28,7 @@ spam = false
 lspam = false
 anticrash = true
 blinds = false
+blacklistedusers = {'nig'}
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
     if command == ".slock" then
@@ -66,6 +67,19 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".unperm" then
        perm = false
        print("Perm is off.")
+    end
+    if command == ".rejoin" then
+	local ts = game:GetService("TeleportService")
+	local p = game:GetService("Players").LocalPlayer
+	ts:Teleport(game.PlaceId, p)
+    end
+    if command == ".serverhop" then
+	local Servers = game.HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/112420803/servers/Public?sortOrder=Asc&limit=100"))
+	for i,v in pairs(Servers.data) do
+  	    if v.playing ~= v.maxPlayers then
+      	       game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, v.id)
+            end
+        end
     end
     if command == ".regen" then
        fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
@@ -181,7 +195,7 @@ end)
 
 
 
-function LoopGrabPads()
+local function LoopGrabPads()
    if loopgrab then
       local pads = game.Workspace.Terrain._Game.Admin.Pads:GetChildren()
       for i, pad in ipairs(pads) do
@@ -207,11 +221,11 @@ end
 coroutine.wrap(function()
     while true do
         LoopGrabPads()
-        wait(0.001)
+        task.wait(0.001)
     end
 end)()
 
-function Perm()
+local function Perm()
 	if perm then
 	   if not game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild(game.Players.LocalPlayer.Name .. "'s admin") then
 	      if game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild("Touch to get admin") then
@@ -228,7 +242,7 @@ function Perm()
             	    fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
          	 end
       	      end
-      	      wait(0.2)
+      	      task.wait(0.2)
         end
 
 end
@@ -236,22 +250,19 @@ end
 coroutine.wrap(function()
     while true do
         Perm()
-        wait(0.001)
+        task.wait(0.001)
     end
 end)()
 
-blacklistedTools = {
-    "OrinthianSwordAndShield",
-    "VampireVanquisher" --crash gears:P
-}
+local blacklistedTools = {"OrinthianSwordAndShield", "VampireVanquisher"} --crash gears
 
-function executeCommands(player, toolName)
-    game.Players:Chat("ungear " .. player.Name)
-    game.Players:Chat("punish " .. player.Name)
-    game.Players:Chat("h \n\n\n " .. player.Name .. " has been caught using " .. toolName .. " potentially trying to crash /n/n/n")
+local function executeCommands(player, toolName)
+    Chat("ungear " .. player.Name)
+    Chat("punish " .. player.Name)
+    Chat("h \n\n\n " .. player.Name .. " has been caught using " .. toolName .. " potentially trying to crash \n\n\n")
 end
 
-function checkPlayerBackpack(player)
+local function checkPlayerBackpack(player)
     local backpack = player:FindFirstChild("Backpack")
 
     if backpack then
@@ -304,3 +315,25 @@ while true do
   	end
   	task.wait(0.00000000000000001)
 end
+
+local function onPlayerAdded(player)
+    if table.find(blacklistedusers,player.Name) then
+    del = true
+        while del do
+	      print('BLACKLISTED USER HAS JOINED THE SERVER.')
+	      Chat("punish ".. player.Name..  math.random(1,1000))
+	      Chat("blind " .. player.Name.. math.random(1,1000))
+	      Chat("ungear " .. player.Name.. math.random(1,1000))
+	end
+    end
+end
+
+local function onPlayerLeaving(player)
+    if table.find(blacklistedusers,player.Name) then
+       del = false
+       print("Blacklisted user has left")
+    end
+end
+
+game.Players.PlayerAdded:Connect(onPlayerAdded)
+game.Players.PlayerRemoving:Connect(onPlayerLeaving)
