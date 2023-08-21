@@ -38,7 +38,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     if command == ".unslock" then
         spam = false
-	wait(1)
+	task.wait(1)
 	Chat('respawn all')
 	Chat('m this server is unlocked.')
         print("Slock is off.")
@@ -84,12 +84,12 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     if command == ".unblinder" then
        blinds = false
-       wait(1)
+       task.wait(1)
        Chat("respawn all")
        print("blinder is off")
     end
     if command == ".silcrash" then
-        wait(0.5)
+        task.wait(0.5)
         scounter = 0
         while scounter < 1000 do
               Chat("clone all all all" .. math.random(1, 1000))
@@ -153,7 +153,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         Chat("time 0")
         Chat("blind others")
 	Chat("music 0000000000000000000006529070845")
-        wait(0.5)
+        task.wait(0.5)
         fcounter = 0
         while fcounter < 1000 do
               Chat("freeze all " .. math.random(1, 1000))
@@ -169,7 +169,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         Chat("time 0")
         Chat("blind others")
 	Chat("music 0000000000000000000006529070845")
-        wait(0.5)
+        task.wait(0.5)
         ccounter = 0
         while ccounter < 1000 do
               Chat("clone all all all" .. math.random(1, 1000))
@@ -292,15 +292,15 @@ while true do
 	   Chat("punish all " .. math.random(1,1000))
 	   Chat("blind others " .. math.random(1,1000))
 	   Chat("ungear all " .. math.random(1,1000))
-       	   wait(0.01)
+       	   task.wait(0.01)
 	end
 	if lspam == true then
 	   Chat("ff no logs " .. math.random(1,1000))
-	   wait(0.01)
+	   task.wait(0.01)
 	end
   	if blinds == true then
 	   Chat("respawn all " .. math.random(1,1000))
 	   Chat("blind all " .. math.random(1,1000))
   	end
-  	wait(0.00000000000000001)
+  	task.wait(0.00000000000000001)
 end
