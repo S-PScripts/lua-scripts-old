@@ -11,6 +11,7 @@ print(".lflood - floods logs")
 print(".unlflood - stops flooding the logs")
 print(".lg - loopgrab pads")
 print(".unlg - unloopgrab pads")
+print(".regen - regen the pads")
 print(".perm - perm pad")
 print(".unperm - unperm pad")
 print(".anticrash - stops gear crashing")
@@ -65,6 +66,9 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".unperm" then
        perm = true
        print("Perm is off.")
+    end
+    if command == ".regen" then
+       fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
     end
     if command == ".anticrash" then
        anticrash = true
