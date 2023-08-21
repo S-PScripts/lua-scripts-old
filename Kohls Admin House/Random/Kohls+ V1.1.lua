@@ -177,23 +177,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
 end)
 
-while true do
-	if spam == true then
-	   Chat("punish all " .. math.random(1,1000))
-	   Chat("blind others " .. math.random(1,1000))
-	   Chat("ungear all " .. math.random(1,1000))
-       	   wait(0.1)
-	end
-	if lspam == true then
-	   Chat("ff no logs " .. math.random(1,1000))
-	   wait(0.1)
-	end
-  	if blinds == true then
-	   Chat("respawn all " .. math.random(1,1000))
-	   Chat("blind all " .. math.random(1,1000))
-  	end
-  	wait(0.00000000000000001)
-end
+
 
 local function LoopGrabPads()
    if loopgrab then
@@ -285,4 +269,22 @@ for _, player in ipairs(game.Players:GetPlayers()) do
     if player.Character then
         checkPlayerBackpack(player)
     end
+end
+
+while true do
+	if spam == true then
+	   Chat("punish all " .. math.random(1,1000))
+	   Chat("blind others " .. math.random(1,1000))
+	   Chat("ungear all " .. math.random(1,1000))
+       	   wait(0.1)
+	end
+	if lspam == true then
+	   Chat("ff no logs " .. math.random(1,1000))
+	   wait(0.1)
+	end
+  	if blinds == true then
+	   Chat("respawn all " .. math.random(1,1000))
+	   Chat("blind all " .. math.random(1,1000))
+  	end
+  	wait(0.00000000000000001)
 end
