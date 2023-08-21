@@ -1,15 +1,18 @@
-print("Kohls+ is executed.")
+print("Kohls+ v1.0 is executed.")
 spam = false
 lspam = false
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
     if command == ".slock" then
         spam = true
-        print("Spam is on.")
+	game.Players:Chat('respawn all')
+	game.Players:Chat('m this server is locked.')
+        print("Slock is on.")
     end
     if command == ".unslock" then
         spam = false
-        print("Spam is off.")
+	game.Players:Chat('respawn all')
+        print("Slock is off.")
     end
     if command == ".lspam" then
         lspam = true
