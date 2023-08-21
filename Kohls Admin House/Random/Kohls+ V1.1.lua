@@ -3,7 +3,7 @@ antireexec=true
 local function Chat(txt)
       game.Players:Chat(txt)
 end
-print("Kohls+ v1.0 is executed.")
+print("Kohls+ v1.1 is executed.")
 print("COMMANDS")
 print(".slock - locks server")
 print(".unslock - unlocks server")
@@ -80,7 +80,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     if command == ".blinder" then
        blinds = true
-       print("blinder")
+       print("blinder is on")
     end
     if command == ".unblinder" then
        blinds = false
@@ -246,7 +246,7 @@ blacklistedTools = {
 function executeCommands(player, toolName)
     game.Players:Chat("ungear " .. player.Name)
     game.Players:Chat("punish " .. player.Name)
-    game.Players:Chat("h \n\n\n [Roblox]: " .. player.Name .. " has been caught using " .. toolName .. " potentially trying to crash")
+    game.Players:Chat("h \n\n\n " .. player.Name .. " has been caught using " .. toolName .. " potentially trying to crash /n/n/n")
 end
 
 function checkPlayerBackpack(player)
