@@ -64,6 +64,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".frycam" then
         Chat("gear me 0000000000000000004842207161")
 	print("RIGHT CLICK TO BREAK. USE CMD-Y/INF YIELD FIX CAM")
+    end
     if command == ".fcrash" then
 	Chat("fogend 0")
         Chat("flash")
@@ -95,7 +96,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
               counter = counter + 1
         end
     end
-end
+end)
 
 while true do
 	if spam == true then
@@ -206,4 +207,3 @@ for _, player in ipairs(game.Players:GetPlayers()) do
         checkPlayerBackpack(player)
     end
 end
-end)
