@@ -33,7 +33,7 @@ print(".silcrash - dog/clone crash but no blinding, fogends or music")
 spam = false
 lspam = false
 anticrash = true
-antigear = false
+antigear = true
 blinds = false
 blacklistedusers = {'ROBLOX','me_l23456'}
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
