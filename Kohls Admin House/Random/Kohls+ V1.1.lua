@@ -271,13 +271,13 @@ end)()
 
 local blacklistedTools = {"OrinthianSwordAndShield", "VampireVanquisher"} --crash gears
 
-local function warnCrash(player, toolName)
+local function warnGear(player, toolName)
     Chat("ungear " .. player.Name)
     Chat("punish " .. player.Name)
     Chat("h \n\n\n Sorry, " .. player.Name .. ", anti-gear is on! \n\n\n")
 end
 
-local function warnGear(player, toolName)
+local function warnCrash(player, toolName)
     Chat("ungear " .. player.Name)
     Chat("punish " .. player.Name)
     Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. ". \n\n\n")
