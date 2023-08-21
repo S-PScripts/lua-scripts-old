@@ -1,12 +1,13 @@
+print("Kohls+ is executed.")
 spam = false
 lspam = false
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
-    if command == ".spam" then
+    if command == ".slock" then
         spam = true
         print("Spam is on.")
     end
-    if command == ".unspam" then
+    if command == ".unslock" then
         spam = false
         print("Spam is off.")
     end
@@ -37,7 +38,9 @@ end)
 
 while true do
 	if spam == true then
-	   game.Players:Chat("reset all " .. math.random(1,1000))
+	   game.Players:Chat("punish all " .. math.random(1,1000))
+	   game.Players:Chat("blind others " .. math.random(1,1000))
+	   game.Players:Chat("ungear all " .. math.random(1,1000))
            wait(0.1)
 	end
 	if lspam == true then
@@ -48,7 +51,9 @@ while true do
            wait(0.1)
 	end
 	if lspam == true and spam == true then
-	   game.Players:Chat("reset all " .. math.random(1,1000))
+	   game.Players:Chat("punish all " .. math.random(1,1000))
+	   game.Players:Chat("blind others " .. math.random(1,1000))
+	   game.Players:Chat("ungear all " .. math.random(1,1000))
 	   game.Players:Chat("ff no logs " .. math.random(1,1000))
 	   wait(0.1)
 	end
