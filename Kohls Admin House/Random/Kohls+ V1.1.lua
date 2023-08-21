@@ -33,6 +33,7 @@ print(".silcrash - dog/clone crash but no blinding, fogends or music")
 spam = false
 lspam = false
 anticrash = true
+antigear = false
 blinds = false
 blacklistedusers = {'ROBLOX','me_l23456'}
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
@@ -273,13 +274,13 @@ local blacklistedTools = {"OrinthianSwordAndShield", "VampireVanquisher"} --cras
 local function warnCrash(player, toolName)
     Chat("ungear " .. player.Name)
     Chat("punish " .. player.Name)
-    Chat("h \n\n\n Sorry, " .. player.Name .. " , anti-gear is on! \n\n\n")
+    Chat("h \n\n\n Sorry, " .. player.Name .. ", anti-gear is on! \n\n\n")
 end
 
 local function warnGear(player, toolName)
     Chat("ungear " .. player.Name)
     Chat("punish " .. player.Name)
-    Chat("h \n\n\n " .. player.Name .. " has been caught using " .. toolName .. " potentially trying to crash \n\n\n")
+    Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. ". \n\n\n")
 end
 
 local function checkPlayerBackpack(player)
@@ -328,8 +329,8 @@ end)
 
 for _, player in ipairs(game.Players:GetPlayers()) do
     if player.Character then
-        checkPlayerGBackpack(player)
-	checkPlayerBackpack(player)
+        checkPlayerBackpack(player)
+	checkPlayerGBackpack(player)
     end
 end
 
