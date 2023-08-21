@@ -194,7 +194,7 @@ task.spawn(function()
                         for i, gear in ipairs(BlacklistedGear) do
                             if player.Backpack:FindFirstChild(gear) or player.Character:FindFirstChild(gear) then
                                 local plrname = player.Name
-                                chatt("ungear"..plrname .."                                                                                                                                                                                                                                                                                                                            others fuck nomoremathrandom")
+                                chatt("ungear "..plrname .."                                                                                                                                                                                                                                                                                                                            others fuck nomoremathrandom")
                                 wait(3.5)
                                 if not spammedlol then
                                     if GEARANNOUNCE then
