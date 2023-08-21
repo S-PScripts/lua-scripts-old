@@ -1,5 +1,5 @@
 wait(5)
-local loopgrab = true
+loopgrab = true
 local function LoopGrabPads()
    if loopgrab then
       local pads = game.Workspace.Terrain._Game.Admin.Pads:GetChildren()
