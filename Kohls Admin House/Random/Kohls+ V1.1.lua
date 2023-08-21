@@ -71,11 +71,11 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
     end
     if command == ".anticrash" then
-       anticrash = true
+       anticrash = false
        print("Anticrash is on.")
     end
     if command == ".unanticrash" then
-       anticrash = false
+       anticrash = true
        print("Anticrash is off.")
     end
     if command == ".blinder" then
