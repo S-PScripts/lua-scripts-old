@@ -1,4 +1,8 @@
-if antireexec then return logn("Script already executed.") end
+if antireexec then
+   local ts = game:GetService("TeleportService")
+   local p = game:GetService("Players").LocalPlayer
+   ts:Teleport(game.PlaceId, p)
+end
 antireexec=true
 local function Chat(txt)
       game.Players:Chat(txt)
@@ -349,7 +353,7 @@ end
 
 local function onPlayerAdded(player)
     if table.find(blacklistedusers,player.Name) then
-    del = true
+    	del = true
         while del do
 	      print('BLACKLISTED USER HAS JOINED THE SERVER.')
 	      Chat("punish ".. player.Name..  math.random(1,1000))
