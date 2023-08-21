@@ -11,6 +11,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     if command == ".unslock" then
         spam = false
+	wait(1)
 	game.Players:Chat('respawn all')
         print("Slock is off.")
     end
