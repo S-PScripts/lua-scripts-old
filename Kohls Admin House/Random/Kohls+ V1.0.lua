@@ -51,7 +51,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == "unanticrash" then
        anticrash = false
        print("Anticrash is off.")
-		end
+    end
     if command == ".fcrash" then
 	    Chat("fogend 0")
         Chat("flash")
@@ -67,8 +67,9 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	          Chat('removeclones')
               counter = counter + 1     
 	end
+    end
     if command == ".crash" then
-	    Chat("fogend 0")
+	Chat("fogend 0")
         Chat("flash")
         Chat("clr")
         Chat("time 0")
@@ -82,7 +83,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
               counter = counter + 1
         end
     end
-end
+end)
 
 while true do
 	if spam == true then
@@ -142,8 +143,8 @@ local function Perm()
       	      end
       	      wait(0.2)
         end
+
 end
-end)
 
 local blacklistedTools = {
     "OrinthianSwordAndShield",
