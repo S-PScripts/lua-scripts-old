@@ -27,6 +27,21 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         lspam = false
         print("Log flood is off.")
     end
+    if command == ".lg" then
+       loopgrab = true
+       print("Loopgrab is on.")
+    end
+    if command == "'unlg then
+       loopgrab = false
+       print("Loopgrab is off.")
+    if command == ".perm" then
+       perm = true
+       print("Perm is on.")
+    end
+    if command == ".unperm" then
+       perm = true
+       print("Perm is off.")
+    end
     if command == ".crash" then
 	Chat("fogend 0")
         Chat("flash")
@@ -58,11 +73,48 @@ while true do
         if lspam == false and spam == false then
            wait(0.1)
 	end
-	if lspam == true and spam == true then
-	   Chat("punish all " .. math.random(1,1000))
-	   Chat("blind others " .. math.random(1,1000))
-	   Chat("ungear all " .. math.random(1,1000))
-	   Chat("ff no logs " .. math.random(1,1000))
-	   wait(0.1)
-	end
+end
+
+local function LoopGrabPads()
+   if loopgrab then
+      local pads = game.Workspace.Terrain._Game.Admin.Pads:GetChildren()
+      for i, pad in ipairs(pads) do
+         local head = pad:FindFirstChild("Head")
+         local character = game.Players.LocalPlayer.Character
+         local headOfCharacter = character and character:FindFirstChild("Head")
+
+         if head and headOfCharacter then
+            firetouchinterest(head, headOfCharacter, 1)
+            firetouchinterest(head, headOfCharacter, 0)
+            firetouchinterest(head, headOfCharacter, 1)
+            wait()
+            firetouchinterest(head, headOfCharacter, 0)
+
+            if pad.Name ~= game.Players.LocalPlayer.Name.."'s admin" then
+               fireclickdetector(game.Workspace.Terrain._Game.Admin.Regen.ClickDetector, 0)
+            end
+         end
+      end
+   end
+end
+
+local function Perm()
+	if perm then
+	   if not game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild(game.Players.LocalPlayer.Name .. "'s admin") then
+	      if game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild("Touch to get admin") then
+	         local pad = game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild("Touch to get admin"):FindFirstChild("Head")
+         	 local padCFrame = game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild("Touch to get admin"):FindFirstChild("Head").CFrame
+        	 wait(0.125)
+        	 pad.CanCollide = false
+        	 repeat wait() until game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+           	    pad.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+            	    wait(0.125)
+           	    pad.CFrame = padCFrame
+            	    pad.CanCollide = true
+  		 else
+            	    fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
+         	 end
+      	      end
+      	      wait(0.2)
+        end
 end
