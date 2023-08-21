@@ -95,7 +95,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
               counter = counter + 1
         end
     end
-end)
+end
 
 while true do
 	if spam == true then
@@ -206,3 +206,4 @@ for _, player in ipairs(game.Players:GetPlayers()) do
         checkPlayerBackpack(player)
     end
 end
+end)
