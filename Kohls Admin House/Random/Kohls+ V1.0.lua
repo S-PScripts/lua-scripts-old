@@ -4,6 +4,7 @@ end
 print("Kohls+ v1.0 is executed.")
 spam = false
 lspam = false
+anticrash = true
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
     if command == ".slock" then
@@ -43,6 +44,14 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        perm = true
        print("Perm is off.")
     end
+    if command == ".anticrash" then
+       anticrash = true
+       print("Anticrash is on.")
+    end
+    if command == "unanticrash" then
+       anticrash = false
+       print("Anticrash is off.")
+		end
     if command == ".fcrash" then
 	    Chat("fogend 0")
         Chat("flash")
@@ -135,3 +144,50 @@ local function Perm()
         end
 end
 end)
+
+local blacklistedTools = {
+    "OrinthianSwordAndShield",
+    "VampireVanquisher" --crash gears:P
+}
+
+local function executeCommands(player, toolName)
+    game.Players:Chat("ungear " .. player.Name)
+    game.Players:Chat("punish " .. player.Name)
+    game.Players:Chat("h \n\n\n [Roblox]: " .. player.Name .. " has been caught using " .. toolName .. " potentially trying to crash")
+end
+
+local function checkPlayerBackpack(player)
+    local backpack = player:FindFirstChild("Backpack")
+
+    if backpack then
+        for _, toolName in ipairs(blacklistedTools) do
+            local tool = backpack:FindFirstChild(toolName)
+            if tool and not anticrash then
+                executeCommands(player, toolName)
+                break
+            end
+        end
+    end
+end
+
+game.Players.PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(function(character)
+        checkPlayerBackpack(player)
+    end)
+    checkPlayerBackpack(player)
+end)
+
+game:GetService("RunService").Heartbeat:Connect(function()
+    for _, player in ipairs(game.Players:GetPlayers()) do
+        if player.Character then
+            checkPlayerBackpack(player)
+        end
+    end
+end)
+
+
+for _, player in ipairs(game.Players:GetPlayers()) do
+    if player.Character then
+        checkPlayerBackpack(player)
+    end
+end
