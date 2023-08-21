@@ -8,15 +8,15 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
     if command == ".slock" then
         spam = true
-	game.Players:Chat('respawn all')
-	game.Players:Chat('m this server is locked.')
+	Chat('respawn all')
+	Chat('m this server is locked.')
         print("Slock is on.")
     end
     if command == ".unslock" then
         spam = false
 	wait(1)
-	game.Players:Chat('respawn all')
-	game.Players:Chat('m this server is unlocked.')
+	Chat('respawn all')
+	Chat('m this server is unlocked.')
         print("Slock is off.")
     end
     if command == ".lflood" then
@@ -28,18 +28,18 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         print("Log flood is off.")
     end
     if command == ".crash" then
-	game.Players:Chat("fogend 0")
-        game.Players:Chat("flash")
-        game.Players:Chat("clr")
-        game.Players:Chat("time 0")
-        game.Players:Chat("blind others")
-	game.Players:Chat("music 0000000000000000000006529070845")
+	Chat("fogend 0")
+        Chat("flash")
+        Chat("clr")
+        Chat("time 0")
+        Chat("blind others")
+	Chat("music 0000000000000000000006529070845")
         wait(0.5)
         counter = 0
         while counter < 1000 do
-            game.Players:Chat("clone all all all" .. math.random(1, 1000))
-            game.Players:Chat("dog all all all" .. math.random(1, 1000))
-            counter = counter + 1
+              Chat("clone all all all" .. math.random(1, 1000))
+              Chat("dog all all all" .. math.random(1, 1000))
+              counter = counter + 1
         end
     end
 end)
