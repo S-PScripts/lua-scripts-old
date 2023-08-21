@@ -179,7 +179,7 @@ end)
 
 
 
-local function LoopGrabPads()
+function LoopGrabPads()
    if loopgrab then
       local pads = game.Workspace.Terrain._Game.Admin.Pads:GetChildren()
       for i, pad in ipairs(pads) do
@@ -202,7 +202,7 @@ local function LoopGrabPads()
    end
 end
 
-local function Perm()
+function Perm()
 	if perm then
 	   if not game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild(game.Players.LocalPlayer.Name .. "'s admin") then
 	      if game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild("Touch to get admin") then
@@ -224,18 +224,18 @@ local function Perm()
 
 end
 
-local blacklistedTools = {
+blacklistedTools = {
     "OrinthianSwordAndShield",
     "VampireVanquisher" --crash gears:P
 }
 
-local function executeCommands(player, toolName)
+function executeCommands(player, toolName)
     game.Players:Chat("ungear " .. player.Name)
     game.Players:Chat("punish " .. player.Name)
     game.Players:Chat("h \n\n\n [Roblox]: " .. player.Name .. " has been caught using " .. toolName .. " potentially trying to crash")
 end
 
-local function checkPlayerBackpack(player)
+function checkPlayerBackpack(player)
     local backpack = player:FindFirstChild("Backpack")
 
     if backpack then
