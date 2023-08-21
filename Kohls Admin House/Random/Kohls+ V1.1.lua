@@ -202,6 +202,13 @@ function LoopGrabPads()
    end
 end
 
+coroutine.wrap(function()
+    while true do
+        LoopGrabPads()
+        wait(0.001)
+    end
+end)()
+
 function Perm()
 	if perm then
 	   if not game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild(game.Players.LocalPlayer.Name .. "'s admin") then
@@ -223,6 +230,13 @@ function Perm()
         end
 
 end
+
+coroutine.wrap(function()
+    while true do
+        Perm()
+        wait(0.001)
+    end
+end)()
 
 blacklistedTools = {
     "OrinthianSwordAndShield",
