@@ -14,12 +14,14 @@ print(".unlg - unloopgrab pads")
 print(".regen - regen the pads")
 print(".perm - perm pad")
 print(".unperm - unperm pad")
-print(".anticrash - stops gear crashing")
-print(".unanticrash - unstops gear crashing")
+print(".anticrash - stops gear crashing gears")
+print(".unanticrash - unstops gear crashing gears")
+print(".antigear - bans every gear")
+print(".unantigear - unbans gears")
 print(".blinder - flashy washy")
 print(".unblinder - no flashy washy")
 print(".frycam - fries the camera")
-print(".fixcam - fixes your camera. credits to quiving")
+print(".fixcam - fixes your camera. credits to quiving") -- BROKEN
 print(".house - teleport to the house")
 print(".crash - dog/clone crash")
 print(".fcrash - freeze crash")
@@ -28,7 +30,7 @@ spam = false
 lspam = false
 anticrash = true
 blinds = false
-blacklistedusers = {'nig'}
+blacklistedusers = {'ROBLOX','me_l23456'}
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
     if command == ".slock" then
@@ -91,6 +93,14 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".unanticrash" then
        anticrash = true
        print("Anticrash is off.")
+    end
+    if command == ".antigear" then
+       antigear = false
+       print("Antigear is on.")
+    end
+    if command == ".unantigear" then
+       antigear = true
+       print("Antigear is off.")
     end
     if command == ".blinder" then
        blinds = true
@@ -256,7 +266,13 @@ end)()
 
 local blacklistedTools = {"OrinthianSwordAndShield", "VampireVanquisher"} --crash gears
 
-local function executeCommands(player, toolName)
+local function warnCrash(player, toolName)
+    Chat("ungear " .. player.Name)
+    Chat("punish " .. player.Name)
+    Chat("h \n\n\n Sorry, " .. player.Name .. " , anti-gear is on! \n\n\n")
+end
+
+local function warnGear(player, toolName)
     Chat("ungear " .. player.Name)
     Chat("punish " .. player.Name)
     Chat("h \n\n\n " .. player.Name .. " has been caught using " .. toolName .. " potentially trying to crash \n\n\n")
@@ -269,7 +285,19 @@ local function checkPlayerBackpack(player)
         for _, toolName in ipairs(blacklistedTools) do
             local tool = backpack:FindFirstChild(toolName)
             if tool and not anticrash then
-                executeCommands(player, toolName)
+                warnCrash(player, toolName)
+                break
+            end
+        end
+    end
+end
+
+local function checkPlayerGBackpack(player)
+    local gbackpack = player:FindFirstChild("Backpack")
+    if gbackpack then
+        for _, tool in ipairs(player.Backpack:GetChildren()) do
+    	    if tool:IsA("Tool") and not antigear then
+            	warnGear(player)
                 break
             end
         end
@@ -279,22 +307,25 @@ end
 game.Players.PlayerAdded:Connect(function(player)
     player.CharacterAdded:Connect(function(character)
         checkPlayerBackpack(player)
+	checkPlayerGBackpack(player)
     end)
     checkPlayerBackpack(player)
+    checkPlayerGBackpack(player)
 end)
 
 game:GetService("RunService").Heartbeat:Connect(function()
     for _, player in ipairs(game.Players:GetPlayers()) do
         if player.Character then
             checkPlayerBackpack(player)
+	    checkPlayerGBackpack(player)
         end
     end
 end)
 
-
 for _, player in ipairs(game.Players:GetPlayers()) do
     if player.Character then
-        checkPlayerBackpack(player)
+        checkPlayerGBackpack(player)
+	checkPlayerBackpack(player)
     end
 end
 
