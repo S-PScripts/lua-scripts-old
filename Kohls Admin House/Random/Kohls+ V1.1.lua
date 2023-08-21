@@ -64,7 +64,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        print("Perm is on.")
     end
     if command == ".unperm" then
-       perm = true
+       perm = false
        print("Perm is off.")
     end
     if command == ".regen" then
