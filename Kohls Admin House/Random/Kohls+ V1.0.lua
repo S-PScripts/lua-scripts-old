@@ -63,6 +63,15 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        blinds = false
        print("blinder is off")
     end
+    if command == ".silcrash" then
+        wait(0.5)
+        scounter = 0
+        while scounter < 1000 do
+              Chat("clone all all all" .. math.random(1, 1000))
+              Chat("dog all all all" .. math.random(1, 1000))
+              scounter = scounter + 1
+        end
+    end	
     if command == ".frycam" then
         Chat("gear me 0000000000000000004842207161")
 	print("RIGHT CLICK TO BREAK. USE CMD-Y/INF YIELD FIX CAM")
@@ -117,12 +126,12 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         Chat("blind others")
 	Chat("music 0000000000000000000006529070845")
         wait(0.5)
-        counter = 0
-        while counter < 1000 do
+        fcounter = 0
+        while fcounter < 1000 do
               Chat("freeze all " .. math.random(1, 1000))
               Chat("clone all all all " .. math.random(1, 1000))
 	      Chat('removeclones')
-              counter = counter + 1     
+              fcounter = fcounter + 1     
 	end
     end
     if command == ".crash" then
@@ -133,11 +142,11 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         Chat("blind others")
 	Chat("music 0000000000000000000006529070845")
         wait(0.5)
-        counter = 0
-        while counter < 1000 do
+        ccounter = 0
+        while ccounter < 1000 do
               Chat("clone all all all" .. math.random(1, 1000))
               Chat("dog all all all" .. math.random(1, 1000))
-              counter = counter + 1
+              ccounter = ccounter + 1
         end
     end
 end)
