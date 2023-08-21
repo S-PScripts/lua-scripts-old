@@ -42,6 +42,21 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        perm = true
        print("Perm is off.")
     end
+    if command == .fcrash then
+	Chat("fogend 0")
+        Chat("flash")
+        Chat("clr")
+        Chat("time 0")
+        Chat("blind others")
+	Chat("music 0000000000000000000006529070845")
+        wait(0.5)
+        counter = 0
+        while counter < 1000 do
+              Chat("freeze all " .. math.random(1, 1000))
+              Chat("clone all all all " .. math.random(1, 1000))
+	      Chat('removeclones')
+              counter = counter + 1     
+	end
     if command == ".crash" then
 	Chat("fogend 0")
         Chat("flash")
