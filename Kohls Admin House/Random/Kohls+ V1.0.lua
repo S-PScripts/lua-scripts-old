@@ -5,6 +5,7 @@ print("Kohls+ v1.0 is executed.")
 spam = false
 lspam = false
 anticrash = true
+blinds = false
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
     if command == ".slock" then
@@ -48,9 +49,17 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        anticrash = true
        print("Anticrash is on.")
     end
-    if command == "unanticrash" then
+    if command == ".unanticrash" then
        anticrash = false
        print("Anticrash is off.")
+    end
+    if command == ".blinder" then
+       blinds = true
+       print("blinder")
+    end
+    if command == "'unblinder" then
+       blinds = false
+       print("blinder is off")
     end
     if command == ".fcrash" then
 	    Chat("fogend 0")
@@ -96,9 +105,11 @@ while true do
 	   Chat("ff no logs " .. math.random(1,1000))
 	   wait(0.1)
 	end
-        if lspam == false and spam == false then
-           wait(0.1)
-	end
+  	if blinds == true then
+	   Chat("respawn all " .. math.random(1,1000))
+	   Chat("blind all " .. math.random(1,1000))
+  	end
+  	wait(0.00000000000000001)
 end
 
 local function LoopGrabPads()
