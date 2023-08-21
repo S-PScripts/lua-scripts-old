@@ -1,3 +1,5 @@
+if antireexec then return logn("Script already executed.") end
+antireexec=true
 local function Chat(txt)
       game.Players:Chat(txt)
 end
