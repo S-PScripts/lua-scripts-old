@@ -348,6 +348,8 @@ while true do
   	if blinds == true then
 	   Chat("respawn all " .. math.random(1,1000))
 	   Chat("blind all " .. math.random(1,1000))
+	   Chat("ungear all " .. math.random(1,1000))
+	   Chat("clr")
   	end
   	task.wait(0.00000000000000001)
 end
