@@ -22,8 +22,8 @@ print(".anticrash - stops gear crashing gears")
 print(".unanticrash - unstops gear crashing gears")
 print(".antigear - bans every gear")
 print(".unantigear - unbans gears")
-print(".blinder - flashy washy")
-print(".unblinder - no flashy washy")
+print(".blinder - spam respawn")
+print(".unblinder - no spam respawn")
 print(".frycam - fries the camera")
 print(".fixcam - fixes your camera. credits to quiving") -- BROKEN
 print(".house - teleport to the house")
@@ -121,8 +121,8 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         task.wait(0.5)
         scounter = 0
         while scounter < 1000 do
-              Chat("clone all all all" .. math.random(1, 1000))
-              Chat("dog all all all" .. math.random(1, 1000))
+              Chat("clone all all all " .. math.random(1, 1000))
+              Chat("dog all all all " .. math.random(1, 1000))
               scounter = scounter + 1
         end
     end	
@@ -134,46 +134,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-31.0896435, 8.22999477, 70.522644, -0.999961913, 4.495271e-08, -0.0087288795, 4.55292621e-08, 1, -6.58523618e-08, 0.0087288795, -6.62472743e-08, -0.999961913)
     end
     if command == ".fixcam" then
-			local lp = PlayerService.LocalPlayer
-			local ui = game:GetService("UserInputService")
-			local l__ContextActionService__7 = game:GetService("ContextActionService");
-			local l__RunService__1 = game:GetService('RunService')
-			l__ContextActionService__7:UnbindAction("ShoulderCameraSprint");
-			l__RunService__1:UnbindFromRenderStep("ShoulderCameraUpdate");
-			l__ContextActionService__7:UnbindAction("ShoulderCameraZoom");
-			while true do
-				fwait()
-				repeat game:GetService'RunService'.Heartbeat:Wait() until game.Workspace.CurrentCamera.CameraType == Enum.CameraType.Scriptable
-				l__RunService__1:UnbindFromRenderStep("ShoulderCameraUpdate");
-				l__ContextActionService__7:UnbindAction("ShoulderCameraZoom");
-				l__ContextActionService__7:UnbindAction("ShoulderCameraSprint");
-				local wepsys = game:GetService("ReplicatedStorage"):FindFirstChild('WeaponsSystem')
-				if not wepsys then return end
-				for i,v in pairs(wepsys:GetDescendants()) do
-					if v:IsA("Script") then
-						v.Disabled = true
-					end
-					v:Destroy()
-				end
-				local wep = lp.PlayerGui:FindFirstChild("ClientWeaponsScript")
-				local gui = lp.PlayerGui:FindFirstChild("WeaponsSystemGui")
-				local sc = lp.PlayerScripts:FindFirstChild("ClientWeaponsScript")
-				local Camera = game:GetService("Workspace"):FindFirstChild("Camera")
-				if wep then wep.Disabled = true wep:Destroy() end
-				if gui then gui:Destroy() end
-				if sc then
-					sc.Disabled = true
-					sc:Destroy()
-				end
-				game:GetService("UserInputService").MouseBehavior = Enum.MouseBehavior.Default
-				ui.MouseIconEnabled = true
-				PlayerService.LocalPlayer.CameraMaxZoomDistance = 400
-				PlayerService.LocalPlayer.CameraMinZoomDistance = 0.5
-				Camera.FieldOfView = 70
-				game.Workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
-				game.Workspace.CurrentCamera.CameraSubject = lp.Character.Humanoid
-				lp.Character.Humanoid.AutoRotate = true
-			end
+	print("broken. use infinite yield's.")
     end
     if command == ".fcrash" then
 	Chat("fogend 0")
@@ -201,8 +162,8 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         task.wait(0.5)
         ccounter = 0
         while ccounter < 1000 do
-              Chat("clone all all all" .. math.random(1, 1000))
-              Chat("dog all all all" .. math.random(1, 1000))
+              Chat("clone all all all " .. math.random(1, 1000))
+              Chat("dog all all all " .. math.random(1, 1000))
               ccounter = ccounter + 1
         end
     end
@@ -339,19 +300,16 @@ while true do
 	   Chat("punish all " .. math.random(1,1000))
 	   Chat("blind others " .. math.random(1,1000))
 	   Chat("ungear all " .. math.random(1,1000))
-       	   task.wait(0.01)
 	end
 	if lspam == true then
 	   Chat("ff no logs " .. math.random(1,1000))
-	   task.wait(0.01)
 	end
   	if blinds == true then
 	   Chat("respawn all " .. math.random(1,1000))
 	   Chat("blind all " .. math.random(1,1000))
 	   Chat("ungear all " .. math.random(1,1000))
-	   Chat("clr")
   	end
-  	task.wait(0.00000000000000001)
+  	task.wait(0)
 end
 
 local function onPlayerAdded(player)
