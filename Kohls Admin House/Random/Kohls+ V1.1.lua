@@ -1,3 +1,4 @@
+--THIS ISN'T SKIDDED
 if antireexec then
    local ts = game:GetService("TeleportService")
    local p = game:GetService("Players").LocalPlayer
@@ -10,7 +11,10 @@ end
 print("Kohls+ v1.1 is executed.")
 print("COMMANDS")
 print(".slock - locks server")
+print(".spam - spams text you put after")
+print(".unspam - stops spam")
 print(".unslock - unlocks server")
+print(".gmusic - put number afterwards and play music saved here")
 print(".lflood - floods logs")
 print(".unlflood - stops flooding the logs")
 print(".lg - loopgrab pads")
@@ -25,7 +29,7 @@ print(".unantigear - unbans gears")
 print(".blinder - spam respawn")
 print(".unblinder - no spam respawn")
 print(".frycam - fries the camera")
-print(".fixcam - fixes your camera. credits to quiving") -- BROKEN
+print(".fixcam - fixes your camera.") -- BROKEN
 print(".house - teleport to the house")
 print(".crash - dog/clone crash")
 print(".fcrash - freeze crash")
@@ -39,13 +43,20 @@ blacklistedusers = {'ROBLOX','me_l23456'}
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
     if command == ".slock" then
-        spam = true
+        slock = true
 	Chat('respawn all')
 	Chat('m this server is locked.')
         print("Slock is on.")
     end
+    if string.sub(msg:lower(), 0, 5) == ".spam" then 
+       local spammer = string.sub(msg:lower(), 7)
+       spam = true
+    end
+    if command == ".unspam" then
+       spam = false
+    end
     if command == ".unslock" then
-        spam = false
+        slock = false
 	task.wait(1)
 	Chat('respawn all')
 	Chat('m this server is unlocked.')
@@ -136,7 +147,13 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".fixcam" then
 	print("broken. use infinite yield's.")
     end
-    if command == ".gmusic" then
+    if string.sub(msg:lower(), 0, 7) == ".gmusic" then
+        local gm = string.sub(msg:lower(), 8)
+		if gm == 1 then
+			Chat("music 0000000000000000000006529070845")
+		else
+			print("invalid!")
+		end
     end
     if command == ".fcrash" then
 	Chat("fogend 0")
@@ -298,7 +315,7 @@ for _, player in ipairs(game.Players:GetPlayers()) do
 end
 
 while true do
-	if spam == true then
+	if slock == true then
 	   Chat("punish all " .. math.random(1,1000))
 	   Chat("blind others " .. math.random(1,1000))
 	   Chat("ungear all " .. math.random(1,1000))
@@ -311,6 +328,8 @@ while true do
 	   Chat("blind all " .. math.random(1,1000))
 	   Chat("ungear all " .. math.random(1,1000))
   	end
+	if spam == true then
+	   Chat(spammer)
   	task.wait(0)
 end
 
