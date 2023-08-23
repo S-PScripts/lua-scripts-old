@@ -135,7 +135,8 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     if command == ".fixcam" then
 	print("broken. use infinite yield's.")
-    if command == ".gmusic
+    end
+    if command == ".gmusic" then
     end
     if command == ".fcrash" then
 	Chat("fogend 0")
