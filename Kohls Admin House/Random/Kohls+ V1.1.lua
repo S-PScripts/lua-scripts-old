@@ -9,7 +9,7 @@ local function Chat(txt)
       game.Players:Chat(txt)
 end
 print("Kohls+ v1.1 is executed.")
-slock = true
+slock = false
 spam = false
 lspam = false
 anticrash = false
