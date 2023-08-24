@@ -28,21 +28,17 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        local spammer = string.sub(msg:lower(), 7)
        spam = true
     end
-    if string.sub(msg:lower(), 0, 7) == ".gmusic" then
-        local gm = string.sub(msg:lower(), 9)
-	    if gm == 1 then
-		   Chat("music 0000000000000000000006529070845")
-	    end
-	    if gm == 2 then
-		   Chat("music 0000000000000000000009048375035")
-	    end
-	    if gm == 3 then
-		   Chat("music 0000000000000000000006680495507")
-	    end
-	    if gm == 4 then
-		   Chat("music 0000000000000000000006917155909")
-	    end
-	task.wait(0)
+    if command == ".gmusic1" then
+       Chat("music 0000000000000000000006529070845")
+    end
+    if command == ".gmusic2" then
+       Chat("music 0000000000000000000009048375035")
+    end 
+    if command == ".gmusic3" then
+       Chat("music 0000000000000000000006680495507")
+    end
+    if command == ".gmusic4" then
+       Chat("music 0000000000000000000006917155909")
     end
     if command == ".unspam" then
        spam = false
