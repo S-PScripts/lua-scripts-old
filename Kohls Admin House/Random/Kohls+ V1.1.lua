@@ -15,14 +15,13 @@ lspam = false
 anticrash = false
 antigear = false
 blinds = false
-blacklistedusers = {'ROBLOX','me_l23456'}
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
     if command == ".slock" then
-        slock = true
-	Chat('respawn all')
-	Chat('m this server is locked.')
-        print("Slock is on.")
+       slock = true
+       Chat('respawn all')
+       Chat('m this server is locked.')
+       print("Slock is on.")
     end
     if string.sub(msg:lower(), 0, 5) == ".spam" then 
        local spammer = string.sub(msg:lower(), 7)
@@ -42,8 +41,9 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	    if gm == 4 then
 		   Chat("music 0000000000000000000006917155909")
 	    end
-	    task.wait(0)
+	task.wait(0)
 	end
+    end
     if command == ".unspam" then
        spam = false
     end
@@ -306,27 +306,27 @@ end
 
 while true do
       if slock == true then
-	   Chat("punish all " .. math.random(1,1000))
-	   Chat("blind others " .. math.random(1,1000))
-	   Chat("ungear all " .. math.random(1,1000))
+	 Chat("punish all " .. math.random(1,1000))
+	 Chat("blind others " .. math.random(1,1000))
+	 Chat("ungear all " .. math.random(1,1000))
       end
-      task.wait()
+      task.wait(0)
 end
 
 while true do      
       if lspam == true then
-	   Chat("ff no logs " .. math.random(1,1000))
+	 Chat("ff no logs " .. math.random(1,1000))
       end
-      task.wait()
+      task.wait(0)
 end
 
 while true do      
       if blinds == true then
-	   Chat("respawn all " .. math.random(1,1000))
-	   Chat("blind all " .. math.random(1,1000))
-	   Chat("ungear all " .. math.random(1,1000))
+	 Chat("respawn all " .. math.random(1,1000))
+	 Chat("blind all " .. math.random(1,1000))
+	 Chat("ungear all " .. math.random(1,1000))
       end
-      task.wait()
+      task.wait(0)
 end
 
 local function spam()
