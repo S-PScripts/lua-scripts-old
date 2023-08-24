@@ -9,31 +9,6 @@ local function Chat(txt)
       game.Players:Chat(txt)
 end
 print("Kohls+ v1.1 is executed.")
-print("COMMANDS")
-print(".slock - locks server")
-print(".spam - spams text you put after")
-print(".unspam - stops spam")
-print(".unslock - unlocks server")
-print(".gmusic - put number afterwards and play music saved here")
-print(".lflood - floods logs")
-print(".unlflood - stops flooding the logs")
-print(".lg - loopgrab pads")
-print(".unlg - unloopgrab pads")
-print(".regen - regen the pads")
-print(".perm - perm pad")
-print(".unperm - unperm pad")
-print(".anticrash - stops gear crashing gears")
-print(".unanticrash - unstops gear crashing gears")
-print(".antigear - bans every gear")
-print(".unantigear - unbans gears")
-print(".blinder - spam respawn")
-print(".unblinder - no spam respawn")
-print(".frycam - fries the camera")
-print(".fixcam - fixes your camera.") -- BROKEN
-print(".house - teleport to the house")
-print(".crash - dog/clone crash")
-print(".fcrash - freeze crash")
-print(".silcrash - dog/clone crash but no blinding, fogends or music")
 spam = false
 lspam = false
 anticrash = true
@@ -101,6 +76,12 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".unperm" then
        perm = false
        print("Perm is off.")
+    end
+    if command == ".autoafk" then
+       autoafk = true
+    end
+    if command == "unautoafk" then
+       autoafk = false
     end
     if command == ".rejoin" then
 	local ts = game:GetService("TeleportService")
@@ -349,3 +330,17 @@ local function spam()
 	   Chat(spammer)
       end
 end
+
+local UserInputService = game:GetService("UserInputService")
+UserInputService.WindowFocusReleased:Connect(function()
+    if autoafk == true then
+    	Chat("name me AFK")
+    	Chat("ff me")
+    	Chat("god me")
+    end
+end)
+UserInputService.WindowFocused:Connect(function()
+    Chat("reset me")
+    Chat("unff me")
+    Chat("ungod me")
+end)
