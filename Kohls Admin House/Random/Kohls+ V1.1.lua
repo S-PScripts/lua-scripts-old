@@ -42,7 +42,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		   Chat("music 0000000000000000000006917155909")
 	    end
 	task.wait(0)
-	end
     end
     if command == ".unspam" then
        spam = false
