@@ -11,9 +11,9 @@ end
 print("Kohls+ v1.1 is executed.")
 spam = false
 lspam = false
-anticrash = true
-antigear = true
-blinds = false
+anticrash = false
+antigear = false
+blinds = true
 blacklistedusers = {'ROBLOX','me_l23456'}
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
