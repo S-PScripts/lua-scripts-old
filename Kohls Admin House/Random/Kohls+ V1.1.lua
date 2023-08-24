@@ -308,6 +308,7 @@ while true do
 	       Chat("punish all " .. math.random(1,1000))
 	       Chat("blind others " .. math.random(1,1000))
 	       Chat("ungear all " .. math.random(1,1000))
+      end
       if lspam == true then
 	       Chat("ff no logs " .. math.random(1,1000))
       end
