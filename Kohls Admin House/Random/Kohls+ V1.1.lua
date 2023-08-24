@@ -309,12 +309,14 @@ local function slock()
 	   Chat("punish all " .. math.random(1,1000))
 	   Chat("blind others " .. math.random(1,1000))
 	   Chat("ungear all " .. math.random(1,1000))
+	   slock()
       end
 end
 
 local function logspam()
       if lspam == true then
 	   Chat("ff no logs " .. math.random(1,1000))
+	   logspam()
       end
 end
 
@@ -323,12 +325,14 @@ local function blinds()
 	   Chat("respawn all " .. math.random(1,1000))
 	   Chat("blind all " .. math.random(1,1000))
 	   Chat("ungear all " .. math.random(1,1000))
+	   blinds()
       end
 end
 
 local function spam()
       if spam == true then
 	   Chat(spammer)
+           spam()
       end
 end
 
