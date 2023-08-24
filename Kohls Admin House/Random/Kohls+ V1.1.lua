@@ -222,7 +222,7 @@ local function Perm()
 end
 
 local blacklistedTools = {"OrinthianSwordAndShield", "VampireVanquisher"} --crash gears
-
+local crashwl = {"ScriptingProgrammer"}
 local function warnGear(player, toolName)
     Chat("ungear " .. player.Name)
     Chat("punish " .. player.Name)
@@ -230,13 +230,15 @@ local function warnGear(player, toolName)
 end
 
 local function warnCrash(player, toolName)
-    if player.Name == ScriptingProgrammer then
-       Chat("ez")
+for i, player in pairs(game.Players:GetPlayers()) do
+    if table.find(crashwl, player.Name) then
+       Chat("---")
     else
-       Chat("ungear " .. player.Name)
-       Chat("punish " .. player.Name)
-       Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. ". \n\n\n")
+    Chat("ungear " .. player.Name)
+    Chat("punish " .. player.Name)
+    Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. ". \n\n\n")
     end
+end
 end
 
 local function checkPlayerBackpack(player)
