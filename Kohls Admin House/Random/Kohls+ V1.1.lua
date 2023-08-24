@@ -9,11 +9,12 @@ local function Chat(txt)
       game.Players:Chat(txt)
 end
 print("Kohls+ v1.1 is executed.")
+slock = true
 spam = false
 lspam = false
 anticrash = false
 antigear = false
-blinds = true
+blinds = false
 blacklistedusers = {'ROBLOX','me_l23456'}
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
