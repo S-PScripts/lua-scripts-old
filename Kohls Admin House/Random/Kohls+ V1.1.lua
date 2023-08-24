@@ -234,9 +234,9 @@ for i, player in pairs(game.Players:GetPlayers()) do
     if table.find(crashwl, player.Name) then
        Chat("---")
     else
-    Chat("ungear " .. player.Name)
-    Chat("punish " .. player.Name)
-    Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. ". \n\n\n")
+       Chat("ungear " .. player.Name)
+       Chat("punish " .. player.Name)
+       Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. ". \n\n\n")
     end
 end
 end
