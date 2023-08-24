@@ -305,34 +305,35 @@ end
 
 while true do
       if slock == true then
-	 Chat("punish all " .. math.random(1,1000))
-	 Chat("blind others " .. math.random(1,1000))
-	 Chat("ungear all " .. math.random(1,1000))
+	       Chat("punish all " .. math.random(1,1000))
+	       Chat("blind others " .. math.random(1,1000))
+	       Chat("ungear all " .. math.random(1,1000))
       end
       task.wait(0)
 end
 
 while true do      
       if lspam == true then
-	 Chat("ff no logs " .. math.random(1,1000))
+	       Chat("ff no logs " .. math.random(1,1000))
       end
       task.wait(0)
 end
 
 while true do      
       if blinds == true then
-	 Chat("respawn all " .. math.random(1,1000))
-	 Chat("blind all " .. math.random(1,1000))
-	 Chat("ungear all " .. math.random(1,1000))
+	       Chat("respawn all " .. math.random(1,1000))
+	       Chat("blind all " .. math.random(1,1000))
+	       Chat("ungear all " .. math.random(1,1000))
       end
       task.wait(0)
 end
 
 local function spam()
       if spam == true then
-	   Chat(spammer)
+	       Chat(spammer)
            spam()
       end
+      task.wait(0)
 end
 
 local UserInputService = game:GetService("UserInputService")
