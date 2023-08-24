@@ -25,7 +25,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        print("Slock is on.")
     end
     if string.sub(msg:lower(), 0, 5) == ".spam" then 
-       local spammer = string.sub(msg:lower(), 7)
+       spammer = string.sub(msg:lower(), 7)
        spam = true
     end
     if command == ".gmusic1" then
