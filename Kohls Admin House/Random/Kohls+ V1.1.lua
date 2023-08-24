@@ -304,29 +304,29 @@ for _, player in ipairs(game.Players:GetPlayers()) do
     end
 end
 
-local function slock()
+while true do
       if slock == true then
 	   Chat("punish all " .. math.random(1,1000))
 	   Chat("blind others " .. math.random(1,1000))
 	   Chat("ungear all " .. math.random(1,1000))
-	   slock()
       end
+      task.wait()
 end
 
-local function logspam()
+while true do      
       if lspam == true then
 	   Chat("ff no logs " .. math.random(1,1000))
-	   logspam()
       end
+      task.wait()
 end
 
-local function blinds()
+while true do      
       if blinds == true then
 	   Chat("respawn all " .. math.random(1,1000))
 	   Chat("blind all " .. math.random(1,1000))
 	   Chat("ungear all " .. math.random(1,1000))
-	   blinds()
       end
+      task.wait()
 end
 
 local function spam()
