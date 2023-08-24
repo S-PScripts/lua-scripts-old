@@ -337,7 +337,7 @@ UserInputService.WindowFocusReleased:Connect(function()
     task.wait()
 end)
 UserInputService.WindowFocused:Connect(function()
-    if autoafk == false
+    if autoafk == false then
         Chat("reset me")
         Chat("unff me")
         Chat("ungod me")
