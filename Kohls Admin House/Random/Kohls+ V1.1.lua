@@ -232,7 +232,6 @@ end
 local function warnCrash(player, toolName)
     if player.Name == ScriptingProgrammer then
        Chat("ez")
-    end
     else
        Chat("ungear " .. player.Name)
        Chat("punish " .. player.Name)
