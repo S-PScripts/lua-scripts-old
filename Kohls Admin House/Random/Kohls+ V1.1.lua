@@ -230,9 +230,14 @@ local function warnGear(player, toolName)
 end
 
 local function warnCrash(player, toolName)
-    Chat("ungear " .. player.Name)
-    Chat("punish " .. player.Name)
-    Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. ". \n\n\n")
+    if player.Name == ScriptingProgrammer then
+       Chat("ez")
+    end
+    else
+       Chat("ungear " .. player.Name)
+       Chat("punish " .. player.Name)
+       Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. ". \n\n\n")
+    end
 end
 
 local function checkPlayerBackpack(player)
