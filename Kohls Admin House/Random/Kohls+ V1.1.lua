@@ -9,11 +9,12 @@ local function Chat(txt)
       game.Players:Chat(txt)
 end
 print("Kohls+ v1.1 is executed.")
+print("Created by ts2021/scriptingprogrammer")
 slock = false
 spam = false
 lspam = false
 anticrash = false
-antigear = false
+antigear = true
 blinds = false
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
@@ -28,7 +29,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        spam = true
     end
     if string.sub(msg:lower(), 0, 7) == ".gmusic" then
-        local gm = string.sub(msg:lower(), 8)
+        local gm = string.sub(msg:lower(), 9)
 	    if gm == 1 then
 		   Chat("music 0000000000000000000006529070845")
 	    end
@@ -202,13 +203,6 @@ local function LoopGrabPads()
    end
 end
 
-coroutine.wrap(function()
-    while true do
-        LoopGrabPads()
-        task.wait(0.001)
-    end
-end)()
-
 local function Perm()
 	if perm then
 	   if not game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild(game.Players.LocalPlayer.Name .. "'s admin") then
@@ -230,13 +224,6 @@ local function Perm()
         end
 
 end
-
-coroutine.wrap(function()
-    while true do
-        Perm()
-        task.wait(0.001)
-    end
-end)()
 
 local blacklistedTools = {"OrinthianSwordAndShield", "VampireVanquisher"} --crash gears
 
@@ -303,15 +290,16 @@ for _, player in ipairs(game.Players:GetPlayers()) do
     end
 end
 
-while true do
+local function Slock()
       if slock == true then
 	       Chat("punish all " .. math.random(1,1000))
 	       Chat("blind others " .. math.random(1,1000))
 	       Chat("ungear all " .. math.random(1,1000))
       end
-      if lspam == true then
-	       Chat("ff no logs " .. math.random(1,1000))
-      end
+      task.wait(0)
+end
+
+local function Blinder()
       if blinds == true then
 	       Chat("respawn all " .. math.random(1,1000))
 	       Chat("blind all " .. math.random(1,1000))
@@ -320,7 +308,14 @@ while true do
       task.wait(0)
 end
 
-local function spam()
+local function Logflood()
+      if lspam == true then
+	       Chat("ff no logs " .. math.random(1,1000))
+      end
+      task.wait(0)
+end
+
+local function Spam()
       if spam == true then
 	       Chat(spammer)
       end
@@ -344,3 +339,15 @@ UserInputService.WindowFocused:Connect(function()
     end
     task.wait()	
 end)
+
+coroutine.wrap(function()
+    while true do
+        LoopGrabPads()
+	Perm()
+	Slock()
+	Blinder()
+	Logflood()
+	Spam()
+        task.wait(0.001)
+    end
+end)()
