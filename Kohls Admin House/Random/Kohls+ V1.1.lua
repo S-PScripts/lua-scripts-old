@@ -52,6 +52,22 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        local spammer = string.sub(msg:lower(), 7)
        spam = true
     end
+    if string.sub(msg:lower(), 0, 7) == ".gmusic" then
+        local gm = string.sub(msg:lower(), 8)
+	    if gm == 1 then
+		   Chat("music 0000000000000000000006529070845")
+	    end
+	    if gm == 2 then
+		   Chat("music 0000000000000000000009048375035")
+	    end
+	    if gm == 3 then
+		   Chat("music 0000000000000000000006680495507")
+	    end
+	    if gm == 4 then
+		   Chat("music 0000000000000000000006917155909")
+	    end
+	    task.wait(0)
+	end
     if command == ".unspam" then
        spam = false
     end
@@ -146,14 +162,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     if command == ".fixcam" then
 	print("broken. use infinite yield's.")
-    end
-    if string.sub(msg:lower(), 0, 7) == ".gmusic" then
-        local gm = string.sub(msg:lower(), 8)
-		if gm == 1 then
-			Chat("music 0000000000000000000006529070845")
-		else
-			print("invalid!")
-		end
     end
     if command == ".fcrash" then
 	Chat("fogend 0")
@@ -314,43 +322,30 @@ for _, player in ipairs(game.Players:GetPlayers()) do
     end
 end
 
-while true do
-	if slock == true then
+local function slock()
+      if slock == true then
 	   Chat("punish all " .. math.random(1,1000))
 	   Chat("blind others " .. math.random(1,1000))
 	   Chat("ungear all " .. math.random(1,1000))
 	end
-	if lspam == true then
+end
+
+local function logspam()
+      if lspam == true then
 	   Chat("ff no logs " .. math.random(1,1000))
-	end
-  	if blinds == true then
+      end
+end
+
+local function blinds()
+      if blinds == true then
 	   Chat("respawn all " .. math.random(1,1000))
 	   Chat("blind all " .. math.random(1,1000))
 	   Chat("ungear all " .. math.random(1,1000))
-  	end
-	if spam == true then
+      end
+end
+
+local function spam()
+      if spam == true then
 	   Chat(spammer)
-  	task.wait(0)
+      end
 end
-
-local function onPlayerAdded(player)
-    if table.find(blacklistedusers,player.Name) then
-    	del = true
-        while del do
-	      print('BLACKLISTED USER HAS JOINED THE SERVER.')
-	      Chat("punish ".. player.Name..  math.random(1,1000))
-	      Chat("blind " .. player.Name.. math.random(1,1000))
-	      Chat("ungear " .. player.Name.. math.random(1,1000))
-	end
-    end
-end
-
-local function onPlayerLeaving(player)
-    if table.find(blacklistedusers,player.Name) then
-       del = false
-       print("Blacklisted user has left")
-    end
-end
-
-game.Players.PlayerAdded:Connect(onPlayerAdded)
-game.Players.PlayerRemoving:Connect(onPlayerLeaving)
