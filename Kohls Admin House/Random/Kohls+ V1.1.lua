@@ -308,18 +308,9 @@ while true do
 	       Chat("punish all " .. math.random(1,1000))
 	       Chat("blind others " .. math.random(1,1000))
 	       Chat("ungear all " .. math.random(1,1000))
-      end
-      task.wait(0)
-end
-
-while true do      
       if lspam == true then
 	       Chat("ff no logs " .. math.random(1,1000))
       end
-      task.wait(0)
-end
-
-while true do      
       if blinds == true then
 	       Chat("respawn all " .. math.random(1,1000))
 	       Chat("blind all " .. math.random(1,1000))
@@ -331,7 +322,6 @@ end
 local function spam()
       if spam == true then
 	       Chat(spammer)
-           spam()
       end
       task.wait(0)
 end
@@ -343,9 +333,13 @@ UserInputService.WindowFocusReleased:Connect(function()
     	Chat("ff me")
     	Chat("god me")
     end
+    task.wait()
 end)
 UserInputService.WindowFocused:Connect(function()
-    Chat("reset me")
-    Chat("unff me")
-    Chat("ungod me")
+    if autoafk == false
+        Chat("reset me")
+        Chat("unff me")
+        Chat("ungod me")
+    end
+    task.wait()	
 end)
