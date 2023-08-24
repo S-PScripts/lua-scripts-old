@@ -309,7 +309,7 @@ local function slock()
 	   Chat("punish all " .. math.random(1,1000))
 	   Chat("blind others " .. math.random(1,1000))
 	   Chat("ungear all " .. math.random(1,1000))
-	end
+      end
 end
 
 local function logspam()
