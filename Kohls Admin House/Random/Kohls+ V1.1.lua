@@ -54,6 +54,16 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	Chat('m this server is unlocked.')
         print("Slock is off.")
     end
+    if command == ".nok" then
+	for _, Bricks in pairs(game:GetService("Workspace").Terrain._Game.Workspace.Obby:GetChildren()) do
+                                          Bricks.CanTouch = false
+                                          end
+    end
+    if command == ".unnok" then
+	for _, Bricks in pairs(game:GetService("Workspace").Terrain._Game.Workspace.Obby:GetChildren()) do
+                                          Bricks.CanTouch = true
+                                          end	
+    end
     if command == ".lflood" then
         lspam = true
         print("Log flood is on.")
