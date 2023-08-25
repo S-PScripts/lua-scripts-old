@@ -60,7 +60,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     if string.sub(msg:lower(), 0, 4) == "goto" then -- i was bored
        local goto = string.sub(msg:lower(), 6)		
-       Chat("tp me " .. goto)
+       Chat("tp me " .. goto .."")
     end
     if command == ".nok" then
 	game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump.TouchInterest:destroy()
