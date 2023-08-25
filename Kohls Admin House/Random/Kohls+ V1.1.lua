@@ -56,7 +56,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     if string.sub(msg:lower(), 0, 5) == "bring" then
        local bring = string.sub(msg:lower(), 7)		
-       Chat("tp ",bring, " me")
+       Chat("tp ".. bring .." me")
     end
     if command == ".nok" then
 	game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump.TouchInterest:destroy()
