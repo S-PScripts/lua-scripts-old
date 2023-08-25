@@ -225,21 +225,27 @@ local function Perm()
 end
 
 local blacklistedTools = {"OrinthianSwordAndShield", "VampireVanquisher"} --crash gears
-local crashwl = {"ScriptingProgrammer"}
+local gwl = {"ScriptingProgrammer"}
 local function warnGear(player, toolName)
-    Chat("ungear " .. player.Name)
-    Chat("punish " .. player.Name)
-    Chat("h \n\n\n Sorry, " .. player.Name .. ", anti-gear is on! \n\n\n")
-end
-
-local function warnCrash(player, toolName)
 for i, player in pairs(game.Players:GetPlayers()) do
-    if table.find(crashwl, player.Name) then
+    if table.find(gwl, player.Name) then
        Chat("---")
     else
        Chat("ungear " .. player.Name)
        Chat("punish " .. player.Name)
-       Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. ". \n\n\n")
+       Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of antigear. \n\n\n")
+    end
+end
+end
+
+local function warnCrash(player, toolName)
+for i, player in pairs(game.Players:GetPlayers()) do
+    if table.find(gwl, player.Name) then
+       Chat("---")
+    else
+       Chat("ungear " .. player.Name)
+       Chat("punish " .. player.Name)
+       Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anticrash. \n\n\n")
     end
 end
 end
@@ -353,6 +359,6 @@ coroutine.wrap(function()
 	Blinder()
 	Logflood()
 	Spam()
-        task.wait(0.001)
+        task.wait()
     end
 end)()
