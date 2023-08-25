@@ -13,8 +13,9 @@ print("Created by ts2021/scriptingprogrammer")
 slock = false
 spam = false
 lspam = false
-anticrash = false
-antigear = true
+anticrash = false -- false means its on
+antigear = true -- true means its off
+antikill = false
 blinds = false
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
@@ -60,6 +61,14 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".unlflood" then
         lspam = false
         print("Log flood is off.")
+    end
+    if command == ".antikill" then
+       antikill = true
+       print("Antikill is on.")
+    end
+    if command == ".unantikill" then
+       antikill = false
+       print("Antikill is off.")
     end
     if command == ".lg" then
        loopgrab = true
@@ -354,6 +363,22 @@ UserInputService.WindowFocused:Connect(function()
     end
     task.wait()	
 end)
+
+local function resetPlayer()
+    Chat("reset me")
+end
+
+local function onCharacterAdded(character)
+    local humanoid = character:WaitForChild("Humanoid")
+    
+    humanoid.HealthChanged:Connect(function(health)
+        if health <= 0 and antikill then
+            resetPlayer()
+        end
+    end)
+end
+
+game.Players.LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
 
 coroutine.wrap(function()
     while true do
