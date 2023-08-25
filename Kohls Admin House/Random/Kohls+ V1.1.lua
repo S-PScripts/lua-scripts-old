@@ -54,6 +54,10 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	Chat('m this server is unlocked.')
         print("Slock is off.")
     end
+    if string.sub(msg:lower(), 0, 5) == "bring" then
+       local bring = string.sub(msg:lower(), 7)		
+       Chat("tp ",bring, " me")
+    end
     if command == ".nok" then
 	game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump.TouchInterest:destroy()
         game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump1.TouchInterest:destroy()
