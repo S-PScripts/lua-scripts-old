@@ -40,6 +40,9 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".gmusic4" then
        Chat("music 0000000000000000000006917155909")
     end
+    if command == ".gmusic5" then
+       Chat("music 0000000000000000000006913550990")
+    end
     if command == ".unspam" then
        spam = false
     end
