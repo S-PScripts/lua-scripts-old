@@ -8,7 +8,7 @@ game.Players:Chat("time 0")
 game.Players:Chat("respawn all")
 game.Players:Chat("speed all 0")
 -- game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("No whitelisted users found! ".. math.random(1,1000), "All")
-game.Players:Chat("h \n\n\n Fatal overload ", math.random(100,999) ,". Please reconnect to the server \n\n\n.")
+game.Players:Chat("h \n\n\n Fatal overload " .. math.random(100,999) .. ". Please reconnect to the server \n\n\n.")
 -- if number == 1 then
 --    game.Players:Chat("h \n\n\n Sorry, something went wrong! {ERROR 1} \n\n\n")
 --elseif number == 2 then
