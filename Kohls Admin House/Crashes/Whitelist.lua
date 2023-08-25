@@ -8,6 +8,7 @@ for i, player in pairs(game.Players:GetPlayers()) do
               game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, v.id)
           end
         end
+        break
     else
         game.Players:Chat("fogend 0")
         game.Players:Chat("flash")
