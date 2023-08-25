@@ -1,13 +1,10 @@
 --IF YOU DONT HAVE PERM ADD LOOPGRAB.lua or PERM.LUA TO THIS SCRIPT
 -- DOESN'T WORK ON KOHLS ADMIN HOUSE BC! PLEASE USE VGCRASH FOR BC.
 -- number = math.random(1, 7)
-game.Players:Chat("fogend 0")
-game.Players:Chat("flash")
-game.Players:Chat("clr")
 game.Players:Chat("time 0")
-game.Players:Chat("blind others")
+game.Players:Chat("respawn all")
 -- game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("No whitelisted users found! ".. math.random(1,1000), "All")
-game.Players:Chat("h \n\n\n Sorry, something went wrong! {ERROR 1} \n\n\n")
+game.Players:Chat("h \n\n\n {ERROR} \n\n\n")
 -- if number == 1 then
 --    game.Players:Chat("h \n\n\n Sorry, something went wrong! {ERROR 1} \n\n\n")
 --elseif number == 2 then
@@ -23,7 +20,7 @@ game.Players:Chat("h \n\n\n Sorry, something went wrong! {ERROR 1} \n\n\n")
 --else
 --    game.Players:Chat("h \n\n\n Crashed by Dog+Clone. {ERROR 7} \n\n\n")
 --end
-game.Players:Chat("music 0000000000000000000006529070845")
+game.Players:Chat("music 6913550990")
 wait(0.5)
 counter = 0
 while counter < 1000 do
