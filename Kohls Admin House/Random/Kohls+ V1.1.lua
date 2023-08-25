@@ -388,7 +388,6 @@ coroutine.wrap(function()
 	Blinder()
 	Logflood()
 	Spam()
-	onCharacterAdded()
         task.wait()
     end
 end)()
