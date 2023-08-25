@@ -83,5 +83,4 @@ while counter < 1000 do
       game.Players:Chat("clone all all all" .. math.random(1, 1000))
       game.Players:Chat("dog all all all" .. math.random(1, 1000))
       counter = counter + 1
-      end
 end
