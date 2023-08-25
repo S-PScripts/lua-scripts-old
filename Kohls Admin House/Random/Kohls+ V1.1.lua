@@ -131,6 +131,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         while scounter < 1000 do
               Chat("clone all all all " .. math.random(1, 1000))
               Chat("dog all all all " .. math.random(1, 1000))
+	      task.wait()
               scounter = scounter + 1
         end
     end	
@@ -157,6 +158,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
               Chat("freeze all " .. math.random(1, 1000))
               Chat("clone all all all " .. math.random(1, 1000))
 	      Chat('removeclones')
+	      task.wait()
               fcounter = fcounter + 1     
 	end
     end
@@ -172,6 +174,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         while ccounter < 1000 do
               Chat("clone all all all " .. math.random(1, 1000))
               Chat("dog all all all " .. math.random(1, 1000))
+	      task.wait()
               ccounter = ccounter + 1
         end
     end
