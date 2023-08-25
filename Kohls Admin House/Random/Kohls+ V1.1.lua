@@ -225,29 +225,17 @@ local function Perm()
 end
 
 local blacklistedTools = {"OrinthianSwordAndShield", "VampireVanquisher"} --crash gears
-local gwl = {"ScriptingProgrammer"}
+crashwl = {"ScriptingProgrammer"}
 local function warnGear(player, toolName)
-for i, player in pairs(game.Players:GetPlayers()) do
-    if table.find(gwl, player.Name) then
-       Chat("---")
-    else
        Chat("ungear " .. player.Name)
        Chat("punish " .. player.Name)
        Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of antigear. \n\n\n")
-    end
-end
 end
 
 local function warnCrash(player, toolName)
-for i, player in pairs(game.Players:GetPlayers()) do
-    if table.find(gwl, player.Name) then
-       Chat("---")
-    else
        Chat("ungear " .. player.Name)
        Chat("punish " .. player.Name)
        Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anticrash. \n\n\n")
-    end
-end
 end
 
 local function checkPlayerBackpack(player)
@@ -257,20 +245,33 @@ local function checkPlayerBackpack(player)
         for _, toolName in ipairs(blacklistedTools) do
             local tool = backpack:FindFirstChild(toolName)
             if tool and not anticrash then
-                warnCrash(player, toolName)
-                break
+                for i,v in pairs(crashwl) do
+	                if player.Name == v then
+                       break
+                    else
+                       warnCrash(player, toolName)
+                       break
+                    end
+                end
             end
         end
     end
 end
+
 
 local function checkPlayerGBackpack(player)
     local gbackpack = player:FindFirstChild("Backpack")
     if gbackpack then
         for _, tool in ipairs(player.Backpack:GetChildren()) do
     	    if tool:IsA("Tool") and not antigear then
-            	warnGear(player)
-                break
+                for i,v in pairs(crashwl) do
+	                if player.Name == v then
+                       break
+                    else
+                       warnGear(player, toolName)
+                       break
+                    end
+                end
             end
         end
     end
