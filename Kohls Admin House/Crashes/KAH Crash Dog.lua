@@ -1,10 +1,14 @@
 --IF YOU DONT HAVE PERM ADD LOOPGRAB.lua or PERM.LUA TO THIS SCRIPT
 -- DOESN'T WORK ON KOHLS ADMIN HOUSE BC! PLEASE USE VGCRASH FOR BC.
 -- number = math.random(1, 7)
+game.Players:Chat("fogend 0")
+game.Players:Chat("flash")
+game.Players:Chat("clr")
 game.Players:Chat("time 0")
 game.Players:Chat("respawn all")
+game.Players:Chat("speed all 0")
 -- game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("No whitelisted users found! ".. math.random(1,1000), "All")
--- game.Players:Chat("h \n\n\n {ERROR} \n\n\n")
+game.Players:Chat("h \n\n\n Fatal overload \n\n\n" .. math.random(1000,2000))
 -- if number == 1 then
 --    game.Players:Chat("h \n\n\n Sorry, something went wrong! {ERROR 1} \n\n\n")
 --elseif number == 2 then
@@ -28,12 +32,12 @@ while counter < 1000 do
     game.Players:Chat("dog all all all" .. math.random(1, 1000))
     counter = counter + 1
 end
-local Servers = game.HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/112420803/servers/Public?sortOrder=Asc&limit=100"))
-for i,v in pairs(Servers.data) do
-  if v.playing ~= v.maxPlayers then
-      game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, v.id)
-  end
-end
+-- local Servers = game.HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/112420803/servers/Public?sortOrder=Asc&limit=100"))
+-- for i,v in pairs(Servers.data) do
+--  if v.playing ~= v.maxPlayers then
+--      game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, v.id)
+--  end
+-- end
 
 -- 0000000000000000000009048375035 (all dropping 8 beats)
 -- 0000000000000000000006680495507 (meow meow)
