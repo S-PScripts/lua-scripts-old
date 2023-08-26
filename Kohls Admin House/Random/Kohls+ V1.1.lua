@@ -15,14 +15,12 @@ antigear = false
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
     if command == ".slock" then
-       Slock()
        slock = true
        Chat('respawn all')
        Chat('m this server is locked.')
        print("Slock is on.")
     end
     if string.sub(msg:lower(), 0, 5) == ".spam" then 
-       Spam()
        spammer = string.sub(msg:lower(), 7)
        spam = true
     end
@@ -76,7 +74,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	print("irreversible. tbh tho why do you need dis?")	
     end
     if command == ".lflood" then
-        Logflood()
         lspam = true
         print("Log flood is on.")
     end
@@ -131,7 +128,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
     end
     if command == ".spamregen" then
-       Spamregen()	
        regenspam = true
     end
     if command == ".unspamregen" then
@@ -154,7 +150,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        print("Antigear is off.")
     end
     if command == ".blinder" then
-       Blinder()
        blinds = true
        print("blinder is on")
     end
@@ -351,7 +346,6 @@ local function Slock()
 	       Chat("ungear all " .. math.random(1,1000))
       end
       task.wait(0)
-      Slock()
 end
 
 local function Blinder()
@@ -361,7 +355,6 @@ local function Blinder()
 	       Chat("ungear all " .. math.random(1,1000))
       end
       task.wait(0)
-      Blinder()
 end
 
 local function Logflood()
@@ -369,7 +362,6 @@ local function Logflood()
 	       Chat("ff no logs " .. math.random(1,1000))
       end
       task.wait(0)
-      Logflood()
 end
 
 local function Spamregen()
@@ -377,7 +369,6 @@ local function Spamregen()
 	     fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)  
       end
       task.wait(0)
-      Spamregen()
 end
 
 local function Spam()
@@ -385,7 +376,6 @@ local function Spam()
 	       Chat(spammer)
       end
       task.wait(0)
-      Spam()
 end
 
 local UserInputService = game:GetService("UserInputService")
@@ -424,6 +414,11 @@ game.Players.LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
 
 coroutine.wrap(function()
     while true do
+	Slock()
+	Blinder()
+	Logflood()
+	Spamregen()
+	Spam()
         LoopGrabPads()
 	Perm()
         task.wait()
