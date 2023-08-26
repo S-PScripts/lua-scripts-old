@@ -7,7 +7,8 @@ end
 antireexec=true
 local function Chat(txt)
       game.Players:Chat(txt)
-end		
+end
+Chat("h \n\n\n Kohls+ V1.1 Executed! \n\n\n")
 print("Kohls+ v1.1 is executed.")
 print("Created by ts2021/scriptingprogrammer")
 anticrash = true
@@ -20,6 +21,8 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        Chat('m this server is locked.')
        print("Slock is on.")
     end
+    if string.sub(msg:lower(), 0, 3) == ".pa" then
+       perman = string.sub(msg:lower(), 5)
     if string.sub(msg:lower(), 0, 5) == ".spam" then 
        spammer = string.sub(msg:lower(), 7)
        spam = true
@@ -408,6 +411,13 @@ local function Spam()
       task.wait(0)
 end
 
+local function PA()
+      if perman == true then
+	       Chat("h \n\n\n "..perman.. " \n\n\n")
+      end
+      task.wait(0)
+end
+
 local UserInputService = game:GetService("UserInputService")
 UserInputService.WindowFocusReleased:Connect(function()
     if autoafk == true then
@@ -451,6 +461,7 @@ coroutine.wrap(function()
 	Spam()
         LoopGrabPads()
 	Perm()
+	PA()
         task.wait()
     end
 end)()
