@@ -461,7 +461,7 @@ end
 game.Players.LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
 
 local function onPlayerAdded(player)
-   Chat("h \n\n\n Welcome to the server, " .. player.Name .. ". \n\n\n")
+    Chat("h \n\n\n Welcome to the server, " .. player.Name .. ". \n\n\n")
 end
 
 local function onPlayerLeaving(player)
