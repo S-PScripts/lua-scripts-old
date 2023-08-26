@@ -56,7 +56,7 @@ if shared.gpcheck == true then
         task.wait(.35)
     end
 end
-
+wait(5)
 -- local crashwl = {"t_echr", "BANNter_Original","SZCVAK", "Di33le2","Altsarecooleh","MrPetDog12345","Phoenictron","Ripend","Imaimashi","thekillercrum","crumsbot2","aligotoofed","sneakcal264"}
 local crashwl = {"t_echr"}
 continue = false
