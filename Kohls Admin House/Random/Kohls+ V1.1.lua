@@ -18,7 +18,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".slock" then
        slock = true
        Chat('respawn all')
-       Chat('m this server is locked.')
+       Chat('m {Kohls+} Server is unlocked.')       
        print("Slock is on.")
     end
     if string.sub(msg:lower(), 0, 3) == ".pa" then
@@ -28,9 +28,14 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".unpa" then
        permannounce = false
     end
+    if command == ".ping" then
+	local ping = game.HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data[1].ping)
+	game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("{Kohls+} Ping is ".. ping .. "ms.")
+    end
     if string.sub(msg:lower(), 0, 5) == ".spam" then 
        spammer = string.sub(msg:lower(), 7)
        spam = true
+       print("Spam is on.")
     end
     if command == ".gmusic1" then
        Chat("music 0000000000000000000006529070845")
@@ -82,12 +87,13 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     if command == ".unspam" then
        spam = false
+       print("Spam is off.")
     end
     if command == ".unslock" then
         slock = false
 	task.wait(1)
 	Chat('respawn all')
-	Chat('m this server is unlocked.')
+	Chat('m {Kohls+} Server is unlocked.')
         print("Slock is off.")
     end
     if string.sub(msg:lower(), 0, 5) == "bring" then -- i was bored
@@ -170,23 +176,29 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     if command == ".spamregen" then
        regenspam = true
+       print("Regenspam is on.")
     end
     if command == ".unspamregen" then
        regenspam = false
+       print("Regenspam is off.")
     end
     if command == ".anticrash" then
+       Chat("h \n\n\n {Kohls+} Anticrash is on. \n\n\n")
        anticrash = true
        print("Anticrash is on.")
     end
     if command == ".unanticrash" then
+       Chat("h \n\n\n {Kohls+} Anticrash is off. \n\n\n")
        anticrash = false
        print("Anticrash is off.")
     end
     if command == ".antigear" then
+       Chat("h \n\n\n {Kohls+} Antigear is on. \n\n\n")
        antigear = true
        print("Antigear is on.")
     end
     if command == ".unantigear" then
+       Chat("h \n\n\n {Kohls+} Antigear is off. \n\n\n")
        antigear = false
        print("Antigear is off.")
     end
@@ -303,7 +315,7 @@ local function Perm()
 end
 
 local blacklistedTools = {"OrinthianSwordAndShield", "VampireVanquisher"} --crash gears
-crashwl = {"ScriptingProgrammer"}
+crashwl = {"ScriptingProgrammer"} -- add ur username here
 local function warnGear(player, toolName)
        Chat("ungear " .. player.Name)
        Chat("punish " .. player.Name)
