@@ -7,7 +7,6 @@ game.Players:Chat("blind others")
 game.Players:Chat("h \n\n\n Sorry, something went wrong! {ERROR 1} \n\n\n")
 game.Players:Chat("music 0000000000000000000006529070845")
 game.Players:Chat(":gear me 000000000000000000000000000000000000094794847")
-wait(1.5)
 local Backpack = game.Players.LocalPlayer:FindFirstChildOfClass("Backpack")
 game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher")
 for _, v in ipairs(Backpack:GetChildren()) do
