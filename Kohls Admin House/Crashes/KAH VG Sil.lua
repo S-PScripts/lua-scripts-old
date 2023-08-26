@@ -1,4 +1,4 @@
---IF YOU DONT HAVE PERM ADD THE KAH PADS.lua CFRAMES TO THIS SCRIPT
+--IF YOU DONT HAVE PERM USE LG/PERM IN PADS FOLDER
 game.Players:Chat(":gear me 000000000000000000000000000000000000094794847")
     local Backpack = game.Players.LocalPlayer:FindFirstChildOfClass("Backpack")
     game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher")
