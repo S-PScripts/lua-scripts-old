@@ -12,7 +12,7 @@ for i, player in pairs(game.Players:GetPlayers()) do
    end
 end
 
-if continue == true
+if continue == true then
     game.Players:Chat("fogend 0")
     game.Players:Chat("flash")
     game.Players:Chat("clr")
