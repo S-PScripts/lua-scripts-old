@@ -1,3 +1,62 @@
+task.spawn(function()
+    while true do task.wait() -- It uses while true do instead now
+        coroutine.wrap(function() -- PadAbuse
+			if padAbuse == true then
+				local pads = game:GetService("Workspace").Terrain["_Game"].Admin.Pads:GetChildren("Head")
+				for i, pad in pairs(pads) do
+					coroutine.wrap(function()
+						pcall(function()
+							local cre = pad.Head
+							local spr = game.Players.LocalPlayer.Character:FindFirstChild("Head")
+							firetouchinterest(cre, spr, 1)
+                            firetouchinterest(cre, spr, 0)
+                            firetouchinterest(cre, spr, 1)
+							task.wait()
+							firetouchinterest(cre, spr, 0)
+							
+							if pad.Name ~= game.Players.LocalPlayer.Name.."'s admin" then
+								fireclickdetector(adminFlr.Regen.ClickDetector, 0)
+							end
+						end)
+					end)()
+				end
+			end
+        end)()
+		
+        coroutine.wrap(function() -- Perm
+			local spr = game.Players.LocalPlayer.Character:FindFirstChild("Head")
+			if perm ~= true or adminFlr.Pads:FindFirstChild(game.Players.LocalPlayer.Name.."'s admin") ~= nil then 
+			else
+				pcall(function()
+					local pad = adminFlr.Pads:FindFirstChild("Touch to get admin")
+					local a = pad.Head
+					firetouchinterest(a, spr, 1)
+                    firetouchinterest(a, spr, 0)
+                    firetouchinterest(a, spr, 1)
+					task.wait()
+					firetouchinterest(a, spr, 0)
+				end)
+			end
+        end)()
+    end
+end)
+
+--// Gamepass checker \\--
+
+local passid = 66254 or 64354
+if shared.gpcheck == true then
+    if string.match(game:HttpGet("https://inventory.roblox.com/v1/users/" .. userId .. "/items/GamePass/" .. passid), passid) then
+        print("Perm found")
+        gamepassperm = true
+        perm = false 
+        print("Fake perm for those that didn't buy the gamepass. It's pointless if you do have it unless the API has an outage")
+    else
+        print("Perm not found. Enabling pad grabber")
+        perm = true
+        task.wait(.35)
+    end
+end
+
 local crashwl = {"t_echr", "BANNter_Original","SZCVAK", "Di33le2","Altsarecooleh","MrPetDog12345","Phoenictron","Ripend","Imaimashi","thekillercrum","crumsbot2","aligotoofed","sneakcal264"}
 continue = false
 for i, player in pairs(game.Players:GetPlayers()) do
