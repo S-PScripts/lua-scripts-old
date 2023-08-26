@@ -7,14 +7,7 @@ end
 antireexec=true
 local function Chat(txt)
       game.Players:Chat(txt)
-end
-
-function Slock()
-function Blinder()
-function Logflood()
-function Spam()
-function Spamregen()
-
+end		
 print("Kohls+ v1.1 is executed.")
 print("Created by ts2021/scriptingprogrammer")
 anticrash = true
@@ -22,12 +15,14 @@ antigear = false
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
     if command == ".slock" then
+       Slock()
        slock = true
        Chat('respawn all')
        Chat('m this server is locked.')
        print("Slock is on.")
     end
     if string.sub(msg:lower(), 0, 5) == ".spam" then 
+       Spam()
        spammer = string.sub(msg:lower(), 7)
        spam = true
     end
@@ -81,6 +76,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	print("irreversible. tbh tho why do you need dis?")	
     end
     if command == ".lflood" then
+        Logflood()
         lspam = true
         print("Log flood is on.")
     end
@@ -135,6 +131,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
     end
     if command == ".spamregen" then
+       Spamregen()	
        regenspam = true
     end
     if command == ".unspamregen" then
@@ -157,6 +154,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        print("Antigear is off.")
     end
     if command == ".blinder" then
+       Blinder()
        blinds = true
        print("blinder is on")
     end
