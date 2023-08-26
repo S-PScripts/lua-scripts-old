@@ -460,6 +460,16 @@ end
 
 game.Players.LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
 
+local function onPlayerAdded(player)
+   Chat("h \n\n\n Welcome to the server, " .. player.Name .. ". \n\n\n")
+end
+
+local function onPlayerLeaving(player)
+    Chat("h \n\n\n Goodbye, " .. player.Name .. ". \n\n\n")
+end
+
+game.Players.PlayerAdded:Connect(onPlayerAdded)
+game.Players.PlayerRemoving:Connect(onPlayerLeaving)
 coroutine.wrap(function()
     while true do
 	Slock()
