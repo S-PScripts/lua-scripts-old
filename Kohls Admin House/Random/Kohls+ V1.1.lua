@@ -29,7 +29,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        permannounce = false
     end
     if command == ".ping" then
-	local ping = game.HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data[1].ping)
+	local ping = game.HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data[1].ping
 	game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("{Kohls+} Ping is ".. ping .. "ms.")
     end
     if string.sub(msg:lower(), 0, 5) == ".spam" then 
