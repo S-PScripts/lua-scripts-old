@@ -134,19 +134,19 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        regenspam = false
     end
     if command == ".anticrash" then
-       anticrash = false
+       anticrash = true
        print("Anticrash is on.")
     end
     if command == ".unanticrash" then
-       anticrash = true
+       anticrash = false
        print("Anticrash is off.")
     end
     if command == ".antigear" then
-       antigear = false
+       antigear = true
        print("Antigear is on.")
     end
     if command == ".unantigear" then
-       antigear = true
+       antigear = false
        print("Antigear is off.")
     end
     if command == ".blinder" then
