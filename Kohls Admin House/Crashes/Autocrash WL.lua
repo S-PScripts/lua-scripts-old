@@ -58,7 +58,7 @@ if shared.gpcheck == true then
 end
 
 -- local crashwl = {"t_echr", "BANNter_Original","SZCVAK", "Di33le2","Altsarecooleh","MrPetDog12345","Phoenictron","Ripend","Imaimashi","thekillercrum","crumsbot2","aligotoofed","sneakcal264"}
-local crashwl = {"t_echr")
+local crashwl = {"t_echr"}
 continue = false
 for i, player in pairs(game.Players:GetPlayers()) do
     if table.find(crashwl, player.Name) then
