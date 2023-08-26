@@ -30,7 +30,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     if command == ".ping" then
 	ping = game.HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/112420803/servers/Public?sortOrder=Asc&limit=100")).data[1].ping
-	game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("{Kohls+} Ping is " .. ping .. "ms.")
+	game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("{Kohls+} Ping is " .. ping .. "ms.", "All")
     end
     if string.sub(msg:lower(), 0, 5) == ".spam" then 
        spammer = string.sub(msg:lower(), 7)
