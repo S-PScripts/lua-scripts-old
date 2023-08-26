@@ -365,7 +365,7 @@ local function Logflood()
 end
 
 local function Spamregen()
-      if spamregen == true then
+      if regenspam == true then
 	     fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)  
       end
       task.wait(0)
