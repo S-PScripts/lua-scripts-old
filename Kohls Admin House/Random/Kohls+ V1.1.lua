@@ -23,6 +23,11 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     if string.sub(msg:lower(), 0, 3) == ".pa" then
        perman = string.sub(msg:lower(), 5)
+       permannounce = true
+    end
+    if command == ".unpa" then
+       permannounce = false
+    end
     if string.sub(msg:lower(), 0, 5) == ".spam" then 
        spammer = string.sub(msg:lower(), 7)
        spam = true
@@ -412,7 +417,7 @@ local function Spam()
 end
 
 local function PA()
-      if perman == true then
+      if permannounce == true then
 	       Chat("h \n\n\n "..perman.. " \n\n\n")
       end
       task.wait(0)
