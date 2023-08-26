@@ -8,15 +8,17 @@ antireexec=true
 local function Chat(txt)
       game.Players:Chat(txt)
 end
+
+Slock()
+Blinder()
+Logflood()
+Spam()
+Spamregen()
+
 print("Kohls+ v1.1 is executed.")
 print("Created by ts2021/scriptingprogrammer")
-slock = false
-spam = false
-lspam = false
-anticrash = false -- false means its on
-antigear = true -- true means its off
-antikill = false
-blinds = false
+anticrash = true
+antigear = false
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
     if command == ".slock" then
@@ -55,12 +57,12 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         print("Slock is off.")
     end
     if string.sub(msg:lower(), 0, 5) == "bring" then -- i was bored
-       local bring = string.sub(msg:lower(), 7)		
-       Chat("tp ".. bring .." me")
+       local bri = string.sub(msg:lower(), 7)		
+       Chat("tp ".. bri .." me")
     end
     if string.sub(msg:lower(), 0, 4) == "goto" then -- i was bored
-       local goto = string.sub(msg:lower(), 6)		
-       Chat("tp me " .. goto .." ")
+       local gtp = string.sub(msg:lower(), 6)		
+       Chat("tp me " .. gtp .." ")
     end
     if command == ".nok" then
 	game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump.TouchInterest:destroy()
@@ -131,6 +133,12 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     if command == ".regen" then
        fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)
+    end
+    if command == ".spamregen" then
+       regenspam = true
+    end
+    if command == ".unspamregen" then
+       regenspam = false
     end
     if command == ".anticrash" then
        anticrash = false
@@ -280,7 +288,7 @@ local function checkPlayerBackpack(player)
     if backpack then
         for _, toolName in ipairs(blacklistedTools) do
             local tool = backpack:FindFirstChild(toolName)
-            if tool and not anticrash then
+            if tool and anticrash then
                 for i,v in pairs(crashwl) do
 	                if player.Name == v then
                        break
@@ -299,7 +307,7 @@ local function checkPlayerGBackpack(player)
     local gbackpack = player:FindFirstChild("Backpack")
     if gbackpack then
         for _, tool in ipairs(player.Backpack:GetChildren()) do
-    	    if tool:IsA("Tool") and not antigear then
+    	    if tool:IsA("Tool") and antigear then
                 for i,v in pairs(crashwl) do
 	                if player.Name == v then
                        break
@@ -345,6 +353,7 @@ local function Slock()
 	       Chat("ungear all " .. math.random(1,1000))
       end
       task.wait(0)
+      Slock()
 end
 
 local function Blinder()
@@ -354,6 +363,7 @@ local function Blinder()
 	       Chat("ungear all " .. math.random(1,1000))
       end
       task.wait(0)
+      Blinder()
 end
 
 local function Logflood()
@@ -361,6 +371,15 @@ local function Logflood()
 	       Chat("ff no logs " .. math.random(1,1000))
       end
       task.wait(0)
+      Logflood()
+end
+
+local function Spamregen()
+      if spamregen == true then
+	     fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)  
+      end
+      task.wait(0)
+      Spamregen()
 end
 
 local function Spam()
@@ -368,6 +387,7 @@ local function Spam()
 	       Chat(spammer)
       end
       task.wait(0)
+      Spam()
 end
 
 local UserInputService = game:GetService("UserInputService")
@@ -408,10 +428,6 @@ coroutine.wrap(function()
     while true do
         LoopGrabPads()
 	Perm()
-	Slock()
-	Blinder()
-	Logflood()
-	Spam()
         task.wait()
     end
 end)()
