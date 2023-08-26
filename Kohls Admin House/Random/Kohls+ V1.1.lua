@@ -32,8 +32,9 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        local stats = game:GetService("Stats");
        local network = stats.Network;
        local serverStats = network.ServerStatsItem;
-       local serverPing = serverStats["Data Ping"]:GetValue();	
-       game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("{Kohls+} Ping is " .. serverPing .. "ms.", "All")
+       local serverPing = serverStats["Data Ping"]:GetValue();
+       local rsp = math.floor(serverPing + 0.5)
+       game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("{Kohls+} Ping is " .. rsp .. "ms.", "All")
     end
     if string.sub(msg:lower(), 0, 5) == ".spam" then 
        spammer = string.sub(msg:lower(), 7)
