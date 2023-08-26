@@ -14,15 +14,12 @@ for i, player in pairs(game.Players:GetPlayers()) do
 end
 
 if continue == false then
-    game.Players:Chat("fogend 0")
-    game.Players:Chat("flash")
     game.Players:Chat("clr")
+    game.Players:Chat("fix")
     game.Players:Chat("time 0")   
     game.Players:Chat("respawn all")
     game.Players:Chat("speed all 0")
-    game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("{Kohls+ Crasher} No whitelisted users found in server! RN: ".. math.random(1,1000), "All")
-    game.Players:Chat("h \n\n\n Fatal overload 1337. Please reconnect to the server. {Kohls+} \n\n\n")
-    game.Players:Chat("music 6913550990")
+    game.Players:Chat("music 00000000000000000000006772846771")
     wait(0.5)
     counter = 0
     while counter < 1000 do
