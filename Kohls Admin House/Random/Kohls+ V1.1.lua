@@ -9,11 +9,11 @@ local function Chat(txt)
       game.Players:Chat(txt)
 end
 
-Slock()
-Blinder()
-Logflood()
-Spam()
-Spamregen()
+function Slock()
+function Blinder()
+function Logflood()
+function Spam()
+function Spamregen()
 
 print("Kohls+ v1.1 is executed.")
 print("Created by ts2021/scriptingprogrammer")
