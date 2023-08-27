@@ -546,7 +546,7 @@ end)()
 
 coroutine.wrap(function()
     while true do
-	Loopgrab()
+	LoopGrabPads()
         task.wait()
     end
 end)()
