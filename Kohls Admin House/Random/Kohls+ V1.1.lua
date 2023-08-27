@@ -241,7 +241,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         Chat("flash")
         Chat("clr")
         Chat("time 0")
-        Chat("blind others")
 	Chat("music 0000000000000000000006529070845")
         task.wait(0.5)
         fcounter = 0
@@ -253,12 +252,18 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
               fcounter = fcounter + 1     
 	end
     end
-    if command == ".crash" then
+    if command == ".facrash" then
 	Chat("fogend 0")
         Chat("flash")
         Chat("clr")
         Chat("time 0")
-        Chat("blind others")
+	Chat("music 0000000000000000000006529070845")
+    end
+    if command == ".dcrash" then
+	Chat("fogend 0")
+        Chat("flash")
+        Chat("clr")
+        Chat("time 0")
 	Chat("music 0000000000000000000006529070845")
         task.wait(0.5)
         ccounter = 0
