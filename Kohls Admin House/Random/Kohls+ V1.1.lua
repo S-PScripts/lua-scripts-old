@@ -497,12 +497,40 @@ game.Players.PlayerRemoving:Connect(onPlayerLeaving)
 coroutine.wrap(function()
     while true do
 	Slock()
+        task.wait()
+    end
+end)()
+
+coroutine.wrap(function()
+    while true do
 	Blinder()
+        task.wait()
+    end
+end)()
+
+coroutine.wrap(function()
+    while true do
 	Logflood()
+        task.wait()
+    end
+end)()
+
+coroutine.wrap(function()
+    while true do
 	Spamregen()
+        task.wait()
+    end
+end)()
+
+coroutine.wrap(function()
+    while true do
 	Spam()
-        LoopGrabPads()
-	Perm()
+        task.wait()
+    end
+end)()
+
+coroutine.wrap(function()
+    while true do
 	PA()
         task.wait()
     end
