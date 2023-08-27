@@ -216,6 +216,9 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        Chat("respawn all")
        print("blinder is off")
     end
+    if command == ".vg" then
+       Chat("gear me 000000000000000000094794847")
+    end
     if command == ".silcrash" then
         task.wait(0.5)
         scounter = 0
