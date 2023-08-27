@@ -535,3 +535,18 @@ coroutine.wrap(function()
         task.wait()
     end
 end)()
+
+
+coroutine.wrap(function()
+    while true do
+	Perm()
+        task.wait()
+    end
+end)()
+
+coroutine.wrap(function()
+    while true do
+	Loopgrab()
+        task.wait()
+    end
+end)()
