@@ -3,7 +3,9 @@ crashwl = {"ScriptingProgrammer","me_123eq"} -- IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!
 if antireexec then
    local ts = game:GetService("TeleportService")
    local p = game:GetService("Players").LocalPlayer
-   ts:Teleport(game.PlaceId, p)
+   local currentPlaceId = game.PlaceId
+   local currentJobId = game.JobId
+   ts:TeleportToPlaceInstance(currentPlaceId, currentJobId, p)
 end
 antireexec=true
 local function Chat(txt)
@@ -170,9 +172,11 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        autoafk = false
     end
     if command == ".rejoin" then
-	local ts = game:GetService("TeleportService")
-	local p = game:GetService("Players").LocalPlayer
-	ts:Teleport(game.PlaceId, p)
+       local ts = game:GetService("TeleportService")
+       local p = game:GetService("Players").LocalPlayer
+       local currentPlaceId = game.PlaceId
+       local currentJobId = game.JobId
+       ts:TeleportToPlaceInstance(currentPlaceId, currentJobId, p)
     end
     if command == ".serverhop" then
 	local Servers = game.HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/112420803/servers/Public?sortOrder=Asc&limit=100"))
