@@ -1,4 +1,5 @@
 --THIS ISN'T SKIDDED
+crashwl = {"ScriptingProgrammer","me_123eq"} -- IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!!! ADD YOUR NAME HERE OR YOU WON'T BE ABLE TO USE GEARS IF ANTI-GEAR IS ON
 if antireexec then
    local ts = game:GetService("TeleportService")
    local p = game:GetService("Players").LocalPlayer
@@ -18,7 +19,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".slock" then
        slock = true
        Chat('respawn all')
-       Chat('m {Kohls+} Server is unlocked.')       
+       Chat('m {Kohls+} Server is locked.')       
        print("Slock is on.")
     end
     if string.sub(msg:lower(), 0, 3) == ".pa" then
@@ -28,12 +29,18 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".unpa" then
        permannounce = false
     end
+    if command == ".welcome" then
+       welcomemsg = true
+    end
+    if command == ".unwelcome" then
+       welcomemsg = false
+    end
     if command == ".ping" then
-       local stats = game:GetService("Stats");
-       local network = stats.Network;
-       local serverStats = network.ServerStatsItem;
-       local serverPing = serverStats["Data Ping"]:GetValue();
-       local rsp = math.floor(serverPing + 0.5)
+       local stats = game:GetService("Stats")
+       local network = stats.Network
+       local serverStats = network.ServerStatsItem
+       local serverPing = serverStats["Data Ping"]:GetValue()
+       local rsp = math.floor(serverPing + 0.5) -- i can't be bothered to make a more precise version. it's only a 1ms difference if it's rounded wrong xd
        game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("{Kohls+} Ping is " .. rsp .. "ms.", "All")
     end
     if string.sub(msg:lower(), 0, 5) == ".spam" then 
@@ -57,34 +64,34 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        Chat("music 0000000000000000000006913550990")
     end
     if command == ".gmusic6" then
-       Chat("music 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005216738441")
+       Chat("music 00000000000000000000005216738441")
     end
     if command == ".gmusic7" then
-       Chat("music 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006695430066")
+       Chat("music 00000000000000000000006695430066")
     end
     if command == ".gmusic8" then
-       Chat("music 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006872126938")
+       Chat("music 00000000000000000000006872126938")
     end
     if command == ".gmusic9" then
-       Chat("music 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002042581436")
+       Chat("music 00000000000000000000002042581436")
     end
     if command == ".gmusic10" then
-       Chat("music 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006703926669")
+       Chat("music 00000000000000000000006703926669")
     end
     if command == ".gmusic11" then
-       Chat("music 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006806140478")
+       Chat("music 00000000000000000000006806140478")
     end
     if command == ".gmusic12" then
-       Chat("music 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001837070127")
+       Chat("music 00000000000000000000001837070127")
     end
     if command == ".gmusic13" then
-       Chat("music 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006673004638")
+       Chat("music 00000000000000000000006673004638")
     end
     if command == ".gmusic14" then
-       Chat("music 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006681840651")
+       Chat("music 00000000000000000000006681840651")
     end
     if command == ".gmusic15" then
-       Chat("music 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011808880515")
+       Chat("music 00000000000000000000011808880515")
     end
     if command == ".gmusic16" then
        Chat("music 00000000000000000000006772846771")
@@ -327,7 +334,6 @@ local function Perm()
 end
 
 local blacklistedTools = {"OrinthianSwordAndShield", "VampireVanquisher"} --crash gears
-crashwl = {"ScriptingProgrammer"} -- add ur username here
 local function warnGear(player, toolName)
        Chat("ungear " .. player.Name)
        Chat("punish " .. player.Name)
@@ -459,6 +465,7 @@ UserInputService.WindowFocusReleased:Connect(function()
     end
     task.wait()
 end)
+
 UserInputService.WindowFocused:Connect(function()
     if autoafk == false then
         Chat("reset me")
@@ -485,67 +492,32 @@ end
 game.Players.LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
 
 local function onPlayerAdded(player)
-    Chat("h \n\n\n Welcome to the server, " .. player.Name .. ". \n\n\n")
+    if welcomemsg = true
+    	Chat("h \n\n\n Welcome to the server, " .. player.Name .. ". \n\n\n")
+    end
+    task.wait()
 end
 
 local function onPlayerLeaving(player)
-    Chat("h \n\n\n Goodbye, " .. player.Name .. ". \n\n\n")
+    if welcomemsg = true
+    	Chat("h \n\n\n Goodbye, " .. player.Name .. ". \n\n\n")
+    end
+    task.wait()
 end
 
 game.Players.PlayerAdded:Connect(onPlayerAdded)
 game.Players.PlayerRemoving:Connect(onPlayerLeaving)
+
+-- the more you use, the slower it does stuff
 coroutine.wrap(function()
     while true do
 	Slock()
-        task.wait()
-    end
-end)()
-
-coroutine.wrap(function()
-    while true do
 	Blinder()
-        task.wait()
-    end
-end)()
-
-coroutine.wrap(function()
-    while true do
 	Logflood()
-        task.wait()
-    end
-end)()
-
-coroutine.wrap(function()
-    while true do
 	Spamregen()
-        task.wait()
-    end
-end)()
-
-coroutine.wrap(function()
-    while true do
 	Spam()
-        task.wait()
-    end
-end)()
-
-coroutine.wrap(function()
-    while true do
 	PA()
-        task.wait()
-    end
-end)()
-
-
-coroutine.wrap(function()
-    while true do
 	Perm()
-        task.wait()
-    end
-end)()
-
-coroutine.wrap(function()
-    while true do
 	LoopGrabPads()
         task.wait()
     end
