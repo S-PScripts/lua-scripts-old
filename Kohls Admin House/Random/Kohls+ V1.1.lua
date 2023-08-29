@@ -496,14 +496,14 @@ end
 game.Players.LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
 
 local function onPlayerAdded(player)
-    if welcomemsg = true
+    if welcomemsg == true then
     	Chat("h \n\n\n Welcome to the server, " .. player.Name .. ". \n\n\n")
     end
     task.wait()
 end
 
 local function onPlayerLeaving(player)
-    if welcomemsg = true
+    if welcomemsg == true then
     	Chat("h \n\n\n Goodbye, " .. player.Name .. ". \n\n\n")
     end
     task.wait()
