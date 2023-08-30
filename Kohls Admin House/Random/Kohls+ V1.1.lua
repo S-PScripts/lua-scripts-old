@@ -50,8 +50,26 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        spam = true
        print("Spam is on.")
     end
-    if command == ".whiteout" then
+    if command == ".whitemap" then
        loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/main/Whiteout'))()
+    end
+    if command == ".redmap" then
+       loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/Outs/redout'))()
+    end
+    if command == ".greenmap" then
+       loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/Outs/greenout'))()
+    end
+    if command == ".bluemap" then
+       loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/Outs/blueout'))()
+    end
+    if command == ".blackmap" then
+       loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/Outs/blackout'))()
+    end
+    if command == ".purplemap" then
+       loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/Outs/purpleout'))()
+    end
+    if command == ".fixpaint" then
+       loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/main/betterfixcolor'))()
     end
     if command == ".gmusic1" then
        Chat("music 0000000000000000000006529070845")
