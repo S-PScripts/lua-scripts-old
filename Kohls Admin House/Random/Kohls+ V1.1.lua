@@ -187,6 +187,12 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        antikill = false
        print("Antikill is off.")
     end
+    if command == ".antichat" then
+       antichat = true
+    end
+    if command == ".unantichat" then
+       antichat = false
+    end
     if command == ".lg" then
        loopgrab = true
        print("Loopgrab is on.")
@@ -545,6 +551,9 @@ task.spawn(function()
       	    end
 	    if permannounce == true then
 	       Chat("h \n\n\n "..perman.. " \n\n\n")
+            end
+	    if antichat == true then
+	       Chat("h \n\n\n I wish I lived in the present With the gift of my past mistakes But the future keeps luring in like a pack of snakes \n\n\n")
             end
 	    if antijail == true then
 		if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(game.Players.LocalPlayer.Name.."'s jail") then
