@@ -30,6 +30,6 @@ if continue == false then
 --	for i,v in pairs(Servers.data) do
   --	    if v.playing ~= v.maxPlayers then
   --	       game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, v.id)
-        end
-    end
+--        end
+--    end
 end
