@@ -26,10 +26,10 @@ if continue == false then
         game.Players:Chat("dog all all all" .. math.random(1, 1000))
         counter = counter + 1
     end
-    local Servers = game.HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/112420803/servers/Public?sortOrder=Asc&limit=100"))
-	for i,v in pairs(Servers.data) do
-  	    if v.playing ~= v.maxPlayers then
-  	       game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, v.id)
+  --  local Servers = game.HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/112420803/servers/Public?sortOrder=Asc&limit=100"))
+--	for i,v in pairs(Servers.data) do
+  --	    if v.playing ~= v.maxPlayers then
+  --	       game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, v.id)
         end
     end
 end
