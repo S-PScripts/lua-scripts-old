@@ -57,7 +57,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/Outs/redout'))()
     end
     if command == ".greenmap" then
-       loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/Outs/greenout'))()
+       loadstring(game:HttpGet('https://raw.githubusercontent.com/S-PScripts/lua-scripts/main/Kohls%20Admin%20House/Random/green%20out%20fixed.lua'))()
     end
     if command == ".bluemap" then
        loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/Outs/blueout'))()
