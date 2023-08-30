@@ -24,8 +24,8 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        Chat('m {Kohls+} Server is locked.')       
        print("Slock is on.")
     end
-    if string.sub(msg:lower(), 0, 3) == ".permannounce" then
-       perman = string.sub(msg:lower(), 5)
+    if string.sub(msg:lower(), 0, 13) == ".permannounce" then
+       perman = string.sub(msg:lower(), 15)
        permannounce = true
     end
     if command == ".unpa" then
