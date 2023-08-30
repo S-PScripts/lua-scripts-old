@@ -435,52 +435,6 @@ for _, player in ipairs(game.Players:GetPlayers()) do
     end
 end
 
-local function Slock()
-      if slock == true then
-	       Chat("punish all " .. math.random(1,1000))
-	       Chat("blind others " .. math.random(1,1000))
-	       Chat("ungear all " .. math.random(1,1000))
-      end
-      task.wait(0)
-end
-
-local function Blinder()
-      if blinds == true then
-	       Chat("respawn all " .. math.random(1,1000))
-	       Chat("blind all " .. math.random(1,1000))
-	       Chat("ungear all " .. math.random(1,1000))
-      end
-      task.wait(0)
-end
-
-local function Logflood()
-      if lspam == true then
-	       Chat("ff no logs " .. math.random(1,1000))
-      end
-      task.wait(0)
-end
-
-local function Spamregen()
-      if regenspam == true then
-	     fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)  
-      end
-      task.wait(0)
-end
-
-local function Spam()
-      if spam == true then
-	       Chat(spammer)
-      end
-      task.wait(0)
-end
-
-local function PA()
-      if permannounce == true then
-	       Chat("h \n\n\n "..perman.. " \n\n\n")
-      end
-      task.wait(0)
-end
-
 local UserInputService = game:GetService("UserInputService")
 UserInputService.WindowFocusReleased:Connect(function()
     if autoafk == true then
@@ -536,14 +490,36 @@ game.Players.PlayerRemoving:Connect(onPlayerLeaving)
 -- the more you use, the slower it does stuff
 coroutine.wrap(function()
     while true do
-	Slock()
-	Blinder()
-	Logflood()
-	Spamregen()
-	Spam()
-	PA()
 	Perm()
 	LoopGrabPads()
         task.wait()
     end
+end)()
+
+task.spawn(function()
+     while true do
+	    task.wait()
+	    if slock == true then
+	       Chat("punish all " .. math.random(1,1000))
+	       Chat("blind others " .. math.random(1,1000))
+	       Chat("ungear all " .. math.random(1,1000))
+     	    end
+	    if blinds == true then
+	       Chat("respawn all " .. math.random(1,1000))
+	       Chat("blind all " .. math.random(1,1000))
+	       Chat("ungear all " .. math.random(1,1000))
+            end
+	    if lspam == true then
+	       Chat("ff no logs " .. math.random(1,1000))
+      	    end
+	    if regenspam == true then
+	       fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)  
+     	    end
+	    if spam == true then
+	       Chat(spammer)
+      	    end
+	    if permannounce == true then
+	       Chat("h \n\n\n "..perman.. " \n\n\n")
+            end
+      end
 end)()
