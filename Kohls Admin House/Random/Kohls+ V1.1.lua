@@ -168,7 +168,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".autoafk" then
        autoafk = true
     end
-    if command == "unautoafk" then
+    if command == ".unautoafk" then
        autoafk = false
     end
     if command == ".rejoin" then
@@ -471,7 +471,7 @@ UserInputService.WindowFocusReleased:Connect(function()
 end)
 
 UserInputService.WindowFocused:Connect(function()
-    if autoafk == false then
+    if autoafk == true then
         Chat("reset me")
         Chat("unff me")
         Chat("ungod me")
