@@ -37,6 +37,20 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".unwelcome" then
        welcomemsg = false
     end
+    if command == ".pause" then
+       for i,v in pairs(workspace.Terrain._Game.Folder:GetDescendants()) do
+	if v:IsA("Sound") and v.Playing then
+	v.Playing = false
+	end
+	end
+    end
+    if command == ".play" then
+	for i,v in pairs(workspace.Terrain._Game.Folder:GetDescendants()) do
+	if v:IsA("Sound") and v.Playing then
+	v.Playing = false
+	end
+	end
+    end
     if command == ".ping" then
        local stats = game:GetService("Stats")
        local network = stats.Network
