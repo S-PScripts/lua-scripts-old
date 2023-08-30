@@ -194,9 +194,11 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     if command == ".antijail" then
        antijail = true
+       print("antijail is on!")
     end
     if command == ".unantijail" then
        antijail = false
+       print("antijail is off!")
     end
     if command == ".rejoin" then
        local ts = game:GetService("TeleportService")
