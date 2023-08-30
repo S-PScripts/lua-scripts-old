@@ -530,11 +530,6 @@ task.spawn(function()
 	       Chat("h \n\n\n "..perman.. " \n\n\n")
             end
 	    if antijail == true then
-		for i,plr in pairs(Ignore) do
-			if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(plr.."'s jail") then
-				Chat("unjail "..string.sub(plr,0,4):lower())
-			end
-		end
 		if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(game.Players.LocalPlayer.Name.."'s jail") then
 			Chat("unjail me")
 		end
