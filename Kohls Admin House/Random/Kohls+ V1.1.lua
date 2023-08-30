@@ -195,7 +195,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".antijail" then
        antijail = true
     end
-    if command == "unantijail" then
+    if command == ".unantijail" then
        antijail = false
     end
     if command == ".rejoin" then
