@@ -46,8 +46,8 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     if command == ".play" then
 	for i,v in pairs(workspace.Terrain._Game.Folder:GetDescendants()) do
-	if v:IsA("Sound") and v.Playing then
-	v.Playing = false
+	if v:IsA("Sound") and not v.Playing then
+	v.Playing = true
 	end
 	end
     end
