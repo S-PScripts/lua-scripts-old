@@ -1,4 +1,4 @@
--- https://github.com/DIZZYTHELEGEND/Zmod/blob/Outs/greenout
+-- https://github.com/DIZZYTHELEGEND/Zmod/blob/Outs/
 -- Roblox ColorAPI, Thank you siyamicik and Kevin (bumanoid) for recovering/improving this
 -- https://mega.nz/file/XHZXzZba#nH1GKXeckVSvLT4vOjPXh-HzP7TolaJkIfHvYhid1L0 Original API Archived (thanks to siya again)
  
@@ -213,7 +213,7 @@ game:GetService("Players"):Chat("gear me 000000000000000000000000000000000000000
 			colorAPI.colorHouse({
 				wallsC = colorAPI.transformToColor3(BrickColor.new("Orange")),
 				baseC = colorAPI.transformToColor3(BrickColor.new("Orange")),
-				roofC = colorAPI.transformToColor3(BrickColor.new("Organe")),
+				roofC = colorAPI.transformToColor3(BrickColor.new("Orange")),
 				WANDDC = colorAPI.transformToColor3(BrickColor.new("Orange")),
 				stairsC = colorAPI.transformToColor3(BrickColor.new("Orange")),
 				floorC = colorAPI.transformToColor3(BrickColor.new("Orange")),
