@@ -211,49 +211,49 @@ game:GetService("Players"):Chat("gear me 000000000000000000000000000000000000000
 		wait(0.50)
 		coroutine.wrap(function()
 			colorAPI.colorHouse({
-				wallsC = colorAPI.transformToColor3(BrickColor.new("Lime green")),
-				baseC = colorAPI.transformToColor3(BrickColor.new("Lime green")),
-				roofC = colorAPI.transformToColor3(BrickColor.new("Lime green")),
-				WANDDC = colorAPI.transformToColor3(BrickColor.new("Lime green")),
-				stairsC = colorAPI.transformToColor3(BrickColor.new("Lime green")),
-				floorC = colorAPI.transformToColor3(BrickColor.new("Lime green")),
-				rooftsC = colorAPI.transformToColor3(BrickColor.new("Lime green")),
-				chiC = colorAPI.transformToColor3(BrickColor.new("Lime green"))
+				wallsC = colorAPI.transformToColor3(BrickColor.new("Orange")),
+				baseC = colorAPI.transformToColor3(BrickColor.new("Orange")),
+				roofC = colorAPI.transformToColor3(BrickColor.new("Organe")),
+				WANDDC = colorAPI.transformToColor3(BrickColor.new("Orange")),
+				stairsC = colorAPI.transformToColor3(BrickColor.new("Orange")),
+				floorC = colorAPI.transformToColor3(BrickColor.new("Orange")),
+				rooftsC = colorAPI.transformToColor3(BrickColor.new("Orange")),
+				chiC = colorAPI.transformToColor3(BrickColor.new("Orange"))
 			})
 		end)()
     spawn(function()
 	colorAPI.colorBuildingBricks({
-		DarkStoneGrey = colorAPI.transformToColor3(BrickColor.new("Lime green")),
-		DeepBlue = colorAPI.transformToColor3(BrickColor.new("Lime green")),
-		NY = colorAPI.transformToColor3(BrickColor.new("Lime green")),
-		IW = colorAPI.transformToColor3(BrickColor.new("Lime green")),
-		LimeGreen = colorAPI.transformToColor3(BrickColor.new("Lime green")),
-		MSG = colorAPI.transformToColor3(BrickColor.new("Lime green")),
-		RB = colorAPI.transformToColor3(BrickColor.new("Lime green")),
-		TP = colorAPI.transformToColor3(BrickColor.new("Lime green")),
-		RR = colorAPI.transformToColor3(BrickColor.new("Lime green"))
+		DarkStoneGrey = colorAPI.transformToColor3(BrickColor.new("Orange")),
+		DeepBlue = colorAPI.transformToColor3(BrickColor.new("Orange")),
+		NY = colorAPI.transformToColor3(BrickColor.new("Orange")),
+		IW = colorAPI.transformToColor3(BrickColor.new("Orange")),
+		LimeGreen = colorAPI.transformToColor3(BrickColor.new("Orange")),
+		MSG = colorAPI.transformToColor3(BrickColor.new("Orange")),
+		RB = colorAPI.transformToColor3(BrickColor.new("Orange")),
+		TP = colorAPI.transformToColor3(BrickColor.new("Orange")),
+		RR = colorAPI.transformToColor3(BrickColor.new("Orange"))
 	})
 end)
-		colorAPI.color(game.Workspace.Terrain["_Game"].Workspace["Baseplate"], colorAPI.transformToColor3(BrickColor.new("Lime green")))
+		colorAPI.color(game.Workspace.Terrain["_Game"].Workspace["Baseplate"], colorAPI.transformToColor3(BrickColor.new("Orange")))
 		spawn(function()
-			colorAPI.colorObbyBox(colorAPI.transformToColor3(BrickColor.new("Lime green")))
+			colorAPI.colorObbyBox(colorAPI.transformToColor3(BrickColor.new("Orange")))
 		end)
 		spawn(function()
-			colorAPI.colorObbyBricks(colorAPI.transformToColor3(BrickColor.new("Lime green")))
+			colorAPI.colorObbyBricks(colorAPI.transformToColor3(BrickColor.new("Orange")))
 		end)
 		spawn(function()
-			colorAPI.colorAdminDivs(colorAPI.transformToColor3(BrickColor.new("Lime green")))
+			colorAPI.colorAdminDivs(colorAPI.transformToColor3(BrickColor.new("Orange")))
 		end)
 		spawn(function()
-			colorAPI.colorPads(colorAPI.transformToColor3(BrickColor.new("Lime green")))
+			colorAPI.colorPads(colorAPI.transformToColor3(BrickColor.new("Orange")))
 		end)
 wait(0.6)
 game.Players:Chat("ungear 000000000000000000000000000000000000000000000000000000000 me "..math.random(99999))
 --nil
        
       task.wait(0.25)
-      game.Players:Chat(":colorshifttop 600 400 0")
-      game.Players:Chat(":fogcolor 0,255,0")
+--      game.Players:Chat(":colorshifttop 600 400 0")
+--      game.Players:Chat(":fogcolor 0,255,0") 
       game.Players:Chat(":fogend 10")
       game.Players:Chat(":time 12")
    
