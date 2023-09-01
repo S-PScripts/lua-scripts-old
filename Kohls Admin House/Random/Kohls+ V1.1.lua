@@ -1,5 +1,4 @@
 --THIS ISN'T SKIDDED
-crashwl = {"ScriptingProgrammer"} -- IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!!! ADD YOUR NAME HERE OR YOU WON'T BE ABLE TO USE GEARS IF ANTI-GEAR IS ON
 if antireexec then
    local ts = game:GetService("TeleportService")
    local p = game:GetService("Players").LocalPlayer
@@ -64,25 +63,25 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        spam = true
        print("Spam is on.")
     end
-    if command == ".whitemap" then
+    if command == ".whitemap" or command == ".whitepaint" then
        loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/main/Whiteout'))()
     end
-    if command == ".redmap" then
+    if command == ".redmap" or command == ".redpaint" then
        loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/Outs/redout'))()
     end
-    if command == ".greenmap" then
-       loadstring(game:HttpGet('https://raw.githubusercontent.com/S-PScripts/lua-scripts/main/Kohls%20Admin%20House/Random/green%20out%20fixed.lua'))()
+    if command == ".greenmap" or command == ".greenpaint" then
+       loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/Outs/greenout'))()
     end
-    if command == ".bluemap" then
+    if command == ".bluemap" or command == ".bluepaint" then
        loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/Outs/blueout'))()
     end
-    if command == ".blackmap" then
+    if command == ".blackmap" or command == ".blackpaint" then
        loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/Outs/blackout'))()
     end
-    if command == ".purplemap" then
+    if command == ".purplemap" or command == ".purplepaint" then
        loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/Outs/purpleout'))()
     end
-    if command == ".fixpaint" then
+    if command == ".fixpaint" or command == "fixmap" then
        loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/main/betterfixcolor'))()
     end
     if command == ".gmusic1" then
@@ -221,6 +220,14 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".antijail" then
        antijail = true
        print("antijail is on!")
+    end
+    if command == ".antiattach" then
+       antiattach = true
+       print("antiattach is on!")
+    end
+    if command == ".unantiattach" then
+       antiattach = false
+       print("antiattach is off!")
     end
     if command == ".unantijail" then
        antijail = false
@@ -412,13 +419,11 @@ local function checkPlayerBackpack(player)
         for _, toolName in ipairs(blacklistedTools) do
             local tool = backpack:FindFirstChild(toolName)
             if tool and anticrash then
-                for i,v in pairs(crashwl) do
-	                if player.Name == v then
+		if player.Name == game.Players.LocalPlayer.Name then
                        break
-                    else
+                else
                        warnCrash(player, toolName)
                        break
-                    end
                 end
             end
         end
@@ -431,14 +436,12 @@ local function checkPlayerGBackpack(player)
     if gbackpack then
         for _, tool in ipairs(player.Backpack:GetChildren()) do
     	    if tool:IsA("Tool") and antigear then
-                for i,v in pairs(crashwl) do
-	                if player.Name == v then
+	       if player.Name == game.Players.LocalPlayer.Name then
                        break
-                    else
+               else
                        warnGear(player, toolName)
                        break
-                    end
-                end
+               end
             end
         end
     end
@@ -544,7 +547,7 @@ task.spawn(function()
 	       Chat("ungear all " .. math.random(1,1000))
             end
 	    if lspam == true then
-	       Chat("ff 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 " .. math.random(1,1000))
+	       Chat("ff 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 " .. math.random(1,1000)) -- change if lag
       	    end
 	    if regenspam == true then
 	       fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)  
@@ -565,3 +568,21 @@ task.spawn(function()
 	    end
       end
 end)()
+
+function start(plr)
+	plr.Chatted:Connect(function(msg)
+		task.spawn(function()
+			if string.sub(msg:lower(),0,8) == "unpunish" or string.sub(msg:lower(),0,9) == ":unpunish" or string.sub(msg:lower(),0,3) == "sit" or string.sub(msg:lower(),0,4) == ":sit" or string.sub(msg:lower(),0,4) == "stun" or string.sub(msg:lower(),0,5) == ":stun" then
+				if antiattach == true then
+					local killoff = true
+					if plr.Name == game.Players.LocalPlayer.Name then
+						killoff = false
+					end
+					if killoff == true then
+						coht("reset "..plr.Name)
+					end
+				end
+			end
+		end)
+	end)
+end
