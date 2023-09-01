@@ -553,7 +553,7 @@ task.spawn(function()
 	       Chat("h \n\n\n "..perman.. " \n\n\n")
             end
 	    if antichat == true then
-	       Chat("h \n\n\n I wish I lived in the present With the gift of my past mistakes But the future keeps luring in like a pack of snakes \n\n\n")
+	       Chat("h \n\n\n 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 \n\n\n")
             end
 	    if antijail == true then
 		if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(game.Players.LocalPlayer.Name.."'s jail") then
