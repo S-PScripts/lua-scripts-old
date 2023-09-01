@@ -1,5 +1,5 @@
 --THIS ISN'T SKIDDED
-crashwl = {"me_crashking","me_123eq","ScriptingProgrammer"} -- IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!!! ADD YOUR NAME HERE OR YOU WON'T BE ABLE TO USE GEARS IF ANTI-GEAR IS ON
+crashwl = {"ScriptingProgrammer"} -- IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!!! ADD YOUR NAME HERE OR YOU WON'T BE ABLE TO USE GEARS IF ANTI-GEAR IS ON
 if antireexec then
    local ts = game:GetService("TeleportService")
    local p = game:GetService("Players").LocalPlayer
