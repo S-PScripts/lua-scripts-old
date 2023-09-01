@@ -544,7 +544,7 @@ task.spawn(function()
 	       Chat("ungear all " .. math.random(1,1000))
             end
 	    if lspam == true then
-	       Chat("ff no logs " .. math.random(1,1000))
+	       Chat("ff 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 " .. math.random(1,1000))
       	    end
 	    if regenspam == true then
 	       fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)  
