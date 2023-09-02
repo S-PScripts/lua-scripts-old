@@ -228,7 +228,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     if command == ".unantiattach" then
        antiattach = false
-       Chat("h \n\n\n {Kohls+} Antiattach is on. \n\n\n")
+       Chat("h \n\n\n {Kohls+} Antiattach is off. \n\n\n")
        print("antiattach is off!")
     end
     if command == ".unantijail" then
