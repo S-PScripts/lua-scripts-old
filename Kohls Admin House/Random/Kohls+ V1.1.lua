@@ -223,10 +223,12 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     if command == ".antiattach" then
        antiattach = true
+       Chat("h \n\n\n {Kohls+} Antiattach is on. \n\n\n")
        print("antiattach is on!")
     end
     if command == ".unantiattach" then
        antiattach = false
+       Chat("h \n\n\n {Kohls+} Antiattach is on. \n\n\n")
        print("antiattach is off!")
     end
     if command == ".unantijail" then
@@ -582,7 +584,7 @@ function start(plr)
 						killoff = false
 					end
 					if killoff == true then
-						coht("reset "..plr.Name)
+						Chat("reset "..plr.Name)
 					end
 				end
 			end
