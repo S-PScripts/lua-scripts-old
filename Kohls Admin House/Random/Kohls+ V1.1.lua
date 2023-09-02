@@ -1,4 +1,4 @@
---THIS ISN'T STOLEN (ONLY A BIT SKIDDED)
+--OMG A SKIDDED SCRIPT@@@@@@@@@@@@@@@@@@@@@
 if antireexec then
    local ts = game:GetService("TeleportService")
    local p = game:GetService("Players").LocalPlayer
