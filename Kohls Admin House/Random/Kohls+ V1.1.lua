@@ -81,7 +81,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".purplemap" or command == ".purplepaint" then
        loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/Outs/purpleout'))()
     end
-    if command == ".fixpaint" or command == "fixmap" then
+    if command == ".fixpaint" or command == ".fixmap" then
        loadstring(game:HttpGet('https://raw.githubusercontent.com/DIZZYTHELEGEND/Zmod/main/betterfixcolor'))()
     end
     if command == ".gmusic1" then
