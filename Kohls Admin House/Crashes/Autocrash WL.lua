@@ -18,7 +18,7 @@ if continue == false then
     game.Players:Chat("time 0")   
     game.Players:Chat("respawn all")
     game.Players:Chat("speed all 0")
-    game.Players:Chat("h me, ts2021, is a skid (crashing because of don)")
+    game.Players:Chat("h me, ts2021, is a skid (crashing because of don and kozy)")
     game.Players:Chat("music 00000000000000000000006772846771")
     wait(0.5)
     counter = 0
