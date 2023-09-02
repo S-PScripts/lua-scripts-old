@@ -141,7 +141,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".gmusic19" then
        Chat("music 00000000000000000000006847929757")
     end
-    end
     if command == ".unspam" then
        spam = false
        print("Spam is off.")
