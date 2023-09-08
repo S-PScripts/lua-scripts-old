@@ -1,4 +1,4 @@
--- https://github.com/DIZZYTHELEGEND/Zmod/blob/Outs/
+-- https://github.com/Qltxi/scripts/blob/main/Color%20API%202.0
 -- i messed up the colour but i dont wanna delete
 -- Roblox ColorAPI, Thank you siyamicik and Kevin (bumanoid) for recovering/improving this
 -- https://mega.nz/file/XHZXzZba#nH1GKXeckVSvLT4vOjPXh-HzP7TolaJkIfHvYhid1L0 Original API Archived (thanks to siya again)
