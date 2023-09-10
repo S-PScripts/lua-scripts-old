@@ -10,7 +10,7 @@ antireexec=true
 local function Chat(txt)
       game.Players:Chat(txt)
 end
-Chat("h \n\n\n Kohls+ V1.1 Executed! \n\n\n")
+Chat("h \n\n\n qwerty \n\n\n")
 print("Kohls+ v1.1 is executed.")
 print("Created by ts2021/scriptingprogrammer")
 anticrash = true
