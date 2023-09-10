@@ -60,7 +60,7 @@ wait(0.3)
     game.Players:Chat("time 0")   
     game.Players:Chat("respawn all")
     game.Players:Chat("speed all 0")
-    game.Players:Chat("h outcrashed")
+    game.Players:Chat("h i never crash")
     game.Players:Chat("music 00000000000000000000006772846771")
     wait(0.5)
     counter = 0
