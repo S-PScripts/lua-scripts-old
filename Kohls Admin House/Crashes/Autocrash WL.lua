@@ -39,9 +39,9 @@ spawn(function()
         end)()
     end
 end)
-wait(1)
+wait(0.3)
 --local crashwl = {"t_echr", "BANNter_Original","SZCVAK", "Di33le2","Altsarecooleh","MrPetDog12345","Phoenictron","Ripend","Imaimashi","thekillercrum","crumsbot2","aligotoofed","sneakcal264"}
-continue = false
+-- continue = false
 --for i, player in pairs(game.Players:GetPlayers()) do
 --    if table.find(crashwl, player.Name) then
 --       continue = true
