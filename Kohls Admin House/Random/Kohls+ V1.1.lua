@@ -401,12 +401,14 @@ local function warnGear(player, toolName)
        Chat("ungear " .. player.Name)
        Chat("punish " .. player.Name)
        Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of antigear. \n\n\n")
+       Chat("clr")
 end
 
 local function warnCrash(player, toolName)
        Chat("ungear " .. player.Name)
        Chat("punish " .. player.Name)
        Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anticrash. \n\n\n")
+       Chat("clr")
 end
 
 local function checkPlayerBackpack(player)
