@@ -293,10 +293,14 @@ Misc:
 -- babydetection on/off (if ;fly)
 -- biglogs (logs but big)
 
+Speak:
+-- personspeak on/off
+
 Alt:
 -- bring
 -- goto
 -- nome (cmds without me, uses prefix)
+-- prefix on (use normal cmds with ;)
 
 Floods:
 -- bomblogs (logs is spammed) on/off
