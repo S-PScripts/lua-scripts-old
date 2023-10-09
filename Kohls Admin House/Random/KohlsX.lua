@@ -1,13 +1,13 @@
 Hierarchy:
 -- KohlsZ
+-- KohlsF (KohlsFun)
 -- KohlsMAX
 -- KohlsU (KohlsUnlimited)
 -- KohlsX (KohlsInfinity)
 -- KohlsP (KohlsPremium) 
--- KohlsF (KohlsFun)
 
 Features:
-Antis- (ORDERED BAD :( )
+Antis- BADLY ORDERED
 -- AntiPunish
 -- AntiExplode
 -- AntiKill / NOK
@@ -127,6 +127,9 @@ Music:
 -- RestartMusic
 -- MusicPoint ()
 -- MusicLog
+-- VolumeUp ()
+-- VolumeDown ()
+-- Volume ()
 
 Music Playlist:
 -- PlaylistON/OFF
@@ -141,11 +144,15 @@ Music Playlist:
 Perm: -- (give everyone admin)
 -- perm
 -- unperm
+-- permlist
+-- clearpermlist
 
 Whitelist: -- (gives people ability to go around antis on)
 -- wl
 -- unwl
 -- editwl (edit the whitelisted commands)
+-- wllist
+-- clearbllist
 
 Blacklist:
 -- bl
@@ -154,11 +161,15 @@ Blacklist:
 -- unslock
 -- bypslock (whitelist for people to not get slock)
 -- unbypslock
+-- bllist
+-- clearbllist
 
 Admin: -- (give people ability to have commands in KohlsX)
 -- admin
 -- unadmin
 -- editadmin
+-- adminlist
+-- clearadminlist
 
 Detections:
 -- getadmins
@@ -171,11 +182,20 @@ Detections:
 -- getranked
 -- getkohlsxusers
 
+_ Detections:
+-- autoblunusers (on/off)
+
+Auto:
+-- autobl/wl/perm/admin (a user)
+-- unautobl/wl/perm/admin (the user)
+-- autobl/wl/perm/adminllist
+
 Builder:
 -- build (a build that is saved to here, it gets the parts to make a model of something)
 -- drawon (free draw)
 -- drawoff
 -- dcolour (a colour for the draw)
+-- musicring
 
 Themes:
 -- theme () (theme that is saved here, it changes ambient, fogend, does music etc.)
@@ -258,4 +278,43 @@ Hidden Announcement:
 -- unhpermh
 -- spoofusername (a username that comes before announcement)
 
-finishing soon :)
+BreakingStuff:
+-- breakvelo (break velo of bp so ppl die)
+-- fixvelo (clientside)
+-- breakcam (with a gear)
+-- fixcam (clientside)
+
+AI:
+-- ai (your key)
+-- ask [text]
+-- aimode (chatgpt or...)
+
+Misc:
+-- babydetection on/off (if ;fly)
+-- biglogs (logs but big)
+
+Alt:
+-- bring
+-- goto
+-- nome (cmds without me, uses prefix)
+
+Floods:
+-- bomblogs (logs is spammed) on/off
+-- bombchat (spammed with _) on/off
+-- nochat on/off (h spam with emojis lags chat)
+
+Colour:
+-- colourmap (a colour)
+
+Quick CMDS:
+-- vg (the vg)
+-- pb (the paint bucket)
+-- iv (ivory)
+
+Ruin:
+-- ruinpaint
+-- ruinmap
+-- ruinparts
+
+-- last updated 9/10/23 uk
+-- this is a MOCKUP, this script does NOT exist... yet.
