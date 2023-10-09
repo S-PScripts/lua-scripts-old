@@ -296,6 +296,7 @@ AI:
 Misc:
 -- babydetection on/off (if ;fly)
 -- biglogs (logs but big)
+-- luaexec (lua code)
 
 Speak:
 -- personspeak on/off
