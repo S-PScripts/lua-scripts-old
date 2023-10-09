@@ -251,8 +251,10 @@ Plugins:
 Settings:
 -- commandlist
 -- prefix (the prefix)
+-- currentprefix
 -- theme (for gui)
-
+-- unload
+-- customname (shows as kohlsx, kohlsinfinity etc...)
 Kick:
 -- rkick
 -- gearkick (id) -- if a gear is found that can crash with gears again...
@@ -316,6 +318,11 @@ Quick CMDS:
 -- vg (the vg)
 -- pb (the paint bucket)
 -- iv (ivory)
+
+Server:
+-- rejoin
+-- serverhop
+-- ping
 
 Ruin:
 -- ruinpaint
