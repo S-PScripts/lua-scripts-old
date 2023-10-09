@@ -1,5 +1,4 @@
---OMG A SKIDDED SCRIPT@@@@@@@@@@@@@@@@@@@@@
--- shitty script will rewrite
+-- NO LONGER USED
 if antireexec then
    local ts = game:GetService("TeleportService")
    local p = game:GetService("Players").LocalPlayer
