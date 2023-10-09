@@ -9,8 +9,10 @@ Hierarchy:
 Features:
 Antis- BADLY ORDERED
 -- AntiPunish
+-- AntiAttach
 -- AntiExplode
 -- AntiKill / NOK
+-- AntiDeath
 -- AntiJail
 -- AntiSpeed
 -- AntiJump
