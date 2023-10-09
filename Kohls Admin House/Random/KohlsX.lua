@@ -266,6 +266,9 @@ Crash:
 -- gearcrash (id)
 -- dogcrash 
 -- freezecrash
+-- silcrash
+-- fakecrash
+-- allcrash (uses multiple methods)
 
 Lag:
 -- lag (with the car id)
