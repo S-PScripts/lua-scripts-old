@@ -1,18 +1,10 @@
 -- NO LONGER USED
-if antireexec then
-   local ts = game:GetService("TeleportService")
-   local p = game:GetService("Players").LocalPlayer
-   local currentPlaceId = game.PlaceId
-   local currentJobId = game.JobId
-   ts:TeleportToPlaceInstance(currentPlaceId, currentJobId, p)
-end
-antireexec=true
-local function Chat(txt)
-      game.Players:Chat(txt)
+local function Chat(msg)
+      game.Players:Chat(msg)
 end
 Chat("h \n\n\n qwerty \n\n\n")
-print("Kohls+ v1.1 is executed.")
-print("Created by ts2021/scriptingprogrammer")
+print("Kohls+ v1.2 is executed.")
+print("Created by ts2021")
 anticrash = true
 antigear = false
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
@@ -36,11 +28,11 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".unwelcome" then
        welcomemsg = false
     end
-    if command == ".namefuk" then
-       namefuk = true
+    if command == ".namef" then
+       nameshart = true
     end
-    if command == ".unnamefuk" then
-       namefuk = false
+    if command == ".unnamef" then
+       nameshart = false
     end
     if command == ".pause" then
        for i,v in pairs(workspace.Terrain._Game.Folder:GetDescendants()) do
@@ -69,6 +61,36 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        spam = true
        print("Spam is on.")
     end
+    if command == ".antipunish" then
+       antipunish = true
+    end
+    if command == ".antiblind" then
+       antiblind = true
+    end
+    if command == ".antifreeze" then
+       antifreeze = true
+    end
+    if command == ".antiseizure" then
+       antiseizure = true
+    end
+    if command == ".anticlone" then
+       anticlone = true
+    end
+   if command == ".unantipunish" then
+       antipunish = false
+    end
+    if command == ".unantiblind" then
+       antiblind = false
+    end
+    if command == ".unantifreeze" then
+       antifreeze = false
+    end
+    if command == ".unantiseizure" then
+       antiseizure = false
+    end
+    if command == ".unanticlone" then
+       anticlone = false
+    end		
     if command == ".gmusic1" then
        Chat("music 0000000000000000000006529070845")
     end
@@ -157,9 +179,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump8.TouchInterest:destroy()
         game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump9.TouchInterest:destroy()
 	print("bricks removed")
-    end
-    if command == ".unnok" then
-	print("irreversible. tbh tho why do you need dis?")	
     end
     if command == ".lflood" then
         lspam = true
@@ -305,9 +324,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".house" then
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-31.0896435, 8.22999477, 70.522644, -0.999961913, 4.495271e-08, -0.0087288795, 4.55292621e-08, 1, -6.58523618e-08, 0.0087288795, -6.62472743e-08, -0.999961913)
     end
-    if command == ".fixcam" then
-	print("broken. use infinite yield's.")
-    end
     if command == ".fcrash" then
 	Chat("fogend 0")
         Chat("flash")
@@ -330,6 +346,12 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         Chat("clr")
         Chat("time 0")
 	Chat("music 0000000000000000000006529070845")
+        facounter = 0
+	while facounter < 1000 do
+	      Chat("freeze all " .. math.random(1, 1000))
+	      task.wait()
+	      facounter = facounter + 1
+	end
     end
     if command == ".dcrash" then
 	Chat("fogend 0")
@@ -556,14 +578,12 @@ task.spawn(function()
 	    if permannounce == true then
 	       Chat("h \n\n\n "..perman.. " \n\n\n")
             end
-	    if antichat == true then
-	       Chat("h \n\n\n 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 \n\n\n")
-            end
-	    if antijail == true then
-		if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(game.Players.LocalPlayer.Name.."'s jail") then
-			Chat("unjail me")
-		end
+	    if nameshart == true then
+	       Chat("name all Broken")
 	    end
+	    if antichat == true then
+		Chat("h \n\n\n 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 \n\n\n")
+            end
       end
 end)()
 
@@ -584,3 +604,39 @@ function start(plr)
 		end)
 	end)
 end
+
+local RunService = game:GetService("RunService")
+local Player = game.Players.LocalPlayer
+
+RunService.Stepped:Connect(function()
+	if antijail == true then
+		if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(game.Players.LocalPlayer.Name.."'s jail") then
+			Chat("unjail me")
+		end
+        end
+	if anticlone == true then
+	        if workspace.Terrain._Game.Folder:FindFirstChild(Player.Name) then
+		        Chat("unclone me")
+		end
+	end
+        if antiseizure == true then
+	       if Player.Character:FindFirstChild("Seizure") then
+			Chat("unseizure me")
+	       end
+	end
+	if antifreeze == true then
+		if Player.Character:FindFirstChild("ice") then
+			Chat("thaw me")
+		end
+	end
+	if antipunish == true then
+		if game.Lighting:FindFirstChild(Player.Character.Name) then
+			Chat("unpunish me")
+		end
+	end
+	if antiblind == true then
+		if Player.PlayerGui:FindFirstChild("EFFECTGUIBLIND") then
+			Chat("unblind me")
+		end
+	end
+end) 
