@@ -1,7 +1,7 @@
-Hierarchy:
--- KohlsZ
+Hierarchy (or names or some crap):
+-- KohlsZ (KohlsZero)
 -- KohlsF (KohlsFun)
--- KohlsMAX
+-- KohlsM (KohlsMAX)
 -- KohlsU (KohlsUnlimited)
 -- KohlsX (KohlsInfinity)
 -- KohlsP (KohlsPremium) 
@@ -255,6 +255,7 @@ Settings:
 -- theme (for gui)
 -- unload
 -- customname (shows as kohlsx, kohlsinfinity etc...)
+
 Kick:
 -- rkick
 -- gearkick (id) -- if a gear is found that can crash with gears again...
@@ -300,6 +301,7 @@ Misc:
 -- babydetection on/off (if ;fly)
 -- biglogs (logs but big)
 -- luaexec (lua code)
+-- namefart (spams the name command so people's cameras break)
 
 Speak:
 -- personspeak on/off
