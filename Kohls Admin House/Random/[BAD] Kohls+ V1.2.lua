@@ -7,6 +7,7 @@ print("Kohls+ v1.2 is executed.")
 print("Created by ts2021")
 anticrash = true
 antigear = false
+-- the code
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
     if command == ".slock" then
@@ -381,7 +382,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 end)
 
 
-
+-- loopgrab code
 local function LoopGrabPads()
    if loopgrab then
       local pads = game.Workspace.Terrain._Game.Admin.Pads:GetChildren()
@@ -405,6 +406,7 @@ local function LoopGrabPads()
    end
 end
 
+-- perm code
 local function Perm()
 	if perm then
 	   if not game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild(game.Players.LocalPlayer.Name .. "'s admin") then
@@ -428,13 +430,14 @@ local function Perm()
 end
 
 local blacklistedTools = {"OrinthianSwordAndShield", "VampireVanquisher"} --crash gears
+-- backpack gear
 local function warnGear(player, toolName)
        Chat("ungear " .. player.Name)
        Chat("punish " .. player.Name)
        Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of antigear. \n\n\n")
        Chat("clr")
 end
-
+-- backpack gear
 local function warnCrash(player, toolName)
        Chat("ungear " .. player.Name)
        Chat("punish " .. player.Name)
@@ -442,6 +445,7 @@ local function warnCrash(player, toolName)
        Chat("clr")
 end
 
+-- backpack gear
 local function checkPlayerBackpack(player)
     local backpack = player:FindFirstChild("Backpack")
 
@@ -460,7 +464,7 @@ local function checkPlayerBackpack(player)
     end
 end
 
-
+-- backpack gear
 local function checkPlayerGBackpack(player)
     local gbackpack = player:FindFirstChild("Backpack")
     if gbackpack then
@@ -477,6 +481,7 @@ local function checkPlayerGBackpack(player)
     end
 end
 
+-- backpack gear
 game.Players.PlayerAdded:Connect(function(player)
     player.CharacterAdded:Connect(function(character)
         checkPlayerBackpack(player)
@@ -486,6 +491,7 @@ game.Players.PlayerAdded:Connect(function(player)
     checkPlayerGBackpack(player)
 end)
 
+-- backpack gear
 game:GetService("RunService").Heartbeat:Connect(function()
     for _, player in ipairs(game.Players:GetPlayers()) do
         if player.Character then
@@ -495,6 +501,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
     end
 end)
 
+-- backpack gear
 for _, player in ipairs(game.Players:GetPlayers()) do
     if player.Character then
         checkPlayerBackpack(player)
@@ -502,6 +509,7 @@ for _, player in ipairs(game.Players:GetPlayers()) do
     end
 end
 
+-- afk code on
 local UserInputService = game:GetService("UserInputService")
 UserInputService.WindowFocusReleased:Connect(function()
     if autoafk == true then
@@ -512,6 +520,7 @@ UserInputService.WindowFocusReleased:Connect(function()
     task.wait()
 end)
 
+-- afk code off
 UserInputService.WindowFocused:Connect(function()
     if autoafk == true then
         Chat("reset me")
@@ -521,20 +530,18 @@ UserInputService.WindowFocused:Connect(function()
     task.wait()	
 end)
 
-local function resetPlayer()
-    Chat("reset me")
-end
-
+-- antikill code
 local function onCharacterAdded(character)
     local humanoid = character:WaitForChild("Humanoid")
     
     humanoid.HealthChanged:Connect(function(health)
         if health <= 0 and antikill then
-            resetPlayer()
+            Chat("reset me")
         end
     end)
 end
 
+-- for the code below
 game.Players.LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
 
 local function onPlayerAdded(player)
@@ -551,10 +558,12 @@ local function onPlayerLeaving(player)
     task.wait()
 end
 
+-- for the code above
 game.Players.PlayerAdded:Connect(onPlayerAdded)
 game.Players.PlayerRemoving:Connect(onPlayerLeaving)
 
 -- the more you use, the slower it does stuff
+-- this is perm and loopgrab
 coroutine.wrap(function()
     while true do
 	Perm()
@@ -563,6 +572,7 @@ coroutine.wrap(function()
     end
 end)()
 
+-- these are for many of the cmds
 task.spawn(function()
      while true do
 	    task.wait()
@@ -597,6 +607,7 @@ task.spawn(function()
       end
 end)()
 
+-- this is for the anti attach
 function start(plr)
 	plr.Chatted:Connect(function(msg)
 		task.spawn(function()
@@ -615,9 +626,11 @@ function start(plr)
 	end)
 end
 
+-- for the antis
 local RunService = game:GetService("RunService")
 local Player = game.Players.LocalPlayer
 
+-- these are the antis
 RunService.Stepped:Connect(function()
 	if antijail == true then
 		if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(game.Players.LocalPlayer.Name.."'s jail") then
