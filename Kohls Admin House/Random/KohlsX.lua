@@ -302,6 +302,7 @@ Misc:
 -- biglogs (logs but big)
 -- luaexec (lua code)
 -- namefart (spams the name command so people's cameras break)
+-- unnamefart
 
 Speak:
 -- personspeak on/off
@@ -335,5 +336,5 @@ Ruin:
 -- ruinmap
 -- ruinparts
 
--- last updated 9/10/23 uk
+-- last updated 22/10/23 uk
 -- this is a MOCKUP, this script does NOT exist... yet.
