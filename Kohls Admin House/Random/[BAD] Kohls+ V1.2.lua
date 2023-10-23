@@ -640,7 +640,7 @@ task.spawn(function()
             if not Player.Character:FindFirstChild("Seizure") and Player.Character.Humanoid:GetState().Name=="PlatformStanding" and antifly == true then
                 Chat("unfly me")
                 Chat("clip me")
-           end
+            end
       end
 end)()
 
