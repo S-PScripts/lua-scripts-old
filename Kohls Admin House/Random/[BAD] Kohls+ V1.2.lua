@@ -637,12 +637,12 @@ task.spawn(function()
             if antiblind == true then
 		for i, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
                     if v.Name == "EFFECTGUIBLIND" then
-			 Chat("blind me")
+			 Chat("unblind me")
                     end
 		end
             end
             if anticlone == true then
-		if workspace.Terrain._Game.Folder:FindFirstChild(Player.Name) then
+		if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(game.Players.LocalPlayer.Name) then
                 	Chat("unclone me")
 		end
             end
