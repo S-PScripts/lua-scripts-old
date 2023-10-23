@@ -618,12 +618,16 @@ task.spawn(function()
 		end
 	    end
 	    if antirocket == true then
-		 local oldposition = Player.Character.HumanoidRootPart.CFrame
-          	 game.Players:Chat("reload me")
-		 Player.Character.HumanoidRootPart.CFrame = oldposition 
+		if Player.Character:FindFirstChild("Rocket") then
+		 	local oldposition = Player.Character.HumanoidRootPart.CFrame
+          	 	game.Players:Chat("reload me")
+		 	Player.Character.HumanoidRootPart.CFrame = oldposition 
+		end
 	    end
             if antifreeze == true then
-        	Chat("thaw me")
+		if Player.Character:FindFirstChild("ice") then
+        		Chat("thaw me")
+		end
 	    end
             if antipunish == true then
 		if game.Lighting:FindFirstChild(game.Players.LocalPlayer.Name) then
@@ -631,17 +635,25 @@ task.spawn(function()
 		end
             end
             if antiblind == true then
-                Chat("unblind me")
+		if Player.PlayerGui:FindFirstChild("EFFECTGUIBLIND") then
+                	Chat("unblind me")
+		end
             end
             if anticlone == true then
-                Chat("unclone me")
+		if workspace.Terrain._Game.Folder:FindFirstChild(Player.Name) then
+                	Chat("unclone me")
+		end
             end
             if antiseizure == true then
-                Chat("unseizure me")
+		if Player.Character:FindFirstChild("Seizure") then
+                	Chat("unseizure me")
+		end
             end
             if antifly == true then
-                Chat("unfly me")
-                Chat("clip me")
+		if not Player.Character:FindFirstChild("Seizure") and Player.Character.Humanoid:GetState().Name=="PlatformStanding" then
+                	Chat("unfly me")
+                	Chat("clip me")
+		end
             end
       end
 end)()
