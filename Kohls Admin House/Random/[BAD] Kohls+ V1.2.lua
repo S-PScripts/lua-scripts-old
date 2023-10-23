@@ -631,35 +631,38 @@ local RunService = game:GetService("RunService")
 local Player = game.Players.LocalPlayer
 
 -- these are the antis
-RunService.Stepped:Connect(function()
-	if antijail == true then
-		if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(game.Players.LocalPlayer.Name.."'s jail") then
-			Chat("unjail me")
+task.spawn(function()
+	while true do
+		task.wait()
+		if antijail == true then
+			if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(game.Players.LocalPlayer.Name.."'s jail") then
+				Chat("unjail me")
+			end
+       	        end
+		if anticlone == true then
+	        	if workspace.Terrain._Game.Folder:FindFirstChild(Player.Name) then
+		       	        Chat("unclone me")
+			end
 		end
-        end
-	if anticlone == true then
-	        if workspace.Terrain._Game.Folder:FindFirstChild(Player.Name) then
-		        Chat("unclone me")
+	        if antiseizure == true then
+	     		  if Player.Character:FindFirstChild("Seizure") then
+				Chat("unseizure me")
+	      		  end
+		end
+		if antifreeze == true then
+			if Player.Character:FindFirstChild("ice") then
+				Chat("thaw me")
+			end
+		end
+		if antipunish == true then
+			if game.Lighting:FindFirstChild(Player.Character.Name) then
+				Chat("unpunish me")
+			end
+		end
+		if antiblind == true then
+			if Player.PlayerGui:FindFirstChild("EFFECTGUIBLIND") then
+				Chat("unblind me")
+			end
 		end
 	end
-        if antiseizure == true then
-	       if Player.Character:FindFirstChild("Seizure") then
-			Chat("unseizure me")
-	       end
-	end
-	if antifreeze == true then
-		if Player.Character:FindFirstChild("ice") then
-			Chat("thaw me")
-		end
-	end
-	if antipunish == true then
-		if game.Lighting:FindFirstChild(Player.Character.Name) then
-			Chat("unpunish me")
-		end
-	end
-	if antiblind == true then
-		if Player.PlayerGui:FindFirstChild("EFFECTGUIBLIND") then
-			Chat("unblind me")
-		end
-	end
-end) 
+end)()
