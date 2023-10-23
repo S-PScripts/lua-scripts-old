@@ -87,7 +87,13 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".anticlone" then
        anticlone = true
     end
-   if command == ".unantipunish" then
+    if command == ".antifly" then
+       antifly = true
+    end
+    if command == ".antirocket" then
+       antirocket = true
+    end 
+    if command == ".unantipunish" then
        antipunish = false
     end
     if command == ".unantiblind" then
@@ -102,6 +108,12 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".unanticlone" then
        anticlone = false
     end		
+    if command == ".unantifly" then
+       antifly = false
+    end
+    if command == ".unantirocket" then
+       antirocket = false
+    end 
     if command == ".gmusic1" then
        Chat("music 0000000000000000000006529070845")
     end
@@ -237,21 +249,17 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
     if command == ".antijail" then
        antijail = true
-       print("antijail is on!")
     end
     if command == ".antiattach" then
        antiattach = true
        Chat("h \n\n\n {Kohls+} Antiattach is on. \n\n\n")
-       print("antiattach is on!")
     end
     if command == ".unantiattach" then
        antiattach = false
        Chat("h \n\n\n {Kohls+} Antiattach is off. \n\n\n")
-       print("antiattach is off!")
     end
     if command == ".unantijail" then
        antijail = false
-       print("antijail is off!")
     end
     if command == ".rejoin" then
        local ts = game:GetService("TeleportService")
@@ -631,38 +639,53 @@ local RunService = game:GetService("RunService")
 local Player = game.Players.LocalPlayer
 
 -- these are the antis
-task.spawn(function()
-	while true do
-		task.wait()
-		if antijail == true then
-			if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(game.Players.LocalPlayer.Name.."'s jail") then
-				Chat("unjail me")
-			end
-       	        end
-		if anticlone == true then
-	        	if workspace.Terrain._Game.Folder:FindFirstChild(Player.Name) then
-		       	        Chat("unclone me")
-			end
-		end
-	        if antiseizure == true then
-	     		  if Player.Character:FindFirstChild("Seizure") then
-				Chat("unseizure me")
-	      		  end
-		end
-		if antifreeze == true then
-			if Player.Character:FindFirstChild("ice") then
-				Chat("thaw me")
-			end
-		end
-		if antipunish == true then
-			if game.Lighting:FindFirstChild(Player.Character.Name) then
-				Chat("unpunish me")
-			end
-		end
-		if antiblind == true then
-			if Player.PlayerGui:FindFirstChild("EFFECTGUIBLIND") then
-				Chat("unblind me")
-			end
-		end
-	end
-end)()
+RunService.Stepped:Connect(function()
+    if Player.Character:FindFirstChild("Rocket") and antirocket == true then
+          local oldposition = Player.Character.HumanoidRootPart.CFrame
+         game.Players:Chat("reload me")
+         Player.Character.HumanoidRootPart.CFrame = oldposition 
+    end
+end) 
+
+RunService.Stepped:Connect(function()
+    if Player.Character:FindFirstChild("ice") and antifreeze == true then
+        game.Players:Chat("thaw me")
+    end
+end) 
+
+RunService.Stepped:Connect(function()
+    if game.Lighting:FindFirstChild(Player.Character.Name) and antipunish == true then
+        game.Players:Chat("unpunish me")
+    end
+end) 
+
+RunService.Stepped:Connect(function()
+    if Player.PlayerGui:FindFirstChild("EFFECTGUIBLIND") and antiblind == true then
+        game.Players:Chat("unblind me")
+    end
+end) 
+
+RunService.Stepped:Connect(function()
+    if workspace.Terrain._Game.Folder:FindFirstChild(Player.Name.."'s jail") and antijail == true then
+        game.Players:Chat("unjail me")
+    end
+end) 
+
+RunService.Stepped:Connect(function()
+    if workspace.Terrain._Game.Folder:FindFirstChild(Player.Name) and anticlone == true then
+        game.Players:Chat("unclone me")
+    end
+end) 
+
+RunService.Stepped:Connect(function()
+    if Player.Character:FindFirstChild("Seizure") and antiseizure == true then
+        game.Players:Chat("unseizure me")
+    end
+end) 
+
+RunService.Stepped:Connect(function()
+    if not Player.Character:FindFirstChild("Seizure") and Player.Character.Humanoid:GetState().Name=="PlatformStanding" and antifly == true then
+        game.Players:Chat("unfly me")
+        game.Players:Chat("clip me")
+    end
+end) 
