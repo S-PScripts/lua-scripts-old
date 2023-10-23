@@ -317,6 +317,22 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        Chat("respawn all")
        print("blinder is off")
     end
+    if command == ".antimusic" then
+       antimusic = true
+    end
+    if command == ".unantimusic" then
+       antimusic = false
+    end
+    if string.sub(msg:lower(), 0, 12) == ".mymusiconly" then
+       mymusiconly = true
+       mymusiconlyid = string.sub(msg:lower(), 14)
+       Chat("music"..mymusiconlyid)
+    end
+    if command == ".unmymusiconly" then
+       mymusiconly = false
+       mymusiconlyid = 0
+       Chat("music 0")
+    end
     if command == ".vg" then
        Chat("gear me 000000000000000000094794847")
     end
@@ -664,13 +680,30 @@ function start(plr)
 			if string.sub(msg:lower(),0,8) == "unpunish" or string.sub(msg:lower(),0,9) == ":unpunish" or string.sub(msg:lower(),0,3) == "sit" or string.sub(msg:lower(),0,4) == ":sit" or string.sub(msg:lower(),0,4) == "stun" or string.sub(msg:lower(),0,5) == ":stun" then
 				if antiattach == true then
 					if plr.Name == game.Players.LocalPlayer.Name then
-						Chat("reset no one")
+						Chat("reset")
 					else
 						Chat("reset "..plr.Name)
 					end					
 				end
 			end
-			if msg:lower() == "logs" or msg:lower() == msg:lower() == ":logs" then
+			if msg:lower() == "music" or msg:lower() == ":music" or msg:lower() == "clr" or msg:lower() == ":clr" or msg:lower() == "clear" or msg:lower() == ":clear" or msg:lower() == ":clean" or msg:lower() == "clean" then
+				if antimusic == true then
+					if plr.Name == game.Players.LocalPlayer.Name then
+						Chat("reset")
+					else
+						Chat("music 000000000000000000000000000000")
+						Chat("music"..mymusiconlyid) -- in case you have mymusiconly on
+					end
+				end
+				if mymusiconly == true then
+					if plr.Name == game.Players.LocalPlayer.Name then
+						Chat("reset")
+					else
+						Chat("music"..mymusiconlyid)
+					end
+				end
+			end
+			if msg:lower() == "logs" or msg:lower() == ":logs" then
 				if antilogs == true then
 					if plr.Name == game.Players.LocalPlayer.Name then
 						print("-")
