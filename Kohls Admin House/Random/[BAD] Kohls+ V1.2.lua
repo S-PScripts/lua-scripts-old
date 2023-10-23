@@ -203,13 +203,13 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump9.TouchInterest:destroy()
 	print("bricks removed")
     end
-    if command == ".lflood" then
-        lspam = true
-        print("Log flood is on.")
+    if command == ".antilogs" then
+        antilogs = true
+        print("Anti logs is on.")
     end
-    if command == ".unlflood" then
-        lspam = false
-        print("Log flood is off.")
+    if command == ".unantilogs" then
+        antilogs = false
+        print("Anti logs is off.")
     end
     if command == ".antikill" then
        antikill = true
@@ -594,9 +594,6 @@ task.spawn(function()
 	       Chat("blind all " .. math.random(1,1000))
 	       Chat("ungear all " .. math.random(1,1000))
             end
-	    if lspam == true then
-	       Chat("ff 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 " .. math.random(1,1000)) -- change if lag
-      	    end
 	    if regenspam == true then
 	       fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)  
      	    end
@@ -666,13 +663,22 @@ function start(plr)
 		task.spawn(function()
 			if string.sub(msg:lower(),0,8) == "unpunish" or string.sub(msg:lower(),0,9) == ":unpunish" or string.sub(msg:lower(),0,3) == "sit" or string.sub(msg:lower(),0,4) == ":sit" or string.sub(msg:lower(),0,4) == "stun" or string.sub(msg:lower(),0,5) == ":stun" then
 				if antiattach == true then
-					local killoff = true
 					if plr.Name == game.Players.LocalPlayer.Name then
-						killoff = false
-					end
-					if killoff == true then
+						Chat("reset no one")
+					else
 						Chat("reset "..plr.Name)
-					end
+					end					
+				end
+			end
+			if msg:lower() == "logs" or msg:lower() == msg:lower() == ":logs" then
+				if antilogs == true then
+					if plr.Name == game.Players.LocalPlayer.Name then
+						print("-")
+					else
+						for i = 1,100 do
+							Chat("ff No logs for you")
+						end
+					end					
 				end
 			end
 		end)
