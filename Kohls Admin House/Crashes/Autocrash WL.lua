@@ -17,10 +17,8 @@
     game.Players:Chat("clr")
     game.Players:Chat("fix")
     game.Players:Chat("time 0")   
-    game.Players:Chat("respawn all")
-    game.Players:Chat("speed all 0")
-    game.Players:Chat("h i never crash")
-    game.Players:Chat("music 00000000000000000000006772846771")
+    game.Players:Chat("fogend")
+    game.Players:Chat("music 0000000000000000000006529070845")
     wait(0.5)
     counter = 0
     while counter < 1000 do
