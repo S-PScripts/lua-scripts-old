@@ -576,6 +576,7 @@ coroutine.wrap(function()
     while true do
 	Perm()
 	LoopGrabPads()
+	Antis()
         task.wait()
     end
 end)()
@@ -640,51 +641,29 @@ function start(plr)
 end
 
 -- for the antis
-local RunService = game:GetService("RunService")
-local Player = game.Players.LocalPlayer
-
--- these are the antis
-RunService.Stepped:Connect(function()
-    if Player.Character:FindFirstChild("Rocket") and antirocket == true then
-          local oldposition = Player.Character.HumanoidRootPart.CFrame
-         game.Players:Chat("reload me")
-         Player.Character.HumanoidRootPart.CFrame = oldposition 
-    end
-end) 
-
-RunService.Stepped:Connect(function()
-    if Player.Character:FindFirstChild("ice") and antifreeze == true then
-        Chat("thaw me")
-    end
-end) 
-
-RunService.Stepped:Connect(function()
-    if game.Lighting:FindFirstChild(Player.Character.Name) and antipunish == true then
-        Chat("unpunish me")
-    end
-end) 
-
-RunService.Stepped:Connect(function()
-    if Player.PlayerGui:FindFirstChild("EFFECTGUIBLIND") and antiblind == true then
-        Chat("unblind me")
-    end
-end) 
-
-RunService.Stepped:Connect(function()
-    if workspace.Terrain._Game.Folder:FindFirstChild(Player.Name) and anticlone == true then
-        Chat("unclone me")
-    end
-end) 
-
-RunService.Stepped:Connect(function()
-    if Player.Character:FindFirstChild("Seizure") and antiseizure == true then
-        Chat("unseizure me")
-    end
-end) 
-
-RunService.Stepped:Connect(function()
-    if not Player.Character:FindFirstChild("Seizure") and Player.Character.Humanoid:GetState().Name=="PlatformStanding" and antifly == true then
-        Chat("unfly me")
-        Chat("clip me")
-    end
-end) 
+local function Antis()
+	if Player.Character:FindFirstChild("Rocket") and antirocket == true then
+		 local oldposition = Player.Character.HumanoidRootPart.CFrame
+          	 game.Players:Chat("reload me")
+		 Player.Character.HumanoidRootPart.CFrame = oldposition 
+	end
+        if Player.Character:FindFirstChild("ice") and antifreeze == true then
+        	Chat("thaw me")
+	end
+        if game.Lighting:FindFirstChild(Player.Character.Name) and antipunish == true then
+                Chat("unpunish me")
+    	end
+        if Player.PlayerGui:FindFirstChild("EFFECTGUIBLIND") and antiblind == true then
+                Chat("unblind me")
+        end
+        if workspace.Terrain._Game.Folder:FindFirstChild(Player.Name) and anticlone == true then
+                Chat("unclone me")
+        end
+        if Player.Character:FindFirstChild("Seizure") and antiseizure == true then
+                Chat("unseizure me")
+        end
+        if not Player.Character:FindFirstChild("Seizure") and Player.Character.Humanoid:GetState().Name=="PlatformStanding" and antifly == true then
+                Chat("unfly me")
+                Chat("clip me")
+        end
+end
