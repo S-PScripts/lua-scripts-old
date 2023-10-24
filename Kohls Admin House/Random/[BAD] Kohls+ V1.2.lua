@@ -333,6 +333,9 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        mymusiconlyid = 0
        Chat("music 0")
     end
+    if command == ".playmmo" then
+       Chat("music"..mymusiconly)
+    end
     if command == ".vg" then
        Chat("gear me 000000000000000000094794847")
     end
@@ -692,7 +695,6 @@ function start(plr)
 						Chat("reset")
 					else
 						Chat("music 000000000000000000000000000000")
-						Chat("music"..mymusiconlyid) -- in case you have mymusiconly on
 					end
 				end
 				if mymusiconly == true then
