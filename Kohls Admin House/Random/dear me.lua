@@ -24,5 +24,5 @@ while true do
   game.Players:Chat("h CHEAP, IS IT?")
   wait(2)
   game.Players:Chat("h anyways...")
-  wait(10)
+  wait(2)
 end
