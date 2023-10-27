@@ -6,7 +6,7 @@ while true do
   wait(1)
   FireServer("ITS ME, S_P!", "All")
   wait(1)
-  FireServer("TODAY WE WILL BE UNBOXING GRANDMA!", "All")
+  FireServer("TODAY WE WILL BE UNBOXING MY GRANDMA AT 3AM!", "All")
   wait(1)
   FireServer("(GONE WRONG)!", "All")
   wait(1)
