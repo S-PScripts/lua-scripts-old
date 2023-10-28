@@ -114,6 +114,36 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".unantirocket" then
        antirocket = false
     end 
+    if command == ".antifire" then
+	antifire = true
+    end
+    if command == ".antiswag" then
+	antiswag = true
+    end
+    if command == ".antismoke" then
+	antismoke = true
+    end
+    if command == ".antisparkles" then
+	antisparkles = true
+    end
+    if command == ".antispeed" then
+	antispeed = true
+    end
+    if command == ".unantifire" then
+	antifire = false
+    end
+    if command == ".unantiswag" then
+	antiswag = false
+    end
+    if command == ".unantismoke" then
+	antismoke = false
+    end
+    if command == ".unantisparkles" then
+	antisparkles = false
+    end
+    if command == ".unantispeed" then
+	antispeed = false
+    end
     if command == ".gmusic1" then
        Chat("music 0000000000000000000006529070845")
     end
@@ -306,16 +336,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        Chat("h \n\n\n {Kohls+} Antigear is off. \n\n\n")
        antigear = false
        print("Antigear is off.")
-    end
-    if command == ".blinder" then
-       blinds = true
-       print("blinder is on")
-    end
-    if command == ".unblinder" then
-       blinds = false
-       task.wait(1)
-       Chat("respawn all")
-       print("blinder is off")
     end
     if command == ".antimusic" then
        antimusic = true
@@ -557,20 +577,6 @@ UserInputService.WindowFocused:Connect(function()
     task.wait()	
 end)
 
--- antikill code
-local function onCharacterAdded(character)
-    local humanoid = character:WaitForChild("Humanoid")
-    
-    humanoid.HealthChanged:Connect(function(health)
-        if health <= 0 and antikill then
-            Chat("reset me")
-        end
-    end)
-end
-
--- for the code below
-game.Players.LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
-
 local function onPlayerAdded(player)
     if welcomemsg == true then
     	Chat("h \n\n\n Welcome to the server, " .. player.Name .. ". \n\n\n")
@@ -591,92 +597,140 @@ game.Players.PlayerRemoving:Connect(onPlayerLeaving)
 
 -- the more you use, the slower it does stuff
 -- this is perm and loopgrab
-coroutine.wrap(function()
+ task.spawn(function()
     while true do
 	Perm()
 	LoopGrabPads()
+	Slock()
+	RegenSpam()
+	Spam()
+	PermAnnounce()
+	NameShart()
+	Antis()
+	start()
         task.wait()
     end
 end)()
 
--- these are for many of the cmds
-task.spawn(function()
-     while true do
-	    task.wait()
-	    if slock == true then
+local function Slock()
+	if slock == true then
 	       Chat("punish all " .. math.random(1,1000))
 	       Chat("blind others " .. math.random(1,1000))
 	       Chat("ungear all " .. math.random(1,1000))
-     	    end
-	    if blinds == true then
-	       Chat("respawn all " .. math.random(1,1000))
-	       Chat("blind all " .. math.random(1,1000))
-	       Chat("ungear all " .. math.random(1,1000))
-            end
-	    if regenspam == true then
+	end
+end
+
+local function RegenSpam()
+	if regenspam == true then
 	       fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)  
-     	    end
-	    if spam == true then
-	       Chat(spammer)
-      	    end
-	    if permannounce == true then
+	end
+end
+
+local function Spam()
+	if spam == true then
+	       Chat(spammer)  
+	end
+end
+
+local function PermAnnounce()
+	if permannounce == true then
 	       Chat("h \n\n\n "..perman.. " \n\n\n")
-            end
-	    if nameshart == true then
-	       Chat("name all Broken")
-	    end
-	    if antichat == true then
+        end
+end
+
+local function NameShart()
+	if nameshart == true then
+		Chat("name others Broken")
+	end
+end
+
+local function Antis()
+	if antichat == true then
 		Chat("h \n\n\n 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 \n\n\n")
             end
-	    if antijail == true then
+	if antijail == true then
 		if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(game.Players.LocalPlayer.Name.."'s jail") then
 			Chat("unjail me")
 		end
 	    end
-	    if antirocket == true then
+	if antirocket == true then
 		if game.Players.LocalPlayer.Character:FindFirstChild("Rocket") then
 		 	local oldposition = Player.Character.HumanoidRootPart.CFrame
           	 	game.Players:Chat("reload me")
 		 	Player.Character.HumanoidRootPart.CFrame = oldposition 
 		end
 	    end
-            if antifreeze == true then
+        if antifreeze == true then
 		if game.Players.LocalPlayer.Character:FindFirstChild("ice") then
         		Chat("thaw me")
 		end
 	    end
-            if antipunish == true then
+        if antipunish == true then
 		if game.Lighting:FindFirstChild(game.Players.LocalPlayer.Name) then
                 	Chat("unpunish me")
 		end
             end
-            if antiblind == true then
+	if antiblind == true then
 		for i, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
                     if v.Name == "EFFECTGUIBLIND" then
 			 Chat("unblind me")
                     end
 		end
             end
-            if anticlone == true then
+        if anticlone == true then
 		if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(game.Players.LocalPlayer.Name) then
                 	Chat("unclone me")
 		end
             end
-            if antiseizure == true then
+        if antiseizure == true then
 		if game.Players.LocalPlayer.Character:FindFirstChild("Seizure") then
                 	Chat("unseizure me")
 		end
             end
-            if antifly == true then
+        if antifly == true then
 		if not game.Players.LocalPlayer.Character:FindFirstChild("Seizure") and game.Players.LocalPlayer.Character.Humanoid:GetState().Name=="PlatformStanding" then
                 	Chat("unfly me")
                 	Chat("clip me")
 		end
-            end
-      end
-end)()
+        end
+	if antikill == true then
+    		if game.Players.LocalPlayer.Character then
+        		if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
+           			 Chat("reset me")
+        		end
+    		end
+	end
+	if antiswag == true then
+		if game.Players.LocalPlayer.Character:FindFirstChild("EpicCape") then
+			Chat("normal me")
+		end
+	end
+	if antisparkles == true then
+		if game.Players.LocalPlayer.Character.Torso:FindFirstChild("Sparkles") then
+			Chat("unsparkles me")
+		end
+	end
+	if antifire == true then
+		if game.Players.LocalPlayer.Character:FindFirstChild("Torso") then
+			if game.Players.LocalPlayer.Character.Torso:FindFirstChild("Fire") then
+				Chat("unfire me")
+			end
+		end
+	end	
+	if antismoke == true then
+		if game.Players.LocalPlayer.Character:FindFirstChild("Torso") then
+			if game.Players.LocalPlayer.Character.Torso:FindFirstChild("Smoke") then
+				Chat("unsmoke me")
+			end
+		end
+	end
+	if antispeed == true then
+		if not game.Players.LocalPlayer.Character.Humanoid.WalkSpeed == 16 then
+			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+		end
+	end
+end
 
--- this is for the anti attach
 function start(plr)
 	plr.Chatted:Connect(function(msg)
 		task.spawn(function()
@@ -689,6 +743,8 @@ function start(plr)
 					end					
 				end
 			end
+        end)
+    	task.spawn(function()
 			if string.sub(msg:lower(),0,5) == "music" or string.sub(msg:lower(),0,6) == ":music" or string.sub(msg:lower(),0,3) == "clr" or string.sub(msg:lower(),0,4) == ":clr" or string.sub(msg:lower(),0,5) == "clear" or string.sub(msg:lower(),0,6) == ":clear" or string.sub(msg:lower(),0,6) == ":clean" or string.sub(msg:lower(),0,5) == "clean" then
 				if antimusic == true then
 					if plr.Name == game.Players.LocalPlayer.Name then
@@ -705,6 +761,8 @@ function start(plr)
 					end
 				end
 			end
+        end)
+        task.spawn(function()
 			if string.sub(msg:lower(),0,4) == "logs" or string.sub(msg:lower(),0,5) == ":logs" then
 				if antilogs == true then
 					if plr.Name == game.Players.LocalPlayer.Name then
