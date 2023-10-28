@@ -150,7 +150,6 @@ colorAPI.colorBuildingBricks = function(arg)
 			end)()
 		end
 end
-
 -------------------------------------------------------------------- BASIC API STUFF HERE --------------------------------------------------------------------
 
 game.Players:Chat("gear me 00000000000000000000000000000000000000000000000000000000018474459")
@@ -200,5 +199,5 @@ end)
 			colorAPI.colorPads(colorAPI.transformToColor3(BrickColor.new("Bright green")))
 		end)
 wait(0.2)
-game.Players:Chat("ungear me "..math.random(99999))
+game.Players:Chat("ungear                                                                                               me fuck "..math.random(99999))
 --nil
