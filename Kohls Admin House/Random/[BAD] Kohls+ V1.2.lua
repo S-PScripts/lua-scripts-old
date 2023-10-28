@@ -601,12 +601,12 @@ game.Players.PlayerRemoving:Connect(onPlayerLeaving)
     while true do
 	Perm()
 	LoopGrabPads()
-	Antis()
 	task.wait()
     end
 end)()
 
 local function Antis()
+	while true
 	if antichat == true then
 		Chat("h \n\n\n 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 \n\n\n")
         end
@@ -690,6 +690,7 @@ local function Antis()
 		if not game.Players.LocalPlayer.Character.Humanoid.WalkSpeed == 16 then
 			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
 		end
+	end
 	end
 	task.wait()
 end
