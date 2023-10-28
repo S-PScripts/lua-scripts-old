@@ -606,7 +606,7 @@ game.Players.PlayerRemoving:Connect(onPlayerLeaving)
 end)()
 
 local function Antis()
-	while true
+	while true do
 	if antichat == true then
 		Chat("h \n\n\n 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 \n\n\n")
         end
