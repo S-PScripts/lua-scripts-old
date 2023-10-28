@@ -33,6 +33,9 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".unpa" then
        permannounce = false
     end
+    if command == ".fixcolour" then
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/S-PScripts/lua-scripts/main/Kohls%20Admin%20House/Random/FixColour.lua'),true))()
+    end
     if command == ".welcome" then
        welcomemsg = true
     end
