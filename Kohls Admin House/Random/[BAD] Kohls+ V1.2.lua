@@ -689,7 +689,7 @@ function start(plr)
 					end					
 				end
 			end
-			if msg:lower() == "music" or msg:lower() == ":music" or msg:lower() == "clr" or msg:lower() == ":clr" or msg:lower() == "clear" or msg:lower() == ":clear" or msg:lower() == ":clean" or msg:lower() == "clean" then
+			if string.sub(msg:lower(),0,5) == "music" or string.sub(msg:lower(),0,6) == ":music" or string.sub(msg:lower(),0,3) == "clr" or string.sub(msg:lower(),0,4) == ":clr" or string.sub(msg:lower(),0,5) == "clear" or string.sub(msg:lower(),0,6) == ":clear" or string.sub(msg:lower(),0,6) == ":clean" or string.sub(msg:lower(),0,5) == "clean" then
 				if antimusic == true then
 					if plr.Name == game.Players.LocalPlayer.Name then
 						Chat("reset")
@@ -705,7 +705,7 @@ function start(plr)
 					end
 				end
 			end
-			if msg:lower() == "logs" or msg:lower() == ":logs" then
+			if string.sub(msg:lower(),0,4) == "logs" or string.sub(msg:lower(),0,5) == ":logs" then
 				if antilogs == true then
 					if plr.Name == game.Players.LocalPlayer.Name then
 						print("-")
