@@ -601,6 +601,7 @@ game.Players.PlayerRemoving:Connect(onPlayerLeaving)
     while true do
 	Perm()
 	LoopGrabPads()
+	task.wait()
     end
 end)()
 
