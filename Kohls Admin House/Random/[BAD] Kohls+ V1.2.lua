@@ -741,6 +741,8 @@ function start(plr)
 					end					
 				end
 			end
+		end)
+		task.spawn(function()
 			if string.sub(msg:lower(),0,5) == "music" or string.sub(msg:lower(),0,6) == ":music" or string.sub(msg:lower(),0,3) == "clr" or string.sub(msg:lower(),0,4) == ":clr" or string.sub(msg:lower(),0,5) == "clear" or string.sub(msg:lower(),0,6) == ":clear" or string.sub(msg:lower(),0,6) == ":clean" or string.sub(msg:lower(),0,5) == "clean" then
 				if antimusic == true then
 					if plr.Name == game.Players.LocalPlayer.Name then
