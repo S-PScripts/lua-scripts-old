@@ -601,12 +601,14 @@ game.Players.PlayerRemoving:Connect(onPlayerLeaving)
     while true do
 	Perm()
 	LoopGrabPads()
+	start()
 	task.wait()
     end
 end)()
 
-local function Antis()
+task.spawn(function()
 	while true do
+	task.wait()
 	if antichat == true then
 		Chat("h \n\n\n 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 \n\n\n")
         end
@@ -691,9 +693,25 @@ local function Antis()
 			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
 		end
 	end
+	if slock == true then
+	       Chat("punish all " .. math.random(1,1000))
+	       Chat("blind others " .. math.random(1,1000))
+	       Chat("ungear all " .. math.random(1,1000))
 	end
-	task.wait()
-end
+	if regenspam == true then
+	       fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)  
+	end
+	if spam == true then
+	       Chat(spammer)  
+	end
+	if permannounce == true then
+	       Chat("h \n\n\n "..perman.. " \n\n\n")
+        end
+	if nameshart == true then
+		Chat("name others Broken")
+	end
+	end
+end)
 
 function start(plr)
 	plr.Chatted:Connect(function(msg)
