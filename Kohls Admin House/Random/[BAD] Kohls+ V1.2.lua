@@ -759,6 +759,8 @@ function start(plr)
 					end
 				end
 			end
+		end)
+		task.spawn(function()
 			if string.sub(msg:lower(),0,4) == "logs" or string.sub(msg:lower(),0,5) == ":logs" then
 				if antilogs == true then
 					if plr.Name == game.Players.LocalPlayer.Name then
