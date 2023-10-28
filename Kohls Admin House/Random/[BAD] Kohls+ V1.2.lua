@@ -392,6 +392,23 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         Chat("gear me 0000000000000000004842207161")
 	print("RIGHT CLICK TO BREAK. USE CMD-Y/INF YIELD FIX CAM")
     end
+    if command == ".fryvelo" then
+	Chat("gear me 00000000000000000000000000000000000000000000000287426148")
+	Chat("gear me 000000000000000000000000000000000000000000119917513")
+	Chat("gear me 00000000000000000000000000000000000000000074385399")
+    end
+    if command == ".fixvelo" then
+    local mapFolder = game:GetService("Workspace").Terrain._Game.Workspace
+    for _, v in pairs(mapFolder:GetDescendants()) do
+        task.spawn(function()
+            if v:IsA("Part") then
+                v.Velocity = Vector3.new(0, 0, 0)
+            else
+                --
+            end
+        end)
+    end
+    end
     if command == ".house" then
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-31.0896435, 8.22999477, 70.522644, -0.999961913, 4.495271e-08, -0.0087288795, 4.55292621e-08, 1, -6.58523618e-08, 0.0087288795, -6.62472743e-08, -0.999961913)
     end
