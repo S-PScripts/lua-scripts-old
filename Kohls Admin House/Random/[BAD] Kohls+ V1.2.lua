@@ -597,7 +597,7 @@ game.Players.PlayerRemoving:Connect(onPlayerLeaving)
 
 -- the more you use, the slower it does stuff
 -- this is perm and loopgrab
- task.spawn(function()
+ coroutine.wrap(function()
     while true do
 	Perm()
 	LoopGrabPads()
