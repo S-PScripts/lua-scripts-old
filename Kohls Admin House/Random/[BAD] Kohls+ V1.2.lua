@@ -378,6 +378,9 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".ivory" then
        Chat("gear me 000000000000000000108158379")
     end
+    if command == ".gearban" then
+       Chat("gear me 000000000000000000082357101")
+    end
     if command == ".silcrash" then
         task.wait(0.5)
         scounter = 0
