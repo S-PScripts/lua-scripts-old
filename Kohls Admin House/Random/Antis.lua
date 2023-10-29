@@ -2,7 +2,7 @@
 antijail = true
 local function Antis()
   while true do
-  task.wait()
+  	task.wait()
 	if antichat == true then
 		Chat("h \n\n\n 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 \n\n\n")
             end
