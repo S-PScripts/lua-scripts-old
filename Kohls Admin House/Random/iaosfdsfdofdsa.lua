@@ -1,5 +1,6 @@
 multianti = true
 nopunish = true
+print("Exceuted")
 local function ultanti(msg)
   while multianti == true do
       task.wait()
