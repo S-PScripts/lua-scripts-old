@@ -1,5 +1,6 @@
 Hierarchy (or names or some crap):
--- KohlsZ (KohlsZero)
+-- Kohls+ (KohlsPlus)
+-- KohlsZ
 -- KohlsF (KohlsFun)
 -- KohlsM (KohlsMAX)
 -- KohlsU (KohlsUnlimited)
@@ -19,6 +20,7 @@ Antis- BADLY ORDERED
 -- AntiBlind
 -- AntiFly
 -- AntiGod
+-- AntiSit
 -- AntiFF/Forcefield
 -- AntiRespawn
 -- AntiReset/Refresh/Reload
