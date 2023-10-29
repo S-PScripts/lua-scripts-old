@@ -1,10 +1,11 @@
--- NO LONGER USED
+-- No prefix changer yet :P
 local function Chat(msg)
       game.Players:Chat(msg)
 end
-Chat("h \n\n\n qwerty \n\n\n")
-print("Kohls+ v1.2 is executed.")
+Chat("h \n\n\n Kohls+ executed. (V1.22) \n\n\n")
+print("Kohls+ v1.22 is executed.")
 print("Created by ts2021")
+-- CONFIGS
 anticrash = true
 antigear = false
 -- the code
@@ -19,16 +20,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if string.sub(msg:lower(), 0, 7) == ".permpa" then
        perman = string.sub(msg:lower(), 9)
        permannounce = true
-    end
-    if command == ".ipboomer" then
-	local number = math.random(1,999)
-	local number2 = math.random(1,999)
-	local number3 = math.random(1,999)
-	local number4 = math.random(1,999)
-	print(number.."."..number2.."."..number3.."."..number4)
-	game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Check logs", "All")
-	game.Players:Chat('h Check logs')
-	game.Players:Chat('tp',number,".",number2,".",number3,".",number4)
     end
     if command == ".unpa" then
        permannounce = false
@@ -234,7 +225,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump7.TouchInterest:destroy()
         game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump8.TouchInterest:destroy()
         game:GetService("Workspace").Terrain["_Game"].Workspace.Obby.Jump9.TouchInterest:destroy()
-	print("bricks removed")
     end
     if command == ".antilogs" then
         antilogs = true
@@ -667,7 +657,6 @@ task.spawn(function()
       end
 end)()
 
--- this is for testing functions!
 local function Antis()
   while true do
   task.wait()
@@ -760,7 +749,7 @@ end
 Antis()
 
 -- this is for the anti attach
-function start(plr)
+function AntisM(plr)
 	plr.Chatted:Connect(function(msg)
 		task.spawn(function()
 			if string.sub(msg:lower(),0,8) == "unpunish" or string.sub(msg:lower(),0,9) == ":unpunish" or string.sub(msg:lower(),0,3) == "sit" or string.sub(msg:lower(),0,4) == ":sit" or string.sub(msg:lower(),0,4) == "stun" or string.sub(msg:lower(),0,5) == ":stun" then
@@ -806,5 +795,5 @@ function start(plr)
 		end)
 	end)
 end
-start()
+AntisM()
 -- for the antis
