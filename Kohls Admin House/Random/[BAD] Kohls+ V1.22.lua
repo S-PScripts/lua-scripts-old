@@ -618,9 +618,6 @@ end
 game.Players.PlayerAdded:Connect(onPlayerAdded)
 game.Players.PlayerRemoving:Connect(onPlayerLeaving)
 
--- the more you use, the slower it does stuff
--- this is perm and loopgrab
-
 antis = true
 local function Antis()
   while antis == true do
@@ -714,7 +711,7 @@ end
 Antis()
 
 -- this is for the anti attach
-function AntisM(plr)
+local function AntisM(plr)
 	plr.Chatted:Connect(function(msg)
 		task.spawn(function()
 			if string.sub(msg:lower(),0,8) == "unpunish" or string.sub(msg:lower(),0,9) == ":unpunish" or string.sub(msg:lower(),0,3) == "sit" or string.sub(msg:lower(),0,4) == ":sit" or string.sub(msg:lower(),0,4) == "stun" or string.sub(msg:lower(),0,5) == ":stun" then
@@ -761,19 +758,9 @@ function AntisM(plr)
 	end)
 end
 AntisM()
--- for the antis
 
-coroutine.wrap(function()
-    while true do
-	Perm()
-	LoopGrabPads()
-        task.wait()
-    end
-end)()
-
--- these are for many of the cmds
-task.spawn(function()
-     while true do
+local function Misc()
+	while true do
 	    task.wait()
 	    if slock == true then
 	       Chat("punish all " .. math.random(1,1000))
@@ -797,5 +784,14 @@ task.spawn(function()
 	    if nameshart == true then
 	       Chat("name all Broken")
 	    end
-      end
+	end
+end
+Misc()
+
+coroutine.wrap(function()
+    while true do
+	Perm()
+	LoopGrabPads()
+        task.wait()
+    end
 end)()
