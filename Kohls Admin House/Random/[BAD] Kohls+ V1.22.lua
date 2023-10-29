@@ -620,45 +620,10 @@ game.Players.PlayerRemoving:Connect(onPlayerLeaving)
 
 -- the more you use, the slower it does stuff
 -- this is perm and loopgrab
-coroutine.wrap(function()
-    while true do
-	Perm()
-	LoopGrabPads()
-        task.wait()
-    end
-end)()
 
--- these are for many of the cmds
-task.spawn(function()
-     while true do
-	    task.wait()
-	    if slock == true then
-	       Chat("punish all " .. math.random(1,1000))
-	       Chat("blind others " .. math.random(1,1000))
-	       Chat("ungear all " .. math.random(1,1000))
-     	    end
-	    if blinds == true then
-	       Chat("respawn all " .. math.random(1,1000))
-	       Chat("blind all " .. math.random(1,1000))
-	       Chat("ungear all " .. math.random(1,1000))
-            end
-	    if regenspam == true then
-	       fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)  
-     	    end
-	    if spam == true then
-	       Chat(spammer)
-      	    end
-	    if permannounce == true then
-	       Chat("h \n\n\n "..perman.. " \n\n\n")
-            end
-	    if nameshart == true then
-	       Chat("name all Broken")
-	    end
-      end
-end)()
-
+antis = true
 local function Antis()
-  while true do
+  while antis == true do
   	task.wait()
 	if antichat == true then
 		Chat("h \n\n\n 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 \n\n\n")
@@ -797,3 +762,40 @@ function AntisM(plr)
 end
 AntisM()
 -- for the antis
+
+coroutine.wrap(function()
+    while true do
+	Perm()
+	LoopGrabPads()
+        task.wait()
+    end
+end)()
+
+-- these are for many of the cmds
+task.spawn(function()
+     while true do
+	    task.wait()
+	    if slock == true then
+	       Chat("punish all " .. math.random(1,1000))
+	       Chat("blind others " .. math.random(1,1000))
+	       Chat("ungear all " .. math.random(1,1000))
+     	    end
+	    if blinds == true then
+	       Chat("respawn all " .. math.random(1,1000))
+	       Chat("blind all " .. math.random(1,1000))
+	       Chat("ungear all " .. math.random(1,1000))
+            end
+	    if regenspam == true then
+	       fireclickdetector(game:GetService("Workspace").Terrain["_Game"].Admin.Regen.ClickDetector, 0)  
+     	    end
+	    if spam == true then
+	       Chat(spammer)
+      	    end
+	    if permannounce == true then
+	       Chat("h \n\n\n "..perman.. " \n\n\n")
+            end
+	    if nameshart == true then
+	       Chat("name all Broken")
+	    end
+      end
+end)()
