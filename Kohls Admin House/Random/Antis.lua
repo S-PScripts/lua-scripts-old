@@ -1,7 +1,16 @@
 -- this is for testing functions!
+local function Chat(msg)
+      game.Players:Chat(msg)
+end
+antis = true
 antijail = true
+antipunish = true
+antifreeze = true
+antiblind = true
+antismoke = true
+antifire = true
 local function Antis()
-  while true do
+  while antis == true do
   	task.wait()
 	if antichat == true then
 		Chat("h \n\n\n 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 \n\n\n")
