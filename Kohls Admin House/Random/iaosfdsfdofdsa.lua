@@ -11,3 +11,4 @@ local function ultanti(msg)
       end
   end
 end
+ultianti(msg)
