@@ -621,7 +621,7 @@ game.Players.PlayerRemoving:Connect(onPlayerLeaving)
 antis = true
 local function Antis()
   while antis == true do
-  	task.wait()
+        coroutine.yield()
 	if antichat == true then
 		Chat("h \n\n\n 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 \n\n\n")
             end
@@ -708,60 +708,10 @@ local function Antis()
 	end
   end
 end
-Antis()
-
--- this is for the anti attach
-local function AntisM(plr)
-	plr.Chatted:Connect(function(msg)
-		task.spawn(function()
-			if string.sub(msg:lower(),0,8) == "unpunish" or string.sub(msg:lower(),0,9) == ":unpunish" or string.sub(msg:lower(),0,3) == "sit" or string.sub(msg:lower(),0,4) == ":sit" or string.sub(msg:lower(),0,4) == "stun" or string.sub(msg:lower(),0,5) == ":stun" then
-				if antiattach == true then
-					if plr.Name == game.Players.LocalPlayer.Name then
-						Chat("reset")
-					else
-						Chat("reset "..plr.Name)
-					end					
-				end
-			end
-		end)
-		task.spawn(function()
-			if string.sub(msg:lower(),0,5) == "music" or string.sub(msg:lower(),0,6) == ":music" or string.sub(msg:lower(),0,3) == "clr" or string.sub(msg:lower(),0,4) == ":clr" or string.sub(msg:lower(),0,5) == "clear" or string.sub(msg:lower(),0,6) == ":clear" or string.sub(msg:lower(),0,6) == ":clean" or string.sub(msg:lower(),0,5) == "clean" then
-				if antimusic == true then
-					if plr.Name == game.Players.LocalPlayer.Name then
-						Chat("reset")
-					else
-						Chat("music 000000000000000000000000000000")
-					end
-				end
-				if mymusiconly == true then
-					if plr.Name == game.Players.LocalPlayer.Name then
-						Chat("reset")
-					else
-						Chat("music"..mymusiconlyid)
-					end
-				end
-			end
-		end)
-		task.spawn(function()
-			if string.sub(msg:lower(),0,4) == "logs" or string.sub(msg:lower(),0,5) == ":logs" then
-				if antilogs == true then
-					if plr.Name == game.Players.LocalPlayer.Name then
-						print("-")
-					else
-						for i = 1,100 do
-							Chat("ff No logs for you")
-						end
-					end					
-				end
-			end
-		end)
-	end)
-end
-AntisM()
 
 local function Misc()
 	while true do
-	    task.wait()
+	    coroutine.yield()
 	    if slock == true then
 	       Chat("punish all " .. math.random(1,1000))
 	       Chat("blind others " .. math.random(1,1000))
@@ -786,12 +736,74 @@ local function Misc()
 	    end
 	end
 end
-Misc()
+
+local function AntisM(plr)
+	plr.Chatted:Connect(function(msg)
+	    coroutine.wrap(function()
+            while true do
+            coroutine.yield()
+			if string.sub(msg:lower(),0,8) == "unpunish" or string.sub(msg:lower(),0,9) == ":unpunish" or string.sub(msg:lower(),0,3) == "sit" or string.sub(msg:lower(),0,4) == ":sit" or string.sub(msg:lower(),0,4) == "stun" or string.sub(msg:lower(),0,5) == ":stun" then
+				if antiattach == true then
+					if plr.Name == game.Players.LocalPlayer.Name then
+						Chat("reset")
+					else
+						Chat("reset "..plr.Name)
+					end					
+				end
+			end
+            end
+	    end)
+	    coroutine.wrap(function()
+            while true do
+            coroutine.yield()
+			if string.sub(msg:lower(),0,5) == "music" or string.sub(msg:lower(),0,6) == ":music" or string.sub(msg:lower(),0,3) == "clr" or string.sub(msg:lower(),0,4) == ":clr" or string.sub(msg:lower(),0,5) == "clear" or string.sub(msg:lower(),0,6) == ":clear" or string.sub(msg:lower(),0,6) == ":clean" or string.sub(msg:lower(),0,5) == "clean" then
+				if antimusic == true then
+					if plr.Name == game.Players.LocalPlayer.Name then
+						Chat("reset")
+					else
+						Chat("music 000000000000000000000000000000")
+					end
+				end
+				if mymusiconly == true then
+					if plr.Name == game.Players.LocalPlayer.Name then
+						Chat("reset")
+					else
+						Chat("music"..mymusiconlyid)
+					end
+				end
+			end
+             end
+	     end)
+	     coroutine.wrap(function()
+             while true do
+             coroutine.yield()
+			if string.sub(msg:lower(),0,4) == "logs" or string.sub(msg:lower(),0,5) == ":logs" then
+				if antilogs == true then
+					if plr.Name == game.Players.LocalPlayer.Name then
+						print("-")
+					else
+						for i = 1,100 do
+							Chat("ff No logs for you")
+						end
+					end					
+				end
+			end
+            end
+	    end)
+	end)
+end
+
+local co1 = coroutine.create(Antis)
+local co2 = coroutine.create(Misc)
+local co3 = coroutine.create(AntisM)
 
 coroutine.wrap(function()
     while true do
 	Perm()
 	LoopGrabPads()
-        task.wait()
+	coroutine.resume(co1)
+    	coroutine.resume(co2)
+    	coroutine.resume(co3)
+        coroutine.yield()
     end
 end)()
