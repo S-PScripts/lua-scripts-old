@@ -618,10 +618,8 @@ end
 game.Players.PlayerAdded:Connect(onPlayerAdded)
 game.Players.PlayerRemoving:Connect(onPlayerLeaving)
 
-antis = true
 local function Antis()
-  while antis == true do
-        coroutine.yield()
+	time.wait(0)
 	if antichat == true then
 		Chat("h \n\n\n 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 \n\n\n")
             end
@@ -706,12 +704,10 @@ local function Antis()
 			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
 		end
 	end
-  end
 end
 
 local function Misc()
-	while true do
-	    coroutine.yield()
+	    time.wait(0)
 	    if slock == true then
 	       Chat("punish all " .. math.random(1,1000))
 	       Chat("blind others " .. math.random(1,1000))
@@ -734,14 +730,10 @@ local function Misc()
 	    if nameshart == true then
 	       Chat("name all Broken")
 	    end
-	end
 end
 
-local function AntisM(plr)
-	plr.Chatted:Connect(function(msg)
-	    coroutine.wrap(function()
-            while true do
-            coroutine.yield()
+game.Players.PlayerAdded:Connect(function(player)
+	    player.Chatted:Connect(function(msg)
 			if string.sub(msg:lower(),0,8) == "unpunish" or string.sub(msg:lower(),0,9) == ":unpunish" or string.sub(msg:lower(),0,3) == "sit" or string.sub(msg:lower(),0,4) == ":sit" or string.sub(msg:lower(),0,4) == "stun" or string.sub(msg:lower(),0,5) == ":stun" then
 				if antiattach == true then
 					if plr.Name == game.Players.LocalPlayer.Name then
@@ -751,11 +743,6 @@ local function AntisM(plr)
 					end					
 				end
 			end
-            end
-	    end)
-	    coroutine.wrap(function()
-            while true do
-            coroutine.yield()
 			if string.sub(msg:lower(),0,5) == "music" or string.sub(msg:lower(),0,6) == ":music" or string.sub(msg:lower(),0,3) == "clr" or string.sub(msg:lower(),0,4) == ":clr" or string.sub(msg:lower(),0,5) == "clear" or string.sub(msg:lower(),0,6) == ":clear" or string.sub(msg:lower(),0,6) == ":clean" or string.sub(msg:lower(),0,5) == "clean" then
 				if antimusic == true then
 					if plr.Name == game.Players.LocalPlayer.Name then
@@ -771,12 +758,7 @@ local function AntisM(plr)
 						Chat("music"..mymusiconlyid)
 					end
 				end
-			end
-             end
-	     end)
-	     coroutine.wrap(function()
-             while true do
-             coroutine.yield()
+            		end
 			if string.sub(msg:lower(),0,4) == "logs" or string.sub(msg:lower(),0,5) == ":logs" then
 				if antilogs == true then
 					if plr.Name == game.Players.LocalPlayer.Name then
@@ -788,22 +770,16 @@ local function AntisM(plr)
 					end					
 				end
 			end
-            end
-	    end)
 	end)
-end
-
-local co1 = coroutine.create(Antis)
-local co2 = coroutine.create(Misc)
-local co3 = coroutine.create(AntisM)
+end)
 
 coroutine.wrap(function()
     while true do
 	Perm()
 	LoopGrabPads()
-	coroutine.resume(co1)
-    	coroutine.resume(co2)
-    	coroutine.resume(co3)
-        coroutine.yield()
-    end
+	Antis()
+	Misc()
+	AntisM()
+	time.wait(0)
+	end
 end)()
