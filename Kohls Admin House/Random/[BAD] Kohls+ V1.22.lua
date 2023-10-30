@@ -779,7 +779,6 @@ coroutine.wrap(function()
 	LoopGrabPads()
 	Antis()
 	Misc()
-	AntisM()
 	time.wait(0)
 	end
 end)()
