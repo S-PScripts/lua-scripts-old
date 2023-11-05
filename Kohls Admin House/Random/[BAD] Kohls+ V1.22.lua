@@ -1,4 +1,5 @@
 -- No prefix changer yet :P
+-- not very updated now because of https://github.com/S-PScripts/kah-scripts/tree/main
 local function Chat(msg)
       game.Players:Chat(msg)
 end
