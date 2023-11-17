@@ -1,5 +1,7 @@
 -- No prefix changer yet :P
 -- not very updated now because of https://github.com/S-PScripts/kah-scripts/tree/main
+
+--THIS IS MISSING A LOT OF STUFF THIS WILL BE REVAMPED IN A FEW WEEKS OR SO
 local function Chat(msg)
       game.Players:Chat(msg)
 end
@@ -619,7 +621,8 @@ end
 game.Players.PlayerAdded:Connect(onPlayerAdded)
 game.Players.PlayerRemoving:Connect(onPlayerLeaving)
 
-local function Antis()
+Spawn(function()
+	while true do
 	time.wait(0)
 	if antichat == true then
 		Chat("h \n\n\n 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 \n\n\n")
@@ -705,9 +708,11 @@ local function Antis()
 			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
 		end
 	end
+	end
 end
 
-local function Misc()
+Spawn(function()
+	while true do
 	    time.wait(0)
 	    if slock == true then
 	       Chat("punish all " .. math.random(1,1000))
@@ -731,10 +736,12 @@ local function Misc()
 	    if nameshart == true then
 	       Chat("name all Broken")
 	    end
+	end
 end
 
-game.Players.PlayerAdded:Connect(function(player)
-	    player.Chatted:Connect(function(msg)
+plr.Chatted:Connect(function(msg)
+        for _, v in pairs(game.Players:GetPlayers()) do
+            local connection = v.Chatted:Connect(function(message)
 			if string.sub(msg:lower(),0,8) == "unpunish" or string.sub(msg:lower(),0,9) == ":unpunish" or string.sub(msg:lower(),0,3) == "sit" or string.sub(msg:lower(),0,4) == ":sit" or string.sub(msg:lower(),0,4) == "stun" or string.sub(msg:lower(),0,5) == ":stun" then
 				if antiattach == true then
 					if plr.Name == game.Players.LocalPlayer.Name then
@@ -771,15 +778,16 @@ game.Players.PlayerAdded:Connect(function(player)
 					end					
 				end
 			end
-	end)
+		end)
+				table.insert(connections, connection)
+
+	end
 end)
 
 coroutine.wrap(function()
     while true do
 	Perm()
 	LoopGrabPads()
-	Antis()
-	Misc()
 	time.wait(0)
 	end
 end)()
