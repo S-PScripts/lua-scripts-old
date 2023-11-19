@@ -950,7 +950,181 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	PingCsystem = false
     end
 
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antiblind' then
+	YOUantiblind = true
+    end
 
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unantiblind' then
+	YOUantiblind = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'anticlone' then
+	YOUanticlone = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unanticlone' then
+	YOUanticlone = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antifire' then
+	YOUantifire = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unantifire' then
+	YOUantifire = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'antifreeze' then
+	YOUantifreeze = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 12) == prefix..'unantifreeze' then
+	YOUantifreeze = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'antiff' then
+	YOUantiff = true
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'unantiff' then
+	YOUantiff = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antiglow' then
+	YOUantiglow = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unantiglow' then
+	YOUantiglow = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'antihealthc' then
+	YOUantihealthc = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 13) == prefix..'unantihealthc' then
+	YOUantihealthc = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antijail' then
+	YOUantijail = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unantijail' then
+	YOUantijail = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antijump' then
+	YOUantijump = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unantijump' then
+	YOUantijump = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antikill' then
+	YOUantikill = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unantikill' then
+	YOUantikill = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'antimsg' then
+	YOUantimsg = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'unantimsg' then
+	YOUantimsg = false
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antiname' then
+	YOUantiname = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unantiname' then
+	YOUantiname = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 13) == prefix..'antiparticles' then
+	YOUantiparticles = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 15) == prefix..'unantiparticles' then
+	YOUantiparticles = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'antipunish' then
+	YOUantipunish = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 12) == prefix..'unantipunish' then
+	YOUantipunish = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'antirocket' then
+	YOUantirocket = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 12) == prefix..'unantirocket' then
+	YOUantirocket = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'antisit' then
+	YOUantisit = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'unantisit' then
+	YOUantisit = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'antiseizure' then
+	YOUantiseizure = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 13) == prefix..'unantiseizure' then
+	YOUantiseizure = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antismoke' then
+	YOUantismoke = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unantismoke' then
+	YOUantismoke = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 12) == prefix..'antisparkles' then
+	YOUantisparkles = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 14) == prefix..'unantisparkles' then
+	YOUantisparkles = false
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antispeed' then
+	YOUantispeed = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unantispeed' then
+	YOUantispeed = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antistun' then
+	YOUantistun = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unantistun' then
+	YOUantistun = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antiswag' then
+	YOUantiswag = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unantiswag' then
+	YOUantiswag = false
+    end
 end)
 
 function CMDPrint()
