@@ -10,11 +10,9 @@ local slockenabled = {}
 local musiclist = {"9048375035", "6680495507", "6529070845", "6917155909", "6913550990"}
 local musicnames = {"All dropping 8 beats", "Meow meow", "Loud music", "They trying to be cray", "TLT FNAF 2"}
 
-antimusic = false
-mymusiconly = false
-musicoff = true
+local Admin = {}
 
-local YOUantiblind = true
+--[[ local YOUantiblind = true
 local YOUanticlone = true
 local YOUantifire = true
 local YOUantifreeze = true
@@ -36,17 +34,12 @@ local YOUantismoke = true
 local YOUantisparkles = true
 local YOUantispeed = true
 local YOUantistun = true
-local YOUantiswag = true
-
-local PingCsystem = true
-local PingLogs = true
-local AntiLogs = true
-
-local noobdetect = true
-local antiattach = true
+local YOUantiswag = true ]]
 
 -- ANTIS FOR YOU ONLY
 task.spawn(function()
+	while true do
+	task.wait()
 	if YOUantiblind == true then
 	   for i, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
                 if v.Name == "EFFECTGUIBLIND" then
@@ -191,6 +184,7 @@ task.spawn(function()
                 	Chat("normal me")
 		end
 	end
+	end
 end)
 
 -- PADS
@@ -222,7 +216,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
          local dasplayer = string.sub(msg:lower(), #prefix + 4)
          PLAYERCHECK(dasplayer)
          if player ~= nil then
-                game.Players:Chat("h \n\n\n [SlockD] "..player.." has been whitelisted! \n\n\n")
+                game.Players:Chat("h \n\n\n [KohlsLite] "..player.." has been whitelisted! \n\n\n")
                 table.insert(whitelist, player)
                 game.Players:Chat('unblind '..player)
                 game.Players:Chat('unpunish '..player)
@@ -230,12 +224,34 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
                 print('Cannot find player with the name: '..dasplayer)
          end
        end
-    
+
+	if string.sub(msg:lower(), 1, #prefix + 5)  == prefix..'admin' then
+         local dasplayer = string.sub(msg:lower(), #prefix + 7)
+         PLAYERCHECK(dasplayer)
+         if player ~= nil then
+                game.Players:Chat("h \n\n\n [KohlsLite] "..player.." has been given admin! \n\n\n")
+                table.insert(Admin, player)
+         else
+                print('Cannot find player with the name: '..dasplayer)
+         end
+       end
+
+	if string.sub(msg:lower(), 1, #prefix + 7)  == prefix..'unadmin' then
+         local dasplayer = string.sub(msg:lower(), #prefix + 9)
+         PLAYERCHECK(dasplayer)
+         if player ~= nil then
+                game.Players:Chat("h \n\n\n [KohlsLite] "..player.." has been removed from admin. \n\n\n")
+                table.remove(Admin, table.find(Admin, player))
+         else
+                print('Cannot find player with the name: '..dasplayer)
+         end
+       end
+		
        if string.sub(msg:lower(), 1, #prefix + 4) == prefix..'unwl' then
          local dasplayer = string.sub(msg:lower(), #prefix + 6)
          PLAYERCHECK(dasplayer)
          if player ~= nil then
-                game.Players:Chat("h \n\n\n [SlockD] "..player.." has been unwhitelisted. \n\n\n")
+                game.Players:Chat("h \n\n\n [KohlsLite] "..player.." has been unwhitelisted. \n\n\n")
                 table.remove(whitelist, table.find(whitelist, player))
          else
                 print('Cannot find player with the name: '..dasplayer)
@@ -246,7 +262,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
          local dasplayer = string.sub(msg:lower(), #prefix + 4)
          PLAYERCHECK(dasplayer)
          if player ~= nil then
-                game.Players:Chat("h \n\n\n [SlockD] "..player.." has been blacklisted. \n\n\n")
+                game.Players:Chat("h \n\n\n [KohlsLite] "..player.." has been blacklisted. \n\n\n")
                 table.insert(blacklist, player)
          else
                 print('Cannot find player with the name: '..dasplayer)
@@ -257,7 +273,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
          local dasplayer = string.sub(msg:lower(), #prefix + 6)
          PLAYERCHECK(dasplayer)
          if player ~= nil then
-                game.Players:Chat("h \n\n\n [SlockD] "..player.." has been unblacklisted! \n\n\n")
+                game.Players:Chat("h \n\n\n [KohlsLite] "..player.." has been unblacklisted! \n\n\n")
                 table.remove(blacklist, table.find(blacklist, player))
                 game.Players:Chat('unblind '..player)
                 game.Players:Chat('unpunish '..player)
@@ -267,13 +283,13 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        end
     
        if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'slock' then
-        game.Players:Chat("h \n\n\n [KOHLSLITE] Server is locked! \n\n\n")
+        game.Players:Chat("h \n\n\n [KohlsLite] Server is locked! \n\n\n")
         slockenabled = true
        end
     
        if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'unslock' then
         slockenabled = false
-        game.Players:Chat("h \n\n\n [KOHLSLITE] Server is unlocked! \n\n\n")
+        game.Players:Chat("h \n\n\n [KohlsLite] Server is unlocked! \n\n\n")
         game.Players:Chat('unblind all')
         game.Players:Chat('unpunish all')
        end
@@ -281,7 +297,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'gmusic' then
         musicplay = tonumber(string.sub(msg:lower(), #prefix + 7)) 
         if musicplay ~= nil and musicplay >= 1 and musicplay <= #musiclist then
-            Chat("h \n\n\n [KOHLSLITE] Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
+            Chat("h \n\n\n [KohlsLite] Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
             Chat("music " .. musiclist[musicplay])
         else
             print("Invalid music number!")
@@ -290,7 +306,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		
     if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'rgmusic' then
         musicplay = math.random(1, #musiclist)
-        Chat("h \n\n\n [KOHLSLITE] Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
+        Chat("h \n\n\n [KohlsLite] Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
         Chat("music " .. musiclist[musicplay])
     end
 		
@@ -300,7 +316,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        else            
           musicplay = musicplay + 1
        end
-       Chat("h \n\n\n [KOHLSLITE] Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
+       Chat("h \n\n\n [KohlsLite] Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
        Chat("music " .. musiclist[musicplay])
     end
 		
@@ -310,7 +326,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        else            
           musicplay = musicplay - 1
        end
-       Chat("h \n\n\n [musich] Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
+       Chat("h \n\n\n [KohlsLite] Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
        Chat("music " .. musiclist[musicplay])
     end
 		
@@ -401,9 +417,361 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        end
      end
 
-    
-       
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'vgcrash' then
+	VGCrash()
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'fcrash' then
+	FCrash()
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'dcrash' then
+       DCrash()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'welmsg' then
+	welcomemsg = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'unwelmsg' then
+	welcomemsg = false
+    end
 	
+    if string.sub(msg:lower(), 1, #prefix + 2) == prefix..'ad' then
+       ADVERTISEMENT()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'ipboom' then
+       IPBOOM()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'giforjif' then
+       GIFORJIF()
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'logspam' then
+       LogSpam()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'slowplayer' then
+	caruser = string.sub(msg:lower(), #prefix + 12)
+	SlowP = true
+    end
+
+   if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'supercmd' then
+	supermessage = string.sub(msg:lower(), #prefix + 10)
+	amon = 100
+    end
+
+   if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'supert' then
+	amon = tonumber(string.sub(msg:lower(), #prefix + 10))
+    end
+		
+   if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'spamt' then
+	spamtext = string.sub(msg:lower(), #prefix + 7)
+	spamwait = 0
+	spam = true
+	spamon = true
+    end
+
+   if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'unspamt' then
+	spam = false
+	spamon = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'spamw' then
+	spamwait = string.sub(msg:lower(), #prefix + 7)
+    end
+
+   if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'spamwait' then
+	spamwait = string.sub(msg:lower(), #prefix + 10)
+    end
+		
+   if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'spamoff' then
+	spamon = false
+    end
+
+  if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'spamon' then
+	spamon = true
+    end
+	
+    if string.sub(msg:lower(), 1, #prefix + 12) == prefix..'unslowplayer' then
+	SlowP = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'snplayer' then
+	nameuser = string.sub(msg:lower(), #prefix + 10)
+	SName = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unsnplayer' then
+	SName = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'sregen' then
+	SRegen = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'unsregen' then
+	SRegen = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'qattach' then
+	QAttach()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'qattach2' then
+	QAttach2()
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'regen' then
+	Regen()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'house' then
+	House()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'execute' then
+	LuaScript = string.sub(msg:lower(), #prefix + 9)
+	Execute()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'announce' then
+	annsecret = string.sub(msg:lower(), #prefix + 10)
+	Announce()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'announcewm' then
+	annsecret = string.sub(msg:lower(), #prefix + 12)
+	AnnounceWL()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'prefix' then
+	prefix = string.sub(msg:lower(), #prefix + 8)
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'paintmap' then
+	ColourHere = string.sub(msg:lower(), #prefix + 10)
+	PaintMap()
+    end
+		
+   if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'autoafk' then
+	autoafk = true
+   end
+
+   if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'unautoafk' then
+	autoafk = false
+   end
+		
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'adminall' then
+       admin = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 3) == prefix..'NOK' then
+		NOK()
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 4) == prefix..'NOK2' then
+		NOK2()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'getping' then
+	
+		GetPing()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'gearban' then
+		name = string.sub(msg:lower(), #prefix + 9)
+		Gearban()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'sspawn' then
+		SSpawn()
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'gsspawn' then
+		Spawn()
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'infjump' then
+		INFJUMP = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'uninfjump' then
+		INFJUMP = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'nocam' then
+		NoCam()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'breakcam' then
+		NoCam()
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unadminall' then
+       admin = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'loopgrab' then
+	loopgrab = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 2) == prefix..'lg' then
+	loopgrab = true
+    end
+
+     if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'fastpads' then
+		FastPads()
+     end
+		
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'loopgrab2' then
+	loopgrab2 = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 3) == prefix..'lg2' then
+	loopgrab2 = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unloopgrab' then
+	loopgrab = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 4) == prefix..'unlg' then
+	loopgrab = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unloopgrab2' then
+	loopgrab2 = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'unlg2' then
+	loopgrab2 = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'perm' then
+	perm = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 2) == prefix..'perm2' then
+	perm2 = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'unperm' then
+	perm = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 3) == prefix..'unperm2' then
+	perm2 = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'checkbp' then
+	checker = string.sub(msg:lower(), #prefix + 9)
+	CheckBackpack()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'stonemap' then
+	StoneMap()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'rockmap' then
+	StoneMap()
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'icemap' then
+ 	IceMap()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'fixpaint' then
+		FixPaint()
+     end
+
+   if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'anticrash' then
+	anticrash = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unanticrash' then
+	anticrash = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'anticrash2' then
+	anticrash2 = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 12) == prefix..'unanticrash2' then
+	anticrash2 = false
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antigear' then
+	antigear = true
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unantigear' then
+	antigear = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'antigb' then
+	antigb = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'unantigb' then
+	antigb = false
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'antiattach2' then
+	antiattach2 = true
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 13) == prefix..'unantiattach2' then
+	antiattach2 = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'antiattach' then
+	antiattach = true
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 12) == prefix..'unantiattach' then
+	antiattach = false
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'pinglogs' then
+	PingLogs = true
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unpinglogs' then
+	PingLogs = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antilogs' then
+	AntiLogs = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unantilogs' then
+	AntiLogs = false
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'pingcsys' then
+	PingCsystem = true
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unpingcsys' then
+	PingCsystem = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'noobdetect' then
+	noobdetect = true
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unnoobdetect' then
+	noobdetect = false
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unpingcsys' then
+	PingCsystem = false
+    end
+
+
 end)
 
 function CMDPrint()
@@ -413,6 +781,7 @@ end
 -- this is similar to CMD's system :D
 -- SLOCK/BL/WL
 task.spawn(function()
+    while true do
     local players = game.Players:GetPlayers()
     for i, v in pairs(game.Workspace:GetChildren()) do
         if v.Name ~= game.Players.LocalPlayer.Name and not table.find(whitelist, v.Name) then
@@ -422,13 +791,13 @@ task.spawn(function()
                         if not game.Lighting:FindFirstChild(v.Name) then
                                 game.Players:Chat('punish '..v.Name)
                                 game.Players:Chat('blind '..v.Name)
-                                game.Players:Chat('pm [KOHLSLITE] '..v.Name..' sorry, this server is locked!')
+                                game.Players:Chat('pm [KohlsLite] '..v.Name..' sorry, this server is locked!')
                         end
                     elseif table.find(blacklist, v.Name) then
                         if not game.Lighting:FindFirstChild(v.Name) then
                                 game.Players:Chat('punish '..v.Name)
                                 game.Players:Chat('blind '..v.Name)
-                                game.Players:Chat('pm [KOHLSLITE] '..v.Name..' sorry, you are blacklisted!')
+                                game.Players:Chat('pm [KohlsLite] '..v.Name..' sorry, you are blacklisted!')
                         end
                     else 
                     end
@@ -436,6 +805,7 @@ task.spawn(function()
                 end
             end
         end
+    end
     end
 end)
 
@@ -598,7 +968,7 @@ end
 
 
 -- IP LEAK REAL :O :O :O
-local function IPBOMB()
+local function IPBOOM()
   
 local number = math.random(1,255)
 local number2 = math.random(1,255)
@@ -630,7 +1000,13 @@ end
 
 end
 
-function GIFORJIF()
+-- AD
+local function ADVERTISEMENT()
+game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("KohlsLite THE BEST SCRIPT GET IT NOW AT MY GITHUB OR CONTACT ME ON PURPLE SITE TS2021", "All")
+end
+
+-- GIF OR JIF
+local function GIFORJIF()
 game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Hey you", "All")
 task.wait(2)
 game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Yes, you!", "All")
@@ -652,7 +1028,8 @@ game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
 task.wait(2)
 game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Is it GIF or JIF?", "All")
 noobs = true
-    
+
+		
 plr.Chatted:Connect(function(msg)
     if noobs then 
         for _, v in pairs(game.Players:GetPlayers()) do
@@ -684,15 +1061,10 @@ end
 end
 
 
-
-
-
-
-
-
 -- For Some Antis, Admin Stuff
 plr.Chatted:Connect(function(msg)
      task.spawn(function()
+	while true do
         for _, v in pairs(game.Players:GetPlayers()) do
                 if message:lower():find("/w") or message:lower():find("/c system") and v ~= game.Players.LocalPlayer then
                    if PingCsystem then
@@ -728,7 +1100,7 @@ plr.Chatted:Connect(function(msg)
 
 
 		if noobdetect == true then
-    	        if message:lower() == ";fly" then
+    	        if message:lower() == ";fly" and v ~= game.Players.LocalPlayer then
                    print(v.Name..' is a noob.')
                    game.Players:Chat('h '..v.Name..', it is fly me, not ;fly!!')
                 end
@@ -763,16 +1135,16 @@ plr.Chatted:Connect(function(msg)
             	local command = string.gsub(msg:lower(), "me", v.Name)
             	if string.sub(command, 1, 1) == ":" then
               	 	command = ""
-               		game.Players:Chat("pm "..v.Name.." [AdminG]: Please use commands without : . Thanks!")
+               		game.Players:Chat("pm "..v.Name.." [KohlsLite]: Please use commands without : . Thanks!")
             	end
             
            	 if string.sub(command, 1, 1) == "/" then
                		command = ""
             	end
             
-   --[[      if string.sub(command, 1, 1) == prefix then
-               command = ""
-            end]]
+                if string.sub(command, 1, 1) == prefix then
+                       command = ""
+                end
 
             if string.sub(command, 1, 5) == "music" then
                local MUSIC = string.sub(command, 7)
@@ -799,7 +1171,7 @@ plr.Chatted:Connect(function(msg)
                game.Players:Chat('message '..v.Name..': '..message)
           
             elseif string.sub(command, 1, 3) == "pm " then
-               game.Players:Chat("pm "..v.Name.." [AdminG]: I can't make you private message because due to limitations. Sorry!")
+               game.Players:Chat("pm "..v.Name.." [KohlsLite]: I can't make you private message because due to limitations. Sorry!")
           
             elseif string.sub(command, 1, 5) == "hint " then
                local message = string.sub(command, 6)
@@ -810,43 +1182,45 @@ plr.Chatted:Connect(function(msg)
                game.Players:Chat('h '..v.Name..': '..message)
           
             elseif string.sub(command, 1, 4) == "logs" then
-               game.Players:Chat("pm "..v.Name.." [AdminG]: I can't make you see logs because it's client sided. Sorry!")
+               game.Players:Chat("pm "..v.Name.." [KohlsLite]: I can't make you see logs because it's client sided. Sorry!")
           
             elseif string.sub(command, 1, 4) == "cmds" then
-               game.Players:Chat("pm "..v.Name.." [AdminG]: I can't make you see commands because it's client sided. Sorry!")
+               game.Players:Chat("pm "..v.Name.." [KohlsLite]: I can't make you see commands because it's client sided. Sorry!")
           
             elseif string.sub(command, 1, 8) == "commands" then
-               game.Players:Chat("pm "..v.Name.." [AdminG]: I can't make you see commands because it's client sided. Sorry!")
+               game.Players:Chat("pm "..v.Name.." [KohlsLite]: I can't make you see commands because it's client sided. Sorry!")
           
             elseif string.sub(command, 1, 9) == "musiclist" then
-               game.Players:Chat("pm "..v.Name.." [AdminG]: I can't make you see the music list because it's client sided. Sorry!")
+               game.Players:Chat("pm "..v.Name.." [KohlsLite]: I can't make you see the music list because it's client sided. Sorry!")
           
             elseif string.sub(command, 1, 11) == "packagelist" then
-               game.Players:Chat("pm "..v.Name.." [AdminG]: I can't make you see the package list because it's client sided. Sorry!")
+               game.Players:Chat("pm "..v.Name.." [KohlsLite]: I can't make you see the package list because it's client sided. Sorry!")
           
             else
                game.Players:Chat(command)
             end
           end
         end
+	end
     end)
 			task.spawn(function()
+			while true do
 			for i,player in pairs(Admin) do
 				if plr.Name == player then
           
 					local command = string.gsub(msg:lower(), "me", plr.Name)
 					if string.sub(command, 1, 1) == ":" then
 						command = ""
-						game.Players:Chat("pm "..plr.Name.." [AdminG]: Please use commands without : . Thanks!")
+						game.Players:Chat("pm "..plr.Name.." [KohlsLite]: Please use commands without : . Thanks!")
 					end
             
 					if string.sub(command, 1, 1) == "/" then
 						command = ""
 					end
             
-			--[[		if string.sub(command, 1, 1) == prefix then
+					if string.sub(command, 1, 1) == prefix then
 						command = ""
-					end]]
+					end
 
 					if string.sub(command, 1, 5) == "music" then
 						local MUSIC = string.sub(command, 7)
@@ -873,7 +1247,7 @@ plr.Chatted:Connect(function(msg)
 						game.Players:Chat('message '..plr.Name..': '..message)
               
 					elseif string.sub(command, 1, 3) == "pm " then
-						game.Players:Chat("pm "..plr.Name.." [AdminG]: I can't make you private message because due to limitations. Sorry!")
+						game.Players:Chat("pm "..plr.Name.." [KohlsLite]: I can't make you private message because due to limitations. Sorry!")
               
 					elseif string.sub(command, 1, 5) == "hint " then
 						local message = string.sub(command, 6)
@@ -884,24 +1258,25 @@ plr.Chatted:Connect(function(msg)
 						game.Players:Chat('h '..plr.Name..': '..message)
               
 					elseif string.sub(command, 1, 4) == "logs" then
-						game.Players:Chat("pm "..plr.Name.." [AdminG]: I can't make you see logs because it's client sided. Sorry!")
+						game.Players:Chat("pm "..plr.Name.." [KohlsLite]: I can't make you see logs because it's client sided. Sorry!")
               
 					elseif string.sub(command, 1, 4) == "cmds" then
-						game.Players:Chat("pm "..plr.Name.." [AdminG]: I can't make you see commands because it's client sided. Sorry!")
+						game.Players:Chat("pm "..plr.Name.." [KohlsLite]: I can't make you see commands because it's client sided. Sorry!")
               
 					elseif string.sub(command, 1, 8) == "commands" then
-						game.Players:Chat("pm "..plr.Name.." [AdminG]: I can't make you see commands because it's client sided. Sorry!")
+						game.Players:Chat("pm "..plr.Name.." [KohlsLite]: I can't make you see commands because it's client sided. Sorry!")
               
 					elseif string.sub(command, 1, 9) == "musiclist" then
-						game.Players:Chat("pm "..plr.Name.." [AdminG]: I can't make you see the music list because it's client sided. Sorry!")
+						game.Players:Chat("pm "..plr.Name.." [KohlsLite]: I can't make you see the music list because it's client sided. Sorry!")
               
 					elseif string.sub(command, 1, 11) == "packagelist" then
-						game.Players:Chat("pm "..plr.Name.." [AdminG]: I can't make you see the package list because it's client sided. Sorry!")
+						game.Players:Chat("pm "..plr.Name.." [KohlsLite]: I can't make you see the package list because it's client sided. Sorry!")
               
 					else
 						game.Players:Chat(command)
 					end
 				end
+			end
 			end
 		end)
 end)
@@ -1068,28 +1443,38 @@ end
 
 -- NAME HECK
 task.spawn(function()
-      while SName == true do
+      while true do
+      time.wait(0)
+      if SName == true then
 	         Chat("name ".. nameuser .." [BROKE]")
-           time.wait(0)
-    end
+      end
+      end
 end)
 
 -- SLOW PLAYER
 task.spawn(function()
-	while SlowP == true do
+	while true do
+	task.wait(0)
+	if SlowP == true then
               Chat("gear ".. caruser .." 253519495")
               time.wait(0)
         end
+	end
 end)
 
 -- LUA CMDS
-local function Lua()
+local function Execute()
       loadstring(string.sub(msg:lower(), LuaScript))()
 end
 
 -- ANNOUNCEMENTS
 local function Announce()
       Chat("h \n\n\n "..annsecret.. " \n\n\n")
+end
+
+-- ANNOUNCE WITH WM
+local function AnnounceWM()
+      Chat("h \n\n\n [KohlsLite]: "..annsecret.. " \n\n\n")
 end
 
 -- SPAWN SAVED
@@ -1254,10 +1639,13 @@ end
 
 -- SPAM
 task.spawn(function()
-	while spam == true do
-            Chat(spammessage)
+	while true do
+	task.wait(0)
+	if spam == true and spamon == true then
+            Chat(spamtext)
             task.wait(spamwait)
-      end
+        end
+	end
 end)
 
 
@@ -1290,7 +1678,8 @@ end
 --SPAMREGEN
 task.spawn(function()
      while true do
-           if sregen == true then
+	   task.wait(0)
+           if SRegen == true then
               Regen()
            end
      end
