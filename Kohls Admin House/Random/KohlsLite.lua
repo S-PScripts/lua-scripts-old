@@ -225,6 +225,18 @@ task.spawn(function()
                 	Chat("normal me")
 		end
 	end
+
+	if YOUantitrail == true then
+	    local player = game.Players.LocalPlayer
+             if player.Character then
+                    local humanoid = player.Character:WaitForChild("Humanoid", 1)
+                    if humanoid and humanoid.Trail then
+                        humanoid.Trail = false
+                        Chat("untrail me")
+                    end
+             end
+	end
+			
 	end
 end)
 
@@ -327,12 +339,12 @@ task.spawn(function()
                 Player.Character.HumanoidRootPart.CFrame = oldposition
             end
 	end
+				
 	if ALLantisit == true then
 	   local player = player.Name
             	 if player.Character then
                     local humanoid = player.Character:WaitForChild("Humanoid", 1)
                     if humanoid and humanoid.Sit then
-                        humanoid.Sit = false
                         Chat("unsit"..player.Name)
                     end
              	end
@@ -371,7 +383,6 @@ task.spawn(function()
              if player.Character then
                     local humanoid = player.Character:WaitForChild("Humanoid", 1)
                     if humanoid and humanoid.PlatformStand then
-                        humanoid.PlatformStand = false
                         Chat("unstun"..player.Name)
                     end
              end
@@ -382,6 +393,17 @@ task.spawn(function()
                 	Chat("normal"..player.Name)
 		end
 	end
+
+	if YOUantitrail == true then
+	    local player = player.Name
+             if player.Character then
+                    local humanoid = player.Character:WaitForChild("Humanoid", 1)
+                    if humanoid and humanoid.Trail then
+                        Chat("untrail"..player.Name)
+                    end
+             end
+	end
+				
 	end
 	end
 end)
@@ -595,6 +617,16 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         musicoff = false
         mymusiconly = true
         mymusiconlyid = tonumber(string.sub(msg:lower(), #prefix + 11))
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'bring' then
+        bringu = (string.sub(msg:lower(), #prefix + 7))
+	Bring()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 4) == prefix..'goto' then
+        gotou = (string.sub(msg:lower(), #prefix + 6))
+	Goto()
     end
 		
     if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unpermmusic' then
@@ -1163,6 +1195,14 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 
     if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unantiswag' then
 	YOUantiswag = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antitrail' then
+	YOUantitrail = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unantitrail' then
+	YOUantitrail = false
     end
 end)
 
@@ -1809,6 +1849,17 @@ while true do
     time.wait(0)  
   end
 end)
+
+-- GOTO
+local function Goto()
+          Chat("tp me"..gotou)
+end
+
+-- BRING
+local function Bring()
+      Chat("tp"..bringu.."me")
+end
+
 
 -- FREEZE CRASH
 local function FCrash()
