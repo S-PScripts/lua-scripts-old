@@ -36,6 +36,26 @@ local YOUantispeed = true
 local YOUantistun = true
 local YOUantiswag = true ]]
 
+task.spawn(function()
+    while true do
+        task.wait()
+        for i,v in pairs(game:GetService("Workspace").Terrain["_Game"].Folder:GetChildren()) do
+            if v:IsA('Script') then
+                  if antidisco == true then    
+                          if v.Name == "Disco" then
+                              Chat("fix")
+                          end
+                  end
+                  if antiflash == true then    
+                          if v.Name == "Flash" then
+                              Chat("fix")
+                          end
+                  end
+            end
+        end
+  end
+end)
+
 -- ANTIS FOR YOU ONLY
 task.spawn(function()
 	while true do
@@ -379,6 +399,9 @@ local antigear = false
 local antigb = true
 local antiattach2 = false
 
+local antiflash = true
+local antidisco = false
+
 local function Chat(msg)
       game.Players:Chat(msg)
 end
@@ -615,7 +638,23 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'unwelmsg' then
 	welcomemsg = false
     end
-	
+
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antidisco' then
+	antidisco = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unantidisco' then
+	antidisco = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antiflash' then
+	antiflash = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unantiflash' then
+	antiflash = false
+    end
+		
     if string.sub(msg:lower(), 1, #prefix + 2) == prefix..'ad' then
        ADVERTISEMENT()
     end
