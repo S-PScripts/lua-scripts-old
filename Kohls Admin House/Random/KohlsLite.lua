@@ -1,28 +1,49 @@
--- THE F*CKING CONFIGS
-YOUantiblind = true
-YOUanticlone = true
-YOUantifire = true
-YOUantifreeze = true
-YOUantifly = true
-YOUantiff = true
-YOUantiglow = true
-YOUantihealthc = true
-YOUantijail = true
-YOUantijump = true
-YOUantikill = true
-YOUantimsg = true
-YOUantiname = true
-YOUantiparticles = true
-YOUantipunish = true
-YOUantirocket = true
-YOUantisit = true
-YOUantiseizure = true
-YOUantismoke = true
-YOUantisparkles = true
-YOUantispeed = true
-YOUantistun = true
-YOUantiswag = true
+-- IT WORKS BUT I HAVEN'T FINISHED THE CMDLIST SO YOU GOTTA CHANGE THE VARIABLES URSELF
+-- ALSO ALLANTIS ARE MISSING RN
+-- FINISH BY NEXT WEEK IH
 
+local prefix =  "!" -- ANY LENGTH :D
+local blacklist = {}
+local whitelist = {}
+local slockenabled = {}
+
+local musiclist = {"9048375035", "6680495507", "6529070845", "6917155909", "6913550990"}
+local musicnames = {"All dropping 8 beats", "Meow meow", "Loud music", "They trying to be cray", "TLT FNAF 2"}
+
+antimusic = false
+mymusiconly = false
+musicoff = true
+
+local YOUantiblind = true
+local YOUanticlone = true
+local YOUantifire = true
+local YOUantifreeze = true
+local YOUantifly = true
+local YOUantiff = true
+local YOUantiglow = true
+local YOUantihealthc = true
+local YOUantijail = true
+local YOUantijump = true
+local YOUantikill = true
+local YOUantimsg = true
+local YOUantiname = true
+local YOUantiparticles = true
+local YOUantipunish = true
+local YOUantirocket = true
+local YOUantisit = true
+local YOUantiseizure = true
+local YOUantismoke = true
+local YOUantisparkles = true
+local YOUantispeed = true
+local YOUantistun = true
+local YOUantiswag = true
+
+local PingCsystem = true
+local PingLogs = true
+local AntiLogs = true
+
+local noobdetect = true
+local antiattach = true
 
 -- ANTIS FOR YOU ONLY
 task.spawn(function()
@@ -68,7 +89,7 @@ task.spawn(function()
 	end
 	if YOUantihealthc == true then
 	   if not game.Players.LocalPlayer.Character.Humanoid.Health == 100 then
-		game.Players.LocalPlayer.Character.Humanoid.Health == 100            
+		game.Players.LocalPlayer.Character.Humanoid.Health = 100            
 	   end
         end
             
@@ -172,16 +193,18 @@ task.spawn(function()
 	end
 end)
 
+-- PADS
+local perm = false
+local perm2 = false
+local loopgrab = false
+local loopgrab2 = false
 
-
-																									
-perm = false
-perm2 = false
-loopgrab = false
-loopgrab2 = false
-
-anticrash = true
-antigear = false
+-- ANTIS RL TO GEARS
+local anticrash = true
+local anticrash2 = false
+local antigear = false
+local antigb = true
+local antiattach2 = false
 
 local function Chat(msg)
       game.Players:Chat(msg)
@@ -189,12 +212,198 @@ end
 
 print("Thank you for using KohlsLite.")
 Chat("h \n\n\n KohlsLite executed. ALPHA v0.01 \n\n\n")
-local prefix = "!"
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-    	if string.sub(msg:lower(), 0, 5) == prefix.."cmds" then
+    	if string.sub(msg:lower(), 1, #prefix + 4) == prefix.."cmds" then
           CMDPrint()
         end
+			
+	if string.sub(msg:lower(), 1, #prefix + 2)  == prefix..'wl' then
+         local dasplayer = string.sub(msg:lower(), #prefix + 4)
+         PLAYERCHECK(dasplayer)
+         if player ~= nil then
+                game.Players:Chat("h \n\n\n [SlockD] "..player.." has been whitelisted! \n\n\n")
+                table.insert(whitelist, player)
+                game.Players:Chat('unblind '..player)
+                game.Players:Chat('unpunish '..player)
+         else
+                print('Cannot find player with the name: '..dasplayer)
+         end
+       end
+    
+       if string.sub(msg:lower(), 1, #prefix + 4) == prefix..'unwl' then
+         local dasplayer = string.sub(msg:lower(), #prefix + 6)
+         PLAYERCHECK(dasplayer)
+         if player ~= nil then
+                game.Players:Chat("h \n\n\n [SlockD] "..player.." has been unwhitelisted. \n\n\n")
+                table.remove(whitelist, table.find(whitelist, player))
+         else
+                print('Cannot find player with the name: '..dasplayer)
+         end
+       end
+
+       if string.sub(msg:lower(), 1, #prefix + 2) == prefix..'bl' then
+         local dasplayer = string.sub(msg:lower(), #prefix + 4)
+         PLAYERCHECK(dasplayer)
+         if player ~= nil then
+                game.Players:Chat("h \n\n\n [SlockD] "..player.." has been blacklisted. \n\n\n")
+                table.insert(blacklist, player)
+         else
+                print('Cannot find player with the name: '..dasplayer)
+         end
+       end
+
+        if string.sub(msg:lower(), 1, #prefix + 4) == prefix..'unbl' then
+         local dasplayer = string.sub(msg:lower(), #prefix + 6)
+         PLAYERCHECK(dasplayer)
+         if player ~= nil then
+                game.Players:Chat("h \n\n\n [SlockD] "..player.." has been unblacklisted! \n\n\n")
+                table.remove(blacklist, table.find(blacklist, player))
+                game.Players:Chat('unblind '..player)
+                game.Players:Chat('unpunish '..player)
+         else
+                print('Cannot find player with the name: '..dasplayer)
+         end
+       end
+    
+       if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'slock' then
+        game.Players:Chat("h \n\n\n [KOHLSLITE] Server is locked! \n\n\n")
+        slockenabled = true
+       end
+    
+       if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'unslock' then
+        slockenabled = false
+        game.Players:Chat("h \n\n\n [KOHLSLITE] Server is unlocked! \n\n\n")
+        game.Players:Chat('unblind all')
+        game.Players:Chat('unpunish all')
+       end
+		
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'gmusic' then
+        musicplay = tonumber(string.sub(msg:lower(), #prefix + 7)) 
+        if musicplay ~= nil and musicplay >= 1 and musicplay <= #musiclist then
+            Chat("h \n\n\n [KOHLSLITE] Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
+            Chat("music " .. musiclist[musicplay])
+        else
+            print("Invalid music number!")
+        end
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'rgmusic' then
+        musicplay = math.random(1, #musiclist)
+        Chat("h \n\n\n [KOHLSLITE] Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
+        Chat("music " .. musiclist[musicplay])
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'nmusic' then
+       if musicplay == nil or musicplay == #musiclist  then
+          musicplay = 1
+       else            
+          musicplay = musicplay + 1
+       end
+       Chat("h \n\n\n [KOHLSLITE] Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
+       Chat("music " .. musiclist[musicplay])
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'pmusic' then
+       if musicplay == nil or musicplay == 1  then
+          musicplay = #musiclist
+       else            
+          musicplay = musicplay - 1
+       end
+       Chat("h \n\n\n [musich] Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
+       Chat("music " .. musiclist[musicplay])
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'pausem' then
+       for i,v in pairs(workspace.Terrain._Game.Folder:GetDescendants()) do
+	          if v:IsA("Sound") and v.Playing then
+              	     v.Playing = false
+          	  end
+       end
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'playm' then
+      	for i,v in pairs(workspace.Terrain._Game.Folder:GetDescendants()) do
+          	  if v:IsA("Sound") and not v.Playing then
+              	     v.Playing = true
+                  end
+      	end
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'stopm' then
+	      for i, v in pairs(game:GetDescendants()) do
+        	    if v:IsA("Sound") then
+                    v:Stop()
+        	    end
+        end   
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'startm' then
+	      for i, v in pairs(game:GetDescendants()) do
+        	    if v:IsA("Sound") then
+                    v:Play()
+        	    end
+        end   
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 4) == prefix..'volm' then
+   	    local newVolume = tonumber(string.sub(msg:lower(), #prefix + 6))
+   	    if newVolume ~= nil and workspace.Terrain._Game.Folder:FindFirstChild("Sound") then
+      		    workspace.Terrain._Game.Folder.Sound.Volume = newVolume
+       	end
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'musicid' then
+	      if workspace.Terrain._Game.Folder:FindFirstChild("Sound") then
+			      print("Current Music ID: "..workspace.Terrain._Game.Folder.Sound.SoundId)
+	      end
+    end
+    if string.sub(msg:lower(), 1, #prefix + 4) == prefix..'cvol' then
+	      if workspace.Terrain._Game.Folder:FindFirstChild("Sound") then
+			      print("Current Volume: "..workspace.Terrain._Game.Folder.Sound.Volume)
+	      end	
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antimusic' then
+       mymusiconly = false
+       antimusic = true
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unantimusic' then
+       antimusic = false
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'permmusic' then
+        musicoff = false
+        mymusiconly = true
+        mymusiconlyid = tonumber(string.sub(msg:lower(), #prefix + 11))
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unpermmusic' then
+        mymusiconly = false
+        musicoff = true
+	game.Players:Chat("music OFF")
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'offmusic' then
+        musicoff = true
+	game.Players:Chat("music OFF")
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'onmusic' then
+        musicoff = false
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'remusic' then
+       if workspace.Terrain._Game.Folder:FindFirstChild("Sound") then
+	  local myid  = workspace.Terrain._Game.Folder.Sound.SoundId 
+	  game.Players:Chat("music "..myid)
+       end
+     end
+
+    
+       
+	
 end)
 
 function CMDPrint()
@@ -229,6 +438,16 @@ task.spawn(function()
         end
     end
 end)
+
+-- PLAYER CHECK
+function PLAYERCHECK(plr)
+  for i, v in pairs(game.Players:GetPlayers()) do
+      if string.sub(v.Name:lower(), 1, #plr) == plr then
+          player = v.Name
+          print(player)
+      end
+  end
+end
 
 -- ANTI CRASH 2
 game:GetService("RunService").RenderStepped:Connect(function()
@@ -476,7 +695,7 @@ plr.Chatted:Connect(function(msg)
      task.spawn(function()
         for _, v in pairs(game.Players:GetPlayers()) do
                 if message:lower():find("/w") or message:lower():find("/c system") and v ~= game.Players.LocalPlayer then
-                   if PingCystem then
+                   if PingCsystem then
                         print(v.Name..' is using /c system or whispering commands.')
                         Chat('h '..v.Name..' is using /c system or whispering commands.')
                    end
@@ -492,15 +711,15 @@ plr.Chatted:Connect(function(msg)
                 end
 
 					
-        		if message:lower() == "sit me" or message:lower() == ":sit me" and v ~= game.Players.LocalPlayer then
-                   if AntiAttach then
+        	if message:lower() == "sit me" or message:lower() == ":sit me" and v ~= game.Players.LocalPlayer then
+                   if antiattach then
                      Chat("unsit"..v.Name)
                      print(v.Name..' tried to sit')
                      Chat('h '..v.Name..', You cannot sit due to anti-attach')
                    end
                 end
                 if message:lower() == "stun me" or message:lower() == ":stun me" and v ~= game.Players.LocalPlayer then
-                   if AntiAttach then
+                   if antiattach then
                      Chat("unstun"..v.Name)
                      print(v.Name..' tried to stun.')
                      Chat('h '..v.Name..', you cannot stun due to anti-attach')
@@ -508,7 +727,7 @@ plr.Chatted:Connect(function(msg)
                 end
 
 
-					
+		if noobdetect == true then
     	        if message:lower() == ";fly" then
                    print(v.Name..' is a noob.')
                    game.Players:Chat('h '..v.Name..', it is fly me, not ;fly!!')
@@ -533,6 +752,7 @@ plr.Chatted:Connect(function(msg)
                    print(v.Name..' is a noob.') 
                    game.Players:Chat('h '..v.Name..', it is tp me (plr), not ;goto!!')
             	end
+		end
 
 
 
@@ -610,7 +830,7 @@ plr.Chatted:Connect(function(msg)
           end
         end
     end)
-			spawn(function()
+			task.spawn(function()
 			for i,player in pairs(Admin) do
 				if plr.Name == player then
           
