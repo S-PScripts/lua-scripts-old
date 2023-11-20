@@ -68,6 +68,10 @@ task.spawn(function()
                 end
             end
 	end
+
+	if antichat == true then
+		Chat("h \n\n\n [KohlsLite]: 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 \n\n\n")
+	end
 			
 	if YOUanticlone == true then
 	    if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(game.Players.LocalPlayer.Name) then
@@ -424,6 +428,7 @@ local antiattach2 = false
 
 local antiflash = true
 local antidisco = false
+local antichat = true
 
 local function Chat(msg)
       game.Players:Chat(msg)
@@ -1209,6 +1214,17 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unantitrail' then
 	YOUantitrail = false
     end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antichat' then
+	antichat = true
+	antimsg = true -- stop you from crashing :D
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unantichat' then
+	antichat = false
+	antimsg = false
+    end
+		
 end)
 
 function CMDPrint()
