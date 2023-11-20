@@ -8,6 +8,9 @@ end
 Chat("h \n\n\n Kohls+ executed. (V1.22) \n\n\n")
 print("Kohls+ v1.22 is executed.")
 print("Created by ts2021")
+print("WARNING: PLEASE USE KOHLSLITE! https://github.com/S-PScripts/lua-scripts/blob/main/Kohls%20Admin%20House/Random/KohlsLite.lua")
+print("THIS SCRIPT IS DISCONTINUED")
+
 -- CONFIGS
 anticrash = true
 antigear = false
