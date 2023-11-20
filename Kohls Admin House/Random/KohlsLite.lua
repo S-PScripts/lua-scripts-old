@@ -1728,7 +1728,7 @@ end
 
 -- REJOIN
 local function REJOIN()
-		game:GetService("TeleportService"):Teleport(game.PlaceId,game.JobId,game.Players.LocalPlayer) 
+		game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId,game.JobId,game.Players.LocalPlayer) 
 end
 
 -- SERVERHOP
