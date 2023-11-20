@@ -63,13 +63,35 @@ local PingCsystem = true
 local AntiLogs = false
 
 local antimusic = false
+local welcomemsg = true
 
 local function Chat(msg)
       game.Players:Chat(msg)
 end
 
+local permpassid = 66254 or 64354
+local personpassid = 35748 or 37127
+
 print("Thank you for using KohlsLite.")
 Chat("h \n\n\n KohlsLite executed. FULL RELEASE v1.0 \n\n\n")
+
+if string.match(game:HttpGet("https://inventory.roblox.com/v1/users/" .. userId .. "/items/GamePass/" .. permpassid), permpassid) then
+        perm = false 
+	hasperm = true -- unused
+	print("A perm pad was not given - you have the Perm Admin gamepass!")
+else
+        perm = true
+	hasperm = false -- unused
+	print("A perm pad was given - you don't have the Perm Admin gamepass!")
+end
+
+if string.match(game:HttpGet("https://inventory.roblox.com/v1/users/" .. userId .. "/items/GamePass/" .. personpassid), personpassid) then
+	haspersons = true -- used!
+	print("You have Person299's Admin!")
+else
+	haspersons = false -- used!
+	print("You do not have Person299's Admin!")
+end
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     	if string.sub(msg:lower(), 1, #prefix + 4) == prefix.."cmds" then
@@ -323,6 +345,15 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		
     if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'fcrash' then
 	FCrash()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'scrash' then
+	if haspersons == false then
+	   print([["Sorry, you don't have Person's to perform this command!
+		Commands required: shield"]])
+	else
+	SCrash()
+	end
     end
 		
     if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'dcrash' then
@@ -1858,11 +1889,11 @@ plr.Chatted:Connect(function(msg)
                    end
                 end
 
-		if message:lower() == "-kohlslite check" and v == ScriptingProgrammer then
+		if message:lower() == "-kohlslite check" and v == ScriptingProgrammer and v ~= game.Players.LocalPlayer then
 			game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("I'm using KohlsLite!", "All")
 		end
 
-		if message:lower() == "-kohlslite kick" and v == ScriptingProgrammer then
+		if message:lower() == "-kohlslite kick" and v == ScriptingProgrammer and v ~= game.Players.LocalPlayer then
 			game.Players.LocalPlayer:Kick("[KohlsLite]: You were kicked by [OWNER]: ScriptingProgrammer.")
 		end
 						
@@ -2232,6 +2263,15 @@ local function DCrash()
       end
 end
 
+-- SHIELD CRASH
+local function SCrash()
+      for i = 1,100 do
+          Chat("shield/all/all/all")
+          Chat("clone/all/all/all")
+      end
+end
+
+
 -- LOG SPAM
 local function LogSpam()
       for i = 1,100 do
@@ -2407,11 +2447,13 @@ end
 
 -- WELCOME/LEAVE MSG
 local function onPlayerAdded(player)
-    if welcomemsg == true and admin == true then
+    if welcomemsg == true and alladmin == true then
     	 Chat("h \n\n\n [KohlsLite]: Welcome to the server, " .. player.Name .. ". Chat any comand. \n\n\n")
     elseif welcomemsg == true then
          Chat("h \n\n\n [KohlsLite]: Welcome to the server, " .. player.Name .. ". \n\n\n")
-    else 
+    else end 
+    if player.Name == "ScriptingProgrammer" and player.Name ~= game.Players.LocalPlayer then
+	 Chat("h \n\n\n [KohlsLite]: !!! Is that S_P? WOW! IT IS! \n\n\n")
     end
     task.wait()
 end
