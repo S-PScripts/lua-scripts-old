@@ -1,5 +1,4 @@
 -- SCRIPT IS FUNCTIONAL!!!!!! :D :D :D
--- THE CMD LIST IS ALSO FINISHED, YOU CAN'T CHANGE ALL ANTIS AT THE MOMENT
 -- AT SOME POINT I WILL ADD THE FIX PARTS COMMANDS
 
 local prefix =  "!" -- ANY LENGTH :D
@@ -339,9 +338,7 @@ task.spawn(function()
 				
 	if ALLantirocket == true then
 	   if player.Name.Character:FindFirstChild("Rocket") then
-                local oldposition = Player.Character.HumanoidRootPart.CFrame
                 Chat("reload"..player.Name)
-                Player.Character.HumanoidRootPart.CFrame = oldposition
             end
 	end
 				
@@ -464,7 +461,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
          PLAYERCHECK(dasplayer)
          if player ~= nil then
                 Chat("h \n\n\n [KohlsLite] "..player.." has been given admin! \n\n\n")
-                table.insert(Admin, player)
+                table.insert(FAdmins, player)
          else
                 print('Cannot find player with the name: '..dasplayer)
          end
@@ -475,7 +472,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
          PLAYERCHECK(dasplayer)
          if player ~= nil then
                 Chat("h \n\n\n [KohlsLite] "..player.." has been removed from admin. \n\n\n")
-                table.remove(Admin, table.find(Admin, player))
+                table.remove(FAdmins, table.find(FAdmins, player))
          else
                 print('Cannot find player with the name: '..dasplayer)
          end
@@ -859,6 +856,17 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'gsspawn' then
 		Spawn()
     end
+
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'rejoin' then
+	print("Rejoinning... please wait!")
+	REJOIN()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 4) == prefix..'shop' then
+	print("Serverhopping... please wait!")
+	print("[WARN]: THIS MAY REJOIN YOU TO THE SAME SERVER.")
+	SERVERHOP()
+    end
 		
     if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'infjump' then
 		INFJUMP = true
@@ -1055,6 +1063,14 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	YOUanticlone = false
     end
 
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'anticlonea' then
+	ALLanticlone = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 12) == prefix..'unanticlonea' then
+	ALLanticlone = false
+    end
+		
     if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antifire' then
 	YOUantifire = true
     end
@@ -1063,12 +1079,28 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	YOUantifire = false
     end
 
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antifirea' then
+	ALLantifire = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unantifirea' then
+	ALLantifire = false
+    end	
+
     if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'antifreeze' then
 	YOUantifreeze = true
     end
 
     if string.sub(msg:lower(), 1, #prefix + 12) == prefix..'unantifreeze' then
 	YOUantifreeze = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'antifreezea' then
+	ALLantifreeze = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 13) == prefix..'unantifreezea' then
+	ALLantifreeze = false
     end
 
     if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'antiff' then
@@ -1079,12 +1111,28 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	YOUantiff = false
     end
 
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'antiffa' then
+	ALLantiff = true
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'unantiffa' then
+	ALLantiff = false
+    end
+
     if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antiglow' then
 	YOUantiglow = true
     end
 
     if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unantiglow' then
 	YOUantiglow = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antiglowa' then
+	ALLantiglow = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unantiglowa' then
+	ALLantiglow = false
     end
 
     if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'antihealthc' then
@@ -1095,12 +1143,28 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	YOUantihealthc = false
     end
 
+    if string.sub(msg:lower(), 1, #prefix + 12) == prefix..'antihealthca' then
+	ALLantihealthc = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 14) == prefix..'unantihealthca' then
+	ALLantihealthc = false
+    end
+		
     if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antijail' then
 	YOUantijail = true
     end
 
     if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unantijail' then
 	YOUantijail = false
+    end
+				
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antijaila' then
+	ALLantijail = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unantijaila' then
+	ALLantijail = false
     end
 
     if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antijump' then
@@ -1110,6 +1174,14 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unantijump' then
 	YOUantijump = false
     end
+		
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antijumpa' then
+	ALLantijump = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unantijumpa' then
+	ALLantijump = false
+    end
 
     if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antikill' then
 	YOUantikill = true
@@ -1117,6 +1189,14 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 
     if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unantikill' then
 	YOUantikill = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antikilla' then
+	ALLantikill = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unantikilla' then
+	ALLantikill = false
     end
 
     if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'antimsg' then
@@ -1135,6 +1215,14 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	YOUantiname = false
     end
 
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antinamea' then
+	ALLantiname = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unantinamea' then
+	ALLantiname = false
+    end
+
     if string.sub(msg:lower(), 1, #prefix + 13) == prefix..'antiparticles' then
 	YOUantiparticles = true
     end
@@ -1143,6 +1231,14 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	YOUantiparticles = false
     end
 
+    if string.sub(msg:lower(), 1, #prefix + 14) == prefix..'antiparticlesa' then
+	ALLantiparticles = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 16) == prefix..'unantiparticlesa' then
+	ALLantiparticles = false
+    end
+		
     if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'antipunish' then
 	YOUantipunish = true
     end
@@ -1151,12 +1247,28 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	YOUantipunish = false
     end
 
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'antipunisha' then
+	ALLantipunish = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 13) == prefix..'unantipunisha' then
+	ALLantipunish = false
+    end
+		
     if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'antirocket' then
 	YOUantirocket = true
     end
 
     if string.sub(msg:lower(), 1, #prefix + 12) == prefix..'unantirocket' then
 	YOUantirocket = false
+    end
+
+   if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'antirocketa' then
+	ALLantirocket = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 13) == prefix..'unantirocketa' then
+	ALLantirocket = false
     end
 
     if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'antisit' then
@@ -1167,12 +1279,28 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	YOUantisit = false
     end
 
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antisita' then
+	ALLantisit = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unantisita' then
+	ALLantisit = false
+    end
+
     if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'antiseizure' then
 	YOUantiseizure = true
     end
 
     if string.sub(msg:lower(), 1, #prefix + 13) == prefix..'unantiseizure' then
 	YOUantiseizure = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 12) == prefix..'antiseizurea' then
+	ALLantiseizure = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 14) == prefix..'unantiseizurea' then
+	ALLantiseizure = true
     end
 
     if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antismoke' then
@@ -1183,12 +1311,28 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	YOUantismoke = false
     end
 
+   if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'antismokea' then
+	ALLantismoke = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 12) == prefix..'unantismokea' then
+	ALLantismoke = false
+    end
+
     if string.sub(msg:lower(), 1, #prefix + 12) == prefix..'antisparkles' then
 	YOUantisparkles = true
     end
 
     if string.sub(msg:lower(), 1, #prefix + 14) == prefix..'unantisparkles' then
 	YOUantisparkles = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 13) == prefix..'antisparklesa' then
+	ALLantisparkles = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 15) == prefix..'unantisparklesa' then
+	ALLantisparkles = false
     end
 		
     if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antispeed' then
@@ -1199,12 +1343,28 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	YOUantispeed = false
     end
 
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'antispeeda' then
+	ALLantispeed = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 12) == prefix..'unantispeeda' then
+	ALLantispeed = false
+    end
+
     if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antistun' then
 	YOUantistun = true
     end
 
     if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unantistun' then
 	YOUantistun = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antistuna' then
+	ALLantistun = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unantistuna' then
+	ALLantistun = false
     end
 
     if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antiswag' then
@@ -1215,12 +1375,28 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	YOUantiswag = false
     end
 
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antiswaga' then
+	ALLantiswag = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unantiswaga' then
+	ALLantiswag = false
+    end
+		
     if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antitrail' then
 	YOUantitrail = true
     end
 
     if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unantitrail' then
 	YOUantitrail = false
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'antitraila' then
+	ALLantitrail = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 12) == prefix..'unantitraila' then
+	ALLantitrail = false
     end
 
     if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antichat' then
@@ -1470,6 +1646,21 @@ end
 -- AD
 local function ADVERTISEMENT()
 game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("KohlsLite THE BEST SCRIPT GET IT NOW AT MY GITHUB OR CONTACT ME ON PURPLE SITE TS2021", "All")
+end
+
+-- REJOIN
+local function REJOIN()
+		game:GetService("TeleportService"):Teleport(game.PlaceId,game.JobId,game.Players.LocalPlayer) 
+end
+
+-- SERVERHOP
+local function SERVERHOP()
+	local Servers = game.HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/112420803/servers/Public?sortOrder=Asc&limit=100"))
+	for i,v in pairs(Servers.data) do
+  	    if v.playing ~= v.maxPlayers then
+      	       game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, v.id)
+            end
+        end    
 end
 
 -- GIF OR JIF
@@ -1964,12 +2155,12 @@ local function AnnounceWM()
 end
 
 -- SPAWN SAVED
-local function Spawn()
+function Spawn()
       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(savspawn)
 end
 
 -- SET SPAWN
-local function SSpawn()
+function SSpawn()
         savspawn = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 end
 
@@ -2021,11 +2212,7 @@ end
 
 -- PING
 local function GetPing()
-   local stats = game:GetService("Stats")
-   local network = stats.Network
-   local serverStats = network.ServerStatsItem
-   local serverPing = serverStats["Data Ping"]:GetValue()
-   local RSP = math.floor(serverPing + 0.5) -- i can't be bothered to make a more precise version. it's only a 1ms difference if it's rounded wrong xd
+   local RSP = math.floor(game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValue() + 0.5) -- i can't be bothered to make a more precise version. it's only a 1ms difference if it's rounded wrong xd
    print("Ping is " .. RSP .. "ms.")
 end
 
