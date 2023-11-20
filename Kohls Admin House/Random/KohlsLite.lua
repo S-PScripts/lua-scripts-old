@@ -513,15 +513,15 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
 
     if string.sub(msg:lower(), 1, #prefix + 2) == prefix..'sp' then
-	 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed == tonumber(string.sub(msg:lower(), #prefix + 4))
+	 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = tonumber(string.sub(msg:lower(), #prefix + 4))
     end
 
     if string.sub(msg:lower(), 1, #prefix + 2) == prefix..'jp' then
-	 game.Players.LocalPlayer.Character.Humanoid.JumpPower == tonumber(string.sub(msg:lower(), #prefix + 4))
+	 game.Players.LocalPlayer.Character.Humanoid.JumpPower = tonumber(string.sub(msg:lower(), #prefix + 4))
     end
 
     if string.sub(msg:lower(), 1, #prefix + 4) == prefix..'hlth' then
-	 game.Players.LocalPlayer.Character.Humanoid.Health == tonumber(string.sub(msg:lower(), #prefix + 6))
+	 game.Players.LocalPlayer.Character.Humanoid.Health = tonumber(string.sub(msg:lower(), #prefix + 6))
     end
 
     if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'nocam' then
