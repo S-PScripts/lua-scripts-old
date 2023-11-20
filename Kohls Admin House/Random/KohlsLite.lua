@@ -6,6 +6,7 @@
 local prefix =  "!" -- ANY LENGTH :D
 local blacklist = {"sgoslee"}
 local whitelist = {"me_123eq","me_crashking","ScriptingProgrammer","t_echr"}
+local GWhitelisted = {"me_123eq","me_crashking","ScriptingProgrammer","t_echr"} -- gear whitelisted
 local slockenabled = false
 
 local musiclist = {"9048375035", "6680495507", "6529070845", "6917155909", "6913550990"}
@@ -103,6 +104,28 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
          end
        end
 
+	if string.sub(msg, 1, #prefix + 6)  == prefix..'gearwl' then
+         local dasplayer = string.sub(msg:lower(), #prefix + 8)
+         PLAYERCHECK(dasplayer)
+         if player ~= nil then
+                Chat("h \n\n\n [KohlsLite] "..player.." has been whitelisted from anti-gears! \n\n\n")
+                table.insert(GWhitelisted, player)
+         else
+                print('Cannot find player with the name: '..dasplayer)
+         end
+       end
+
+	if string.sub(msg, 1, #prefix + 8)  == prefix..'ungearwl' then
+         local dasplayer = string.sub(msg:lower(), #prefix + 10)
+         PLAYERCHECK(dasplayer)
+         if player ~= nil then
+                Chat("h \n\n\n [KohlsLite] "..player.." has been unwhitelisted from anti-gears. \n\n\n")
+                table.remove(GWhitelisted, table.find(GWhitelisted, player))
+         else
+                print('Cannot find player with the name: '..dasplayer)
+         end
+       end
+		
 	if string.sub(msg, 1, #prefix + 7)  == prefix..'unadmin' then
          local dasplayer = string.sub(msg:lower(), #prefix + 9)
          PLAYERCHECK(dasplayer)
@@ -1575,7 +1598,7 @@ local function checkPlayerBackpack(player)
         for _, toolName in ipairs(crashTools) do
             local tool = backpack:FindFirstChild(toolName)
             if tool and anticrash then
-		if player.Name ~= game.Players.LocalPlayer.Name then
+		if player.Name ~= game.Players.LocalPlayer.Name and not table.find(GWhitelisted, player.Name) then
                    warnCrash(player, toolName)
                    break
                 end
@@ -1590,7 +1613,7 @@ local function checkPlayerAGBackpack(player)
         for _, toolName in ipairs(nogearTools) do
             local tool = backpack:FindFirstChild(toolName)
             if tool and antigb then
-		if player.Name ~= game.Players.LocalPlayer.Name then
+		if player.Name ~= game.Players.LocalPlayer.Name and not table.find(GWhitelisted, player.Name) then
                    warnAGBan(player, toolName)
                    break
                 end
@@ -1604,7 +1627,7 @@ local function checkPlayerGBackpack(player)
     if backpack then
         for _, toolName in ipairs(player.Backpack:GetChildren()) do
     	    if toolName:IsA("Tool") and antigear then
-	             if player.Name ~= game.Players.LocalPlayer.Name then
+	             if player.Name ~= game.Players.LocalPlayer.Name and not table.find(GWhitelisted, player.Name) then
                         warnGear(player, toolName)
                         break
 		     end
@@ -1619,7 +1642,7 @@ local function checkPlayerATTBackpack(player)
         for _, toolName in ipairs(attachTools) do
             local tool = backpack:FindFirstChild(toolName)
             if tool and antiattach2 then
-		if player.Name ~= game.Players.LocalPlayer.Name then
+		if player.Name ~= game.Players.LocalPlayer.Name and not table.find(GWhitelisted, player.Name) then
                    warnAttach(player, toolName)
                    break
                 end
@@ -1634,7 +1657,7 @@ local function checkPlayerPBackpack(player)
         for _, toolName in ipairs(colourTools) do
             local tool = backpack:FindFirstChild(toolName)
             if tool and antipaint then
-		if player.Name ~= game.Players.LocalPlayer.Name then
+		if player.Name ~= game.Players.LocalPlayer.Name and not table.find(GWhitelisted, player.Name) then
                    warnPaint(player, toolName)
                    break
                 end
