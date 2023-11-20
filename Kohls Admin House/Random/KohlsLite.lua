@@ -36,383 +36,10 @@ local YOUantispeed = true
 local YOUantistun = true
 local YOUantiswag = true ]]
 
-task.spawn(function()
-    while true do
-        task.wait()
-        for i,v in pairs(game:GetService("Workspace").Terrain["_Game"].Folder:GetChildren()) do
-            if v:IsA('Script') then
-                  if antidisco == true then    
-                          if v.Name == "Disco" then
-                              Chat("fix")
-                          end
-                  end
-                  if antiflash == true then    
-                          if v.Name == "Flash" then
-                              Chat("fix")
-                          end
-                  end
-            end
-        end
-  end
-end)
-
--- ANTIS FOR YOU ONLY
-task.spawn(function()
-	while true do
-	task.wait()
-	if YOUantiblind == true then
-	   for i, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
-                if v.Name == "EFFECTGUIBLIND" then
-                    v:Destroy()
-                end
-            end
-	end
-
-	if antichat == true then
-		Chat("h \n\n\n [KohlsLite]: 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 \n\n\n")
-	end
-			
-	if YOUanticlone == true then
-	    if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(game.Players.LocalPlayer.Name) then
-                Chat("unclone me")
-            end
-	end
-			
-	if YOUantifire == true then
-	    if game.Players.LocalPlayer.Character:FindFirstChild("Torso") then
-                if game.Players.LocalPlayer.Character.Torso:FindFirstChild("Fire") then
-                    Chat("unfire me")
-                end
-            end
-	end
-			
-	if YOUantifreeze == true then
-	     if game.Players.LocalPlayer.Character:FindFirstChild("ice") then
-                Chat("thaw me")
-            end
-	end
-			
-	if YOUantifly == true then
-	    if not game.Players.LocalPlayer.Character:FindFirstChild("Seizure") and game.Players.LocalPlayer.Character.Humanoid:GetState().Name == "PlatformStanding" then
-                Chat("unfly me")
-                Chat("clip me")
-            end
-	end
-			
-	if YOUantiff == true then
-	 if game.Players.LocalPlayer.Character:FindFirstChild("ForceField") then
-                Chat("unff me")
-            end
-	end
-			
-	if YOUantiglow == true then
-	   if game.Players.LocalPlayer.Character:FindFirstChild("PointLight") then
-                  Chat("unglow me")
-            end
-	end
-			
-	if YOUantihealthc == true then
-	   if not game.Players.LocalPlayer.Character.Humanoid.Health == 100 then
-		game.Players.LocalPlayer.Character.Humanoid.Health = 100            
-	   end
-        end
-            
-	if YOUantijail == true then
-	    if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(game.Players.LocalPlayer.Name .. "'s jail") then
-                Chat("unjail me")
-            end
-        end
-			
-	if YOUantijump == true then
-	    if not game.Players.LocalPlayer.Character.Humanoid.JumpPower == 50 then
-                game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
-            end
-	end
-			
-	if YOUantikill == true then
-	   if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
-                    Chat("reset me")
-                end
-	end
-			
-	if YOUantimsg == true then
-		for i, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
-                	if v.Name == "MessageGUI" or v.Name == "Message" or v.Name == "HintGUI" or v.Name == "Ice" then
-                    		v:Destroy()
-                	end
-                end
-	end
-			
-	if YOUantiname == true then
-	   local player = game.Players:FindFirstChild(game.Players.LocalPlayer.Name)
-          	if player and player.Character then
-                  	local modelName = player.Character.Name
-                  	local actualName = player.Name
-                 	 if modelName ~= actualName then
-                        	Chat("reset me")
-                 	 end
-         	 end
-	end
-			
-	if YOUantiparticles == true then
-	   if game.Players.LocalPlayer.Character:FindFirstChild("ParticleEmitter") then
-                  Chat("unparticle me")
-            end
-	end
-			
-	if YOUantipunish == true then
-	    if game.Lighting:FindFirstChild(game.Players.LocalPlayer.Name) then
-                Chat("unpunish me")
-            end
-	end
-			
-	if YOUantirocket == true then
-	   if game.Players.LocalPlayer.Character:FindFirstChild("Rocket") then
-                local oldposition = Player.Character.HumanoidRootPart.CFrame
-                game.Players:Chat("reload me")
-                Player.Character.HumanoidRootPart.CFrame = oldposition
-            end
-	end
-			
-	if YOUantisit == true then
-	   local player = game.Players.LocalPlayer
-            	 if player.Character then
-                    local humanoid = player.Character:WaitForChild("Humanoid", 1)
-                    if humanoid and humanoid.Sit then
-                        humanoid.Sit = false
-                        Chat("unsit me")
-                    end
-             	end
-	end
-			
-	if YOUantiseizure == true then
-	        if game.Players.LocalPlayer.Character:FindFirstChild("Seizure") then
-                Chat("unseizure me")
-            end
-	end
-			
-	if YOUantismoke == true then
-	     if game.Players.LocalPlayer.Character:FindFirstChild("Torso") then
-                if game.Players.LocalPlayer.Character.Torso:FindFirstChild("Smoke") then
-                    Chat("unsmoke me")
-                end
-            end
-	end
-			
-	if YOUantisparkles == true then
-	    if game.Players.LocalPlayer.Character:FindFirstChild("Torso") then
-                if game.Players.LocalPlayer.Character.Torso:FindFirstChild("Sparkles") then
-                    Chat("unsparkles me")
-                end
-            end
-	end
-			
-	if YOUantispeed == true then
-	    if not game.Players.LocalPlayer.Character.Humanoid.WalkSpeed == 16 then
-                game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
-            end
-	end
-			
-	if YOUantistun == true then
-	    local player = game.Players.LocalPlayer
-             if player.Character then
-                    local humanoid = player.Character:WaitForChild("Humanoid", 1)
-                    if humanoid and humanoid.PlatformStand then
-                        humanoid.PlatformStand = false
-                        Chat("unstun me")
-                    end
-             end
-	end
-			
-	if YOUantiswag == true then
-		if game.Players.LocalPlayer.Character:FindFirstChild("EpicCape") then
-                	Chat("normal me")
-		end
-	end
-
-	if YOUantitrail == true then
-	    local player = game.Players.LocalPlayer
-             if player.Character then
-                    local humanoid = player.Character:WaitForChild("Humanoid", 1)
-                    if humanoid and humanoid.Trail then
-                        humanoid.Trail = false
-                        Chat("untrail me")
-                    end
-             end
-	end
-			
-	end
-end)
-
--- ANTIS FOR EVERYONE
-task.spawn(function()
-	while true do
-	task.wait()
-	for _, player in ipairs(game.Players:GetPlayers()) do
-
-	if ALLanticlone == true then
-	    if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(player.Name) then
-                Chat("unclone"..player.Name)
-            end
-	end
-				
-	if ALLantifire == true then
-	    if player.Name.Character:FindFirstChild("Torso") then
-                if player.Name.Character.Torso:FindFirstChild("Fire") then
-                    Chat("unfire"..player.Name)
-                end
-            end
-	end
-				
-	if ALLantifreeze == true then
-	     if player.Name.Character:FindFirstChild("ice") then
-                Chat("thaw"..player.Name)
-            end
-	end
-				
-	if ALLantifly == true then
-	    if not player.Name.Character:FindFirstChild("Seizure") and player.Name.Character.Humanoid:GetState().Name == "PlatformStanding" then
-                Chat("unfly"..player.Name)
-                Chat("clip"..player.Name)
-            end
-	end
-				
-	if ALLantiff == true then
-	 if player.Name.Character:FindFirstChild("ForceField") then
-                Chat("unff"..player.Name)
-            end
-	end
-				
-	if ALLantiglow == true then
-	   if player.Name.Character:FindFirstChild("PointLight") then
-                  Chat("unglow"..player.Name)
-            end
-	end
-				
-	if ALLantihealthc == true then
-	   if not player.Name.Character.Humanoid.Health == 100 then
-		Chat("health"..player.Name.."100")
-	   end
-        end
-            
-	if ALLantijail == true then
-	    if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(player.Name .. "'s jail") then
-                Chat("unjail"..player.Name)
-            end
-        end
-				
-	if ALLantijump == true then
-	    if not player.Name.Character.Humanoid.JumpPower == 50 then
-		Chat("normaljump"..player.Name)
-            end
-	end
-				
-	if ALLantikill == true then
-	   if player.Name.Character.Humanoid.Health == 0 then
-                    Chat("reset"..player.Name)
-                end
-	end
-
-	if ALLantiname == true then
-	   local player = game.Players:FindFirstChild(player.Name)
-          	if player and player.Character then
-                  	local modelName = player.Character.Name
-                  	local actualName = player.Name
-                 	 if modelName ~= actualName then
-                        	Chat("reset"..player.Name)
-                 	 end
-         	 end
-	end
-				
-	if ALLantiparticles == true then
-	   if player.Name.Character:FindFirstChild("ParticleEmitter") then
-                  Chat("unparticle"..player.Name)
-            end
-	end
-				
-	if ALLantipunish == true then
-	    if game.Lighting:FindFirstChild(player.Name) then
-                Chat("unpunish"..player.Name)
-            end
-	end
-				
-	if ALLantirocket == true then
-	   if player.Name.Character:FindFirstChild("Rocket") then
-                Chat("reload"..player.Name)
-            end
-	end
-				
-	if ALLantisit == true then
-	   local player = player.Name
-            	 if player.Character then
-                    local humanoid = player.Character:WaitForChild("Humanoid", 1)
-                    if humanoid and humanoid.Sit then
-                        Chat("unsit"..player.Name)
-                    end
-             	end
-	end
-				
-	if ALLantiseizure == true then
-	        if player.Name.Character:FindFirstChild("Seizure") then
-                Chat("unseizure"..player.Name)
-            end
-	end
-				
-	if ALLantismoke == true then
-	     if player.Name.Character:FindFirstChild("Torso") then
-                if player.Name.Character.Torso:FindFirstChild("Smoke") then
-                    Chat("unsmoke"..player.Name)
-                end
-            end
-	end
-				
-	if ALLantisparkles == true then
-	    if player.Name.Character:FindFirstChild("Torso") then
-                if player.Name.Character.Torso:FindFirstChild("Sparkles") then
-                    Chat("unsparkles"..player.Name)
-                end
-            end
-	end
-				
-	if ALLantispeed == true then
-	    if not player.Name.Character.Humanoid.WalkSpeed == 16 then
-		Chat("speed"..player.Name.."16")
-	    end
-	end
-				
-	if ALLantistun == true then
-	    local player = player.Name
-             if player.Character then
-                    local humanoid = player.Character:WaitForChild("Humanoid", 1)
-                    if humanoid and humanoid.PlatformStand then
-                        Chat("unstun"..player.Name)
-                    end
-             end
-	end
-				
-	if ALLantiswag == true then
-		if player.Name.Character:FindFirstChild("EpicCape") then
-                	Chat("normal"..player.Name)
-		end
-	end
-
-	if YOUantitrail == true then
-	    local player = player.Name
-             if player.Character then
-                    local humanoid = player.Character:WaitForChild("Humanoid", 1)
-                    if humanoid and humanoid.Trail then
-                        Chat("untrail"..player.Name)
-                    end
-             end
-	end
-				
-	end
-	end
-end)
-
 -- PADS
 local perm = false
 local perm2 = false
+local perm3 = false
 local loopgrab = false
 local loopgrab2 = false
 
@@ -928,22 +555,30 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	loopgrab2 = false
     end
 
-    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'perm' then
+    if string.sub(msg:lower(), 1, #prefix + 4) == prefix..'perm' then
 	perm = true
     end
 
-    if string.sub(msg:lower(), 1, #prefix + 2) == prefix..'perm2' then
+    if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'perm2' then
 	perm2 = true
     end
 
-    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'unperm' then
+    if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'perm3' then
+	perm3 = true
+    end
+		
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'unperm' then
 	perm = false
     end
 
-    if string.sub(msg:lower(), 1, #prefix + 3) == prefix..'unperm2' then
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'unperm2' then
 	perm2 = false
     end
 
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'unperm3' then
+	perm3 = false
+    end
+		
     if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'checkbp' then
 	checker = string.sub(msg:lower(), #prefix + 9)
 	CheckBackpack()
@@ -1455,6 +1090,380 @@ task.spawn(function()
         end
     end
     end
+end)
+
+task.spawn(function()
+    while true do
+        task.wait()
+        for i,v in pairs(game:GetService("Workspace").Terrain["_Game"].Folder:GetChildren()) do
+            if v:IsA('Script') then
+                  if antidisco == true then    
+                          if v.Name == "Disco" then
+                              Chat("fix")
+                          end
+                  end
+                  if antiflash == true then    
+                          if v.Name == "Flash" then
+                              Chat("fix")
+                          end
+                  end
+            end
+        end
+  end
+end)
+
+-- ANTIS FOR YOU ONLY
+task.spawn(function()
+	while true do
+	task.wait()
+	if YOUantiblind == true then
+	   for i, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
+                if v.Name == "EFFECTGUIBLIND" then
+                    v:Destroy()
+                end
+            end
+	end
+
+	if antichat == true then
+		Chat("h \n\n\n [KohlsLite]: 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 \n\n\n")
+	end
+			
+	if YOUanticlone == true then
+	    if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(game.Players.LocalPlayer.Name) then
+                Chat("unclone me")
+            end
+	end
+			
+	if YOUantifire == true then
+	    if game.Players.LocalPlayer.Character:FindFirstChild("Torso") then
+                if game.Players.LocalPlayer.Character.Torso:FindFirstChild("Fire") then
+                    Chat("unfire me")
+                end
+            end
+	end
+			
+	if YOUantifreeze == true then
+	     if game.Players.LocalPlayer.Character:FindFirstChild("ice") then
+                Chat("thaw me")
+            end
+	end
+			
+	if YOUantifly == true then
+	    if not game.Players.LocalPlayer.Character:FindFirstChild("Seizure") and game.Players.LocalPlayer.Character.Humanoid:GetState().Name == "PlatformStanding" then
+                Chat("unfly me")
+                Chat("clip me")
+            end
+	end
+			
+	if YOUantiff == true then
+	 if game.Players.LocalPlayer.Character:FindFirstChild("ForceField") then
+                Chat("unff me")
+            end
+	end
+			
+	if YOUantiglow == true then
+	   if game.Players.LocalPlayer.Character:FindFirstChild("PointLight") then
+                  Chat("unglow me")
+            end
+	end
+			
+	if YOUantihealthc == true then
+	   if not game.Players.LocalPlayer.Character.Humanoid.Health == 100 then
+		game.Players.LocalPlayer.Character.Humanoid.Health = 100            
+	   end
+        end
+            
+	if YOUantijail == true then
+	    if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(game.Players.LocalPlayer.Name .. "'s jail") then
+                Chat("unjail me")
+            end
+        end
+			
+	if YOUantijump == true then
+	    if not game.Players.LocalPlayer.Character.Humanoid.JumpPower == 50 then
+                game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+            end
+	end
+			
+	if YOUantikill == true then
+	   if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
+                    Chat("reset me")
+                end
+	end
+			
+	if YOUantimsg == true then
+		for i, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
+                	if v.Name == "MessageGUI" or v.Name == "Message" or v.Name == "HintGUI" or v.Name == "Ice" then
+                    		v:Destroy()
+                	end
+                end
+	end
+			
+	if YOUantiname == true then
+	   local player = game.Players:FindFirstChild(game.Players.LocalPlayer.Name)
+          	if player and player.Character then
+                  	local modelName = player.Character.Name
+                  	local actualName = player.Name
+                 	 if modelName ~= actualName then
+                        	Chat("reset me")
+                 	 end
+         	 end
+	end
+			
+	if YOUantiparticles == true then
+	   if game.Players.LocalPlayer.Character:FindFirstChild("ParticleEmitter") then
+                  Chat("unparticle me")
+            end
+	end
+			
+	if YOUantipunish == true then
+	    if game.Lighting:FindFirstChild(game.Players.LocalPlayer.Name) then
+                Chat("unpunish me")
+            end
+	end
+			
+	if YOUantirocket == true then
+	   if game.Players.LocalPlayer.Character:FindFirstChild("Rocket") then
+                local oldposition = Player.Character.HumanoidRootPart.CFrame
+                game.Players:Chat("reload me")
+                Player.Character.HumanoidRootPart.CFrame = oldposition
+            end
+	end
+			
+	if YOUantisit == true then
+	   local player = game.Players.LocalPlayer
+            	 if player.Character then
+                    local humanoid = player.Character:WaitForChild("Humanoid", 1)
+                    if humanoid and humanoid.Sit then
+                        humanoid.Sit = false
+                        Chat("unsit me")
+                    end
+             	end
+	end
+			
+	if YOUantiseizure == true then
+	        if game.Players.LocalPlayer.Character:FindFirstChild("Seizure") then
+                Chat("unseizure me")
+            end
+	end
+			
+	if YOUantismoke == true then
+	     if game.Players.LocalPlayer.Character:FindFirstChild("Torso") then
+                if game.Players.LocalPlayer.Character.Torso:FindFirstChild("Smoke") then
+                    Chat("unsmoke me")
+                end
+            end
+	end
+			
+	if YOUantisparkles == true then
+	    if game.Players.LocalPlayer.Character:FindFirstChild("Torso") then
+                if game.Players.LocalPlayer.Character.Torso:FindFirstChild("Sparkles") then
+                    Chat("unsparkles me")
+                end
+            end
+	end
+			
+	if YOUantispeed == true then
+	    if not game.Players.LocalPlayer.Character.Humanoid.WalkSpeed == 16 then
+                game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+            end
+	end
+			
+	if YOUantistun == true then
+	    local player = game.Players.LocalPlayer
+             if player.Character then
+                    local humanoid = player.Character:WaitForChild("Humanoid", 1)
+                    if humanoid and humanoid.PlatformStand then
+                        humanoid.PlatformStand = false
+                        Chat("unstun me")
+                    end
+             end
+	end
+			
+	if YOUantiswag == true then
+		if game.Players.LocalPlayer.Character:FindFirstChild("EpicCape") then
+                	Chat("normal me")
+		end
+	end
+
+	if YOUantitrail == true then
+	    local player = game.Players.LocalPlayer
+             if player.Character then
+                    local humanoid = player.Character:WaitForChild("Humanoid", 1)
+                    if humanoid and humanoid.Trail then
+                        humanoid.Trail = false
+                        Chat("untrail me")
+                    end
+             end
+	end
+			
+	end
+end)
+
+-- ANTIS FOR EVERYONE
+task.spawn(function()
+	while true do
+	task.wait()
+	for _, player in ipairs(game.Players:GetPlayers()) do
+
+	if ALLanticlone == true then
+	    if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(player.Name) then
+                Chat("unclone"..player.Name)
+            end
+	end
+				
+	if ALLantifire == true then
+	    if player.Name.Character:FindFirstChild("Torso") then
+                if player.Name.Character.Torso:FindFirstChild("Fire") then
+                    Chat("unfire"..player.Name)
+                end
+            end
+	end
+				
+	if ALLantifreeze == true then
+	     if player.Name.Character:FindFirstChild("ice") then
+                Chat("thaw"..player.Name)
+            end
+	end
+				
+	if ALLantifly == true then
+	    if not player.Name.Character:FindFirstChild("Seizure") and player.Name.Character.Humanoid:GetState().Name == "PlatformStanding" then
+                Chat("unfly"..player.Name)
+                Chat("clip"..player.Name)
+            end
+	end
+				
+	if ALLantiff == true then
+	 if player.Name.Character:FindFirstChild("ForceField") then
+                Chat("unff"..player.Name)
+            end
+	end
+				
+	if ALLantiglow == true then
+	   if player.Name.Character:FindFirstChild("PointLight") then
+                  Chat("unglow"..player.Name)
+            end
+	end
+				
+	if ALLantihealthc == true then
+	   if not player.Name.Character.Humanoid.Health == 100 then
+		Chat("health"..player.Name.."100")
+	   end
+        end
+            
+	if ALLantijail == true then
+	    if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(player.Name .. "'s jail") then
+                Chat("unjail"..player.Name)
+            end
+        end
+				
+	if ALLantijump == true then
+	    if not player.Name.Character.Humanoid.JumpPower == 50 then
+		Chat("normaljump"..player.Name)
+            end
+	end
+				
+	if ALLantikill == true then
+	   if player.Name.Character.Humanoid.Health == 0 then
+                    Chat("reset"..player.Name)
+                end
+	end
+
+	if ALLantiname == true then
+	   local player = game.Players:FindFirstChild(player.Name)
+          	if player and player.Character then
+                  	local modelName = player.Character.Name
+                  	local actualName = player.Name
+                 	 if modelName ~= actualName then
+                        	Chat("reset"..player.Name)
+                 	 end
+         	 end
+	end
+				
+	if ALLantiparticles == true then
+	   if player.Name.Character:FindFirstChild("ParticleEmitter") then
+                  Chat("unparticle"..player.Name)
+            end
+	end
+				
+	if ALLantipunish == true then
+	    if game.Lighting:FindFirstChild(player.Name) then
+                Chat("unpunish"..player.Name)
+            end
+	end
+				
+	if ALLantirocket == true then
+	   if player.Name.Character:FindFirstChild("Rocket") then
+                Chat("reload"..player.Name)
+            end
+	end
+				
+	if ALLantisit == true then
+	   local player = player.Name
+            	 if player.Character then
+                    local humanoid = player.Character:WaitForChild("Humanoid", 1)
+                    if humanoid and humanoid.Sit then
+                        Chat("unsit"..player.Name)
+                    end
+             	end
+	end
+				
+	if ALLantiseizure == true then
+	        if player.Name.Character:FindFirstChild("Seizure") then
+                Chat("unseizure"..player.Name)
+            end
+	end
+				
+	if ALLantismoke == true then
+	     if player.Name.Character:FindFirstChild("Torso") then
+                if player.Name.Character.Torso:FindFirstChild("Smoke") then
+                    Chat("unsmoke"..player.Name)
+                end
+            end
+	end
+				
+	if ALLantisparkles == true then
+	    if player.Name.Character:FindFirstChild("Torso") then
+                if player.Name.Character.Torso:FindFirstChild("Sparkles") then
+                    Chat("unsparkles"..player.Name)
+                end
+            end
+	end
+				
+	if ALLantispeed == true then
+	    if not player.Name.Character.Humanoid.WalkSpeed == 16 then
+		Chat("speed"..player.Name.."16")
+	    end
+	end
+				
+	if ALLantistun == true then
+	    local player = player.Name
+             if player.Character then
+                    local humanoid = player.Character:WaitForChild("Humanoid", 1)
+                    if humanoid and humanoid.PlatformStand then
+                        Chat("unstun"..player.Name)
+                    end
+             end
+	end
+				
+	if ALLantiswag == true then
+		if player.Name.Character:FindFirstChild("EpicCape") then
+                	Chat("normal"..player.Name)
+		end
+	end
+
+	if ALLantitrail == true then
+	    local player = player.Name
+             if player.Character then
+                    local humanoid = player.Character:WaitForChild("Humanoid", 1)
+                    if humanoid and humanoid.Trail then
+                        Chat("untrail"..player.Name)
+                    end
+             end
+	end
+				
+	end
+	end
 end)
 
 -- PLAYER CHECK
@@ -2073,12 +2082,32 @@ task.spawn(function()
     end
 end)
 
-
 -- PERM 2
 task.spawn(function()
     while true do
+    task.wait()
+    coroutine.wrap(function()
+			local spr = game.Players.LocalPlayer.Character:FindFirstChild("Head")
+			if perm2 ~= true or adminFlr.Pads:FindFirstChild(game.Players.LocalPlayer.Name.."'s admin") ~= nil then 
+			else
+				pcall(function()
+					local pad = adminFlr.Pads:FindFirstChild("Touch to get admin")
+					local a = pad.Head
+					firetouchinterest(a, spr, 1)
+					task.wait()
+					firetouchinterest(a, spr, 0)
+				end)
+			end
+        end)()
+    end
+end)
+
+
+-- PERM 3
+task.spawn(function()
+    while true do
         task.wait(0)
-        if perm2 == true then
+        if perm3 == true then
             if not game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild(game.Players.LocalPlayer.Name .. "'s admin") then
                   if game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild("Touch to get admin") then
                       local pad = game:GetService("Workspace").Terrain["_Game"].Admin.Pads:FindFirstChild("Touch to get admin"):FindFirstChild("Head")
