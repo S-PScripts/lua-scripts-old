@@ -421,11 +421,14 @@ local anticrash = true
 local anticrash2 = false
 local antigear = false
 local antigb = true
+local antipaint = true
 local antiattach2 = false
 
-local antiflash = true
+-- OTHER ANTIS
+local antiflash = false
 local antidisco = false
-local antichat = true
+local antichat = false
+local antiattach = false
 
 local function Chat(msg)
       game.Players:Chat(msg)
@@ -978,6 +981,14 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if string.sub(msg:lower(), 1, #prefix + 12) == prefix..'unanticrash2' then
 	anticrash2 = false
     end
+
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antipaint' then
+	antipaint = true
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'unantipaint' then
+	antipaint = false
+    end
 		
     if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'antigear' then
 	antigear = true
@@ -1480,6 +1491,7 @@ end)
 local crashTools = {"OrinthianSwordAndShield", "VampireVanquisher"}
 local attachTools = {"IvoryPeriastron"}
 local nogearTools = {"PortableJustice"}
+local colourTools = {"PaintBucket"}
 
 local function warnCrash(player, toolName)
        game.Players:Chat("ungear " .. player.Name)
@@ -1506,6 +1518,13 @@ local function warnAttach(player, toolName)
        game.Players:Chat("ungear " .. player.Name)
        game.Players:Chat("punish " .. player.Name)
        game.Players:Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anti attach. \n\n\n")
+       game.Players:Chat("clr")
+end
+
+local function warnPaint(player, toolName)
+       game.Players:Chat("ungear " .. player.Name)
+       game.Players:Chat("punish " .. player.Name)
+       game.Players:Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anti paint. \n\n\n")
        game.Players:Chat("clr")
 end
 
@@ -1568,18 +1587,34 @@ local function checkPlayerATTBackpack(player)
     end
 end
 
+local function checkPlayerPBackpack(player)
+    local backpack = player:FindFirstChild("Backpack")
+    if backpack then
+        for _, toolName in ipairs(colourTools) do
+            local tool = backpack:FindFirstChild(toolName)
+            if tool and antipaint then
+		if player.Name ~= game.Players.LocalPlayer.Name then
+                   warnPaint(player, toolName)
+                   break
+                end
+            end
+        end
+    end
+end
+
 game.Players.PlayerAdded:Connect(function(player)
     player.CharacterAdded:Connect(function(character)
             checkPlayerBackpack(player)
 	    checkPlayerGBackpack(player)
             checkPlayerAGBackpack(player)  
 	    checkPlayerATTBackpack(player)
+	    checkPlayerPBackpack(player)
 	end)
             checkPlayerBackpack(player)
 	    checkPlayerGBackpack(player)
             checkPlayerAGBackpack(player)
 	    checkPlayerATTBackpack(player)
-
+	    checkPlayerATTBackpack(player)
 end)
 
 game:GetService("RunService").Heartbeat:Connect(function()
@@ -1588,6 +1623,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
             checkPlayerBackpack(player)
 	    checkPlayerGBackpack(player)
             checkPlayerAGBackpack(player)
+	    checkPlayerATTBackpack(player)
 	    checkPlayerATTBackpack(player)
         end
     end
@@ -1598,6 +1634,7 @@ for _, player in ipairs(game.Players:GetPlayers()) do
             checkPlayerBackpack(player)
 	    checkPlayerGBackpack(player)
             checkPlayerAGBackpack(player)
+	    checkPlayerATTBackpack(player)
 	    checkPlayerATTBackpack(player)
     end
 end
