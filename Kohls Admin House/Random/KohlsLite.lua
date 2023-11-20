@@ -1,6 +1,8 @@
 -- SCRIPT IS FUNCTIONAL!!!!!! :D :D :D
 -- AT SOME POINT I WILL ADD THE FIX PARTS COMMANDS
 
+-- CREDITS TO https://www.tutorialspoint.com/execute_lua_online.php AND https://www.mycompiler.io/new/lua
+
 local prefix =  "!" -- ANY LENGTH :D
 local blacklist = {"sgoslee"}
 local whitelist = {"me_123eq","me_crashking","ScriptingProgrammer","t_echr"}
@@ -36,26 +38,30 @@ local YOUantispeed = true
 local YOUantistun = true
 local YOUantiswag = true ]]
 
--- PADS
 local perm = false
 local perm2 = false
 local perm3 = false
 local loopgrab = false
 local loopgrab2 = false
 
--- ANTIS RL TO GEARS
 local anticrash = true
 local anticrash2 = false
 local antigear = false
 local antigb = true
-local antipaint = true
+local antipaint = false
 local antiattach2 = false
 
--- OTHER ANTIS
 local antiflash = false
 local antidisco = false
 local antichat = false
 local antiattach = false
+local antigs = false
+
+local PingLogs = true
+local PingCsystem = true
+local AntiLogs = false
+
+local antimusic = false
 
 local function Chat(msg)
       game.Players:Chat(msg)
@@ -506,6 +512,18 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		INFJUMP = false
     end
 
+    if string.sub(msg:lower(), 1, #prefix + 2) == prefix..'sp' then
+	 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed == tonumber(string.sub(msg:lower(), #prefix + 4))
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 2) == prefix..'jp' then
+	 game.Players.LocalPlayer.Character.Humanoid.JumpPower == tonumber(string.sub(msg:lower(), #prefix + 4))
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 4) == prefix..'hlth' then
+	 game.Players.LocalPlayer.Character.Humanoid.Health == tonumber(string.sub(msg:lower(), #prefix + 6))
+    end
+
     if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'nocam' then
 		NoCam()
     end
@@ -604,7 +622,15 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'anticrash' then
 	anticrash = true
     end
+ 
+    if string.sub(msg:lower(), 1, #prefix + 13) == prefix..'antigrayscale' then -- what is this??
+	antigs = true
+    end
 
+    if string.sub(msg:lower(), 1, #prefix + 15) == prefix..'unantigrayscale' then 
+	antigs = false
+    end
+		
     if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unanticrash' then
 	anticrash = false
     end
@@ -1126,6 +1152,12 @@ task.spawn(function()
 
 	if antichat == true then
 		Chat("h \n\n\n [KohlsLite]: 😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀😀😃😄😁😆😅😂🤣😭💀💀💀💀💀💀💀💀💀 \n\n\n")
+	end
+
+	if antigs == true then
+		if game.Workspace.CurrentCamera:FindFirstChild("GrayScale") then
+			game.Workspace.CurrentCamera:FindFirstChild("GrayScale"):Destroy()	
+		end
 	end
 			
 	if YOUanticlone == true then
