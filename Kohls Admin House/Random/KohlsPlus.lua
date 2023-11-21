@@ -1,23 +1,23 @@
--- No prefix changer yet :P
--- not very updated now because of https://github.com/S-PScripts/kah-scripts/tree/main
+print("WARNING: PLEASE USE KOHLSLITE! https://github.com/S-PScripts/lua-scripts/blob/main/Kohls%20Admin%20House/Random/KohlsLite.lua")
+print("THIS SCRIPT IS DISCONTINUED")
+print("EVERYTHING HERE IS IN KOHLSLITE!")
 
---THIS IS MISSING A LOT OF STUFF THIS WILL BE REVAMPED IN A FEW WEEKS OR SO
 local function Chat(msg)
       game.Players:Chat(msg)
 end
+
 Chat("h \n\n\n Kohls+ executed. (V1.22) \n\n\n")
 print("Kohls+ v1.22 is executed.")
 print("Created by ts2021")
-print("WARNING: PLEASE USE KOHLSLITE! https://github.com/S-PScripts/lua-scripts/blob/main/Kohls%20Admin%20House/Random/KohlsLite.lua")
-print("THIS SCRIPT IS DISCONTINUED")
 
 -- CONFIGS
 anticrash = true
 antigear = false
--- the code
+
+-- the main code
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     local command = string.lower(msg)
-    if command == ".slock" then
+    if command == ".slock" then -- S*it slock, the new one i made in KL is the bes
        slock = true
        Chat('respawn all')
        Chat('m {Kohls+} Server is locked.')       
@@ -59,7 +59,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	end
 	end
     end
-    if command == ".ping" then
+    if command == ".ping" then -- no longer chatted to all in KL - didn't want to
        local stats = game:GetService("Stats")
        local network = stats.Network
        local serverStats = network.ServerStatsItem
@@ -144,7 +144,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".unantirocket" then
        antirocket = false
     end 
-    if command == ".gmusic1" then
+    if command == ".gmusic1" then -- now uses a list
        Chat("music 0000000000000000000006529070845")
     end
     if command == ".gmusic2" then
@@ -365,7 +365,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if command == ".playmmo" then
        Chat("music"..mymusiconly)
     end
-    if command == ".vg" then
+    if command == ".vg" then -- idk if i may add these, will be a list. i just don't know much for the names of de cmds lol
        Chat("gear me 000000000000000000094794847")
     end
     if command == ".pb" then
@@ -391,12 +391,12 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         Chat("gear me 0000000000000000004842207161")
 	print("RIGHT CLICK TO BREAK. USE CMD-Y/INF YIELD FIX CAM")
     end
-    if command == ".fryvelo" then
+    if command == ".fryvelo" then -- might add to KL
 	Chat("gear me 00000000000000000000000000000000000000000000000287426148")
 	Chat("gear me 000000000000000000000000000000000000000000119917513")
 	Chat("gear me 00000000000000000000000000000000000000000074385399")
     end
-    if command == ".fixvelo" then
+    if command == ".fixvelo" then -- might add to KL
     local mapFolder = game:GetService("Workspace").Terrain._Game.Workspace
     for _, v in pairs(mapFolder:GetDescendants()) do
         task.spawn(function()
@@ -419,7 +419,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	Chat("music 0000000000000000000006529070845")
         task.wait(0.5)
         fcounter = 0
-        while fcounter < 1000 do
+        while fcounter < 1000 do -- i use for i now
               Chat("freeze all " .. math.random(1, 1000))
               Chat("clone all all all " .. math.random(1, 1000))
 	      Chat('removeclones')
@@ -427,7 +427,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
               fcounter = fcounter + 1     
 	end
     end
-    if command == ".facrash" then
+    if command == ".facrash" then -- not used in KL cuz the crashes are sil
 	Chat("fogend 0")
         Chat("flash")
         Chat("clr")
@@ -624,7 +624,7 @@ end
 game.Players.PlayerAdded:Connect(onPlayerAdded)
 game.Players.PlayerRemoving:Connect(onPlayerLeaving)
 
-Spawn(function()
+Spawn(function() -- missing lots of antis
 	while true do
 	time.wait(0)
 	if antichat == true then
@@ -742,7 +742,7 @@ Spawn(function()
 	end
 end
 
-plr.Chatted:Connect(function(msg)
+plr.Chatted:Connect(function(msg) -- i added properly bc i had 2
         for _, v in pairs(game.Players:GetPlayers()) do
             local connection = v.Chatted:Connect(function(message)
 			if string.sub(msg:lower(),0,8) == "unpunish" or string.sub(msg:lower(),0,9) == ":unpunish" or string.sub(msg:lower(),0,3) == "sit" or string.sub(msg:lower(),0,4) == ":sit" or string.sub(msg:lower(),0,4) == "stun" or string.sub(msg:lower(),0,5) == ":stun" then
@@ -787,6 +787,7 @@ plr.Chatted:Connect(function(msg)
 	end
 end)
 
+		-- didn't know what spawn.functions were at the time...
 coroutine.wrap(function()
     while true do
 	Perm()
