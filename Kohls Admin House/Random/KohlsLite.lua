@@ -558,7 +558,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		
     if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'adminall' then
        alladmin = true
-       Chat("h \n\n\n [KohlsLite] Everyone has been given admin! Chat any command. \n\n\n")
+       Chat("h \n\n\n [KohlsLite]: Everyone has been given admin! Chat any command. \n\n\n")
     end
 
     if string.sub(msg:lower(), 1, #prefix + 3) == prefix..'NOK' then
@@ -628,7 +628,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		
     if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unadminall' then
        alladmin = false
-	Chat("h \n\n\n [KohlsLite] Free admin is off. \n\n\n")
+	Chat("h \n\n\n [KohlsLite]: Free admin is off. \n\n\n")
     end
 
     if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'loopgrab' then
@@ -1194,19 +1194,19 @@ task.spawn(function()
                         if not game.Lighting:FindFirstChild(v.Name) then
                                 Chat('punish '..v.Name)
                                 Chat('blind '..v.Name)
-                                Chat('pm [KohlsLite] '..v.Name..' sorry, this server is locked!')
+                                Chat('pm [KohlsLite]: '..v.Name..' sorry, this server is locked!')
                         end
                     elseif table.find(blacklist, v.Name) then
                         if not game.Lighting:FindFirstChild(v.Name) then
                                 Chat('punish '..v.Name)
                                 Chat('blind '..v.Name)
-                                Chat('pm [KohlsLite] '..v.Name..' sorry, you are blacklisted!')
+                                Chat('pm [KohlsLite]: '..v.Name..' sorry, you are blacklisted!')
                         end
                     elseif table.find(newplrslocked, v.Name) then
 			if not game.Lighting:FindFirstChild(v.Name) then
                                 Chat('punish '..v.Name)
                                 Chat('blind '..v.Name)
-                                Chat('pm [KohlsLite] '..v.Name..' sorry, you are blacklisted for having an account under 21 days old!')
+                                Chat('pm [KohlsLite]: '..v.Name..' sorry, you are blacklisted for having an account under 21 days old!')
                         end
 		    else
                     end
