@@ -1635,7 +1635,7 @@ end)
 -- ANTIS FOR CRASHING ATTACHING GEARBANNING AND HAVING A GEAR
 local crashTools = {"OrinthianSwordAndShield", "VampireVanquisher"}
 local attachTools = {"IvoryPeriastron"}
-local nogearTools = {"PortableJustice"}
+local nogearTools = {"PortableJustice","UltimateDriveSpeedster"}
 local colourTools = {"PaintBucket"}
 
 local function warnCrash(player, toolName)
