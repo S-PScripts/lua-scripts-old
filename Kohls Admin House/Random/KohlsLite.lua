@@ -805,14 +805,10 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	noobdetect = true
     end
 		
-    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unnoobdetect' then
+    if string.sub(msg:lower(), 1, #prefix + 12) == prefix..'unnoobdetect' then
 	noobdetect = false
     end
 		
-    if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unpingcsys' then
-	PingCsystem = false
-    end
-
     if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'antiblind' then
 	YOUantiblind = true
     end
