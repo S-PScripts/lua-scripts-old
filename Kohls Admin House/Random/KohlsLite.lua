@@ -629,6 +629,10 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'breakcam' then
 		NoCam()
     end
+
+     if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'fixvelocity' then
+		VFix()
+     end
 		
     if string.sub(msg:lower(), 1, #prefix + 10) == prefix..'unadminall' then
        alladmin = false
@@ -2293,6 +2297,14 @@ local function Bring()
       Chat("tp"..bringu.."me")
 end
 
+
+local function VFix()
+    for i,v in pairs(workspace.Terrain["_Game"]:GetDescendants()) do
+        if v:IsA("BasePart") then
+            v.Velocity = Vector3.new(0,0,0)
+        end
+    end
+end
 
 -- FREEZE CRASH
 local function FCrash()
