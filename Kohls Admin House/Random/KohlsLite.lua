@@ -2492,26 +2492,31 @@ end
 local function onPlayerAdded(player)
     if welcomemsg == true and alladmin == true then
     	 Chat("h \n\n\n [KohlsLite]: Welcome to the server, " .. player.Name .. ". Chat any comand. \n\n\n")
+	 print(player.Name.."joined the server.")
     elseif welcomemsg == true then
          Chat("h \n\n\n [KohlsLite]: Welcome to the server, " .. player.Name .. ". \n\n\n")
+	 print(player.Name.."joined the server.")
+
     else
     end 
 	
     if player.Name == "ScriptingProgrammer" and player.Name ~= game.Players.LocalPlayer then
 	 Chat("h \n\n\n [KohlsLite]: !!! Is that S_P? WOW! IT IS! \n\n\n")
+	 print("ScriptingProgrammer [OWNER] joined the server!!!")
     end
 	
     if player.AccountAge < 21 == true and newplrautoslock == true then
 	 Chat("h \n\n\n [KohlsLite]: Automatically banned "..player.Name.." for being on an account under 3 weeks old. \n\n\n")
-                table.insert(newplrslocked, player)
+	 print(player.Name.." joined the server. They were auto-banned for being under 21 days old.")
+         table.insert(newplrslocked, player)
     end
-	
     task.wait()
 end
 
 local function onPlayerLeaving(player)
     if welcomemsg == true then
     	 Chat("h \n\n\n [KohlsLite]: Goodbye, " .. player.Name .. ". \n\n\n")
+	 print(player.Name.." left the server.")
     end
     task.wait()
 end
