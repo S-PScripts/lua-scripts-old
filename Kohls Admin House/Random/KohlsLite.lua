@@ -2506,13 +2506,18 @@ end
 
 -- WELCOME/LEAVE MSG
 local function onPlayerAdded(player)
-    if welcomemsg == true and alladmin == true then
-    	 Chat("h \n\n\n [KohlsLite]: Welcome to the server, " .. player.Name .. ". Chat any comand. \n\n\n")
+    if welcomemsg == true and alladmin == true and table.find(whitelist, player.Name) then
+    	 Chat("h \n\n\n [KohlsLite]: Welcome to the server, " .. player.Name .. ". Chat any comand. You are whitelisted from serverlocks! \n\n\n")
 	 print(player.Name.."joined the server.")
-    elseif welcomemsg == true then
-         Chat("h \n\n\n [KohlsLite]: Welcome to the server, " .. player.Name .. ". \n\n\n")
+    elseif welcomemsg == true and alladmin == false and table.find(whitelist,player.Name) then
+         Chat("h \n\n\n [KohlsLite]: Welcome to the server, " .. player.Name .. ". You are whitelisted from serverlocks! \n\n\n")
 	 print(player.Name.."joined the server.")
-
+    elseif welcomemsg == true and alladmin == true and not table.find(whitelist, player.Name) then
+	Chat("h \n\n\n [KohlsLite]: Welcome to the server, " .. player.Name .. ". Chat any command. \n\n\n")
+	print(player.Name.."joined the server.")
+    elseif welcomemsg == true and alladmin == false and not table.find(whitelist, player.Name) then
+	Chat("h \n\n\n [KohlsLite]: Welcome to the server, " .. player.Name .. ". \n\n\n")
+	print(player.Name.."joined the server.")
     else
     end 
 	
