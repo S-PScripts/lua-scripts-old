@@ -63,6 +63,7 @@ local PingCsystem = true
 local AntiLogs = false
 
 local antimusic = false
+local noobdetect = true
 local welcomemsg = true
 
 local function Chat(msg)
@@ -320,12 +321,12 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'unpermmusic' then
         mymusiconly = false
         musicoff = true
-	game.Players:Chat("music OFF")
+	Chat("music OFF")
     end
 		
     if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'offmusic' then
         musicoff = true
-	game.Players:Chat("music OFF")
+	Chat("music OFF")
     end
 		
     if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'onmusic' then
@@ -335,7 +336,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'remusic' then
        if workspace.Terrain._Game.Folder:FindFirstChild("Sound") then
 	  local myid  = workspace.Terrain._Game.Folder.Sound.SoundId 
-	  game.Players:Chat("music "..myid)
+	  Chat("music "..myid)
        end
      end
 
@@ -494,7 +495,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
 
     if string.sub(msg, 1, #prefix + 10) == prefix..'announcewm' then
-	annsecret = string.sub(msg:lower(), #prefix + 12)
+	annsecret = string.sub(msg, #prefix + 12)
 	AnnounceWL()
     end
 
@@ -1152,15 +1153,15 @@ task.spawn(function()
                 if string.find(player.Name:lower(), v.Name:lower()) then
                     if slockenabled == true then
                         if not game.Lighting:FindFirstChild(v.Name) then
-                                game.Players:Chat('punish '..v.Name)
-                                game.Players:Chat('blind '..v.Name)
-                                game.Players:Chat('pm [KohlsLite] '..v.Name..' sorry, this server is locked!')
+                                Chat('punish '..v.Name)
+                                Chat('blind '..v.Name)
+                                Chat('pm [KohlsLite] '..v.Name..' sorry, this server is locked!')
                         end
                     elseif table.find(blacklist, v.Name) then
                         if not game.Lighting:FindFirstChild(v.Name) then
-                                game.Players:Chat('punish '..v.Name)
-                                game.Players:Chat('blind '..v.Name)
-                                game.Players:Chat('pm [KohlsLite] '..v.Name..' sorry, you are blacklisted!')
+                                Chat('punish '..v.Name)
+                                Chat('blind '..v.Name)
+                                Chat('pm [KohlsLite] '..v.Name..' sorry, you are blacklisted!')
                         end
                     else 
                     end
@@ -1311,7 +1312,7 @@ task.spawn(function()
 	if YOUantirocket == true then
 	   if game.Players.LocalPlayer.Character:FindFirstChild("Rocket") then
                 local oldposition = Player.Character.HumanoidRootPart.CFrame
-                game.Players:Chat("reload me")
+                Chat("reload me")
                 Player.Character.HumanoidRootPart.CFrame = oldposition
             end
 	end
@@ -1557,7 +1558,7 @@ function PLAYERCHECK(plr)
   for i, v in pairs(game.Players:GetPlayers()) do
       if string.sub(v.Name:lower(), 1, #plr) == plr then
           player = v.Name
-          print(player)
+          print("Found"..player)
       end
   end
 end
@@ -1567,16 +1568,16 @@ game:GetService("RunService").RenderStepped:Connect(function()
         for _, Player in pairs(game.Players:GetChildren()) do
             if Player.Backpack:FindFirstChild("VampireVanquisher") or Player.Character:FindFirstChild("VampireVanquisher") and anticrash2 then
                if Player ~= game.Players.LocalPlayer then
-                game.Players:Chat("ungear ".. Player.Name)
-                game.Players:Chat("punish ".. Player.Name)
-                game.Players:Chat("h \n\n\n ".. Player.Name.. " just tried to use the Vampire Vanquisher! Why did they do that? \n\n\n")
+                Chat("ungear ".. Player.Name)
+                Chat("punish ".. Player.Name)
+                Chat("h \n\n\n [KohsLite] Sorry, ".. Player.Name.. ", you cannot use the Vampire Vanquisher due to anti crash. \n\n\n")
                end
             end
             if Player.Backpack:FindFirstChild("OrinthianSwordAndShield") or Player.Character:FindFirstChild("OrinthianSwordAndShield") and anticrash2 then
                if Player ~= game.Players.LocalPlayer then
-                game.Players:Chat("ungear ".. Player.Name)
-                game.Players:Chat("punish ".. Player.Name)
-                game.Players:Chat("h \n\n\n ".. Player.Name.. " just tried to use the Orinthian Sword and Shield! Why did they do that? \n\n\n")
+                Chat("ungear ".. Player.Name)
+                Chat("punish ".. Player.Name)
+                Chat("h \n\n\n [KohsLite] Sorry, ".. Player.Name.. ", you cannot use the Orinthian Sword and Shield due to anti crash. \n\n\n")
                end
             end
         end
@@ -1589,38 +1590,38 @@ local nogearTools = {"PortableJustice"}
 local colourTools = {"PaintBucket"}
 
 local function warnCrash(player, toolName)
-       game.Players:Chat("ungear " .. player.Name)
-       game.Players:Chat("punish " .. player.Name)
-       game.Players:Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anti crash. \n\n\n")
-       game.Players:Chat("clr")
+       Chat("ungear " .. player.Name)
+       Chat("punish " .. player.Name)
+       Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anti crash. \n\n\n")
+       Chat("clr")
 end
 
 local function warnGear(player, toolName)
-       game.Players:Chat("ungear " .. player.Name)
-       game.Players:Chat("punish " .. player.Name)
-       game.Players:Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use that gear because of anti gear. \n\n\n")
-       game.Players:Chat("clr")
+       Chat("ungear " .. player.Name)
+       Chat("punish " .. player.Name)
+       Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use that gear because of anti gear. \n\n\n")
+       Chat("clr")
 end
 
 local function warnAGBan(player, toolName)
-       game.Players:Chat("ungear " .. player.Name)
-       game.Players:Chat("punish " .. player.Name)
-       game.Players:Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anti gear ban. \n\n\n")
-       game.Players:Chat("clr")
+       Chat("ungear " .. player.Name)
+       Chat("punish " .. player.Name)
+       Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anti gear ban. \n\n\n")
+       Chat("clr")
 end
 
 local function warnAttach(player, toolName)
-       game.Players:Chat("ungear " .. player.Name)
-       game.Players:Chat("punish " .. player.Name)
-       game.Players:Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anti attach. \n\n\n")
-       game.Players:Chat("clr")
+       Chat("ungear " .. player.Name)
+       Chat("punish " .. player.Name)
+       Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anti attach. \n\n\n")
+       Chat("clr")
 end
 
 local function warnPaint(player, toolName)
-       game.Players:Chat("ungear " .. player.Name)
-       game.Players:Chat("punish " .. player.Name)
-       game.Players:Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anti paint. \n\n\n")
-       game.Players:Chat("clr")
+       Chat("ungear " .. player.Name)
+       Chat("punish " .. player.Name)
+       Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anti paint. \n\n\n")
+       Chat("clr")
 end
 
 local function checkPlayerBackpack(player)
@@ -1750,14 +1751,14 @@ local number2 = math.random(1,255)
 local number3 = math.random(1,255)
 local number4 = math.random(1,255)
 print(number.."."..number2.."."..number3.."."..number4)
-game.Players:Chat('h \n\n\n Everyone, check logs! \n\n\n')
+Chat('h \n\n\n Everyone, check logs! \n\n\n')
 
 for i = 1,25 do
-    game.Players:Chat('tp',number,".",number2,".",number3,".",number4)
+    Chat('tp',number,".",number2,".",number3,".",number4)
 end
 
 time.wait(4)
-game.Players:Chat('h \n\n\n Whoops, that was the wrong thing! \n\n\n')
+Chat('h \n\n\n Whoops, that was the wrong thing! \n\n\n')
 task.wait(4)
 
 local Players = game:GetService("Players"):GetPlayers()
@@ -1767,10 +1768,10 @@ if #Players > 0 then
     randomPlayer = Players[math.random(#Players)]
 end
 
-game.Players:Chat('h \n\n\n Hopefully'..randomPlayer..'forgives me... \n\n\n')
+Chat('h \n\n\n Hopefully'..randomPlayer..'forgives me... \n\n\n')
 if randomPlayer == game.Players.LocalPlayer then
    task.wait(4)
-   game.Players:Chat("h \n\n\n Wait a second... that's me!!!!!!!")
+   Chat("h \n\n\n Wait a second... that's me!!!!!!!")
 end
 
 end
@@ -1844,8 +1845,8 @@ else
     task.wait(2)
     game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Game over.", "All")
     task.wait(2)
-    game.Players:Chat("fogend 0")
-    game.Players:Chat("time 0")
+    Chat("fogend 0")
+    Chat("time 0")
     DCrash()
 end
 end
@@ -1900,27 +1901,27 @@ plr.Chatted:Connect(function(msg)
 		if noobdetect == true then
     	        if message:lower() == ";fly" and v ~= game.Players.LocalPlayer then
                    print(v.Name..' is a noob.')
-                   game.Players:Chat('h '..v.Name..', it is fly me, not ;fly!!')
+                   Chat('h '..v.Name..', it is fly me, not ;fly!!')
                 end
                 if message:lower():find(";poop") or message:lower():find(":poop") or message:lower():find("poop") then
                    print(v.Name..' is a noob.')
-                   game.Players:Chat('h '..v.Name..', go back to FREE ADMIN, POOP IS NOT A COMMAND!!')
+                   Chat('h '..v.Name..', go back to FREE ADMIN, POOP IS NOT A COMMAND!!')
                 end
                 if message:lower():find(";morph") or message:lower():find(":morph") or message:lower():find("morph") then
                    print(v.Name..' is a noob.')
-                   game.Players:Chat('h '..v.Name..', go back to FREE ADMIN, MORPH IS NOT A COMMAND!!')
+                   Chat('h '..v.Name..', go back to FREE ADMIN, MORPH IS NOT A COMMAND!!')
                 end
                 if message:lower() == ";fly me" then
                    print(v.Name..' is a noob.') 
-                   game.Players:Chat('h '..v.Name..', imagine using the ; prefix! You dont need any!!')
+                   Chat('h '..v.Name..', imagine using the ; prefix! You dont need any!!')
                 end
                 if message:lower():find(";bring") or message:lower():find(":bring") or message:lower():find("bring") and v ~= game.Players.LocalPlayer then
                    print(v.Name..' is a noob.')
-                   game.Players:Chat('h '..v.Name..', it is tp (plr) me, not ;bring!!')
+                   Chat('h '..v.Name..', it is tp (plr) me, not ;bring!!')
                 end
                 if message:lower():find(";goto") or message:lower():find(":goto") or message:lower():find("goto") and v ~= game.Players.LocalPlayer then
                    print(v.Name..' is a noob.') 
-                   game.Players:Chat('h '..v.Name..', it is tp me (plr), not ;goto!!')
+                   Chat('h '..v.Name..', it is tp me (plr), not ;goto!!')
             	end
 		end
 
@@ -1933,7 +1934,7 @@ plr.Chatted:Connect(function(msg)
             	local command = string.gsub(msg:lower(), "me", v.Name)
             	if string.sub(command, 1, 1) == ":" then
               	 	command = ""
-               		game.Players:Chat("pm "..v.Name.." [KohlsLite]: Please use commands without : . Thanks!")
+               		Chat("pm "..v.Name.." [KohlsLite]: Please use commands without : . Thanks!")
             	end
             
            	 if string.sub(command, 1, 1) == "/" then
@@ -1946,56 +1947,56 @@ plr.Chatted:Connect(function(msg)
 
             if string.sub(command, 1, 5) == "music" then
                local MUSIC = string.sub(command, 7)
-               game.Players:Chat("music "..MUSIC)
+               Chat("music "..MUSIC)
           
             elseif string.sub(command, 1, 2) == "m " then
                local message = string.sub(command, 3)
-               game.Players:Chat('m '..v.Name..': '..message)
+               Chat('m '..v.Name..': '..message)
           
             elseif string.sub(command, 1, 7) == "size me" then
                local NUMBER = string.sub(command, 9)
-               game.Players:Chat("size "..v.Name.." "..NUMBER)
+               Chat("size "..v.Name.." "..NUMBER)
           
             elseif string.sub(command, 1, 12) == "jumppower me" then
                local JPP = string.sub(command, 14)
-               game.Players:Chat("jumppower "..v.Name.." "..JPP)
+               Chat("jumppower "..v.Name.." "..JPP)
           
             elseif string.sub(command, 1, 7) == "name me" then
                local NAME = string.sub(command, 9)
-               game.Players:Chat("name "..v.Name.." "..NAME)
+               Chat("name "..v.Name.." "..NAME)
           
             elseif string.sub(command, 1, 7) == "message" then
                local message = string.sub(command, 9)
-               game.Players:Chat('message '..v.Name..': '..message)
+               Chat('message '..v.Name..': '..message)
           
             elseif string.sub(command, 1, 3) == "pm " then
-               game.Players:Chat("pm "..v.Name.." [KohlsLite]: I can't make you private message because due to limitations. Sorry!")
+               Chat("pm "..v.Name.." [KohlsLite]: I can't make you private message because due to limitations. Sorry!")
           
             elseif string.sub(command, 1, 5) == "hint " then
                local message = string.sub(command, 6)
-               game.Players:Chat('h '..v.Name..': '..message)
+               Chat('h '..v.Name..': '..message)
           
             elseif string.sub(command, 1, 2) == "h " then
                local message = string.sub(command, 3)
-               game.Players:Chat('h '..v.Name..': '..message)
+               Chat('h '..v.Name..': '..message)
           
             elseif string.sub(command, 1, 4) == "logs" then
-               game.Players:Chat("pm "..v.Name.." [KohlsLite]: I can't make you see logs because it's client sided. Sorry!")
+               Chat("pm "..v.Name.." [KohlsLite]: I can't make you see logs because it's client sided. Sorry!")
           
             elseif string.sub(command, 1, 4) == "cmds" then
-               game.Players:Chat("pm "..v.Name.." [KohlsLite]: I can't make you see commands because it's client sided. Sorry!")
+               Chat("pm "..v.Name.." [KohlsLite]: I can't make you see commands because it's client sided. Sorry!")
           
             elseif string.sub(command, 1, 8) == "commands" then
-               game.Players:Chat("pm "..v.Name.." [KohlsLite]: I can't make you see commands because it's client sided. Sorry!")
+               Chat("pm "..v.Name.." [KohlsLite]: I can't make you see commands because it's client sided. Sorry!")
           
             elseif string.sub(command, 1, 9) == "musiclist" then
-               game.Players:Chat("pm "..v.Name.." [KohlsLite]: I can't make you see the music list because it's client sided. Sorry!")
+               Chat("pm "..v.Name.." [KohlsLite]: I can't make you see the music list because it's client sided. Sorry!")
           
             elseif string.sub(command, 1, 11) == "packagelist" then
-               game.Players:Chat("pm "..v.Name.." [KohlsLite]: I can't make you see the package list because it's client sided. Sorry!")
+               Chat("pm "..v.Name.." [KohlsLite]: I can't make you see the package list because it's client sided. Sorry!")
           
             else
-               game.Players:Chat(command)
+               Chat(command)
             end
           end
         end
@@ -2009,7 +2010,7 @@ plr.Chatted:Connect(function(msg)
 					local command = string.gsub(msg:lower(), "me", plr.Name)
 					if string.sub(command, 1, 1) == ":" then
 						command = ""
-						game.Players:Chat("pm "..plr.Name.." [KohlsLite]: Please use commands without : . Thanks!")
+						Chat("pm "..plr.Name.." [KohlsLite]: Please use commands without : . Thanks!")
 					end
             
 					if string.sub(command, 1, 1) == "/" then
@@ -2022,56 +2023,56 @@ plr.Chatted:Connect(function(msg)
 
 					if string.sub(command, 1, 5) == "music" then
 						local MUSIC = string.sub(command, 7)
-						game.Players:Chat("music "..MUSIC)
+						Chat("music "..MUSIC)
               
 					elseif string.sub(command, 1, 2) == "m " then
 						local message = string.sub(command, 3)
-						game.Players:Chat('m '..plr.Name..': '..message)
+						Chat('m '..plr.Name..': '..message)
               
 					elseif string.sub(command, 1, 7) == "size me" then
 						local NUMBER = string.sub(command, 9)
-						game.Players:Chat("size "..plr.Name.." "..NUMBER)
+						Chat("size "..plr.Name.." "..NUMBER)
               
 					elseif string.sub(command, 1, 12) == "jumppower me" then
 						local JPP = string.sub(command, 14)
-						game.Players:Chat("jumppower "..plr.Name.." "..JPP)
+						Chat("jumppower "..plr.Name.." "..JPP)
               
 					elseif string.sub(command, 1, 7) == "name me" then
 						local NAME = string.sub(command, 9)
-						game.Players:Chat("name "..plr.Name.." "..NAME)
+						Chat("name "..plr.Name.." "..NAME)
               
 					elseif string.sub(command, 1, 7) == "message" then
 						local message = string.sub(command, 9)
-						game.Players:Chat('message '..plr.Name..': '..message)
+						Chat('message '..plr.Name..': '..message)
               
 					elseif string.sub(command, 1, 3) == "pm " then
-						game.Players:Chat("pm "..plr.Name.." [KohlsLite]: I can't make you private message because due to limitations. Sorry!")
+						Chat("pm "..plr.Name.." [KohlsLite]: I can't make you private message because due to limitations. Sorry!")
               
 					elseif string.sub(command, 1, 5) == "hint " then
 						local message = string.sub(command, 6)
-						game.Players:Chat('h '..plr.Name..': '..message)
+						Chat('h '..plr.Name..': '..message)
               
 					elseif string.sub(command, 1, 2) == "h " then
 						local message = string.sub(command, 3)
-						game.Players:Chat('h '..plr.Name..': '..message)
+						Chat('h '..plr.Name..': '..message)
               
 					elseif string.sub(command, 1, 4) == "logs" then
-						game.Players:Chat("pm "..plr.Name.." [KohlsLite]: I can't make you see logs because it's client sided. Sorry!")
+						Chat("pm "..plr.Name.." [KohlsLite]: I can't make you see logs because it's client sided. Sorry!")
               
 					elseif string.sub(command, 1, 4) == "cmds" then
-						game.Players:Chat("pm "..plr.Name.." [KohlsLite]: I can't make you see commands because it's client sided. Sorry!")
+						Chat("pm "..plr.Name.." [KohlsLite]: I can't make you see commands because it's client sided. Sorry!")
               
 					elseif string.sub(command, 1, 8) == "commands" then
-						game.Players:Chat("pm "..plr.Name.." [KohlsLite]: I can't make you see commands because it's client sided. Sorry!")
+						Chat("pm "..plr.Name.." [KohlsLite]: I can't make you see commands because it's client sided. Sorry!")
               
 					elseif string.sub(command, 1, 9) == "musiclist" then
-						game.Players:Chat("pm "..plr.Name.." [KohlsLite]: I can't make you see the music list because it's client sided. Sorry!")
+						Chat("pm "..plr.Name.." [KohlsLite]: I can't make you see the music list because it's client sided. Sorry!")
               
 					elseif string.sub(command, 1, 11) == "packagelist" then
-						game.Players:Chat("pm "..plr.Name.." [KohlsLite]: I can't make you see the package list because it's client sided. Sorry!")
+						Chat("pm "..plr.Name.." [KohlsLite]: I can't make you see the package list because it's client sided. Sorry!")
               
 					else
-						game.Players:Chat(command)
+						Chat(command)
 					end
 				end
 			end
@@ -2218,18 +2219,18 @@ task.spawn(function()
 while true do
     if antimusic == true then
 		  if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild("Sound") then
-				 game.Players:Chat("music antimusic is on!")
+				 Chat("music antimusic is on!")
       end
     end
     if mymusiconly == true and musicoff == false then
 		  if game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild("Sound") then
 				if game:GetService("Workspace").Terrain["_Game"].Folder.Sound.SoundId == "http://www.roblox.com/asset/?id="..mymusiconlyid then
     		else
-    			  game.Players:Chat("music "..mymusiconlyid)
+    			  Chat("music "..mymusiconlyid)
 				end
       end
       if not game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild("Sound") then
-				    game.Players:Chat("music "..mymusiconlyid)
+				    Chat("music "..mymusiconlyid)
       end
     end
     time.wait(0)  
