@@ -6,6 +6,7 @@
 local prefix =  "!" -- ANY LENGTH :D
 local blacklist = {"sgoslee"}
 local whitelist = {"me_123eq","me_crashking","ScriptingProgrammer","t_echr"}
+local newplrslocked = {} -- don't edit!!
 local GWhitelisted = {"me_123eq","me_crashking","ScriptingProgrammer","t_echr"} -- gear whitelisted
 local slockenabled = false
 
@@ -116,6 +117,23 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
          end
        end
 
+       if string.sub(msg, 1, #prefix + 4) == prefix..'unwl' then
+         local dasplayer = string.sub(msg:lower(), #prefix + 6)
+         PLAYERCHECK(dasplayer)
+         if player ~= nil then
+                Chat("h \n\n\n [KohlsLite] "..player.." has been unwhitelisted. \n\n\n")
+                table.remove(whitelist, table.find(whitelist, player))
+         else
+                print('Cannot find player with the name: '..dasplayer)
+         end
+       end
+		
+	if string.sub(msg, 1, #prefix + 6)  == prefix..'wllist' then
+         for i = 1, #whitelist do
+ 		 print(whitelist[i])
+	 end
+        end
+
 	if string.sub(msg, 1, #prefix + 5)  == prefix..'admin' then
          local dasplayer = string.sub(msg:lower(), #prefix + 7)
          PLAYERCHECK(dasplayer)
@@ -126,6 +144,23 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
                 print('Cannot find player with the name: '..dasplayer)
          end
        end
+	
+	if string.sub(msg, 1, #prefix + 7)  == prefix..'unadmin' then
+         local dasplayer = string.sub(msg:lower(), #prefix + 9)
+         PLAYERCHECK(dasplayer)
+         if player ~= nil then
+                Chat("h \n\n\n [KohlsLite] "..player.." has been removed from admin. \n\n\n")
+                table.remove(FAdmins, table.find(FAdmins, player))
+         else
+                print('Cannot find player with the name: '..dasplayer)
+         end
+       end
+
+       if string.sub(msg, 1, #prefix + 9)  == prefix..'adminlist' then
+         for i = 1, #FAdmins do
+ 		 print(FAdmins[i])
+	 end
+        end
 
 	if string.sub(msg, 1, #prefix + 6)  == prefix..'gearwl' then
          local dasplayer = string.sub(msg:lower(), #prefix + 8)
@@ -148,28 +183,12 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
                 print('Cannot find player with the name: '..dasplayer)
          end
        end
-		
-	if string.sub(msg, 1, #prefix + 7)  == prefix..'unadmin' then
-         local dasplayer = string.sub(msg:lower(), #prefix + 9)
-         PLAYERCHECK(dasplayer)
-         if player ~= nil then
-                Chat("h \n\n\n [KohlsLite] "..player.." has been removed from admin. \n\n\n")
-                table.remove(FAdmins, table.find(FAdmins, player))
-         else
-                print('Cannot find player with the name: '..dasplayer)
-         end
-       end
-		
-       if string.sub(msg, 1, #prefix + 4) == prefix..'unwl' then
-         local dasplayer = string.sub(msg:lower(), #prefix + 6)
-         PLAYERCHECK(dasplayer)
-         if player ~= nil then
-                Chat("h \n\n\n [KohlsLite] "..player.." has been unwhitelisted. \n\n\n")
-                table.remove(whitelist, table.find(whitelist, player))
-         else
-                print('Cannot find player with the name: '..dasplayer)
-         end
-       end
+
+	if string.sub(msg, 1, #prefix + 10)  == prefix..'gearwllist' then
+         for i = 1, #GWhitelisted do
+ 		 print(GWhitelisted[i])
+	 end
+        end
 
        if string.sub(msg, 1, #prefix + 2) == prefix..'bl' then
          local dasplayer = string.sub(msg:lower(), #prefix + 4)
@@ -194,6 +213,12 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
                 print('Cannot find player with the name: '..dasplayer)
          end
        end
+
+	if string.sub(msg, 1, #prefix + 6)  == prefix..'bllist' then
+         for i = 1, #blacklist do
+ 		 print(blacklist[i])
+	 end
+        end
     
        if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'slock' then
         Chat("h \n\n\n [KohlsLite] Server is locked! \n\n\n")
@@ -206,7 +231,21 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         Chat('unblind all')
         Chat('unpunish all')
        end
-		
+
+       if string.sub(msg:lower(), 1, #prefix + 12) == prefix..'newplrslock' then
+	  newplrautoslock = true
+       end
+
+       if string.sub(msg:lower(), 1, #prefix + 14) == prefix..'unnewplrslock' then
+	  newplrautoslock = false
+       end
+
+	if string.sub(msg, 1, #prefix + 7)  == prefix..'npslist' then
+         for i = 1, #newplrslocked do
+ 		 print(newplrslocked[i])
+	 end
+        end
+	
     if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'gmusic' then
         musicplay = tonumber(string.sub(msg:lower(), #prefix + 7)) 
         if musicplay ~= nil and musicplay >= 1 and musicplay <= #musiclist then
@@ -1163,7 +1202,13 @@ task.spawn(function()
                                 Chat('blind '..v.Name)
                                 Chat('pm [KohlsLite] '..v.Name..' sorry, you are blacklisted!')
                         end
-                    else 
+                    elseif table.find(newplrslocked, v.Name) then
+			if not game.Lighting:FindFirstChild(v.Name) then
+                                Chat('punish '..v.Name)
+                                Chat('blind '..v.Name)
+                                Chat('pm [KohlsLite] '..v.Name..' sorry, you are blacklisted for having an account under 21 days old!')
+                        end
+		    else
                     end
                     break
                 end
@@ -2239,7 +2284,8 @@ end)
 
 -- GOTO
 local function Goto()
-          Chat("tp me"..gotou)
+	  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = gotou.Character.HumanoidRootPart.CFrame
+       --[[   Chat("tp me"..gotou)]]
 end
 
 -- BRING
@@ -2452,10 +2498,18 @@ local function onPlayerAdded(player)
     	 Chat("h \n\n\n [KohlsLite]: Welcome to the server, " .. player.Name .. ". Chat any comand. \n\n\n")
     elseif welcomemsg == true then
          Chat("h \n\n\n [KohlsLite]: Welcome to the server, " .. player.Name .. ". \n\n\n")
-    else end 
+    else
+    end 
+	
     if player.Name == "ScriptingProgrammer" and player.Name ~= game.Players.LocalPlayer then
 	 Chat("h \n\n\n [KohlsLite]: !!! Is that S_P? WOW! IT IS! \n\n\n")
     end
+	
+    if player.AccountAge < 21 == true and newplrautoslock == true then
+	 Chat("h \n\n\n [KohlsLite]: Automatically banned "..player.Name.." for being on an account under 3 weeks old. \n\n\n")
+                table.insert(newplrslocked, player)
+    end
+	
     task.wait()
 end
 
