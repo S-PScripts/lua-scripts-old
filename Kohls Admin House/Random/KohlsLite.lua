@@ -108,7 +108,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
          local dasplayer = string.sub(msg:lower(), #prefix + 4)
          PLAYERCHECK(dasplayer)
          if player ~= nil then
-                Chat("h \n\n\n [KohlsLite] "..player.." has been whitelisted! \n\n\n")
+                Chat("h \n\n\n [KohlsLite]: "..player.." has been whitelisted! \n\n\n")
                 table.insert(whitelist, player)
                 Chat('unblind '..player)
                 Chat('unpunish '..player)
@@ -121,7 +121,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
          local dasplayer = string.sub(msg:lower(), #prefix + 6)
          PLAYERCHECK(dasplayer)
          if player ~= nil then
-                Chat("h \n\n\n [KohlsLite] "..player.." has been unwhitelisted. \n\n\n")
+                Chat("h \n\n\n [KohlsLite]: "..player.." has been unwhitelisted. \n\n\n")
                 table.remove(whitelist, table.find(whitelist, player))
          else
                 print('Cannot find player with the name: '..dasplayer)
@@ -138,7 +138,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
          local dasplayer = string.sub(msg:lower(), #prefix + 7)
          PLAYERCHECK(dasplayer)
          if player ~= nil then
-                Chat("h \n\n\n [KohlsLite] "..player.." has been given admin! \n\n\n")
+                Chat("h \n\n\n [KohlsLite]: "..player.." has been given admin! \n\n\n")
                 table.insert(FAdmins, player)
          else
                 print('Cannot find player with the name: '..dasplayer)
@@ -149,7 +149,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
          local dasplayer = string.sub(msg:lower(), #prefix + 9)
          PLAYERCHECK(dasplayer)
          if player ~= nil then
-                Chat("h \n\n\n [KohlsLite] "..player.." has been removed from admin. \n\n\n")
+                Chat("h \n\n\n [KohlsLite]: "..player.." has been removed from admin. \n\n\n")
                 table.remove(FAdmins, table.find(FAdmins, player))
          else
                 print('Cannot find player with the name: '..dasplayer)
@@ -166,7 +166,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
          local dasplayer = string.sub(msg:lower(), #prefix + 8)
          PLAYERCHECK(dasplayer)
          if player ~= nil then
-                Chat("h \n\n\n [KohlsLite] "..player.." has been whitelisted from anti-gears! \n\n\n")
+                Chat("h \n\n\n [KohlsLite]: "..player.." has been whitelisted from anti-gears! \n\n\n")
                 table.insert(GWhitelisted, player)
          else
                 print('Cannot find player with the name: '..dasplayer)
@@ -177,7 +177,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
          local dasplayer = string.sub(msg:lower(), #prefix + 10)
          PLAYERCHECK(dasplayer)
          if player ~= nil then
-                Chat("h \n\n\n [KohlsLite] "..player.." has been unwhitelisted from anti-gears. \n\n\n")
+                Chat("h \n\n\n [KohlsLite]: "..player.." has been unwhitelisted from anti-gears. \n\n\n")
                 table.remove(GWhitelisted, table.find(GWhitelisted, player))
          else
                 print('Cannot find player with the name: '..dasplayer)
@@ -194,7 +194,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
          local dasplayer = string.sub(msg:lower(), #prefix + 4)
          PLAYERCHECK(dasplayer)
          if player ~= nil then
-                Chat("h \n\n\n [KohlsLite] "..player.." has been blacklisted. \n\n\n")
+                Chat("h \n\n\n [KohlsLite]: "..player.." has been blacklisted. \n\n\n")
                 table.insert(blacklist, player)
          else
                 print('Cannot find player with the name: '..dasplayer)
@@ -205,7 +205,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
          local dasplayer = string.sub(msg:lower(), #prefix + 6)
          PLAYERCHECK(dasplayer)
          if player ~= nil then
-                Chat("h \n\n\n [KohlsLite] "..player.." has been unblacklisted! \n\n\n")
+                Chat("h \n\n\n [KohlsLite]: "..player.." has been unblacklisted! \n\n\n")
                 table.remove(blacklist, table.find(blacklist, player))
                 Chat('unblind '..player)
                 Chat('unpunish '..player)
@@ -221,13 +221,13 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         end
     
        if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'slock' then
-        Chat("h \n\n\n [KohlsLite] Server is locked! \n\n\n")
+        Chat("h \n\n\n [KohlsLite]: Server is locked! \n\n\n")
         slockenabled = true
        end
     
        if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'unslock' then
         slockenabled = false
-        Chat("h \n\n\n [KohlsLite] Server is unlocked! \n\n\n")
+        Chat("h \n\n\n [KohlsLite]: Server is unlocked! \n\n\n")
         Chat('unblind all')
         Chat('unpunish all')
        end
@@ -249,7 +249,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'gmusic' then
         musicplay = tonumber(string.sub(msg:lower(), #prefix + 7)) 
         if musicplay ~= nil and musicplay >= 1 and musicplay <= #musiclist then
-            Chat("h \n\n\n [KohlsLite] Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
+            Chat("h \n\n\n [KohlsLite]: Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
             Chat("music " .. musiclist[musicplay])
         else
             print("Invalid music number!")
@@ -258,7 +258,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		
     if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'rgmusic' then
         musicplay = math.random(1, #musiclist)
-        Chat("h \n\n\n [KohlsLite] Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
+        Chat("h \n\n\n [KohlsLite]: Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
         Chat("music " .. musiclist[musicplay])
     end
 		
@@ -268,7 +268,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        else            
           musicplay = musicplay + 1
        end
-       Chat("h \n\n\n [KohlsLite] Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
+       Chat("h \n\n\n [KohlsLite]: Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
        Chat("music " .. musiclist[musicplay])
     end
 		
@@ -278,7 +278,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        else            
           musicplay = musicplay - 1
        end
-       Chat("h \n\n\n [KohlsLite] Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
+       Chat("h \n\n\n [KohlsLite]: Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
        Chat("music " .. musiclist[musicplay])
     end
 		
@@ -1637,35 +1637,35 @@ local colourTools = {"PaintBucket"}
 local function warnCrash(player, toolName)
        Chat("ungear " .. player.Name)
        Chat("punish " .. player.Name)
-       Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anti crash. \n\n\n")
+       Chat("h \n\n\n [KohlsLite]: Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anti crash. \n\n\n")
        Chat("clr")
 end
 
 local function warnGear(player, toolName)
        Chat("ungear " .. player.Name)
        Chat("punish " .. player.Name)
-       Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use that gear because of anti gear. \n\n\n")
+       Chat("h \n\n\n [KohlsLite]: Sorry, " .. player.Name .. ", you cannot use that gear because of anti gear. \n\n\n")
        Chat("clr")
 end
 
 local function warnAGBan(player, toolName)
        Chat("ungear " .. player.Name)
        Chat("punish " .. player.Name)
-       Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anti gear ban. \n\n\n")
+       Chat("h \n\n\n [KohlsLite]: Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anti gear ban. \n\n\n")
        Chat("clr")
 end
 
 local function warnAttach(player, toolName)
        Chat("ungear " .. player.Name)
        Chat("punish " .. player.Name)
-       Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anti attach. \n\n\n")
+       Chat("h \n\n\n [KohlsLite]: Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anti attach. \n\n\n")
        Chat("clr")
 end
 
 local function warnPaint(player, toolName)
        Chat("ungear " .. player.Name)
        Chat("punish " .. player.Name)
-       Chat("h \n\n\n Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anti paint. \n\n\n")
+       Chat("h \n\n\n [KohlsLite]: Sorry, " .. player.Name .. ", you cannot use " .. toolName .. " because of anti paint. \n\n\n")
        Chat("clr")
 end
 
@@ -1905,13 +1905,13 @@ plr.Chatted:Connect(function(msg)
                 if message:lower():find("/w") or message:lower():find("/c system") and v ~= game.Players.LocalPlayer then
                    if PingCsystem then
                         print(v.Name..' is using /c system or whispering commands.')
-                        Chat('h '..v.Name..' is using /c system or whispering commands.')
+                        Chat('h [KohlsLite]: '..v.Name..' is using /c system or whispering commands.')
                    end
                 end
                 if string.sub(msg:lower(), 0, 4) == "logs" or string.sub(msg:lower(), 0, 5) == ":logs" and v ~= game.Players.LocalPlayer then
                    if PingLogs then
                         print(v.Name..' is using logs.')
-                        Chat('h '..v.Name..' is using logs.')
+                        Chat('h [KohlsLite]: '..v.Name..' is using logs.')
                    end
         		   if AntiLogs then
             			LogSpam()
@@ -1923,7 +1923,7 @@ plr.Chatted:Connect(function(msg)
                    if antiattach then
                      Chat("unsit"..v.Name)
                      print(v.Name..' tried to sit')
-                     Chat('h '..v.Name..', You cannot sit due to anti-attach')
+                     Chat('h [KohlsLite]: '..v.Name..', You cannot sit due to anti-attach')
                    end
                 end
 						
@@ -1931,7 +1931,7 @@ plr.Chatted:Connect(function(msg)
                    if antiattach then
                      Chat("unstun"..v.Name)
                      print(v.Name..' tried to stun.')
-                     Chat('h '..v.Name..', you cannot stun due to anti-attach')
+                     Chat('h [KohlsLite]: '..v.Name..', you cannot stun due to anti-attach')
                    end
                 end
 
@@ -1946,27 +1946,27 @@ plr.Chatted:Connect(function(msg)
 		if noobdetect == true then
     	        if message:lower() == ";fly" and v ~= game.Players.LocalPlayer then
                    print(v.Name..' is a noob.')
-                   Chat('h '..v.Name..', it is fly me, not ;fly!!')
+                   Chat('h [KohlsLite]: '..v.Name..', it is fly me, not ;fly!!')
                 end
                 if message:lower():find(";poop") or message:lower():find(":poop") or message:lower():find("poop") then
                    print(v.Name..' is a noob.')
-                   Chat('h '..v.Name..', go back to FREE ADMIN, POOP IS NOT A COMMAND!!')
+                   Chat('h [KohlsLite]: '..v.Name..', go back to FREE ADMIN, POOP IS NOT A COMMAND!!')
                 end
                 if message:lower():find(";morph") or message:lower():find(":morph") or message:lower():find("morph") then
                    print(v.Name..' is a noob.')
-                   Chat('h '..v.Name..', go back to FREE ADMIN, MORPH IS NOT A COMMAND!!')
+                   Chat('h [KohlsLite]: '..v.Name..', go back to FREE ADMIN, MORPH IS NOT A COMMAND!!')
                 end
                 if message:lower() == ";fly me" then
                    print(v.Name..' is a noob.') 
-                   Chat('h '..v.Name..', imagine using the ; prefix! You dont need any!!')
+                   Chat('h [KohlsLite]: '..v.Name..', imagine using the ; prefix! You dont need any!!')
                 end
                 if message:lower():find(";bring") or message:lower():find(":bring") or message:lower():find("bring") and v ~= game.Players.LocalPlayer then
                    print(v.Name..' is a noob.')
-                   Chat('h '..v.Name..', it is tp (plr) me, not ;bring!!')
+                   Chat('h [KohlsLite]: '..v.Name..', it is tp (plr) me, not ;bring!!')
                 end
                 if message:lower():find(";goto") or message:lower():find(":goto") or message:lower():find("goto") and v ~= game.Players.LocalPlayer then
                    print(v.Name..' is a noob.') 
-                   Chat('h '..v.Name..', it is tp me (plr), not ;goto!!')
+                   Chat('h [KohlsLite]: '..v.Name..', it is tp me (plr), not ;goto!!')
             	end
 		end
 
