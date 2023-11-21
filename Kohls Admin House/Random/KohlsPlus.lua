@@ -396,7 +396,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	Chat("gear me 000000000000000000000000000000000000000000119917513")
 	Chat("gear me 00000000000000000000000000000000000000000074385399")
     end
-    if command == ".fixvelo" then -- might add to KL
+    if command == ".fixvelo" then
     local mapFolder = game:GetService("Workspace").Terrain._Game.Workspace
     for _, v in pairs(mapFolder:GetDescendants()) do
         task.spawn(function()
