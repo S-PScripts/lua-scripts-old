@@ -514,6 +514,10 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'qattach2' then
 	QAttach2()
     end
+
+    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'biglogs' then
+    	plr.PlayerGui:FindFirstChild("ScrollGui").TextButton.Frame.Size = UDim2.new(0,1000,0,1000)
+    end
 		
     if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'regen' then
 	Regen()
