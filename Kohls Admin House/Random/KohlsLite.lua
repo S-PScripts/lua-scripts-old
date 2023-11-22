@@ -1393,7 +1393,7 @@ print("---")
 print("anticrash - anti-crash with vg or osas")
 print("anticrash2 - anti-crash with vg or osas")
 print("antigear - stop users from using gears")
-print("antipaint - stop users from using the paint bucket")
+print("antipaint - stop users from using the paint bucket and Subspace Tripmine")
 print("antigb - stop users from using the portable justice and car gear")
 print("antiattach2 - stop users from using the Ivory Periastron")
 
@@ -1852,7 +1852,7 @@ end)
 local crashTools = {"OrinthianSwordAndShield", "VampireVanquisher"}
 local attachTools = {"IvoryPeriastron"}
 local nogearTools = {"PortableJustice","UltimateDriveSpeedster"}
-local colourTools = {"PaintBucket"}
+local colourTools = {"PaintBucket","SubspaceTripmine"}
 
 local function warnCrash(player, toolName)
        Chat("ungear " .. player.Name)
