@@ -69,6 +69,7 @@ local antimusic = false
 local noobdetect = true
 local welcomemsg = true
 
+-- CHAT MODULE
 local function Chat(msg)
       game.Players:Chat(msg)
 end
@@ -283,6 +284,13 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
        end
        Chat("h \n\n\n [KohlsLite]: Playing music:" .. musicnames[musicplay] .. ". \n\n\n")
        Chat("music " .. musiclist[musicplay])
+    end
+
+    if string.sub(msg, 1, #prefix + 9)  == prefix..'musiclist' then
+         for i = 1, #musiclist do
+ 		 print(musiclist[i])
+		 print(musicnames[i])
+	 end
     end
 		
     if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'pausem' then
@@ -1236,6 +1244,7 @@ print("wllist - print all whitelisted players")
 print("bllist - print all blacklisted players")
 print("gearwllist - print all gear whitelisted players")
 print("adminlist - print all admined players")
+print("musiclist - print all the saved musics")
 
 print("---")
 print("slock - serverlock a server")
@@ -1256,6 +1265,11 @@ print("prefix - set the prefix")
 print("ping - say your ping")
 print("execute - execute a lua script from chat")
 print("iy - execute iy")
+print("ad - advertise this script (pls do this you are nice if you do this :D)")
+
+print("---")
+print("welmsg - welcome people to the server (and leave msg too)")
+print("unwelmsg - no more welcome and leave msg")
 
 print("---")
 print("autoafk - names you as afk when you're afk")
@@ -1271,7 +1285,7 @@ print("bring - alt to tp plr me")
 
 print("---")
 print("biglogs - make the logs bigger!")
-print("chatE - h spam = chat gui gone")
+print("chatE - chat a string of - causing the previous messages to vanish")
 
 print("---")
 print("qattach - quickly attach to something")
