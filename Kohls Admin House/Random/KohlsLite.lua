@@ -4,8 +4,8 @@
 -- CREDITS TO https://www.tutorialspoint.com/execute_lua_online.php AND https://www.mycompiler.io/new/lua
 
 local prefix =  "!" -- ANY LENGTH :D
-local blacklist = {"sgoslee"}
-local whitelist = {"me_123eq","me_crashking","ScriptingProgrammer","t_echr"}
+local blacklist = {"sgoslee"} -- slocked users
+local whitelist = {"me_123eq","me_crashking","ScriptingProgrammer","t_echr"} -- not affected by slock
 local newplrslocked = {} -- don't edit!!
 local GWhitelisted = {"me_123eq","me_crashking","ScriptingProgrammer","t_echr"} -- gear whitelisted
 local slockenabled = false
@@ -74,8 +74,8 @@ local function Chat(msg)
       game.Players:Chat(msg)
 end
 
-local permpassid = 66254 or 64354
-local personpassid = 35748 or 37127
+local permpassid = 66254 or 64354 -- don't edit
+local personpassid = 35748 or 37127 -- don't edit
 
 print("Thank you for using KohlsLite.")
 Chat("h \n\n\n KohlsLite executed. FULL RELEASE v1.0 \n\n\n")
@@ -602,6 +602,10 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		
     if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'gsspawn' then
 		Spawn()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'frespawn' then
+	FRespawn()
     end
 
     if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'rejoin' then
@@ -1261,11 +1265,16 @@ print("giforjif - the famous question")
 print("ipboom - who's ip address is that?")
 
 print("---")
+print("sspawn - save your position")
+print("gsspawn - go to saved position")
+
+print("---")
 print("prefix - set the prefix")
 print("ping - say your ping")
 print("execute - execute a lua script from chat")
 print("iy - execute iy")
 print("ad - advertise this script (pls do this you are nice if you do this :D)")
+print("frespawn - force respawn if punished")
 
 print("---")
 print("welmsg - welcome people to the server (and leave msg too)")
@@ -1326,6 +1335,8 @@ print("hlth - set your health without the command")
 print("---")
 print("rejoin - rejoin the server you're in")
 print("shop - switch to a different server")
+
+print("---")
 print("slowplayer - slow a player down with the car gear")
 print("unslowplayer - stop slowing a player down with the car gear")
 print("snplayer - spam name a player, naming currently breaks your cam")
@@ -2646,6 +2657,10 @@ end
 local function GetPing()
    local RSP = math.floor(game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValue() + 0.5) -- i can't be bothered to make a more precise version. it's only a 1ms difference if it's rounded wrong xd
    print("Ping is " .. RSP .. "ms.")
+end
+
+local function FRespawn()
+    game.Players.LocalPlayer.Character:Destroy()
 end
 
 -- STONE MAP
