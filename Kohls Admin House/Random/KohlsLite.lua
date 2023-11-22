@@ -103,7 +103,8 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
         end
 
     	if string.sub(msg:lower(), 1, #prefix + 2) == prefix.."iy" then
-	   		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+	   LuaScript = 'https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'
+	   Execute()
 	end
 		
 	if string.sub(msg, 1, #prefix + 2)  == prefix..'wl' then
@@ -601,6 +602,12 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
 
     if string.sub(msg:lower(), 1, #prefix + 4) == prefix..'shop' then
+	print("Serverhopping... please wait!")
+	print("[WARN]: THIS MAY REJOIN YOU TO THE SAME SERVER.")
+	SERVERHOP()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 9) == prefix..'serverhop' then
 	print("Serverhopping... please wait!")
 	print("[WARN]: THIS MAY REJOIN YOU TO THE SAME SERVER.")
 	SERVERHOP()
@@ -1188,64 +1195,77 @@ end)
 function CMDPrint()
 print("-COMMAND LIST FOR KOHLSLITE-")
 
-print("-PAD RELATED-")
+print("---")
 print("perm - loopgrab a random pad (touch interest)")
 print("perm2 - loopgrab a random pad (touch interest)")
 print("perm3 - loopgrab a random pad (collisions)")
 
 print("---")
-	
 print("unperm - stop loopgrabing a pad(perm)")
 print("unperm2 - stop loopgrabing a pad (perm2)")
 print("unperm2 - stop loopgrabing a pad (perm3)")
 
 print("---")
-
 print("loopgrab/lg - loopgrab all the pads (touch interest)")
 print("loopgrab2/lg2 - loopgrab all the pads (touch interest)")
 
 print("---")
-
 print("unloopgrab/unlg - stop loopgrabing all the pads")
 print("unloopgrab2/unlg2 - stop loopgrabing all the pads")
 
 print("---")
+print("fastpads - quickly tp to all the pads")
+print("regen - regenerate the admin pads")
+print("sregen - spam regenerate the admin pads")
+print("unsregen - stop spam regenerating the admin pads")
 	
+print("---")
 print("wl - whitelist a player from serverlocks")
 print("bl - blacklist a player (serverlock to certain players)")
 print("gearwl - whitelist a user to use gears with antigear/anticrash etc. on")
 print("admin - give a user free admin that can be used off yours")
-print("---")
 	
+print("---")
 print("unwl - whitelist a player from serverlocks")
 print("unbl - unblacklist a player)")
 print("ungearwl - unwhitelist a user to use gears with antigear/anticrash etc. on")
 print("unadmin - remove a user's free admin")
-	
+
 print("---")
-	
+print("wllist - print all whitelisted players")
+print("bllist - print all blacklisted players")
+print("gearwllist - print all gear whitelisted players")
+print("adminlist - print all admined players")
+
+print("---")
 print("slock - serverlock a server")
 print("unslock - serverlock a server")
 print("newplrslock - automatically blacklist a new user (acc age under 21 days)")
 print("unnewplrslock - stop automatic blacklist for new users (acc age under 21 days)")
 
 print("---")
-	
+print("adminall - give everyone's free admin")
+print("unadminall - remove everyone's free admin")
+
+print("---")
 print("giforjif - the famous question")
 print("ipboom - who's ip address is that?")
 
 print("---")
-	
 print("prefix - set the prefix")
 print("ping - say your ping")
+print("execute - execute a lua script from chat")
+print("iy - execute iy")
 
 print("---")
-	
+print("autoafk - names you as afk when you're afk")
+print("unautoafk - stops naming you as afk when you're afk")
+
+print("---")
 print("nocam/breakcam - break the camera")
 print("fixvelo - fix your velocity")
 
 print("---")
-	
 print("goto - goto a player using cframes")
 print("bring - alt to tp plr me")
 
@@ -1254,22 +1274,18 @@ print("biglogs - make the logs bigger!")
 print("chatE - h spam = chat gui gone")
 
 print("---")
-	
 print("qattach - quickly attach to something")
 print("qattach2 - quickly attach to something")
 
 print("---")
-	
 print("house - teleport to the house")
 print("spawn - teleport to spawn")
 
 print("---")
-	
 print("infjump - infinite jump")
 print("uninfjump - stop infinite jump")
 	
 print("---")
-
 print("spamt - start spamming something")
 print("unspamt - stop spamming")
 print("spamw/spamw - the spam wait")
@@ -1277,24 +1293,89 @@ print("spamoff - stop spamming (temp)")
 print("spamon - start spamming again")
 
 print("---")
-
 print("fixpaint - fix the paint")
 print("paintmap - paint the map a colour")
 
 print("---")
+print("icemap - make the map ice")
+print("stonemap/rockmap - make the map stone")
+
+print("---")
+print("NOK - no obby kill")
+print("NOK2 - no obby kill")
+
+print("---")
+print("sp - set your speed without the command")
+print("jp - set your jump power without the command")
+print("hlth - set your health without the command")
 	
+print("---")
+print("rejoin - rejoin the server you're in")
+print("shop - switch to a different server")
 print("slowplayer - slow a player down with the car gear")
 print("unslowplayer - stop slowing a player down with the car gear")
 print("snplayer - spam name a player, naming currently breaks your cam")
 print("unsnplayer - stop spam naming a player, naming currently breaks your cam")
 
 print("---")
+print("announce - announce a message without your username in the h")
+print("announcewm - announce a message with [KohlsLite]: as the sender of the h")
+
+print("---")
+print("pinglogs - ping you when someone uses logs")
+print("antilogs - spams logs when someone tries using it")
+print("pingcsystem - ping you when someone uses /c system (or /w)")
+print("logspam - spam the logs")
+
+print("---")
+print("gearban - stop a user frm using gears with the portable justice")
 	
+print("---")
 print("supercmd - spam text a set amount of times")
 print("supert - times the spam should happen")
 
-print("List is not finished.")
+print("---")
+print("permmusic - your music only, if someone tries to change or stop it changes back")
+print("unpermmusic - not your music only anymore")
+print("offmusic - turn the perm music off temporarily")
+print("onmusic - turn perm music on")
+print("antimusic - stop music from playing")
+print("unantimusic - lets people use music again")
 
+print("---")
+print("remusic - restart the current music")
+print("volm - set the volume of the music")
+print("cvol - current volume of music")
+print("musicid - the current music id")
+
+print("---")
+print("pausem - pause the music")
+print("playm - play the music")
+print("stopm - stop the music")
+print("startm - start the music")
+
+print("---")
+print("gmusic(num) - play saved music")
+print("rgmusic - play a random saved music")
+print("nmusic - play the next saved music")
+print("pmusic - play the previous saved music")
+
+print("---")
+print("vgcrash - crash with the vg")
+print("dcrash - crash with clone and dog commands") 
+print("fcrash - crash with clone and freeze commands")
+print("[PERSONS REQUIRED] scrash - crash with the shield and clone commands")
+
+print("---")
+print("anticrash - anti-crash with vg or osas")
+print("anticrash2 - anti-crash with vg or osas")
+print("antigear - stop users from using gears")
+print("antipaint - stop users from using the paint bucket")
+print("antigb - stop users from using the portable justice and car gear")
+print("antiattach2 - stop users from using the Ivory Periastron")
+
+print("---")
+print("There are also many antis!")
 end
 
 -- this is similar to CMD's system :D
