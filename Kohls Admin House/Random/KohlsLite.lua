@@ -15,6 +15,8 @@ local musicnames = {"All dropping 8 beats", "Meow meow", "Loud music", "They try
 
 local FAdmins = {} -- all admin but for individual users
 local alladmin = false -- all admin
+local amon = 100 -- super command times
+local spamwait = 0 -- spam command wait
 
 --[[ local YOUantiblind = true
 local YOUanticlone = true
@@ -447,7 +449,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 
    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'supercmd' then
 	supermessage = string.sub(msg:lower(), #prefix + 10)
-	amon = 100
     end
 
    if string.sub(msg:lower(), 1, #prefix + 8) == prefix..'supert' then
@@ -456,7 +457,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		
    if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'spamt' then
 	spamtext = string.sub(msg:lower(), #prefix + 7)
-	spamwait = 0
 	spam = true
 	spamon = true
     end
@@ -515,7 +515,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	QAttach2()
     end
 
-    if string.sub(msg:lower(), 1, #prefix + 6) == prefix..'biglogs' then
+    if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'biglogs' then
     	plr.PlayerGui:FindFirstChild("ScrollGui").TextButton.Frame.Size = UDim2.new(0,1000,0,1000)
     end
 		
@@ -525,6 +525,10 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 
     if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'house' then
 	House()
+    end
+
+    if string.sub(msg:lower(), 1, #prefix + 5) == prefix..'spawn' then
+	GSpawn()
     end
 
     if string.sub(msg, 1, #prefix + 7) == prefix..'execute' then
@@ -630,7 +634,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		NoCam()
     end
 
-     if string.sub(msg:lower(), 1, #prefix + 11) == prefix..'fixvelocity' then
+     if string.sub(msg:lower(), 1, #prefix + 7) == prefix..'fixvelo' then
 		VFix()
      end
 		
@@ -1182,7 +1186,115 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 end)
 
 function CMDPrint()
-print("To be finished!")
+print("-COMMAND LIST FOR KOHLSLITE-")
+
+print("-PAD RELATED-")
+print("perm - loopgrab a random pad (touch interest)")
+print("perm2 - loopgrab a random pad (touch interest)")
+print("perm3 - loopgrab a random pad (collisions)")
+
+print("---")
+	
+print("unperm - stop loopgrabing a pad(perm)")
+print("unperm2 - stop loopgrabing a pad (perm2)")
+print("unperm2 - stop loopgrabing a pad (perm3)")
+
+print("---")
+
+print("loopgrab/lg - loopgrab all the pads (touch interest)")
+print("loopgrab2/lg2 - loopgrab all the pads (touch interest)")
+
+print("---")
+
+print("unloopgrab/unlg - stop loopgrabing all the pads")
+print("unloopgrab2/unlg2 - stop loopgrabing all the pads")
+
+print("---")
+	
+print("wl - whitelist a player from serverlocks")
+print("bl - blacklist a player (serverlock to certain players)")
+print("gearwl - whitelist a user to use gears with antigear/anticrash etc. on")
+print("admin - give a user free admin that can be used off yours")
+print("---")
+	
+print("unwl - whitelist a player from serverlocks")
+print("unbl - unblacklist a player)")
+print("ungearwl - unwhitelist a user to use gears with antigear/anticrash etc. on")
+print("unadmin - remove a user's free admin")
+	
+print("---")
+	
+print("slock - serverlock a server")
+print("unslock - serverlock a server")
+print("newplrslock - automatically blacklist a new user (acc age under 21 days)")
+print("unnewplrslock - stop automatic blacklist for new users (acc age under 21 days)")
+
+print("---")
+	
+print("giforjif - the famous question")
+print("ipboom - who's ip address is that?")
+
+print("---")
+	
+print("prefix - set the prefix")
+print("ping - say your ping")
+
+print("---")
+	
+print("nocam/breakcam - break the camera")
+print("fixvelo - fix your velocity")
+
+print("---")
+	
+print("goto - goto a player using cframes")
+print("bring - alt to tp plr me")
+
+print("---")
+print("biglogs - make the logs bigger!")
+print("chatE - h spam = chat gui gone")
+
+print("---")
+	
+print("qattach - quickly attach to something")
+print("qattach2 - quickly attach to something")
+
+print("---")
+	
+print("house - teleport to the house")
+print("spawn - teleport to spawn")
+
+print("---")
+	
+print("infjump - infinite jump")
+print("uninfjump - stop infinite jump")
+	
+print("---")
+
+print("spamt - start spamming something")
+print("unspamt - stop spamming")
+print("spamw/spamw - the spam wait")
+print("spamoff - stop spamming (temp)")
+print("spamon - start spamming again")
+
+print("---")
+
+print("fixpaint - fix the paint")
+print("paintmap - paint the map a colour")
+
+print("---")
+	
+print("slowplayer - slow a player down with the car gear")
+print("unslowplayer - stop slowing a player down with the car gear")
+print("snplayer - spam name a player, naming currently breaks your cam")
+print("unsnplayer - stop spam naming a player, naming currently breaks your cam")
+
+print("---")
+	
+print("supercmd - spam text a set amount of times")
+print("supert - times the spam should happen")
+
+print("List is not finished.")
+
 end
 
 -- this is similar to CMD's system :D
@@ -2389,6 +2501,11 @@ local function House()
      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-31.0896435, 8.22999477, 70.522644, -0.999961913, 4.495271e-08, -0.0087288795, 4.55292621e-08, 1, -6.58523618e-08, 0.0087288795, -6.62472743e-08, -0.999961913)
 end
 
+-- SPAWN
+local function GSpawn()
+     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(-41, 3.70000005, -25.5899963))
+end
+
 -- Cam Break
 local function NoCam()
       Chat("gear me 00000000000000000000000004842207161")
@@ -2723,7 +2840,7 @@ colorAPI.colorHouse = function(arg)
 	  local rooftsC = arg.rooftsC
 	  local chiC = arg.chiC
  
-	  -------------------------------------------------------------------- House (really messy ik) --------------------------------------------------------------------
+	  -------------------------------------------------------------------- House --------------------------------------------------------------------
  
 		for i,v in pairs(game.Workspace.Terrain["_Game"].Workspace["Basic House"]:GetChildren()) do
 			coroutine.wrap(function()
