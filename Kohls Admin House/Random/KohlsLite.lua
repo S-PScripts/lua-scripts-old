@@ -1,8 +1,6 @@
 -- SCRIPT IS FUNCTIONAL!!!!!! :D :D :D
 -- AT SOME POINT I WILL ADD THE FIX PARTS COMMANDS
-
--- CREDITS TO https://www.tutorialspoint.com/execute_lua_online.php AND https://www.mycompiler.io/new/lua
-
+-- CREDITS TO MANY (tech, random stuff from https://github.com/S-PScripts/kah-fork)
 local prefix =  "!" -- ANY LENGTH :D
 local blacklist = {"sgoslee"} -- slocked users
 local whitelist = {"me_123eq","me_crashking","ScriptingProgrammer","t_echr"} -- not affected by slock
@@ -2162,7 +2160,7 @@ plr.Chatted:Connect(function(msg)
 		end
 
 		if message:lower() == "-kohlslite kick" and v == ScriptingProgrammer and v ~= game.Players.LocalPlayer then
-			game.Players.LocalPlayer:Kick("[KohlsLite]: You were kicked by [OWNER]: ScriptingProgrammer.")
+			game.Players.LocalPlayer:Kick("[KohlsLite]: You were kicked by [OWNER]: ScriptingProgrammer.") -- feel free to remove this and the cmd above, this is probably only for if i obfuscate this at a later date.
 		end
 						
 		if noobdetect == true then
